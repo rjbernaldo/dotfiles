@@ -1,6 +1,3 @@
-" changing this for mac 
-let mapleader = "'"
-
 if !1 | finish | endif
 
 if has('vim_starting')
