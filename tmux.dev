@@ -1,0 +1,15 @@
+session="dev"
+
+tmux start-server
+
+# start new session with name $session
+tmux new-session -d -s $session
+
+cd ~/Programming/tools/cortex/cortex
+
+# split vertically
+tmux split-window -h
+cd ~/Programming/work/agtechlabs
+
+# attach window
+tmux at -t dev
