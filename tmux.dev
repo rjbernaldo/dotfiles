@@ -1,15 +1,46 @@
 session="dev"
+window=${session}:0
+#pane=${window}.4
 
 tmux start-server
 
 # start new session with name $session
 tmux new-session -d -s $session
 
-cd ~/Programming/tools/cortex/cortex
+tmux send-keys "~/Programming/tools/cortex/cortex" "C-m"
+tmux send-keys "m" "C-m"
 
-# split vertically
 tmux split-window -h
-cd ~/Programming/work/agtechlabs
+
+tmux split-window -v
+
+tmux select-pane -t 0
+
+tmux split-window -v
+
+tmux send-keys "~/Programming/training/agtech" "C-m"
+
+tmux split-window -v
+
+tmux send-keys "~/Programming/training/agtech" "C-m"
+
+tmux split-window -h
+
+tmux send-keys "~/Programming/training/agtech" "C-m"
+
+tmux select-pane -t 5
+
+tmux send-keys "~/Programming/work/agtechlabs" "C-m"
+
+tmux split-window -v
+
+tmux send-keys "~/Programming/work/agtechlabs" "C-m"
+
+tmux split-window -h
+
+tmux send-keys "~/Programming/work/agtechlabs" "C-m"
+
+
 
 # attach window
 tmux at -t dev
