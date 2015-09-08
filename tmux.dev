@@ -40,7 +40,6 @@ tmux send-keys "ls" "C-m"
 
 tmux split-window -v
 
-tmux send-keys "~/Programming/work/agtechlabs/agtechiapp-dev" "C-m"
 tmux send-keys "ssh -X root@10.10.0.249"
 
 tmux split-window -h
