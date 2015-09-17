@@ -35,13 +35,11 @@ tmux send-keys "ls" "C-m"
 
 tmux select-pane -t 5
 
-tmux send-keys ". ~/Programming/work/agtechlabs/agtechiwebenv/bin/activate" "C-m"
-tmux send-keys "~/Programming/work/agtechlabs/agtechiapp-dev" "C-m"
 tmux send-keys "ls" "C-m"
 
 tmux split-window -v
 
-tmux send-keys "ssh -X root@10.10.0.249"
+tmux send-keys "ls" "C-m"
 
 #tmux split-window -h
 
@@ -49,8 +47,8 @@ tmux send-keys "ssh -X root@10.10.0.249"
 
 tmux select-pane -t 4
 
-tmux send-keys "~/Programming/work/agtechlabs/notes" "C-m"
-tmux send-keys "vim ." "C-m"
+tmux send-keys "~/Programming/work/agtechlabs/agtechiapp-dev/" "C-m"
+tmux send-keys "git status" "C-m"
 
 tmux select-pane -t 1
 
