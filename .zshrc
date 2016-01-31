@@ -82,8 +82,4 @@ export PATH=/usr/local/Cellar/android-sdk/24.0.2/platform-tools:/usr/local/Cella
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias a=atom
-alias p="cd ~/Programming/"
-alias work="cd ~/Programming/work"
-alias personal="cd ~/Programming/personal"
-alias ideas="cd ~/Programming/ideas"
+alias source=cd ~/home/rj/Source
