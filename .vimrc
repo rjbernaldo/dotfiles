@@ -74,7 +74,8 @@ nmap <leader>bs :CtrlPMRU<cr>
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
-set tabstop=2 shiftwidth=2 expandtab
+" set tabstop=2 shiftwidth=2 expandtab
+set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 
 set background=dark
 syntax on 
