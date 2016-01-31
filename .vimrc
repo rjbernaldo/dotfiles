@@ -79,7 +79,7 @@ set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 
 set background=dark
 syntax on 
-colorscheme monokai
+colorscheme anderson
 
 set number
 
