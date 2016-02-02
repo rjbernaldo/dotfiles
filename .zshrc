@@ -1,6 +1,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# Automatically start tmux
+if [ "$TMUX" = "" ]; then tmux; fi
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -82,4 +85,8 @@ export PATH=/usr/local/Cellar/android-sdk/24.0.2/platform-tools:/usr/local/Cella
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias source=cd ~/home/rj/Source
+alias sourcefolder=cd ~/home/rj/Source
+
+# virtualenv
+export WORKON_HOME=~/virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
