@@ -54,12 +54,13 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 # export PATH=/usr/local/bin/android
 # export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/Cellar/android-sdk/24.0.2/platform-tools:/usr/local/Cellar/android-sdk/24.0.2/tools:$PATH
+export PATH="/usr/local/Cellar/android-sdk/24.0.2/platform-tools:/usr/local/Cellar/android-sdk/24.0.2/tools:$PATH"
+export PATH="${HOME}/.npm-global/bin:$PATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -85,8 +86,9 @@ export PATH=/usr/local/Cellar/android-sdk/24.0.2/platform-tools:/usr/local/Cella
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias sourcefolder=cd ~/home/rj/Source
+# alias sourcefolder=cd ~/home/rj/Source
 
 # virtualenv
-export WORKON_HOME=~/virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+# export WORKON_HOME=~/virtualenvs
+# source /usr/local/bin/virtualenvwrapper.sh
+alias future_commit='git commit --date "$(date -v +8H)"'
