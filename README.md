@@ -1,14 +1,14 @@
 # My personal dotfiles
 
 Plugins installed:
-- IndexedSearch
-- CtrlP
-- delimitMate
-- lightline.vim
-- NERDTree
-- vim-monokai
-- vim-nerdtree-tabs
-- vim-tmux-navigator
+- IndexedSearch (https://github.com/henrik/vim-indexed-search)
+- CtrlP (https://github.com/ctrlpvim/ctrlp.vim)
+- delimitMate (https://github.com/Raimondi/delimitMate)
+- lightline.vim (https://github.com/itchyny/lightline.vim)
+- NERDTree (https://github.com/scrooloose/nerdtree)
+- vim-monokai (https://github.com/sickill/vim-monokai)
+- vim-nerdtree-tabs (https://github.com/jistr/vim-nerdtree-tabs)
+- vim-tmux-navigator (https://github.com/christoomey/vim-tmux-navigator)
 
 Shortcuts
 - CTRL+h,j,k,l - move between vim & tmux splits
