@@ -16,3 +16,4 @@ Shortcuts
 - CTRL+h,j,k,l - move between vim & tmux splits
 - gT or gt - move between vim tabs
 - CTRL+<num> - move between tmux tabs
+- :Ag <\\\term>
