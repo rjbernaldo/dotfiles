@@ -11,6 +11,7 @@ Plugins installed:
 - vim-tmux-navigator (https://github.com/christoomey/vim-tmux-navigator)
 - vim-session (https://github.com/xolox/vim-session)
 - ag-vim (https://github.com/rking/ag.vim)
+- vim-misc (https://github.com/xolox/vim-misc)
 
 Shortcuts
 - CTRL+h,j,k,l - move between vim & tmux splits
