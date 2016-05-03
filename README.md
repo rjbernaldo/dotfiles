@@ -9,6 +9,8 @@ Plugins installed:
 - vim-monokai (https://github.com/sickill/vim-monokai)
 - vim-nerdtree-tabs (https://github.com/jistr/vim-nerdtree-tabs)
 - vim-tmux-navigator (https://github.com/christoomey/vim-tmux-navigator)
+- ag search (https://github.com/ggreer/the_silver_searcher)
+- vim-session (https://github.com/xolox/vim-session)
 
 Shortcuts
 - CTRL+h,j,k,l - move between vim & tmux splits
