@@ -93,3 +93,5 @@ export PATH="~/bin:$PATH"
 # export WORKON_HOME=~/virtualenvs
 # source /usr/local/bin/virtualenvwrapper.sh
 alias future_commit='git commit --date "$(date -v +8H)"'
+
+DISABLE_AUTO_UPDATE="true"
