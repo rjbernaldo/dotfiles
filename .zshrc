@@ -61,6 +61,7 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export PATH=/usr/local/bin:$PATH
 export PATH="/usr/local/Cellar/android-sdk/24.0.2/platform-tools:/usr/local/Cellar/android-sdk/24.0.2/tools:$PATH"
 export PATH="${HOME}/.npm-global/bin:$PATH"
+export PATH="~/bin:$PATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
