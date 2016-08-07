@@ -1,3 +1,5 @@
+DISABLE_UPDATE_PROMPT="true"
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -93,5 +95,3 @@ export PATH="~/bin:$PATH"
 # export WORKON_HOME=~/virtualenvs
 # source /usr/local/bin/virtualenvwrapper.sh
 alias future_commit='git commit --date "$(date -v +8H)"'
-
-DISABLE_AUTO_UPDATE="true"
