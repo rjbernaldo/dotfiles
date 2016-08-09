@@ -9,3 +9,4 @@ let g:ag_working_path_mode="r"
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set mouse=a
