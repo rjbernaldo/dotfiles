@@ -4,7 +4,7 @@ DISABLE_UPDATE_PROMPT="true"
 export ZSH=$HOME/.oh-my-zsh
 
 # Automatically start tmux
-if [ "$TMUX" = "" ]; then tmux; fi
+#if [ "$TMUX" = "" ]; then tmux; fi
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
