@@ -4,7 +4,7 @@ DISABLE_UPDATE_PROMPT="true"
 export ZSH=$HOME/.oh-my-zsh
 
 # Automatically start tmux
-#if [ "$TMUX" = "" ]; then tmux; fi
+# if [ "$TMUX" = "" ]; then tmux; fi
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -95,3 +95,8 @@ export PATH="~/bin:$PATH"
 # export WORKON_HOME=~/virtualenvs
 # source /usr/local/bin/virtualenvwrapper.sh
 alias future_commit='git commit --date "$(date -v +8H)"'
+alias work='cd ~/Dropbox/Source/work && pwd'
+alias personal='cd ~/Dropbox/Source/personal && pwd'
+alias opensource='cd ~/Dropbox/Source/opensource && pwd'
+alias sandbox='cd ~/Dropbox/Source/sandbox && pwd'
+alias design='cd ~/Dropbox/Source/design && pwd'
