@@ -6,5 +6,8 @@
         "configFile": "/Users/rj/Dropbox/Source/personal/dotfiles/.eslintrc.json"
     },
     "workbench.statusBar.visible": true,
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#000000"
+    },
     "editor.tabSize": 2
 }
