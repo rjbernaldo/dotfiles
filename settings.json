@@ -1,0 +1,10 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "workbench.welcome.enabled": false,
+    "explorer.openEditors.visible": 0,
+    "eslint.options": {
+        "configFile": "/Users/rj/Dropbox/Source/personal/dotfiles/.eslintrc.json"
+    },
+    "workbench.statusBar.visible": true,
+    "editor.tabSize": 2
+}
