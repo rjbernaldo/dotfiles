@@ -21,7 +21,7 @@
     "valid-typeof": "warn",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-    "no-use-before-define": "nofunc"
+    "no-use-before-define": ["error", "nofunc"]
   },
   "extends": "airbnb"
 }
