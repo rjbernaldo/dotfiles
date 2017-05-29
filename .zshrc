@@ -101,3 +101,17 @@ alias personal='cd ~/Dropbox/Source/personal && pwd'
 alias opensource='cd ~/Dropbox/Source/opensource && pwd'
 alias sandbox='cd ~/Dropbox/Source/sandbox && pwd'
 alias design='cd ~/Dropbox/Source/design && pwd'
+
+git() {
+    if [[ $@ == "help" ]]; then
+        command echo "diff, log, graph"
+    elif [[ $@ == "diff" ]]; then
+        command git diff --word-diff
+    elif [[ $@ == "log" ]]; then
+        command git log --oneline --no-merges
+    elif [[ $@ == "graph" ]]; then
+        command git log --graph --all --decorate --stat --date=iso
+    else
+        command git "$@"
+    fi
+}
