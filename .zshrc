@@ -115,3 +115,7 @@ git() {
         command git "$@"
     fi
 }
+
+if [[ ! $TERM =~ screen ]]; then
+    tmux attach || tmux
+fi
