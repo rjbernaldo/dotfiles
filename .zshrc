@@ -102,19 +102,18 @@ alias opensource='cd ~/Dropbox/Source/opensource && pwd'
 alias sandbox='cd ~/Dropbox/Source/sandbox && pwd'
 alias design='cd ~/Dropbox/Source/design && pwd'
 
-git() {
-    if [[ $@ == "help" ]]; then
-        command echo "diff, log, graph"
-    elif [[ $@ == "diff" ]]; then
-        command git diff --word-diff
-    elif [[ $@ == "log" ]]; then
-        command git log --oneline --no-merges
-    elif [[ $@ == "graph" ]]; then
-        command git log --graph --all --decorate --stat --date=iso
-    else
-        command git "$@"
-    fi
-}
+alias gh='echo "COMMANDS: gs, ga, gc, gd, gdw, gl, gl1, ggraph, gpom, gphm, gpdm"'
+alias gs='git status'
+alias ga='git add -A'
+alias gc='git commit'
+alias gd='git diff'
+alias gdw='git diff --word-diff'
+alias gl='git log'
+alias gl1='git log --oneline --nomerges'
+alias ggraph='git log --graph --all --decorate --stat --date=iso'
+alias gpom='git push origin master'
+alias gphm='git push heroku master'
+alias gpdm='git push dokku master'
 
 if [[ ! $TERM =~ screen ]]; then
     tmux attach || tmux
