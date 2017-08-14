@@ -13,5 +13,7 @@
     "workbench.activityBar.visible": false,
     "vim.disableAnnoyingNeovimMessage": true,
     "vim.disableAnnoyingGcMessage": true,
-    "window.zoomLevel": 0
+    "window.zoomLevel": 0,
+    "git.enabled": false,
+    "extensions.autoUpdate": false
 }
