@@ -19,3 +19,7 @@ Shortcuts
 - CTRL+<num> - move between tmux tabs
 - :Ag <\\\term> - search all files
 - ma - add new child node
+
+Franz Plugins
+- google calendar
+- google keep
