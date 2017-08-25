@@ -23,3 +23,8 @@ Shortcuts
 Franz Plugins
 - google calendar
 - google keep
+
+VS Code
+- settings
+- eslint.json
+
