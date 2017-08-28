@@ -115,6 +115,8 @@ alias gpom='git push origin master'
 alias gphm='git push heroku master'
 alias gpdm='git push dokku master'
 
+alias psfind="ps -ef | grep"
+
 if [[ ! $TERM =~ screen ]]; then
     tmux attach || tmux
 fi
