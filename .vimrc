@@ -26,5 +26,9 @@ nnoremap <silent> <C-h> <C-W>h
 nnoremap <silent> <C-j> <C-W>j
 nnoremap <silent> <C-k> <C-W>k
 nnoremap <silent> <C-l> <C-W>l
-nnoremap <silent> <C-\> :NERDTreeToggle<cr>
+nnoremap <silent> <C-\> <C-W>= \| :NERDTreeToggle \| <C-W>=<cr>
+nnoremap <silent> <C-W>h 10<C-W><
+nnoremap <silent> <C-W>j 10<C-W>-
+nnoremap <silent> <C-W>k 10<C-W>+
+nnoremap <silent> <C-W>l 10<C-W>>
 
