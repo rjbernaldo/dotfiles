@@ -11,6 +11,9 @@ set mouse=a
 set number
 set guioptions=
 
+let g:tmuxline_preset = 'nightly_fox'
+let g:airline#extensions#tmuxline#enabled = 1
+let airline#extensions#tmuxline#snapshot_file = "~/.tmux-status.conf"
 let g:NERDTreeWinSize = 25
 let g:ag_working_path_mode = "r"
 let g:session_autosave = 'no'
