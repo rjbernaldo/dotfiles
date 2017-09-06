@@ -11,7 +11,6 @@ set mouse=a
 set number
 set guioptions=
 
-let g:tmux_navigator_no_mappings = 1
 let g:NERDTreeWinSize = 25
 let g:ag_working_path_mode = "r"
 let g:session_autosave = 'no'
