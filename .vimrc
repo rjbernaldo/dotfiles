@@ -49,4 +49,11 @@ nnoremap <silent> <C-W>k 10<C-W>+
 nnoremap <silent> <C-W>l 10<C-W>>
 nnoremap <silent> <C-W>% 10<C-W>v
 nnoremap <silent> <C-W>" 10<C-W>s
+nnoremap <silent> <C-W>c :tabnew<cr>
+nnoremap <silent> <C-W>1 1gt
+nnoremap <silent> <C-W>2 2gt
+nnoremap <silent> <C-W>3 3gt
+nnoremap <silent> <C-W>4 4gt
+nnoremap <silent> <C-W>5 5gt
+nnoremap <silent> <C-W>w :q<cr>
 
