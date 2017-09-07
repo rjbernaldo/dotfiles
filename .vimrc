@@ -14,13 +14,13 @@ set guioptions=
 
 function! StartUp()
   NERDTree
-""   if 0 == argc()
-""       NERDTree
-""   end
+"   if 0 == argc()
+"       NERDTree
+"   end
 endfunction
 
-au VimEnter * call StartUp()
-au VimEnter * wincmd p
+" au VimEnter * call StartUp()
+" au VimEnter * wincmd p
 
 let g:NERDTreeWinSize = 25
 
@@ -41,7 +41,7 @@ nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <C-\> <C-W>= \| :NERDTreeTabsToggle \| <C-W>=<cr>
+nnoremap <silent> <C-\> :NERDTreeTabsToggle<cr>
 nnoremap <silent> <C-W>h 10<C-W><
 nnoremap <silent> <C-W>j 10<C-W>-
 nnoremap <silent> <C-W>k 10<C-W>+
