@@ -2,7 +2,7 @@ execute pathogen#infect()
 syntax on
 colorscheme monokai
 filetype plugin indent on
-inoremap { {<CR>}<up><end><CR>
+" inoremap { {<CR>}<up><end><CR>
 
 set noswapfile
 set tabstop=2
