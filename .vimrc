@@ -22,8 +22,10 @@ let g:ag_working_path_mode = "r"
 let g:session_autosave = 'no'
 let g:jsx_ext_required = 0
 
+" CtrlP
+let g:ctrlp_use_caching = 0
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|node_modules)$',
+  \ 'dir':  '\v[\/](\.git|node_modules)$',
   \ 'file': '\v\.(exe|so|dll)$',
   \ }
 
@@ -51,10 +53,10 @@ nnoremap <silent> <C-W>w :q<cr>
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_loc_list_height = 1
-" let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
+
+" the_silver_searcher with Ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif

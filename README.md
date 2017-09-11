@@ -9,16 +9,16 @@ Plugins installed:
 - vim-monokai (https://github.com/sickill/vim-monokai)
 - vim-nerdtree-tabs (https://github.com/jistr/vim-nerdtree-tabs)
 - vim-tmux-navigator (https://github.com/christoomey/vim-tmux-navigator)
-- vim-session (https://github.com/xolox/vim-session)
-- ag-vim (https://github.com/rking/ag.vim)
-- vim-misc (https://github.com/xolox/vim-misc)
+- ack.vim (https://github.com/mileszs/ack.vim)
+- tmuxline.vim (https://github.com/edkolev/tmuxline.vim)
+- vim-javascript (https://github.com/pangloss/vim-javascript)
 
-Shortcuts
-- CTRL+h,j,k,l - move between vim & tmux splits
-- gT or gt - move between vim tabs
-- CTRL+<num> - move between tmux tabs
-- :Ag <\\\term> - search all files
-- ma - add new child node
+NPM modules installed:
+- babel-eslint
+- eslint
+
+System modules installed:
+- the_silver_searcher
 
 Franz Plugins
 - google calendar
