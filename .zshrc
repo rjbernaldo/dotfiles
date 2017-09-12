@@ -56,10 +56,11 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
-export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-export PATH="${HOME}/.npm-global/bin:$PATH"
-export PATH="~/bin:$PATH"
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+# export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+export PATH=$HOME/.npm-global/bin:$PATH
+# export PATH="~/bin:$PATH"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 # export PATH=/usr/local/bin/android
 # export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

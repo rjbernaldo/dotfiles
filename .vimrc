@@ -60,3 +60,4 @@ let g:syntastic_javascript_checkers = ['eslint']
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+

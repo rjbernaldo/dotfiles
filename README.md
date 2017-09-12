@@ -14,6 +14,7 @@ Plugins installed:
 - tmuxline.vim (https://github.com/edkolev/tmuxline.vim)
 - vim-javascript (https://github.com/pangloss/vim-javascript)
 - vim-jsx (https://github.com/mxw/vim-jsx)
+- https://github.com/Valloric/YouCompleteMe
 
 NPM modules installed:
 - npm i -g babel-eslint
@@ -21,6 +22,16 @@ NPM modules installed:
 
 System modules installed:
 - brew install the_silver_searcher
+- brew install go
+- brew install rust
+- brew install macvim --with-override-system-vim
+  sudo mv /usr/bin/vim /usr/bin/vim72
+  ln -sf /usr/local/bin/mvim /usr/local/bin/vim
+- cd ~/.vim/bundle
+  git clone git@github.com:Valloric/YouCompleteMe.git
+  cd YouCompleteMe
+  ./install.py --gocode-completer --racer-completer --tern-completer
+
 
 Franz Plugins
 - google calendar
