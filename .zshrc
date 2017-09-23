@@ -115,6 +115,11 @@ alias ggraph='git log --graph --all --decorate --stat --date=iso'
 alias gpom='git push origin master'
 alias gphm='git push heroku master'
 alias gpdm='git push dokku master'
+alias gsync='git fetch upstream && git checkout master && git merge upstream/master && git push origin master'
+alias b-staging='code-push release-react BlueshyftPOS ios --deploymentName Staging --mandatory --targetBinaryVersion 2.5.1'
+alias b-preflight='code-push promote BlueshyftPOS Staging Preflight --mandatory --targetBinaryVersion 2.5.1'
+alias b-production='code-push promote BlueshyftPOS Preflight Production --mandatory --targetBinaryVersion 2.5.1'
+alias b-releases='code-push deployment ls BlueshyftPOS'
 
 alias psfind="ps -ef | grep"
 alias history-top="history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10"
@@ -122,3 +127,5 @@ alias history-top="history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print 
 if [[ ! $TERM =~ screen ]]; then
     tmux attach || tmux
 fi
+
+export PATH="$HOME/.bin:$PATH"
