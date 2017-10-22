@@ -6,7 +6,7 @@ CWD=`pwd`
 ln -sf $CWD/.zshrc $HOME/.zshrc
 
 # vim
-npm i -g eslint babel-eslit
+npm i -g eslint babel-eslint
 ln -sf $CWD/.vim $HOME/.vim
 ln -sf $CWD/.vimrc $HOME/.vimrc
 ln -sf $CWD/.eslintrc.json $HOME/.eslintrc

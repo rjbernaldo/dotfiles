@@ -2,13 +2,11 @@
 {
     "workbench.welcome.enabled": false,
     "explorer.openEditors.visible": 0,
-    "eslint.options": {
-        "configFile": "/Users/rj/Dropbox/Source/personal/dotfiles/.eslintrc.json"
-    },
     "workbench.statusBar.visible": true,
     "workbench.colorCustomizations": {
         "statusBar.background": "#000000"
     },
+    "eslint.options": {},
     "editor.tabSize": 2,
     "workbench.activityBar.visible": false,
     "vim.disableAnnoyingNeovimMessage": true,
