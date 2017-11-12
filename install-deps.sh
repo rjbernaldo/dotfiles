@@ -12,8 +12,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 # install node
 brew install node
 
-# install tmux
+# install tmux & dependencies
 brew install tmux
+brew install reattach-to-user-namespace
 
 # copy files via setup.sh
 ./setup.sh

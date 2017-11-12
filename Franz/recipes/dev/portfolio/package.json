@@ -1,0 +1,13 @@
+{
+  "id": "portfolio",
+  "name": "Portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio",
+  "main": "index.js",
+  "author": "rjbernaldo <rj.bernaldo@gmail.com>",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://www.cryptocompare.com/portfolio/",
+    "hasNotificationSound": false
+  }
+}
