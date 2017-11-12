@@ -1,0 +1,13 @@
+{
+  "id": "ynab",
+  "name": "Ynab",
+  "version": "1.0.0",
+  "description": "You need a budget",
+  "main": "index.js",
+  "author": "rjbernaldo <rj.bernaldo@gmail.com>",
+  "license": "MIT",
+  "config": {
+    "serviceURL": "https://app.youneedabudget.com/",
+    "hasNotificationSound": false
+  }
+}

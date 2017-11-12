@@ -59,7 +59,12 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 # export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 export PATH=$HOME/.npm-global/bin:$PATH
+export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
+# export PATH=$HOME/Library/Android/sdk/tools:$PATH
 # export PATH="~/bin:$PATH"
+#
+export ANDROID_HOME=$HOME/Library/Android/sdk
+alias emulator='$ANDROID_HOME/tools/emulator'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 # export PATH=/usr/local/bin/android
