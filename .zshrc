@@ -127,6 +127,9 @@ alias cp-production='code-push promote BlueshyftPOS Preflight Production --manda
 alias cp-rollback-pre='code-push rollback BlueshyftPOS Preflight'
 alias cp-rollback-prod='code-push rollback BlueshyftPOS Production'
 alias cp-releases='code-push deployment ls BlueshyftPOS'
+cd() {
+  chdir $1 && tmux rename-window ${PWD##*/}
+}
 
 alias psfind="ps -ef | grep"
 alias history-top="history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10"

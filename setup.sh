@@ -27,5 +27,6 @@ ln -sf $CWD/settings.json $HOME/Library/Application\ Support/Code/User/settings.
 
 # franz
 rm -rf $HOME/Library/Application\ Support/Franz/recipes/dev
+mkdir -p $HOME/Library/Application\ Support/Franz/recipes
 ln -sf $CWD/Franz/recipes/dev $HOME/Library/Application\ Support/Franz/recipes
 
