@@ -121,12 +121,12 @@ alias gpom='git push origin master'
 alias gphm='git push heroku master'
 alias gpdm='git push dokku master'
 alias gsync='git fetch upstream && git checkout master && git merge upstream/master && git push origin master'
-alias cp-staging='code-push release-react BlueshyftPOS ios --deploymentName Staging --mandatory --targetBinaryVersion 2.5.1'
-alias cp-preflight='code-push promote BlueshyftPOS Staging Preflight --mandatory --targetBinaryVersion 2.5.1'
-alias cp-production='code-push promote BlueshyftPOS Preflight Production --mandatory --targetBinaryVersion 2.5.1'
-alias cp-rollback-pre='code-push rollback BlueshyftPOS Preflight'
-alias cp-rollback-prod='code-push rollback BlueshyftPOS Production'
-alias cp-releases='code-push deployment ls BlueshyftPOS'
+alias cp-staging='code-push release-react blueshyft/BlueshyftPOS ios --deploymentName Staging --mandatory --targetBinaryVersion 2.5.1'
+alias cp-preflight='code-push promote blueshyft/BlueshyftPOS Staging Preflight --mandatory --targetBinaryVersion 2.5.1'
+alias cp-production='code-push promote blueshyft/BlueshyftPOS Preflight Production --mandatory --targetBinaryVersion 2.5.1'
+alias cp-rollback-pre='code-push rollback blueshyft/BlueshyftPOS Preflight'
+alias cp-rollback-prod='code-push rollback blueshyft/BlueshyftPOS Production'
+alias cp-releases='code-push deployment ls blueshyft/BlueshyftPOS'
 cd() {
   chdir $1 && tmux rename-window ${PWD##*/}
 }
