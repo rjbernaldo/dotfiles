@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# - install and sync dropbox
+# - enable key repeat
+
+# install os deps
+./install-deps.sh
+
 CWD=`pwd`
 
 # zsh
@@ -10,19 +16,19 @@ ln -sf $CWD/.zshrc $HOME/.zshrc
 # npm i -g eslint babel-eslint
 
 rm -rf $HOME/.vim
-rm $HOME/.vimrc
-rm $HOME/.eslintrc
+rm -f $HOME/.vimrc
+rm -f $HOME/.eslintrc
 
 ln -sf $CWD/.vim $HOME/.vim
 ln -sf $CWD/.vimrc $HOME/.vimrc
 ln -sf $CWD/.eslintrc.json $HOME/.eslintrc
 
 # tmux
-rm $HOME/.tmux.conf
+rm -f $HOME/.tmux.conf
 ln -sf $CWD/.tmux.conf $HOME/.tmux.conf
 
 # vscode
-rm $HOME/Library/Application\ Support/Code/User/settings.json
+rm -f $HOME/Library/Application\ Support/Code/User/settings.json
 ln -sf $CWD/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
 
 # franz

@@ -19,6 +19,3 @@ brew install reattach-to-user-namespace
 # some macOS settings
 defaults write com.apple.finder AppleShowAllFiles YES
 defaults write -g ApplePressAndHoldEnabled -bool false
-
-# copy files via setup.sh
-./setup.sh
