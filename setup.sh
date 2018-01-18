@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # - install and sync dropbox
+# - generate ssh key and add to github
 # - enable key repeat
 
 # install os deps
