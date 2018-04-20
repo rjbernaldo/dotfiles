@@ -108,6 +108,10 @@ alias opensource='cd ~/Dropbox/Source/opensource && pwd'
 alias sandbox='cd ~/Dropbox/Source/sandbox && pwd'
 alias design='cd ~/Dropbox/Source/design && pwd'
 
+alias dokku='bash $HOME/.dokku/contrib/dokku_client.sh'
+
+export DOKKU_HOST=174.138.63.37
+
 alias gs='git status'
 alias ga='git add'
 alias gc='git clone'
@@ -139,3 +143,4 @@ if [[ ! $TERM =~ screen ]]; then
 fi
 
 export PATH="$HOME/.bin:$PATH"
+export PATH="/usr/local/opt/mongodb@3.2/bin:$PATH"

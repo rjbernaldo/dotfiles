@@ -1,6 +1,5 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "workbench.welcome.enabled": false,
     "explorer.openEditors.visible": 0,
     "workbench.statusBar.visible": true,
     "workbench.colorCustomizations": {
@@ -9,10 +8,11 @@
     "eslint.options": {},
     "editor.tabSize": 2,
     "workbench.activityBar.visible": false,
-    "vim.disableAnnoyingNeovimMessage": true,
-    "vim.disableAnnoyingGcMessage": true,
-    "window.zoomLevel": 0,
+    // "window.zoomLevel": -0.25,
     "git.enabled": false,
     "extensions.autoUpdate": false,
-    "explorer.confirmDragAndDrop": false
+    "explorer.confirmDragAndDrop": false,
+    "editor.minimap.enabled": false,
+    "editor.fontSize": 12,
+    "workbench.startupEditor": "newUntitledFile",
 }
