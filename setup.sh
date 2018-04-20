@@ -4,9 +4,6 @@
 # - generate ssh key and add to github
 # - enable key repeat
 
-# install os deps
-./install-deps.sh
-
 CWD=`pwd`
 
 # zsh
