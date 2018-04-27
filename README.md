@@ -14,6 +14,10 @@ Dokku
 - git clone git@github.com:dokku/dokku.git ~/.dokku
 - cat ~/.ssh/new_computer.pub | ssh root@dokku.me dokku ssh-keys:add COMPUTER_NAME
 
+Slate
+- cd /Applications && curl http://www.ninjamonkeysoftware.com/slate/versions/slate-latest.tar.gz | tar -xz
+
+
 NPM modules installed:
 - npm i -g babel-eslint
 - npm i -g eslint
