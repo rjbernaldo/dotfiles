@@ -1,21 +1,25 @@
-const gutter = 15;
+const gutter = 2;
 const shortcut = ':ctrl;cmd';
 
 const fullscreen = slate.operation('move', {
-  x: 'screenOriginX',
-  y: 'screenOriginY',
-  width: 'screenSizeX',
-  height: 'screenSizeY',
+  x: `screenOriginX+screenSizeX*${gutter}/100/2`,
+  y: `screenOriginY+screenSizeY*${gutter}/100/2`,
+  width: `screenSizeX-screenSizeX*${gutter}/100`,
+  height: `screenSizeY-screenSizeY*${gutter}/100`,
 });
 
-const left = slate.operation('push', {
-  direction: 'left',
-  style: 'bar-resize:screenSizeX/2',
+const left = slate.operation('move', {
+  x: `screenOriginX+screenSizeX*${gutter}/100/2`,
+  y: `screenOriginY+screenSizeY*${gutter}/100/2`,
+  width: `((screenSizeX-screenSizeX*${gutter}/100)/2)-(screenSizeX*${gutter}/100/2)/2/2`,
+  height: `(screenSizeY-screenSizeY*${gutter}/100)-screenSizeY*${gutter}/100/2`,
 });
 
-const right = slate.operation('push', {
-  direction: 'right',
-  style: 'bar-resize:screenSizeX/2',
+const right = slate.operation('move', {
+  x: `(screenSizeX/2)+screenSizeX*${gutter}/100/2`,
+  y: `screenOriginY+screenSizeY*${gutter}/100/2`,
+  width: `((screenSizeX-screenSizeX*${gutter}/100)/2)-(screenSizeX*${gutter}/100/2)/2/2`,
+  height: `(screenSizeY-screenSizeY*${gutter}/100)-screenSizeY*${gutter}/100/2`,
 });
 
 slate.bind('k' + shortcut, (win) => win.doOperation(fullscreen));
