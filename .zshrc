@@ -143,4 +143,4 @@ if [[ ! $TERM =~ screen ]]; then
 fi
 
 export PATH="$HOME/.bin:$PATH"
-export PATH="/usr/local/opt/mongodb@3.2/bin:$PATH"
+export PATH="/usr/local/opt/mongodb@3.4/bin:$PATH"
