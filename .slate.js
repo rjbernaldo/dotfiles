@@ -1,6 +1,10 @@
 const gutter = 2;
 const shortcut = ':ctrl;cmd';
 
+const CropMenu = () => ({
+
+});
+
 const fullscreen = slate.operation('move', {
   x: `screenOriginX+screenSizeX*${gutter}/100/2`,
   y: `screenOriginY+screenSizeY*${gutter}/100/2`,

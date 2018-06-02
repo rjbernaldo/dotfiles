@@ -30,7 +30,10 @@ macOS
 - defaults write -g ApplePressAndHoldEnabled -bool false
 
 Font
-- Download & install [Fira Code](https://github.com/tonsky/FiraCode)
+- Download & install [Fira Code](https://github.com/tonsky/FiraCode) & [Script12 BT](https://www.wfonts.com/font/script12-bt)
+- https://marketplace.visualstudio.com/items?itemName=idbartosz.darkpp-italic
+- https://medium.com/@zamamohammed/multiple-fonts-alternative-to-operator-mono-in-vscode-7745b52120a0
+- https://github.com/open-source-ideas/open-source-ideas/issues/10#issuecomment-311671924
 
 Work
 - npm i -g code-push-cli

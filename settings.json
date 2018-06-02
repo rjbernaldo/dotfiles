@@ -7,12 +7,20 @@
     },
     "eslint.options": {},
     "editor.tabSize": 2,
+    "editor.codeLens": false,
     "workbench.activityBar.visible": false,
-    // "window.zoomLevel": -0.25,
     "git.enabled": false,
     "extensions.autoUpdate": false,
     "explorer.confirmDragAndDrop": false,
     "editor.minimap.enabled": false,
+    "extensions.ignoreRecommendations": true,
     "editor.fontSize": 12,
-    "workbench.startupEditor": "newUntitledFile",
+    "editor.fontFamily": "Fira Code",
+    "editor.lineHeight": 24,
+    "editor.fontLigatures": true,
+    "vscode_custom_css.policy": true,
+    "vscode_custom_css.imports": [
+        "file:///Users/rjbernaldo/Dropbox/Source/personal/dotfiles/styles.css"
+    ],
+    "workbench.colorTheme": "Dark++ Italic"
 }
