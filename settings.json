@@ -15,12 +15,8 @@
     "editor.minimap.enabled": false,
     "extensions.ignoreRecommendations": true,
     "editor.fontSize": 12,
-    "editor.fontFamily": "Fira Code",
+    "editor.fontFamily": "Fira Code iScript",
     "editor.lineHeight": 24,
     "editor.fontLigatures": true,
-    "vscode_custom_css.policy": true,
-    "vscode_custom_css.imports": [
-        "file:///Users/rjbernaldo/Dropbox/Source/personal/dotfiles/styles.css"
-    ],
     "workbench.colorTheme": "Dark++ Italic"
 }
