@@ -17,10 +17,6 @@ Dokku
 remember to add digital ocean ip to /etc/hosts
 ```
 
-Slate
-- cd /Applications && curl http://www.ninjamonkeysoftware.com/slate/versions/slate-latest.tar.gz | tar -xz
-
-
 NPM modules installed:
 - npm i -g babel-eslint
 - npm i -g eslint
@@ -30,8 +26,8 @@ macOS
 - defaults write -g ApplePressAndHoldEnabled -bool false
 
 Font
-- OR https://github.com/kencrocken/FiraCodeiScript
-- https://marketplace.visualstudio.com/items?itemName=idbartosz.darkpp-italic
+- https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme
+- https://github.com/kencrocken/FiraCodeiScript
 
 Work
 - npm i -g code-push-cli
@@ -46,3 +42,8 @@ npm -v v5.6.0
 
 Link config files
 - ./setup.sh
+
+Desktop
+- https://github.com/the0neyouseek/MonitorControl
+- https://bitgapp.com/eqmac/
+- http://mizage.com/divvy/
