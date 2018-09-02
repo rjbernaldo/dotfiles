@@ -146,3 +146,5 @@ fi
 
 export PATH="$HOME/.bin:$PATH"
 export PATH="/usr/local/opt/mongodb@3.4/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

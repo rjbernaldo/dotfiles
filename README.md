@@ -12,6 +12,9 @@ System
 
 https://remysharp.com/2018/08/23/cli-improved
 - brew install bat
+- brew install fzf
+- $(brew --prefix)/opt/fzf/install
+
 
 Dokku
 - git clone git@github.com:dokku/dokku.git ~/.dokku
