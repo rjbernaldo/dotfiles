@@ -15,7 +15,6 @@
         "pickerGroup.foreground": "#616161",
         "tab.activeBorder": "#616161",
         "notificationLink.foreground": "#616161",
-        "editor.findWidgetResizeBorder": "#616161",
         "editorWidget.border": "#616161",
         "editorCursor.foreground": "#FFFFFF"
     },
@@ -40,5 +39,7 @@
     "materialTheme.accent": "Graphite",
     "window.zoomLevel": 0,
     "explorer.confirmDelete": false,
-    "workbench.startupEditor": "newUntitledFile"
+    "workbench.startupEditor": "newUntitledFile",
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "breadcrumbs.enabled": true
 }

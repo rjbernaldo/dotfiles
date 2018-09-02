@@ -9,6 +9,7 @@ System
 - brew install node
 - brew install tmux
 - brew install reattach-to-user-namespace
+- brew install bat
 
 Dokku
 - git clone git@github.com:dokku/dokku.git ~/.dokku
@@ -47,3 +48,4 @@ Desktop
 - https://github.com/the0neyouseek/MonitorControl
 - https://bitgapp.com/eqmac/
 - http://mizage.com/divvy/
+
