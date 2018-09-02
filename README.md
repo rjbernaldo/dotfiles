@@ -14,6 +14,7 @@ https://remysharp.com/2018/08/23/cli-improved
 - brew install bat
 - brew install fzf
 - $(brew --prefix)/opt/fzf/install
+- brew install tldr
 
 
 Dokku

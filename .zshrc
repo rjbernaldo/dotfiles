@@ -111,6 +111,7 @@ alias design='cd ~/Dropbox/Source/design && pwd'
 alias dokku='bash $HOME/.dokku/contrib/dokku_client.sh'
 
 alias cat='bat'
+alias man='tldr'
 
 export DOKKU_HOST=174.138.63.37
 
