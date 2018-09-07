@@ -131,6 +131,9 @@ alias gsync='git fetch upstream && git checkout master && git merge upstream/mas
 alias cp-staging='code-push release-react blueshyft/BlueshyftPOS ios --deploymentName Staging --mandatory --targetBinaryVersion 2.5.1'
 alias cp-preflight='code-push promote blueshyft/BlueshyftPOS Staging Preflight --mandatory --targetBinaryVersion 2.5.1'
 alias cp-production='code-push promote blueshyft/BlueshyftPOS Preflight Production --mandatory --targetBinaryVersion 2.5.1'
+alias cp-staging2='code-push release-react blueshyft/BlueshyftPOS ios --deploymentName Staging --mandatory --targetBinaryVersion 2.5.2'
+alias cp-preflight2='code-push promote blueshyft/BlueshyftPOS Staging Preflight --mandatory --targetBinaryVersion 2.5.2'
+alias cp-production2='code-push promote blueshyft/BlueshyftPOS Preflight Production --mandatory --targetBinaryVersion 2.5.2'
 alias cp-rollback-pre='code-push rollback blueshyft/BlueshyftPOS Preflight'
 alias cp-rollback-prod='code-push rollback blueshyft/BlueshyftPOS Production'
 alias cp-releases='code-push deployment ls blueshyft/BlueshyftPOS'
@@ -149,3 +152,4 @@ export PATH="$HOME/.bin:$PATH"
 export PATH="/usr/local/opt/mongodb@3.4/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/usr/local/opt/node@8/bin:$PATH"
