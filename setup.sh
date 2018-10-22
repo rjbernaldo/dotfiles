@@ -34,4 +34,4 @@ ln -sf $CWD/.slate.js $HOME/.slate.js
 
 # boostnote.io
 rm -rf $HOME/Boostnote
-ln -sf $CWD/Boostnote $HOME/Boostnote
+ln -sf ~/Dropbox/Documents/Personal/Boostnote $HOME/Boostnote
