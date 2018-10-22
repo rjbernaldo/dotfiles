@@ -1,0 +1,51 @@
+createdAt: "2018-10-22T05:07:41.517Z"
+updatedAt: "2018-10-22T22:51:32.281Z"
+type: "MARKDOWN_NOTE"
+folder: "bcf5470231ad894ddab7"
+title: "Email Notifications"
+content: '''
+  # Email Notifications
+  
+  #### Signup (Confirm Your Account)
+  Hi, Rj Bernaldo!
+  
+  Activate your account by clicking on the button below.
+  
+  BUTTON
+  
+  Thanks,
+  Coinfu.xyz Team
+  
+  #### Signup Confirmed (Getting Started)
+  Hi, Rj Bernaldo!
+  
+  Thanks for signing up! Whether you're a veteran trader or a beginner in the market, we've got your covered.
+  
+  Here's some pointers to get you started:
+  1) Signals by Coinfu.xyz will keep you up to date with everything our platform does. We send two kinds of notifications:
+  - System configuration change: These are sent whenever our platform adapts to the market by changing variables based on recent backtests.
+  - Market actions: We send these whenever we open, pyramid, or close a position.
+  
+  Click here to set signals up!
+  
+  2) The overview page is a general dashboard to see how our platform interacts with the entire market. You will be able to see what actions our platform took to arrive at a particular profit.
+  
+  3) The insights page can provide more specific information on why our platform reacted in a certain way. You will be able to learn various details about a position like it's previous entries and each of their stops on the graph.
+  
+  We never try to predict what the price of an asset is going to be, we only study recent data and react accordingly.
+  
+  We hope you enjoy the platform.
+  
+  Thanks,
+  Coinfu.xyz Team
+  
+  #### Paid (Standard)
+  
+  #### Paid (Pro)
+  #### Report (Daily)
+  #### Report (Weekly)
+  #### News
+'''
+tags: []
+isStarred: false
+isTrashed: false

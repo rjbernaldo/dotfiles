@@ -54,4 +54,4 @@ Desktop
 - https://github.com/the0neyouseek/MonitorControl
 - https://bitgapp.com/eqmac/
 - http://mizage.com/divvy/
-
+- https://boostnote.io/

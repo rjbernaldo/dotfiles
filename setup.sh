@@ -31,3 +31,7 @@ ln -sf $CWD/settings.json $HOME/Library/Application\ Support/Code/User/settings.
 
 # slate
 ln -sf $CWD/.slate.js $HOME/.slate.js
+
+# boostnote.io
+rm -rf $HOME/Boostnote
+ln -sf $CWD/Boostnote $HOME/Boostnote
