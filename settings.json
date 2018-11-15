@@ -32,7 +32,7 @@
     "editor.lineHeight": 24,
     "editor.fontLigatures": true,
     "explorer.decorations.badges": false,
-    "workbench.colorTheme": "Material Theme Darker High Contrast",
+    "workbench.colorTheme": "Oceanic Next (dimmed bg)",
     "materialTheme.fixIconsRunning": false,
     "workbench.iconTheme": "eq-material-theme-icons-darker",
     "materialTheme.accentPrevious": "Blue",
@@ -41,5 +41,7 @@
     "explorer.confirmDelete": false,
     "workbench.startupEditor": "newUntitledFile",
     "javascript.updateImportsOnFileMove.enabled": "never",
-    "breadcrumbs.enabled": true
+    "breadcrumbs.enabled": true,
+    "javascript.suggest.autoImports": false,
+    "editor.renderIndentGuides": false
 }
