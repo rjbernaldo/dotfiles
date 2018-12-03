@@ -43,5 +43,15 @@
     "javascript.updateImportsOnFileMove.enabled": "never",
     "breadcrumbs.enabled": true,
     "javascript.suggest.autoImports": false,
-    "editor.renderIndentGuides": false
+    "editor.renderLineHighlight": "all",
+    "markdown.preview.breaks": true,
+    // "indenticator.style": "dashed",
+    "indenticator.inner.color.dark": "#FFF",
+    "indenticator.color.dark": "#FFF",
+    "editor.renderIndentGuides": false,
+    "path-intellisense.mappings": {
+        "src": "${workspaceRoot}/src"
+    },
+    "typescript.validate.enable": false,
+    "javascript.implicitProjectConfig.checkJs": true,
 }
