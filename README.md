@@ -17,23 +17,14 @@ https://remysharp.com/2018/08/23/cli-improved
 - brew install tldr
 
 
-Dokku
-- git clone git@github.com:dokku/dokku.git ~/.dokku
-- cat ~/.ssh/NEW COMPUTER.pub | ssh root@dokku.me dokku ssh-keys:add COMPUTER_NAME (on main computer) 
-```
-remember to add digital ocean ip to /etc/hosts
-```
-
 NPM modules installed:
-- npm i -g babel-eslint
-- npm i -g eslint
+- npm i -g babel-eslint eslint
 
 macOS
 - defaults write com.apple.finder AppleShowAllFiles YES
 - defaults write -g ApplePressAndHoldEnabled -bool false
 
 Font
-- https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme
 - https://github.com/kencrocken/FiraCodeiScript
 
 Work
@@ -52,6 +43,9 @@ Link config files
 
 Desktop
 - https://github.com/the0neyouseek/MonitorControl
-- https://bitgapp.com/eqmac/
-- http://mizage.com/divvy/
-- https://boostnote.io/
+- http://mizage.com/divvy
+- https://www.notion.so
+
+Golang (http://sourabhbajaj.com/mac-setup/Go/README.html)
+- brew install golang
+- sudo mkdir -p $GOPATH $GOPATH/src $GOPATH/pkg $GOPATH/bin

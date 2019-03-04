@@ -136,9 +136,9 @@ alias gsync='git fetch upstream && git checkout master && git merge upstream/mas
 # alias cp-production2='code-push promote blueshyft/BlueshyftPOS Preflight Production --mandatory --targetBinaryVersion 2.5.2'
 # alias cp-rollback-pre='code-push rollback blueshyft/BlueshyftPOS Preflight'
 # alias cp-rollback-prod='code-push rollback blueshyft/BlueshyftPOS Production'
-alias cp-staging='code-push release-react blueshyft/BlueshyftPOS ios --deploymentName Staging --mandatory --targetBinaryVersion ">=2.5.2"'
-alias cp-preflight='code-push promote blueshyft/BlueshyftPOS Staging Preflight --mandatory --targetBinaryVersion ">= 2.5.2"'
-alias cp-production='code-push promote blueshyft/BlueshyftPOS Preflight Production --mandatory --targetBinaryVersion ">= 2.5.2"'
+alias cp-staging='code-push release-react blueshyft/BlueshyftPOS ios --deploymentName Staging --mandatory --targetBinaryVersion ">=2.5.2 <3.0.0"'
+alias cp-preflight='code-push promote blueshyft/BlueshyftPOS Staging Preflight --mandatory --targetBinaryVersion ">=2.5.2 <3.0.0"'
+alias cp-production='code-push promote blueshyft/BlueshyftPOS Preflight Production --mandatory --targetBinaryVersion ">=2.5.2 <3.0.0"'
 alias cp-releases='code-push deployment ls blueshyft/BlueshyftPOS'
 cd() {
   chdir $1 && tmux rename-window ${PWD##*/}
@@ -148,8 +148,11 @@ alias psfind="ps -ef | grep"
 alias history-top="history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10"
 
 if [[ ! $TERM =~ screen ]]; then
-    tmux attach || tmux
+    tmux
 fi
+# if [[ ! $TERM =~ screen ]]; then
+#     tmux attach || tmux
+# fi
 
 export PATH="$HOME/.bin:$PATH"
 export PATH="/usr/local/opt/mongodb@3.4/bin:$PATH"
@@ -158,3 +161,20 @@ export PATH="/usr/local/opt/mongodb@3.4/bin:$PATH"
 export PATH="/usr/local/opt/node@8/bin:$PATH"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# GOLANG
+#export GOPATH=$HOME/go-workspace # don't forget to change your path correctly!
+export GOPATH=$HOME/Dropbox/Source/personal/go
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh

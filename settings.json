@@ -16,7 +16,9 @@
         "tab.activeBorder": "#616161",
         "notificationLink.foreground": "#616161",
         "editorWidget.border": "#616161",
-        "editorCursor.foreground": "#FFFFFF"
+        "editorCursor.foreground": "#FFFFFF",
+        "editorIndentGuide.background": "#4e4e4e",
+        "editorIndentGuide.activeBackground":"#4e4e4e"
     },
     "eslint.options": {},
     "editor.tabSize": 2,
@@ -27,7 +29,6 @@
     "explorer.confirmDragAndDrop": false,
     "editor.minimap.enabled": false,
     "extensions.ignoreRecommendations": true,
-    "editor.fontSize": 12,
     "editor.fontFamily": "Fira Code iScript",
     "editor.lineHeight": 24,
     "editor.fontLigatures": true,
@@ -48,10 +49,14 @@
     // "indenticator.style": "dashed",
     "indenticator.inner.color.dark": "#FFF",
     "indenticator.color.dark": "#FFF",
-    "editor.renderIndentGuides": false,
     "path-intellisense.mappings": {
         "src": "${workspaceRoot}/src"
     },
-    "typescript.validate.enable": false,
-    "javascript.implicitProjectConfig.checkJs": true,
+    "editor.highlightActiveIndentGuide": true,
+    "workbench.sideBar.location": "left",
+    "terminal.integrated.rendererType": "dom",
+    // "typescript.validate.enable": true,
+    // "files.associations": {
+    //     "*.ts": "javascript"
+    // },
 }
