@@ -31,9 +31,3 @@ ln -sf $CWD/settings.json $HOME/Library/Application\ Support/Code/User/settings.
 rm -f $HOME/Library/Application\ Support/Code/User/keybindings.json
 ln -sf $CWD/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
 
-# slate
-ln -sf $CWD/.slate.js $HOME/.slate.js
-
-# boostnote.io
-rm -rf $HOME/Boostnote
-ln -sf ~/Dropbox/Documents/Personal/Boostnote $HOME/Boostnote

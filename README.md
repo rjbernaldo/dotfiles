@@ -9,6 +9,7 @@ System
 - brew install node
 - brew install tmux
 - brew install reattach-to-user-namespace
+- brew install neovim
 
 https://remysharp.com/2018/08/23/cli-improved
 - brew install bat
@@ -16,6 +17,8 @@ https://remysharp.com/2018/08/23/cli-improved
 - $(brew --prefix)/opt/fzf/install
 - brew install tldr
 
+Shell
+- git clone https://github.com/mhartington/oceanic-next-shell.git ~/.config/oceanic-next-shell
 
 NPM modules installed:
 - npm i -g babel-eslint eslint
