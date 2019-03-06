@@ -20,6 +20,8 @@ rm -f $HOME/.eslintrc
 ln -sf $CWD/.vim $HOME/.vim
 ln -sf $CWD/.vimrc $HOME/.vimrc
 ln -sf $CWD/.eslintrc.json $HOME/.eslintrc
+rm /usr/local/bin/stream.sh
+ln $CWD/stream.sh /usr/local/bin/stream.sh
 
 # tmux
 rm -f $HOME/.tmux.conf

@@ -10,8 +10,10 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-BASE16_SHELL="$HOME/.config/oceanic-next-shell/oceanic-next.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+#BASE16_SHELL="$HOME/.config/oceanic-next-shell/oceanic-next.dark.sh"
+#[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+TERM=xterm-256color
+
 ZSH_THEME="nicoulaj"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -149,9 +151,9 @@ cd() {
 alias psfind="ps -ef | grep"
 alias history-top="history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10"
 
-if [[ ! $TERM =~ screen ]]; then
-    tmux
-fi
+# if [[ ! $TERM =~ screen ]]; then
+#     tmux
+# fi
 # if [[ ! $TERM =~ screen ]]; then
 #     tmux attach || tmux
 # fi
@@ -185,3 +187,4 @@ export PATH="/usr/local/opt/gettext/bin:$PATH"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+

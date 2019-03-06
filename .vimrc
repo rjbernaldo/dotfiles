@@ -49,9 +49,9 @@ let NERDTreeDirArrows=0
 "let g:nerdtree_tabs_open_on_console_startup=1
 let g:nerdtree_tabs_focus_on_files=1
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd w
-autocmd BufWinEnter * NERDTreeMirror
+autocmd VimEnter * NERDTree | wincmd p
+" autocmd VimEnter * wincmd p
+autocmd BufWinEnter * NERDTreeMirror | wincmd p
 " Check if NERDTree is open or active
 function! IsNERDTreeOpen()        
   return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
@@ -80,6 +80,8 @@ endfunction
 
 " Highlight currently open buffer in NERDTree
 autocmd BufEnter * call SyncTree()
+autocmd TabEnter * wincmd l
+"autocmd TabEnter * call SyncTree()
 nnoremap <silent> <C-e> :NERDTreeToggle<cr>
 
 " WHEN STARTING ON EMPTY DIRECTORY
