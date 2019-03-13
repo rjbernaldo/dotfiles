@@ -1,5 +1,7 @@
 execute pathogen#infect()
 
+set ttyfast
+set re=1 
 syntax enable
 filetype plugin indent on
 
@@ -14,11 +16,22 @@ let g:oceanic_next_terminal_bold = 1
 let g:oceanic_next_terminal_italic = 1
 
 colorscheme OceanicNext
+let g:airline_theme='oceanicnext'
+
+"colorscheme happy_hacking
+"let g:airline_theme='wombat'
+
+" FIX AUTOCOMPLETE
+set completeopt=longest,menuone
+
+" indent guides
+let g:indentLine_setColors = 1
+let g:indentLine_color_term = 239
+let g:indentLine_char = '▏'
 
 " hide trailing tilde
-highlight EndOfBuffer ctermfg=235 ctermbg=235
-
-let g:airline_theme='oceanicnext'
+" highlight EndOfBuffer ctermfg=235 ctermbg=235 guifg=235
+hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 
 set noswapfile
 set tabstop=2
@@ -26,6 +39,7 @@ set shiftwidth=2
 set expandtab
 set mouse=a
 set number
+set bs=2
 
 let g:tmux_navigator_no_mappings = 1
 let g:tmuxline_preset = 'nightly_fox'
@@ -43,22 +57,23 @@ let g:ale_completion_enabled = 1
 let g:javascript_plugin_jsdoc = 1
 
 " NERDTREE
+"let g:nerdtree_tabs_open_on_console_startup=1
+let NERDTreeMapOpenSplit = 's'
+let NERDTreeMapOpenVSplit = 'v'
 let g:NERDTreeWinSize = 25
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows=0
-"let g:nerdtree_tabs_open_on_console_startup=1
 let g:nerdtree_tabs_focus_on_files=1
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * NERDTree | wincmd p
-" autocmd VimEnter * wincmd p
-autocmd BufWinEnter * NERDTreeMirror | wincmd p
-" Check if NERDTree is open or active
+autocmd VimEnter * call timer_start(0, { tid -> execute('wincmd p')})
+autocmd VimEnter * NERDTree
+autocmd BufWinEnter * NERDTreeMirror
+
 function! IsNERDTreeOpen()        
   return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
 endfunction
+
 autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
-" Close all open buffers on entering a window if the only
-" buffer that's left is the NERDTree buffer
 function! s:CloseIfOnlyNerdTreeLeft()
   if exists("t:NERDTreeBufName")
     if bufwinnr(t:NERDTreeBufName) != -1
@@ -69,8 +84,9 @@ function! s:CloseIfOnlyNerdTreeLeft()
   endif
 endfunction
 
-" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
-" file, and we're not in vimdiff
+autocmd VimEnter * call SyncTree()
+autocmd BufEnter * call SyncTree()
+autocmd TabEnter * call SyncTree() | wincmd l
 function! SyncTree()
   if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
     NERDTreeFind
@@ -78,11 +94,7 @@ function! SyncTree()
   endif
 endfunction
 
-" Highlight currently open buffer in NERDTree
-autocmd BufEnter * call SyncTree()
-autocmd TabEnter * wincmd l
-"autocmd TabEnter * call SyncTree()
-nnoremap <silent> <C-e> :NERDTreeToggle<cr>
+nnoremap <silent> <C-\> :NERDTreeToggle<cr>
 
 " WHEN STARTING ON EMPTY DIRECTORY
 if bufname('%') == ''
@@ -102,8 +114,8 @@ nnoremap <silent> <C-F> :F<Cr>
 nnoremap <silent> <C-p> :Files<Cr>
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
-  \ 'ctrl-i': 'split',
-  \ 'ctrl-s': 'vsplit' }
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
 " tmux integration
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
@@ -112,3 +124,8 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 "nnoremap <silent> <C-e> :NERDTreeTabsToggle<cr>
 
+" CODE FOLDING
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2

@@ -10,6 +10,7 @@ System
 - brew install tmux
 - brew install reattach-to-user-namespace
 - brew install neovim
+- brew install vim (https://github.com/Yggdroot/indentLine/issues/59)
 
 https://remysharp.com/2018/08/23/cli-improved
 - brew install bat

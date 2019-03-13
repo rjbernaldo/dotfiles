@@ -6,14 +6,14 @@ tmux send-keys 'vim src/App.js' 'C-m'
 tmux resize-pane -L 67
 tmux select-pane -t 1
 tmux split-window -v
-tmux send-keys 'mongod' 'C-m'
-tmux resize-pane -D 12
-tmux select-pane -t 1
-tmux split-window -v
 tmux send-keys 'clear' 'C-m'
 tmux send-keys 'urtimer -s 1500'
+tmux resize-pane -D 21
 tmux select-pane -t 1
-tmux resize-pane -D 12
+tmux split-window -v
+tmux send-keys 'mongod' 'C-m'
+tmux select-pane -t 1
+tmux resize-pane -D 8
 tmux select-pane -t 1
 tmux split-window -v
 tmux send-keys 'cd /Users/rj/Dropbox/Source/personal/serverless' 'C-m'
