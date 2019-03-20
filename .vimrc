@@ -3,7 +3,9 @@ execute pathogen#infect()
 set ttyfast
 set re=1 
 syntax enable
-filetype plugin indent on
+"filetype plugin indent on
+"set list lcs=tab:\|\ (here is a space)
+set list lcs=tab:\▏\ 
 
 set t_Co=256
 if (has("termguicolors"))
@@ -22,21 +24,24 @@ let g:airline_theme='oceanicnext'
 "let g:airline_theme='wombat'
 
 " FIX AUTOCOMPLETE
-set completeopt=longest,menuone
+"set completeopt=longest,menuone
+set completeopt=menu,menuone,preview,noselect,noinsert
 
 " indent guides
 let g:indentLine_setColors = 1
 let g:indentLine_color_term = 239
 let g:indentLine_char = '▏'
+let g:indentLine_conceallevel = 2
 
 " hide trailing tilde
 " highlight EndOfBuffer ctermfg=235 ctermbg=235 guifg=235
 hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
+hi! SpecialKey guifg=#4f4f4f
 
 set noswapfile
 set tabstop=2
-set shiftwidth=2
-set expandtab
+"set shiftwidth=2
+"set expandtab
 set mouse=a
 set number
 set bs=2
@@ -128,4 +133,9 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
-set foldlevel=2
+set foldlevel=10
+
+" GO
+let g:go_doc_keywordprg_enabled = 0
+let g:go_list_height = 0
+let g:go_fmt_fail_silently = 1
