@@ -38,10 +38,11 @@ let g:indentLine_conceallevel = 2
 hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 hi! SpecialKey guifg=#4f4f4f
 
-set noswapfile
+set expandtab
 set tabstop=2
-"set shiftwidth=2
-"set expandtab
+set shiftwidth=2
+
+set noswapfile
 set mouse=a
 set number
 set bs=2
@@ -139,3 +140,6 @@ set foldlevel=10
 let g:go_doc_keywordprg_enabled = 0
 let g:go_list_height = 0
 let g:go_fmt_fail_silently = 1
+
+" https://vim.fandom.com/wiki/Mac_OS_X_clipboard_sharing
+set clipboard=unnamed
