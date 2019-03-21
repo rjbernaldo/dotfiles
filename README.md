@@ -41,6 +41,12 @@ Desktop
 Link config files
 - ./setup.sh
 
+Mongodb
+- sudo mkdir -p /data/db
+- sudo chmod -R go+w /data/db
+- brew install mongodb@3.6
+- brew link mongodb@3.6 --force
+
 Work
 - npm i -g babel-eslint eslint
 - npm i -g code-push-cli
