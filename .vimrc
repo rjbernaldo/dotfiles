@@ -143,3 +143,4 @@ let g:go_fmt_fail_silently = 1
 
 " https://vim.fandom.com/wiki/Mac_OS_X_clipboard_sharing
 set clipboard=unnamed
+

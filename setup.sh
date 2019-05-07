@@ -20,7 +20,7 @@ rm -f $HOME/.eslintrc
 ln -sf $CWD/.vim $HOME/.vim
 ln -sf $CWD/.vimrc $HOME/.vimrc
 ln -sf $CWD/.eslintrc.json $HOME/.eslintrc
-rm /usr/local/bin/stream.sh
+rm -f /usr/local/bin/stream.sh
 ln $CWD/stream.sh /usr/local/bin/stream.sh
 
 # tmux
@@ -33,6 +33,6 @@ ln -sf $CWD/settings.json $HOME/Library/Application\ Support/Code/User/settings.
 rm -f $HOME/Library/Application\ Support/Code/User/keybindings.json
 ln -sf $CWD/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
 
-# alacritty
-mkdir -p $HOME/.config/alacritty
-ln -sf $CWD/alacritty.yml $HOME/.config/alacritty/alacritty.yml
+# hyper.is
+rm -f $HOME/.hyper.js
+ln -sf $CWD/.hyper.js $HOME/.hyper.js
