@@ -10,11 +10,6 @@ System
 - brew install tmux
 - brew install reattach-to-user-namespace
 - brew install vim (https://github.com/Yggdroot/indentLine/issues/59)
-- brew cask install alacritty
-
-Golang (http://sourabhbajaj.com/mac-setup/Go/README.html)
-- brew install golang
-- sudo mkdir -p $GOPATH $GOPATH/src $GOPATH/pkg $GOPATH/bin
 
 Misc CLI (https://remysharp.com/2018/08/23/cli-improved)
 - brew install bat
@@ -27,7 +22,6 @@ VIM
 - git clone https://github.com/mhartington/oceanic-next-shell.git ~/.config/oceanic-next-shell
 Font
 - https://github.com/kencrocken/FiraCodeiScript
-
 
 macOS
 - defaults write com.apple.finder AppleShowAllFiles YES
