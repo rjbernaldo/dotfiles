@@ -143,10 +143,13 @@ alias gsync='git fetch upstream && git checkout master && git merge upstream/mas
 # alias cp-production2='code-push promote blueshyft/BlueshyftPOS Preflight Production --mandatory --targetBinaryVersion 2.5.2'
 # alias cp-rollback-pre='code-push rollback blueshyft/BlueshyftPOS Preflight'
 # alias cp-rollback-prod='code-push rollback blueshyft/BlueshyftPOS Production'
-alias cp-staging='code-push release-react blueshyft/BlueshyftPOS ios --deploymentName Staging --mandatory --targetBinaryVersion ">=2.5.2 <3.0.0"'
-alias cp-preflight='code-push promote blueshyft/BlueshyftPOS Staging Preflight --mandatory --targetBinaryVersion ">=2.5.2 <3.0.0"'
-alias cp-production='code-push promote blueshyft/BlueshyftPOS Preflight Production --mandatory --targetBinaryVersion ">=2.5.2 <3.0.0"'
+alias cp-staging='code-push release-react blueshyft/BlueshyftPOS ios --deploymentName Staging --mandatory --targetBinaryVersion ">= 3.0.0 < 3.1.0"'
+alias cp-preflight='code-push promote blueshyft/BlueshyftPOS Staging Preflight --mandatory --targetBinaryVersion ">= 3.0.0 < 3.1.0"'
+alias cp-production='code-push promote blueshyft/BlueshyftPOS Preflight Production --mandatory --targetBinaryVersion ">= 3.0.0 < 3.1.0" && npm run bugsnag:sourcemap'
 alias cp-releases='code-push deployment ls blueshyft/BlueshyftPOS'
+# alias cp-staging='code-push release-react blueshyft/BlueshyftPOS ios --deploymentName Staging --mandatory --targetBinaryVersion ">=2.5.2 <3.0.0"'
+# alias cp-preflight='code-push promote blueshyft/BlueshyftPOS Staging Preflight --mandatory --targetBinaryVersion ">=2.5.2 <3.0.0"'
+# alias cp-production='code-push promote blueshyft/BlueshyftPOS Preflight Production --mandatory --targetBinaryVersion ">=2.5.2 <3.0.0"'
 cd() {
   chdir $1 && tmux rename-window ${PWD##*/}
 }

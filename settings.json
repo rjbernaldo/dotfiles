@@ -33,7 +33,7 @@
     "editor.lineHeight": 24,
     "editor.fontLigatures": true,
     "explorer.decorations.badges": false,
-    "workbench.colorTheme": "Oceanic Next (dimmed bg)",
+    "workbench.colorTheme": "Material Theme Darker High Contrast",
     "materialTheme.fixIconsRunning": false,
     "workbench.iconTheme": "eq-material-theme-icons-darker",
     "materialTheme.accentPrevious": "Blue",
