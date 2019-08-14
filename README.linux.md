@@ -50,7 +50,15 @@ curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh -o 
 
 # TODO: keyboard/trackpad configuration
 ## swap escape & caps
-## super+s, super+v, super+t, super+w
 ## natural scrolling for trackpad only
-## volume keys
-## brightness keys
+.Xresources
+
+## volume keys (https://askubuntu.com/questions/794403/media-keys-on-macbook-pro-and-i3)
+## brightness keys (https://cialu.net/brightness-control-not-work-i3wm/)
+wget https://github.com/haikarainen/light/releases/download/v1.2/light-1.2.tar.gz
+tar xf light-1.2.tar.gz
+cd light-1.2/
+./configure && make
+sudo make install
+
+## super+s, super+v, super+t, super+w
