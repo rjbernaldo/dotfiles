@@ -3,8 +3,8 @@
 CWD=`pwd`
 
 # streaming
-rm -f /usr/local/bin/stream.sh
-ln $CWD/streaming/stream.sh /usr/local/bin/stream.sh
+# rm -f /usr/local/bin/stream.sh
+# ln $CWD/streaming/stream.sh /usr/local/bin/stream.sh
 
 # vscode
 rm -f $HOME/Library/Application\ Support/Code/User/settings.json

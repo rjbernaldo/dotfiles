@@ -109,11 +109,11 @@ alias emulator='$ANDROID_HOME/tools/emulator'
 # export WORKON_HOME=~/virtualenvs
 # source /usr/local/bin/virtualenvwrapper.sh
 alias future_commit='git commit --date "$(date -v +8H)"'
-alias work='cd ~/Dropbox/Source/work && pwd'
-alias personal='cd ~/Dropbox/Source/personal && pwd'
-alias opensource='cd ~/Dropbox/Source/opensource && pwd'
-alias sandbox='cd ~/Dropbox/Source/sandbox && pwd'
-alias design='cd ~/Dropbox/Source/design && pwd'
+alias work='cd ~/Source/work && pwd'
+alias personal='cd ~/Source/personal && pwd'
+alias opensource='cd ~/Source/opensource && pwd'
+alias sandbox='cd ~/Source/sandbox && pwd'
+alias design='cd ~/Source/design && pwd'
 
 alias dokku='bash $HOME/.dokku/contrib/dokku_client.sh'
 
@@ -145,7 +145,7 @@ alias gsync='git fetch upstream && git checkout master && git merge upstream/mas
 # alias cp-rollback-prod='code-push rollback blueshyft/BlueshyftPOS Production'
 alias cp-staging='code-push release-react blueshyft/BlueshyftPOS ios --deploymentName Staging --mandatory --targetBinaryVersion ">= 3.0.0 < 3.1.0"'
 alias cp-preflight='code-push promote blueshyft/BlueshyftPOS Staging Preflight --mandatory --targetBinaryVersion ">= 3.0.0 < 3.1.0"'
-alias cp-production='code-push promote blueshyft/BlueshyftPOS Preflight Production --mandatory --targetBinaryVersion ">= 3.0.0 < 3.1.0" && npm run bugsnag:sourcemap'
+alias cp-production='code-push promote blueshyft/BlueshyftPOS Preflight Production --mandatory --targetBinaryVersion ">= 3.0.0 < 3.1.0" && npm run bundle && npm run bugsnag:sourcemap'
 alias cp-releases='code-push deployment ls blueshyft/BlueshyftPOS'
 # alias cp-staging='code-push release-react blueshyft/BlueshyftPOS ios --deploymentName Staging --mandatory --targetBinaryVersion ">=2.5.2 <3.0.0"'
 # alias cp-preflight='code-push promote blueshyft/BlueshyftPOS Staging Preflight --mandatory --targetBinaryVersion ">=2.5.2 <3.0.0"'
@@ -174,7 +174,7 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # GOLANG
 #export GOPATH=$HOME/go-workspace # don't forget to change your path correctly!
-export GOPATH=$HOME/Dropbox/Source/personal/go
+export GOPATH=$HOME/Source/personal/go
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin

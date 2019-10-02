@@ -33,7 +33,7 @@
     "editor.lineHeight": 24,
     "editor.fontLigatures": true,
     "explorer.decorations.badges": false,
-    "workbench.colorTheme": "Material Theme Darker High Contrast",
+    "workbench.colorTheme": "Oceanic Next (dimmed bg)",
     "materialTheme.fixIconsRunning": false,
     "workbench.iconTheme": "eq-material-theme-icons-darker",
     "materialTheme.accentPrevious": "Blue",
@@ -55,6 +55,10 @@
     "editor.highlightActiveIndentGuide": true,
     "workbench.sideBar.location": "left",
     "terminal.integrated.rendererType": "dom",
+    "files.associations": {
+        "*.vue": "html"
+    },
+    "typescript.updateImportsOnFileMove.enabled": "never",
     // "typescript.validate.enable": true,
     // "files.associations": {
     //     "*.ts": "javascript"

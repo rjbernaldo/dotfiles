@@ -56,6 +56,23 @@ module.exports = {
 
     // custom CSS to embed in the main window
     css: '',
+    // css: `
+    // .terms_19b1ydh {
+    // margin-top: 20px;
+    // }
+    // .header_windowHeader {
+    // display: none;
+    // }
+    // .tabs_nav {
+    // top: 0;
+    // }
+    // .terms_terms {
+    // margin-top: 0;
+    // }
+    // .terms_termsShifted {
+    // margin-top: 30px;
+    // }
+    // `,
 
     // custom CSS to embed in the terminal window
     termCSS: '',
