@@ -59,7 +59,8 @@
         "*.vue": "html"
     },
     "typescript.updateImportsOnFileMove.enabled": "never",
-    // "typescript.validate.enable": true,
+    "typescript.validate.enable": true,
+    "eslint.alwaysShowStatus": true,
     // "files.associations": {
     //     "*.ts": "javascript"
     // },
