@@ -64,4 +64,21 @@
     // "files.associations": {
     //     "*.ts": "javascript"
     // },
+    "vim.normalModeKeyBindings": [
+        {
+            "before": ["<C-u>"],
+            "after": ["1", "0", "k"]
+        },
+        {
+            "before": ["<C-d>"],
+            "after": ["1", "0", "j"]
+        }
+    ],
+    "html.mirrorCursorOnMatchingTag": false,
+    "compilemql4.metaeditorDir": "",
+    // "vim.handleKeys": {
+    //     "<C-j>": false,
+    //     "<C-k>": false,
+    // },
+    // "editor.smoothScrolling": false,
 }

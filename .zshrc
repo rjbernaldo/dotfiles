@@ -201,3 +201,14 @@ export PATH="/usr/local/opt/qt/bin:$PATH"
 export PATH="/usr/local/opt/qt/bin:$PATH"
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_231`
 export PATH="/Users/rj/.emacs.d/bin:$PATH"
+
+# ----- vimode -----
+export EDITOR="/usr/local/bin/vim -u NONE"
+# bindkey '^?' backward-delete-char
+# bindkey '^V' edit-command-line
+
+# export ATHAME_VIMBED_LOCATION=$HOME/.vim/bundle/vimbed/plugin export ATHAME_ENABLED=1
+export ATHAME_VIMBED_LOCATION=$HOME/.vim/bundle/vimbed/plugin export ATHAME_ENABLED=1
+unset zle_bracketed_paste
+alias mcom="wine /Users/rj/Library/Application\ Support/com.AxiTrader.MT4_155144006010282/drive_c/winebottler/metaeditor.exe /compile:Optimal.mq4"
+
