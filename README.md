@@ -6,10 +6,13 @@ Brew
 System
 - brew install zsh
 - sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-- brew install node
 - brew install tmux
 - brew install reattach-to-user-namespace
 - brew install vim (https://github.com/Yggdroot/indentLine/issues/59)
+
+Node
+- curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
+- bash n lts
 
 Misc CLI (https://remysharp.com/2018/08/23/cli-improved)
 - brew install bat
@@ -17,6 +20,7 @@ Misc CLI (https://remysharp.com/2018/08/23/cli-improved)
 - $(brew --prefix)/opt/fzf/install
 - brew install tldr
 - brew install ripgrep
+- npm install -g n
 
 VIM
 - git clone https://github.com/mhartington/oceanic-next-shell.git ~/.config/oceanic-next-shell
@@ -29,8 +33,9 @@ macOS
 
 Desktop
 - https://github.com/the0neyouseek/MonitorControl
-- http://mizage.com/divvy
-- https://www.notion.so
+- https://github.com/ianyh/Amethyst
+- brew cask install ferdi
+- nextcloud
 
 Link config files
 - ./setup.sh
@@ -38,8 +43,7 @@ Link config files
 Mongodb
 - sudo mkdir -p /data/db
 - sudo chmod -R go+w /data/db
-- brew install mongodb@3.6
-- brew link mongodb@3.6 --force
+- brew install mongodb
 
 Work
 - npm i -g babel-eslint eslint
