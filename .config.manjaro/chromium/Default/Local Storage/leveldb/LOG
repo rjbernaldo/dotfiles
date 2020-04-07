@@ -1,0 +1,12 @@
+2020/04/07-10:04:46.063 4d3 Reusing MANIFEST /home/rj/.config/chromium/Default/Local Storage/leveldb/MANIFEST-000001
+2020/04/07-10:04:46.063 4d3 Recovering log #67
+2020/04/07-10:04:46.064 4d3 Reusing old log /home/rj/.config/chromium/Default/Local Storage/leveldb/000067.log 
+2020/04/07-10:11:34.118 8cb Level-0 table #72: started
+2020/04/07-10:11:34.124 8cb Level-0 table #72: 14461 bytes OK
+2020/04/07-10:11:34.129 8cb Delete type=0 #67
+2020/04/07-10:53:12.167 8cb Level-0 table #74: started
+2020/04/07-10:53:12.176 8cb Level-0 table #74: 15128 bytes OK
+2020/04/07-10:53:12.185 8cb Delete type=0 #71
+2020/04/07-10:54:13.848 8cb Level-0 table #76: started
+2020/04/07-10:54:13.854 8cb Level-0 table #76: 62081 bytes OK
+2020/04/07-10:54:13.858 8cb Delete type=0 #73

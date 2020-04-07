@@ -1,0 +1,606 @@
+<div style="display: none">
+
+    <style>
+        .tb-upload-checklist-template-option {
+            cursor: pointer;
+        }
+
+        .tb-upload-checklist-option-container:hover {
+            background-color: #ffffcc;
+        }
+
+        .tb-launchpad-list.hidden {
+            display: none;
+        }
+
+        .tb-launchpad-list hidden {
+            display: none;
+        }
+
+        .tb-launchpad-list {
+            margin-top: 10px;
+        }
+
+            .tb-launchpad-list li {
+                list-style: circle;
+                margin-left: 22px;
+                line-height: 14px;
+                margin-bottom: 6px;
+            }
+
+        .lp-checklist-main {
+            font-weight: 500;
+            line-height: 17px;
+            font-size: 13px;
+        }
+
+        .hidden {
+            display: none;
+        }
+        .tb-best-practices-container {
+            width: 97%;
+            position: relative !important;
+        }
+        .tb-upload-tab-post-processing-container {
+            clear:both;
+        }
+    </style>
+
+    <ul class="tb-upload-tab-post-processing" style="display:none;">
+        <li class="tb-tab-header  epic-nav-item tb-post-processing-tab" role="tab" data-tab-id="tb-post-processing" id="tb-post-processing">
+            <div class="tab-header-title" style="font-size:11px; font-weight:500;">
+                <img class="tb-height11" src="{PLUGIN_FILE_ROOT}/images/branding/tb-icon-transparent.svg" style="position: relative; top: 3px;" />
+                Post-Processing Tools
+            </div>
+            <div class="tab-header-icon-container">
+                <span class="tab-header-icon yt-sprite"></span>
+            </div>
+        </li>
+    </ul>
+
+    <div class="tb-upload-tab-post-processing-container" style="display: none; width:720px; margin-top:25px;  padding: 8px 12px; position: relative;background: #fff;border: 1px solid #e2e2e2;outline: 0; text-align: left;box-shadow: 0 0 15px rgba(0,0,0,.18);display: inline-block;">
+
+        <div style="background-color: #f0f0f0; margin-left: -12px; margin-right: -12px; margin-top: -8px; padding: 10px; border-bottom: solid 1px #ddd; position:relative;">
+
+            <div style="float: right; text-align: right; position: relative; left: -3px;">
+
+                <img class="tb-upload-hide-tools" src="{PLUGIN_FILE_ROOT}/images/icons/caret-down.png" style="vertical-align: middle; cursor:pointer;">
+                <img class="tb-upload-show-tools" src="{PLUGIN_FILE_ROOT}/images/icons/caret-up.png" style="vertical-align: middle; display:none; cursor:pointer;">
+
+            </div>
+
+            <img src="{PLUGIN_FILE_ROOT}/images/branding/icon_large.png" style="height: 24px; vertical-align: middle; margin-right: 2px;">
+            <span style="vertical-align: middle; font-size: 20px;">Tools</span>
+        </div>
+        <div class="tb-post-process-actions-wrapper">
+
+            <div style="padding:40px 40px 25px" class="tb-post-process-actions-processing">
+
+                <img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" style="position:relative; top:-1px" />
+                Waiting for video to be uploaded and 100% processed...<br /><br />
+
+            </div>
+
+            <div style="padding-top: 15px; padding-left: 0px;display:none" class="tb-post-process-actions">
+
+                <div class="tb-post-process-actions-links" style="vertical-align:top; padding: 0px 0 15px; text-align: right;margin-right: 15px;">
+                    &nbsp;&nbsp;
+                    <a target="_blank" class="tb-upload-pre-publish-link-enhancements">Enhancements</a> <img src="{PLUGIN_FILE_ROOT}/images/icons/external.png" style="opacity:.5" />
+                    &nbsp; <span style="font-size:11px; #999">|</span> &nbsp;
+                    <a target="_blank" class="tb-upload-pre-publish-link-audio">Audio</a> <img src="{PLUGIN_FILE_ROOT}/images/icons/external.png" style="opacity:.5" /> &nbsp; <span style="font-size:11px; #999">|</span> &nbsp;
+                    <a target="_blank" class="tb-upload-pre-publish-link-cards">Cards</a> <img src="{PLUGIN_FILE_ROOT}/images/icons/external.png" style="opacity:.5" /> &nbsp; <span style="font-size:11px; #999">|</span> &nbsp;
+                    <a target="_blank" class="tb-upload-pre-publish-link-endscreens">End Screens</a> <img src="{PLUGIN_FILE_ROOT}/images/icons/external.png" style="opacity:.5" /> &nbsp; <span style="font-size:11px; #999">|</span> &nbsp;
+                    <a target="_blank" class="tb-upload-pre-publish-link-subtitles">Subtitles and CC</a> <img src="{PLUGIN_FILE_ROOT}/images/icons/external.png" style="opacity:.5" />
+                </div>
+
+                <div style="background-color:#fff; padding:8px 10px;">
+                    <div style="font-weight:bold; font-size:15px; border-bottom:solid 1px #ccc; padding-bottom:3px; margin-bottom:5px;">
+                        Pre-Publish
+                    </div>
+
+
+                    <div style="width:170px; padding:8px; display:inline-block;">
+                        <button type="button" style="width:170px;" class="tb-button tb-button-default tb-upload-thumbnailCreator">
+                            <span class="yt-uix-button-content">
+                                Thumbnail Generator
+                            </span>
+                        </button>
+                    </div>
+
+                    <div style="vertical-align:top; padding:12px 0 8px; display:inline-block;">
+                        Generate a professional custom thumbnail using still frames from your video
+                    </div>
+
+                    <div style="clear:both"></div>
+
+                    <div style="width:170px; padding:8px; display:inline-block;">
+                        <button type="button" style="width:170px;" class="tb-button tb-button-default tb-upload-copy-cards-button tb-upload-copy-button">
+                            <span class="yt-uix-button-content">
+                                Apply Card Template
+                            </span>
+                        </button>
+                    </div>
+                    <div style="vertical-align:top; padding:12px 0 8px; display:inline-block;">
+                        Apply a set of Cards from an existing video of yours
+                    </div>
+                    <div style="clear:both"></div>
+                    <div style="width:170px; padding:8px; display:inline-block;">
+                        <button type="button" style="width:170px;" class="tb-button tb-button-default tb-upload-copy-endscreen-button tb-upload-copy-button">
+                            <span class="yt-uix-button-content">
+                                Apply End Screen Template
+                            </span>
+                        </button>
+                    </div>
+                    <div style="vertical-align:top; padding:12px 0 8px; display:inline-block;">
+                        Apply a set of End Screen Elements from an existing video of yours
+                    </div>
+                    <div style="clear:both"></div>
+
+                    <div style="width:170px; padding:8px; display:inline-block;">
+                        <button type="button" style="width:170px;" class="tb-button tb-button-default tb-upload-captions">
+                            <span class="yt-uix-button-content">
+                                Captions Service
+                            </span>
+                        </button>
+                    </div>
+
+                    <div style="vertical-align:top; padding:12px 0 8px; display:inline-block;">
+                        Get professionally transcribed Captions via 3PlayMedia
+                    </div>
+
+                    <div style="clear:both"></div>
+
+                </div>
+
+                <div style="background-color:#fff; padding:8px 10px; margin-top:15px;">
+
+                    <div style="font-weight:bold; font-size:14px; border-bottom:solid 1px #ccc; padding-bottom:3px; margin-bottom:5px;">
+                        Post-Publish
+                    </div>
+
+
+
+                    <div style="width:170px; padding:8px; display:inline-block;">
+                        <button type="button" style="width:170px;" class="tb-button tb-button-default tb-upload-vid2vid">
+                            <span class="yt-uix-button-content">
+                                Vid2Vid Promotion
+                            </span>
+                        </button>
+                    </div>
+                    <div style="vertical-align:top; padding:12px 0 8px; display:inline-block;">
+                        Promote your new upload across all your existing videos for an initial boost
+                    </div>
+
+                    <div style="width:170px; padding:8px; display:inline-block;">
+                        <button type="button" style="width:170px;" class="tb-button tb-button-default tb-upload-share-tracker">
+                            <span class="yt-uix-button-content">
+                                Share Tracker
+                            </span>
+                        </button>
+                    </div>
+                    <div style="vertical-align:top; padding:12px 0 8px; display:inline-block;">
+                        Share this video on other Social Networks (and track where you've shared it)
+                    </div>
+
+                    <div style="width:170px; padding:8px; display:inline-block;">
+                        <button type="button" style="width:170px;" class="tb-button tb-button-default tb-upload-scheduledvideoaction">
+                            <span class="yt-uix-button-content">
+                                Sunset Video
+                            </span>
+                        </button>
+                    </div>
+                    <div style="vertical-align:top; padding:12px 0 8px; display:inline-block;">
+                        Schedule this video to be sunsetted at a future date/time
+                    </div>
+                    <div style="clear:both"></div>
+                    <div style="width:170px; padding:8px; display:inline-block;">
+                        <button type="button" style="width:170px;" class="tb-button tb-button-default tb-upload-schedulegolive">
+                            <span class="yt-uix-button-content">
+                                Schedule Publish
+                            </span>
+                        </button>
+                    </div>
+                    <div style="vertical-align:top; padding:12px 0 8px; display:inline-block;">
+                        Schedule this video to be Published at a future date/time
+                    </div>
+
+                    <div style="width:170px; padding:8px; display:inline-block;">
+                        <button type="button" style="width:170px;" class="tb-button tb-button-default tb-upload-scheduledvideoupdate">
+                            <span class="yt-uix-button-content">
+                                Schedule Video Update
+                            </span>
+                        </button>
+                    </div>
+                    <div style="vertical-align:top; padding:12px 0 8px; display:inline-block;">
+                        Schedule updates to this video at a future date/time
+                    </div>
+
+                    <div style="clear:both"></div>
+                    <div style="width:170px; padding:8px; display:inline-block;">
+                        <button type="button" style="width:170px;" class="tb-button tb-button-default tb-upload-publishToFacebook">
+                            <span class="yt-uix-button-content">
+                                Publish to Facebook
+                            </span>
+                        </button>
+                    </div>
+                    <div style="vertical-align:top; padding:12px 0 8px; display:inline-block;">
+                        Publish a copy of this video natively to Facebook
+                    </div>
+
+                    <div style="clear:both"></div>
+                    <div style="width:170px; padding:8px; display:inline-block;">
+                        <button type="button" style="width:170px;" class="tb-button tb-button-default tb-upload-shareOnTwitter">
+                            <span class="yt-uix-button-content">
+                                Share on Twitter
+                            </span>
+                        </button>
+                    </div>
+                    <div style="vertical-align:top; padding:12px 0 8px; display:inline-block;">
+                        Share this video on Twitter to drive more views
+                    </div>
+                    <div style="clear:both"></div>
+                    <div style="width:170px; padding:8px; display:inline-block;">
+                        <button style="width:170px; display:inline-block; text-align:center;" class="tb-button tb-button-primary tb-upload-launch-pad-best-practices">
+                            <span class="yt-uix-button-content">
+                                Best Practice Audit
+                            </span>
+                        </button>
+                    </div>
+                    <div style="vertical-align:top; padding:12px 0 8px; display:inline-block;">
+                        Verify your video was set up following YouTube's Best Practices
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="tb-upload-container" style="border: solid 1px #ccc; padding: 5px">
+        <div style="background-color: #f0f0f0;margin-left: -6px;margin-right: -6px;margin-top: -8px;padding: 4px;border-bottom: solid 1px #ddd;position:relative;border: solid 1px #ccc;margin-bottom: 5px;" data-draggable="true">
+            <div style="float: right; text-align: right; position: relative; top: -3px; left: -3px;">
+                <a style="vertical-align: middle;text-decoration: none; position:relative; top:2px;" target="_blank" href="https://www.tubebuddy.com/tools?tool=defaultuploadprofiles" data-draggable="false">
+                    <img src="{PLUGIN_FILE_ROOT}/images/icons/question.png" title="help" style="height: 18px; vertical-align: middle;">
+                </a>
+            </div>
+            <img src="{PLUGIN_FILE_ROOT}/images/branding/icon_large.png" style="height: 16px; vertical-align: middle; margin-right: 2px;">
+            <span style="vertical-align: middle; font-size: 13px;">Apply Defaults</span>
+        </div>
+
+        <div class="tb-uploads-has-upload-default-profiles">
+            <select class="tb-upload-default-select yt-uix-tooltip" style="width: 100%; margin-top: 4px;"></select>
+            <div style="text-align: right; margin-top: 5px; margin-right: 2px; margin-bottom: 2px;">
+                <a style="" class="tb-button tb-button-primary tb-upload-default-apply-button"><span class="yt-uix-button-content">Apply</span></a>
+            </div>
+        </div>
+        <div class="tb-uploads-no-upload-default-profiles" style="color: #999; margin-top: 5px; font-size: 11px;">
+            You haven't added any <a href="https://www.youtube.com/upload_defaults" target="_blank">Upload Default Profiles</a> yet.
+        </div>
+    </div>
+
+    <style>
+        .tb-launchpad-container li {
+            margin-left: 20px;
+            margin-bottom: 4px !important;
+        }
+    </style>
+
+    <div style="background-color:white;  border: solid 1px #ccc; padding: 8px 10px; border-radius: 3px; margin-top:15px; display:none;" class="tb-launchpad-container">
+
+        <!-- Header -->
+        <div style="background-color: #f0f0f0; margin-left: -10px; margin-right: -10px; margin-top: -8px; padding: 4px; border-bottom: solid 1px #ddd; position:relative;" data-draggable="true">
+            <div style="float: right; text-align: right; position: relative; top: -3px; left: -3px;opacity: .5;">
+
+                <a class="tb-upload-upload-checklist-print tb-margin-right3" style="vertical-align: middle;text-decoration: none; position:relative; top:2px; display:none;" target="_blank" data-draggable="false">
+                    <img src="{PLUGIN_FILE_ROOT}/images/icons/menu/print.png" title="Print Checklist" style="height: 15px; vertical-align: middle;" />
+                </a>
+
+                <a class="tb-upload-upload-checklist-settings tb-margin-right3" style="vertical-align: middle;text-decoration: none; position:relative; top:2px;" target="_blank" data-draggable="false">
+                    <img src="{PLUGIN_FILE_ROOT}/images/icons/settings.png" title="Upload Checklist Settings" style="height: 15px; vertical-align: middle;" />
+                </a>
+
+                <a style="vertical-align: middle;text-decoration: none; position:relative; top:2px;" target="_blank" href="https://www.tubebuddy.com/tools?tool=uploadchecklist" data-draggable="false">
+                    <img src="{PLUGIN_FILE_ROOT}/images/icons/question.png" title="help" style="height: 18px; vertical-align: middle;" />
+                </a>
+
+            </div>
+            <img src="{PLUGIN_FILE_ROOT}/images/branding/icon_large.png" style="height: 16px; vertical-align: middle; margin-right: 2px;" />
+            <span style="vertical-align: middle; font-size: 13px;">Upload Checklist</span>
+            <span class="tb-upload-remaining" style="display:none;padding-left:10px;color:coral;font-size: 11px;font-weight: 500;position: relative;top: 3px;float: right;margin-right: 10px;text-transform: uppercase;"><b class="tb-upload-remaining-count" style="font-weight:bold;">0</b> Remaining	</span>
+            <span class="tb-upload-remaining-none" style="display:none;padding-left:10px;color:green;font-size: 11px;font-weight: 500;position: relative;top: 1px;float: right;margin-right: 10px;text-transform: uppercase;">✓ Complete!	</span>
+        </div>
+
+        <div style="padding:2px 0px 0; line-height:19px;">
+            <div class="tb-upload-no-upload-checklist" style="display:none;">
+                <div style="color:#666; padding:8px 5px 5px 5px;">
+                    Create a fully customizable Upload Checklist with
+                    tasks to complete during the upload and publish process.
+                </div>
+                <div style="color:#666; padding:8px 5px 5px 5px;">
+                    Use TubeBuddy's default items or import a list
+                    from your favorite YouTube expert below...
+                </div>
+                <div style="margin: 8px 0 10px 0px">
+
+                    <div style="clear:both"></div>
+
+                    <div style="margin-top:5px; padding:5px" class="tb-upload-checklist-option-container">
+
+                        <a href="https://www.tubebuddy.com/YouTubeExperts/TubeBuddy" target="_blank" style="position:relative; top:5px; line-height:13px; text-align:center; float:right; font-size:11px; text-decoration:underline; text-align:right; text-transform:uppercase;">
+                            <img src="{PLUGIN_FILE_ROOT}/images/icons/search.png" style="height:10px;display:none; position:relative; top:2px; left:-1px; text-transform:uppercase;" />Preview
+                        </a>
+
+                        <input data-checklist="tubebuddy" type="radio" checked="checked" name="tb-checklist-template-option" style="float:left; position:relative; top:7px;" />
+                        <img class="tb-upload-checklist-template-option" src="{PLUGIN_FILE_ROOT}/images/modules/checklist/tubebuddy.jpg" style="float:left; margin-right:3px; margin-left:5px; height:35px;" />
+                        <div class="tb-upload-checklist-template-option" style="float:left">
+                            <div style="font-weight:500; font-size:1.1em;">
+                                TubeBuddy <span style="font-size:.8em">(default)</span>
+                            </div>
+                        </div>
+
+                        <div style="clear:both"></div>
+                    </div>
+
+
+
+                    <div style="margin-top:5px; padding:5px" class="tb-upload-checklist-option-container">
+
+                        <a href="https://www.tubebuddy.com/YouTubeExperts/DerralEves" target="_blank" style="position:relative; top:5px; line-height:13px; text-align:center; float:right; font-size:11px; text-decoration:underline; text-align:right; text-transform:uppercase;">
+                            <img src="{PLUGIN_FILE_ROOT}/images/icons/search.png" style="height:10px;display:none; position:relative; top:2px; left:-1px; text-transform:uppercase;" />Preview
+                        </a>
+
+                        <input data-checklist="derral" type="radio" name="tb-checklist-template-option" style="float:left; position:relative; top:7px;" />
+                        <img class="tb-upload-checklist-template-option" src="{PLUGIN_FILE_ROOT}/images/modules/checklist/derral.jpg" style="float:left; margin-right:3px; margin-left:5px; height:35px;" />
+                        <div class="tb-upload-checklist-template-option" style="float:left">
+                            <div style="font-weight:500; font-size:1.1em;">
+                                Derral Eves
+                            </div>
+                            <a href="https://www.youtube.com/user/derraleves" target="_blank" style="font-size:11px; position:relative; top:-2px; left:3px;">view channel</a>
+                        </div>
+                        <div style="clear:both"></div>
+                    </div>
+
+
+                    <div style="margin-top:5px; padding:5px" class="tb-upload-checklist-option-container">
+
+                        <a href="https://www.tubebuddy.com/YouTubeExperts/RobertoBlake" target="_blank" style="position:relative; top:5px; line-height:13px; text-align:center; float:right; font-size:11px; text-decoration:underline; text-align:right; text-transform:uppercase;">
+                            <img src="{PLUGIN_FILE_ROOT}/images/icons/search.png" style="height:10px;display:none; position:relative; top:2px; left:-1px; text-transform:uppercase;" />Preview
+                        </a>
+
+                        <input data-checklist="roberto" type="radio" name="tb-checklist-template-option" style="float:left; position:relative; top:7px;" />
+                        <img class="tb-upload-checklist-template-option" src="{PLUGIN_FILE_ROOT}/images/modules/checklist/roberto.jpg" style="float:left; margin-right:3px; margin-left:5px; height:35px;" />
+                        <div class="tb-upload-checklist-template-option" style="float:left">
+                            <div style="font-weight:500; font-size:1.1em;">
+                                Roberto Blake
+                            </div>
+                            <a href="https://www.youtube.com/user/robertoblake2" target="_blank" style="font-size:11px; position:relative; top:-2px; left:3px;">view channel</a>
+                        </div>
+                        <div style="clear:both"></div>
+                    </div>
+
+                    <div style="margin-top:5px; padding:5px" class="tb-upload-checklist-option-container">
+
+                        <a href="https://www.tubebuddy.com/YouTubeExperts/AmySchmittauer" target="_blank" style="position:relative; top:5px; line-height:13px; text-align:center; float:right; font-size:11px; text-decoration:underline; text-align:right; text-transform:uppercase;">
+                            <img src="{PLUGIN_FILE_ROOT}/images/icons/search.png" style="height:10px;display:none; position:relative; top:2px; left:-1px; text-transform:uppercase;" />Preview
+                        </a>
+
+                        <input data-checklist="amy" type="radio" name="tb-checklist-template-option" style="float:left; position:relative; top:7px;" />
+                        <img class="tb-upload-checklist-template-option" src="{PLUGIN_FILE_ROOT}/images/modules/checklist/amy.jpg" style="float:left; margin-right:3px; margin-left:5px; height:35px;" />
+                        <div class="tb-upload-checklist-template-option" style="float:left">
+                            <div style="font-weight:500; font-size:1.1em;">
+                                Amy Schmittauer
+                            </div>
+                            <a href="https://www.youtube.com/user/savvysexysocial" target="_blank" style="font-size:11px; position:relative; top:-2px; left:3px;">view channel</a>
+                        </div>
+                        <div style="clear:both"></div>
+                    </div>
+
+                    <div style="margin-top:5px; padding:5px" class="tb-upload-checklist-option-container">
+
+                        <a href="https://www.tubebuddy.com/YouTubeExperts/OwenHemsath" target="_blank" style="position:relative; top:5px; line-height:13px; text-align:center; float:right; font-size:11px; text-decoration:underline; text-align:right; text-transform:uppercase;">
+                            <img src="{PLUGIN_FILE_ROOT}/images/icons/search.png" style="height:10px;display:none; position:relative; top:2px; left:-1px; text-transform:uppercase;" />Preview
+                        </a>
+
+                        <input data-checklist="owen" type="radio" name="tb-checklist-template-option" style="float:left; position:relative; top:7px;" />
+                        <img class="tb-upload-checklist-template-option" src="{PLUGIN_FILE_ROOT}/images/modules/checklist/owen.jpg" style="float:left; margin-right:3px; margin-left:5px; height:35px;" />
+                        <div class="tb-upload-checklist-template-option" data-checklist-select="owen" style="float:left">
+                            <div style="font-weight:500; font-size:1.1em;">
+                                Owen Hemsath
+                            </div>
+                            <a href="https://www.youtube.com/user/simplebusinessvideo" target="_blank" style="font-size:11px; position:relative; top:-2px; left:3px;">view channel</a>
+                        </div>
+                        <div style="clear:both"></div>
+                    </div>
+
+                    <div style="margin-top:5px; padding:5px" class="tb-upload-checklist-option-container">
+
+                        <a href="https://www.tubebuddy.com/YouTubeExperts/MattBallek" target="_blank" style="position:relative; top:5px; line-height:13px; text-align:center; float:right; font-size:11px; text-decoration:underline; text-align:right; text-transform:uppercase;">
+                            <img src="{PLUGIN_FILE_ROOT}/images/icons/search.png" style="height:10px;display:none; position:relative; top:2px; left:-1px; text-transform:uppercase;" />Preview
+                        </a>
+
+                        <input data-checklist="matt" type="radio" name="tb-checklist-template-option" style="float:left; position:relative; top:7px;" />
+                        <img class="tb-upload-checklist-template-option" src="{PLUGIN_FILE_ROOT}/images/modules/checklist/matt.jpg" style="float:left; margin-right:3px; margin-left:5px; height:35px;" />
+                        <div class="tb-upload-checklist-template-option" data-checklist-select="matt" style="float:left">
+                            <div style="font-weight:500; font-size:1.1em;">
+                                Matt Ballek
+                            </div>
+                            <a href="https://www.youtube.com/user/vidiseo" target="_blank" style="font-size:11px; position:relative; top:-2px; left:3px;">view channel</a>
+                        </div>
+                        <div style="clear:both"></div>
+                    </div>
+
+                    <div style="margin-top:5px; padding:5px" class="tb-upload-checklist-option-container">
+
+                        <a href="https://www.tubebuddy.com/YouTubeExperts/BrianGJohnson" target="_blank" style="position:relative; top:5px; line-height:13px; text-align:center; float:right; font-size:11px; text-decoration:underline; text-align:right; text-transform:uppercase;">
+                            <img src="{PLUGIN_FILE_ROOT}/images/icons/search.png" style="height:10px;display:none; position:relative; top:2px; left:-1px; text-transform:uppercase;" />Preview
+                        </a>
+
+                        <input data-checklist="brian" type="radio" name="tb-checklist-template-option" style="float:left; position:relative; top:7px;" />
+                        <img class="tb-upload-checklist-template-option" src="{PLUGIN_FILE_ROOT}/images/modules/checklist/brian.png" style="float:left; margin-right:3px; margin-left:5px; height:35px;" />
+                        <div class="tb-upload-checklist-template-option" style="float:left">
+                            <div style="font-weight:500; font-size:1.1em;">
+                                Brian G. Johnson
+                            </div>
+                            <a href="https://www.youtube.com/channel/UCZbvKhLl-I7UomMugaO24fw" target="_blank" style="font-size:11px; position:relative; top:-2px; left:3px;">view channel</a>
+                        </div>
+                        <div style="clear:both"></div>
+                    </div>
+
+                    <div style="margin-top:20px;border-top:dashed 1px #aaa;text-align:center; padding-left:10px;padding-top:15px; margin-bottom:-5px;font-size: 14px; ">
+                        <a data-id="{0}" class="tb-button tb-button-default tb-upload-checklist-set-default">
+                            Generate Checklist
+                        </a>
+
+                        <div class="tb-upload-generating-chcecklist" style="display:none;">
+                            <img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" style="position:relative; top:3px;" />
+                            Processing...
+                            <div style="font-size:11px; margin-top:5px;">
+                                (can take up to 15 seconds)
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div style="margin: 8px 0 10px 7px; display:none;">
+                    <a data-id="{0}" target="_blank" class="tb-upload-setup-uploadchecklist" style="font-weight:500; font-size:1.2em; text-decoration:underline;">
+                        Setup your Checklist Template
+                    </a>
+                </div>
+
+                <div style="margin-top:20px;border-top:dashed 1px #aaa;text-align:right;padding-right:10px;padding-top:10px;font-size: 14px; display:none;">
+                    <a href="https://www.youtube.com/watch?v=iFLnYHreEGU" target="_blank">
+                        <img src="{PLUGIN_FILE_ROOT}/images/icons/menu/playcircle.png" style="position: relative;top: 3px;opacity: .7;">
+                        Watch How-To Video...<br>
+                    </a>
+                </div>
+
+
+            </div>
+            <div class="tb-upload-generate-upload-checklist" style="display:none;">
+                <div style="color:#666; padding:8px 5px 5px 5px;">
+                    After you have finished configuring your Checklist Template on the TubeBuddy.com website, click the button below
+                    and we'll generate a checklist for you.
+                </div>
+                <div style="margin: 8px 0 10px 7px">
+                    <a data-id="{0}" target="_blank" class="tb-button tb-button-default tb-upload-setup-generate-uploadchecklist">
+                        Generate Checklist
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="tb-upload-has-upload-checklist" style="display:none;">
+
+                <div class="tb-upload-checklist-todo-list">
+
+                </div>
+
+            </div>
+            <div class="tb-upload-checklist-loading" style="display:none; opacity:.8; padding:15px 5px 5px; font-size:12px;">
+                <img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" style="position:relative; top:1px; height:12px;" />
+                <span class="tb-generating-checklist">
+                    Waiting for Video Id to be created...
+                </span>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <img class="tb-upload-search-icon" src="{PLUGIN_FILE_ROOT}/images/icons/search.png" style="height: 12px; opacity: .5; margin-right: 3px; position: relative; top: 2px;" />
+
+    <div class="tb-upload-title-length-container" style="float: right;margin-right: 35px; color:#666; font-size:11px; line-height: 20px;position: relative;top: -1px;">
+        <span style="font-size:11px;" class="tb-upload-title-length">0</span>/100
+        <img class="tb-height11" src="{PLUGIN_FILE_ROOT}/images/branding/tb-icon-transparent.svg" style="height:10px; position:relative; top:1px; margin-left:2px;" />
+    </div>
+
+    <div class="tb-upload-description-length-container" style="float: right;margin-right: 35px; color:#666; font-size:11px; line-height: 20px;position: relative;top: -4px;">
+        <span style="font-size:11px;" class="tb-upload-description-length">0</span>/5000
+    </div>
+
+    <div class="tb-upload-tags-length-container" style="float: right;margin-right: 35px; color:#666; font-size:11px;">
+        <span style="font-size:11px;" class="tb-upload-tags-length">0</span>/500
+    </div>
+
+    <div style="text-align: left;clear:both;  padding-bottom:10px; margin-right: 30px; border:solid 1px #ccc; margin-top: 5px; clear:both; margin-bottom:180px;" class="tb-upload-copy-tags-container basic-info-form-input">
+
+        <div style="background-color: #f0f0f0; text-align:left; margin-left: -1px;margin-right: -1px;margin-top: -1px;padding: 4px;border-bottom: solid 1px #ddd;position:relative;border: solid 1px #ccc;margin-bottom: 10px;" data-draggable="true">
+            <div style="float: right; text-align: right; position: relative; top: -3px; left: -3px;">
+
+                <a style="vertical-align: middle;text-decoration: none; display:none;" target="_blank" href="https://www.tubebuddy.com/tools?tool=uploadchecklist" data-draggable="false">
+                    <img src="{PLUGIN_FILE_ROOT}/images/icons/question.png" title="help" style="height: 18px; vertical-align: middle;">
+                </a>
+
+                <span style="vertical-align: middle;text-decoration: none; display:none;" class="tb-best-time-to-publish-closex tb-cursor-pointer" data-draggable="false">
+                    <img src="{PLUGIN_FILE_ROOT}/images/icons/close4.png" title="close" style="margin-left:4px;vertical-align: middle;">
+                </span>
+
+            </div>
+            <img src="{PLUGIN_FILE_ROOT}/images/branding/icon_large.png" style="height: 16px; vertical-align: middle; margin-right: 2px;">
+            <span style="vertical-align: middle; font-size: 13px;">Tag Tools</span>
+        </div>
+        <div class="tb-margin-left10 tb-margin-top5">
+            <button type="button" class="tb-button tb-button-default tb-upload-tag-clear-all-button">
+                <span class="yt-uix-button-content">
+                    Clear
+                </span>
+            </button>
+
+            <button type="button" class="tb-button tb-button-default tb-upload-tag-sorter-button tb-width50">
+                <span class="yt-uix-button-content">
+                    Sort
+                </span>
+            </button>
+
+            <button type="button" class="tb-button tb-button-default tb-upload-tag-explorer-button">
+                <span class="yt-uix-button-content">
+                    Explore
+                </span>
+            </button>
+            <button type="button" class="tb-button tb-button-default tb-upload-tag-translator-button tb-width70">
+                <span class="yt-uix-button-content">
+                    Translate
+                </span>
+            </button>
+            <button type="button" class="tb-button tb-button-default tb-upload-tag-suggestions-button tb-width80">
+                <span class="yt-uix-button-content">
+                    Suggested
+                </span>
+            </button>
+        </div>
+        <div class="tb-margin-left10 tb-margin-top5">
+            <button type="button" class="tb-button tb-button-default tb-upload-tag-import-button">
+                <span class="yt-uix-button-content">
+                    Import from List
+                </span>
+            </button>
+        </div>
+        <div class="tb-upload-suggested-tags-plugin">
+        </div>
+    </div>
+
+    <img class="tb-upload-debug-code" src="{PLUGIN_FILE_ROOT}/images/icons/bug.png" style="opacity: .2; cursor: pointer; float: right; position: relative; top: 20px; left: -10px;">
+
+</div>
+
+
+<div style="display:none" type="text/template" id="tb-upload-translate-template">
+    <span class="tb-upload-video-translate-container tb-move-up5">
+        <button type="button" disabled="disabled" title="Translate title and description" style="" class="tb-button tb-button-default tb-upload-video-translate tb-width90 tb-margin-top10">
+            <img src="{PLUGIN_FILE_ROOT}/images/branding/tb-icon-transparent.svg" class="tb-height11" />
+            <span>
+                Translate
+            </span>
+        </button>
+        <img class="tb-upload-video-translate-loading tb-move-down8" src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" style="display:none" />
+    </span>
+</div>
+
+<div style="display:none" type="text/template" id="tb-seo-studio-apply-optimization-template">
+    <button class="tb-seo-studio-apply-optimization tb-btn tb-btn-grey tb-btn-sm tb-margin-top10 tb-width100-percent">
+        <img src="{PLUGIN_FILE_ROOT}/images/branding/tb-icon-transparent.svg" class="tb-height11" alt="TubeBuddy Logo" />
+        <span class="tb-margin-left2">Apply Optimization</span>
+    </button>
+</div>

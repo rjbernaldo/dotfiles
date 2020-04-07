@@ -1,0 +1,391 @@
+<style type="text/css">
+    .tb-annotations-annotations-item {
+        margin: 10px;
+        border: solid 2px #bbb;
+        display: inline-block;
+        padding: 8px;
+        cursor: pointer;
+        text-align: left;
+        width: 280px;
+        font-size: 12px;
+        line-height: 20px;
+        background-color: #f4f4f4;
+        height: 110px;
+        float: left;
+    }
+
+        .tb-annotations-annotations-item:hover {
+            border-color: green !important;
+        }
+
+    .tb-annotations-annotations-item-selected {
+        border-color: green !important;
+        background-color: lightgoldenrodyellow;
+    }
+
+    .tb-annotations-destination-row:hover {
+        background-color: #ffffbb;
+    }
+
+    .tb-annotations-destination-row {
+        border: solid 1px #ccc;
+        border-radius: 5px;
+        margin: 3px;
+    }
+
+    .tb-annotations-destination-row-selected {
+        background-color: #f1f1f1;
+    }
+</style>
+<div style="position:fixed; background-color:white; top:75px; left:50%; margin-left:-350px;  z-index:2100000003; border: solid 1px #ccc; padding: 8px 12px; border-radius: 3px; width: 700px; display:none;" id="tb-annotations-container" class="yt-dialog-fg draggable-container">
+
+    <div style="background-color: #f0f0f0; margin-left: -12px; margin-right: -12px; margin-top: -8px; padding: 10px; border-bottom: solid 1px #ddd; position:relative;cursor:move;" data-draggable="true">
+
+        <div style="float: right; text-align: right; position: relative; top: -3px; left: -3px;">
+
+
+
+            <a style="vertical-align: middle;text-decoration: none;" target="_blank" href="https://www.tubebuddy.com/tools?tool=bulkcopyannotations" data-draggable="false">
+                <img src="{PLUGIN_FILE_ROOT}/images/icons/question.png" title="help" style="height: 18px; vertical-align: middle;" />
+            </a>
+
+            <span style="vertical-align: middle;text-decoration: none;" class="tb-annotations-closex tb-cursor-pointer" data-draggable="false">
+                <img src="{PLUGIN_FILE_ROOT}/images/icons/close4.png" title="close" style="margin-left:4px;vertical-align: middle;" />
+            </span>
+
+
+        </div>
+        <div style="position:absolute; top:-32px; left:5px; background-color:transparent;">
+            <img id="tb-annotations-thumbnail" style="height: 20px; position: relative; top: 2px; margin-right:2px;" />
+            <a href="" target="_blank" style="position:relative; top:-3px;" id="tb-annotations-title"></a>
+        </div>
+
+        <img src="{PLUGIN_FILE_ROOT}/images/branding/icon_large.png" style="height: 24px; vertical-align: middle; margin-right: 2px;" />
+        <span style="vertical-align: middle; font-size: 20px;" id="tb-annotations-title-block">Bulk Copy Annotations</span>
+    </div>
+
+
+    <div style="padding:15px 10px 10px 10px;">
+
+        <div id="tb-delete-annotations-options" style="height:250px; display:none;">
+
+            <div style="margin-left: 5px; font-size: 16px; margin-top: 0px; line-height: 26px; padding:25px 15px;">
+                <b>What Annotations do you want to delete in bulk from your videos?</b>
+                <div style="padding:10px">
+                    <input id="tb-annotations-delete-all-option" type="radio" name="tbAnnotationsbulkDeleteType" checked="checked" /> Delete <b>All</b> Annotations <br />
+                    <input id="tb-annotations-delete-link-option" type="radio" name="tbAnnotationsbulkDeleteType" /> Only Delete Annotations that contain a link to URL: <input type="text" style="width:200px" id="tb-delete-annotations-url" /> <br />
+                    <input id="tb-annotations-delete-text-option" type="radio" name="tbAnnotationsbulkDeleteType" /> Only Delete Annotations whose Text contains: <input type="text" style="width:200px" id="tb-delete-annotations-text" />
+
+                    <div id="tb-annotations-delete-partial-matches-container" style="margin-left:25px; padding-top:4px; display:none;">
+                        <input id="tb-annotations-delete-partial-matches" type="checkbox" checked="checked" /> Include partial matches on URL
+                        <div style="padding-top:5px; padding-left:5px; color:green; font-size:12px; line-height:16px;">
+                            <span style="font-weight:500"> TIP:</span> If you want to delete Video Annotations or Playlist Annotations in bulk, select the "Include partial matches on URL" checkbox and then enter the Video Id or Playlist Id in the text field above.
+                        </div>
+                    </div>
+
+                     <div id="tb-annotations-delete-partial-matches-container-text" style="margin-left:25px; padding-top:4px; display:none;">
+                        <input id="tb-annotations-delete-partial-matches-text" type="checkbox" checked="checked" /> Include partial matches on Text                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div id="tb-annotations-source" style="display: none;">
+
+            <div style="margin-left: 5px; font-size: 16px; margin-top: 0px; line-height: 20px;">
+
+                <div id="tb-annotations-fetching" style="margin: 15px 5px;">
+                    <img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif " /> &nbsp;Loading Video Annotations
+                </div>
+
+                <div id="tb-annotations-none" style="color: red; margin-top: 40px; display: none; margin-left: 10px;">
+                    <img src="{PLUGIN_FILE_ROOT}/images/icons/error.png " /> <b>Uh oh!</b><br /> This video doesn't contain any Annotations.
+                    <div style="margin-top: 15px;">
+                        Try choosing a different video.
+                    </div>
+                    <br /><br />
+                </div>
+                <div id="tb-annotations-has" style="display: none;">
+
+                    <div style="color: green; font-weight: bold; border-bottom: dashed 1px #ccc; padding-bottom: 5px; margin-bottom: 5px;">
+                        <div style="float: right; font-size: 14px; margin-right: 20px; text-align:right;">
+                            <span> Selected:</span> (<span id="tb-annotations-selected-count">0</span>)
+                            <br />
+                            <span style="font-size:13px; font-weight:normal; padding-right:15px;">
+                                <a id="tb-annotations-select-all-annotations">All</a> | <a id="tb-annotations-select-none-annotations">None</a>
+                            </span>
+                        </div>
+                        Click on the Annotations that you want to Copy
+                        <div style="font-size: 12px;">
+                            You can update the default <i>Text</i> and <i>Links</i> values within the Annotation boxes below
+                        </div>
+                    </div>
+                    <div id="tb-annotations-list" style="max-height: 270px; overflow-y: hidden; overflow: auto;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="tb-annotations-method" style="display: none;">
+
+            <div id="tb-annotations-step-2-title" style="font-size:15px; font-weight:bold; margin:10px 0 20px 0 ;">Which videos do you want to copy the selected Annotation(s) to?</div>
+            <div style="margin-top: 10px;">
+                <input checked="checked" name="tb-annotations-method" data-method="3" id="tb-annotations-method-full" type="radio" /> I want to see a full list of <b>all</b> my videos.<br />
+                <div style="font-size: 12px; margin-left:30px; margin-top:5px;"><input id="tb-annotations-onlyLoadFirstPage" type="checkbox" /><span style="position:relative;top:-2px">Only load my most recent <input id="tb-annotations-onlyLoadFirstPage-number" class="tb-width30" type="text" value="50" /> videos (faster)</span></div>
+            </div>
+            <div style="margin-top: 15px;">
+                <input name="tb-annotations-method" data-method="0" id="tb-annotations-method-ids" type="radio" /> A list of Video IDs that I specify<br />
+                <input id="tb-annotations-input-ids" type="text" style="margin-left: 25px; margin-top: 5px; width: 300px;" />
+                <span style="font-size:11px; font-weight:bold;" id="tb-annotations-input-ids-status"></span>
+                <br />
+                <div style="font-size: 12px; color: #666; margin-left:30px; margin-top:5px;">Example: "gXDMoiEkyuQ, Cpc-t-Uwv1I, 8fE29CHJMCg"</div>
+            </div>
+            <div style="margin-top: 15px;">
+                <input name="tb-annotations-method" data-method="1" id="tb-annotations-method-playlist" type="radio" /> All videos within one of my playlists<br />
+                <input disabled="disabled" id="tb-annotations-input-playlist" type="text" style="margin-left: 25px; margin-top: 5px; width: 300px;" />
+                <span style="font-size: 11px; font-weight: bold;" id="tb-annotations-input-playlist-status"></span>
+                <br />
+                <div style="font-size: 12px; color: #666; margin-left: 30px; margin-top: 5px;">Enter a playlist id (or link to your playlist). Example: "PL5lo6g_GZWyxduCkV8tWsG_XUIphznb0b"</div>
+            </div>
+            <div style="margin-top: 15px; margin-bottom:15px;">
+                <input name="tb-annotations-method" data-method="2" id="tb-annotations-method-search" type="radio" /> Show a list of videos that match my Search Phrase below<br />
+                <input disabled="disabled" id="tb-annotations-input-search" type="text" style="margin-left: 25px; margin-top: 5px; width: 300px;" />
+                <br />
+                <div style="font-size: 12px; color: #666; margin-left:30px; margin-top:5px;">Example "Avengers"</div>
+            </div>
+
+            <div style="display:block" id="tb-annotations-additional-options-containers">
+                <div style="font-weight: bold; font-size: 15px; border-bottom: dashed 1px #ccc; padding-bottom: 5px; margin-bottom: 5px; margin-top:20px;">
+                    Additional Options
+                </div>
+                <div class="tb-annotations-annotations-item-destination-header" style="padding-bottom: 5px; margin-bottom: 5px; margin-top: 15px; color:Red;">
+                    &nbsp;<input type="checkbox" id="tb-annotations-delete-existing" /> Delete all existing annotations from destination videos before copying
+                </div>
+            </div>
+        </div>
+        <div id="tb-annotations-destination" style="display: none">
+            <div style="color: green; font-weight: bold; font-size: 15px; border-bottom: dashed 1px #ccc; padding-bottom: 5px; margin-bottom: 5px;">
+                <div style="float: right; font-size: 14px; margin-right: 20px;">
+                    <span> Selected:</span> (<span id="tb-annotations-destination-selected-count">0</span>)
+                </div>
+                <span id="tb-annotations-what-videos2">
+                    What Video(s) do you want to copy the Annotations to?
+                </span>
+            </div>
+            <div class="tb-annotations-annotations-item-destination-header" style="border-bottom: solid 1px #ccc; padding-bottom: 5px; margin-bottom: 5px; margin-top: 15px;">
+
+                <span id="tb-annotations-expandcollapse-containers" style="float: right; margin-right: 20px;">
+                    Expand <a style="" id="tb-annotations-expand-all">all</a> | <a style="" id="tb-annotations-collapse-all">none</a>
+                </span>
+                Select <a style="" id="tb-annotations-select-all-checkboxes">all</a> | <a style="" id="tb-annotations-select-no-checkboxes">none</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Filter:
+                <select style="font-size:12px; padding:0px 2px;" class="tb-annotations-filter">
+                    <option value="all">Show All Videos</option>
+                    <option value="public">Only Public Videos</option>
+                    <option value="unlisted">Only Unlisted Videos</option>
+                    <option value="private">Only Private Videos</option>
+                    <option value="publicunlisted">Public and Unlisted Videos</option>
+                    <option value="privateunlisted">Private and Unlisted Videos</option>
+                </select>
+            </div>
+            <div style="margin-top: 0px; height: 290px; overflow-y: scroll; overflow: auto; border-bottom: solid 1px #eee;">
+                <div id="tb-annotations-loading-videos" style="margin-top: 40px; margin-left: 15px;">
+                    <img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif " /> <b style="position:relative; top:-2px;">LOADING...</b><br /><br />
+                    <span style="font-size: 12px; font-weight: bold;" id="tb-annotations-loading-count-container">
+                        <span id="tb-annotations-loading-count">0</span> of
+                        <span id="tb-annotations-loading-count-total">?</span> total Videos.
+                    </span>
+                    <div style="margin-top: 15px; display:none;" id="tb-annotations-rendering">
+                        Rendering videos on screen (this can take a few seconds)...
+                    </div>
+                </div>
+                <div id="tb-annotations-destination-list" style="display: none;">
+
+                </div>
+            </div>
+
+        </div>
+        <div id="tb-annotations-confirm" style="display: none">
+
+            <div style="margin: 40px 20px;" id="tb-annotations-confirm-container">
+                <b id="tb-annotations-confirm-statement">
+                    Please confirm that you want to copy <span style="font-size: 1.2em" id="tb-annotations-copy-count"></span> Annotation<span id="tb-annotations-copy-count-s">s</span>
+                    to <span style="font-size: 1.2em" id="tb-annotations-copy-destination-count"></span> Video<span id="tb-annotations-copy-destination-count-s">s</span>.
+                </b><br />
+                <div id="tb-annotations-delete-existing-warning" style="margin: 10px; color: red; width: 470px; font-size:12px; line-height:17px;">
+                    WARNING: You have chosen to automatically delete all existing annotations from the destination videos before copying new annotations to them.
+
+                </div>
+                <br />
+                <div style="color: green;">
+                    &nbsp; <input style="position: relative; top: 1px;" type="checkbox" id="tb-annotations-confirm-checkbox" /> Yes, continue with bulk <span id="tb-annoations-confirm-text">copying</span>.
+                </div>
+                <br /><br />
+            </div>
+
+        </div>
+        <div id="tb-annotations-status" style="display: none">
+
+            <div style="font-size: 18px; font-weight: bold; background-color:#f1f1f1; padding:5px 8px; margin-bottom:15px;">
+
+                <div style="margin-left:20px; font-weight:normal; float:right; margin-right:15px;">
+                    <div id="tb-annotations-done" style="color: green; display: none;">
+                        <img src="{PLUGIN_FILE_ROOT}/images/icons/check.png" />
+                        Processing complete!
+                    </div>
+                    <div id="tb-annotations-stopped" style="color:red; display:none;">
+                        <img src="{PLUGIN_FILE_ROOT}/images/icons/error.png" style="position:relative; top:4px;" />
+                        Processing Stopped!
+                    </div>
+                </div>
+
+                <span id="tb-annotations-working">
+                    <img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" />
+
+                    <span style="display:none">
+                        <img id="tb-annotations-current-image" src="" style="height: 20px; position: relative; top: 5px;" />
+                        <a id="tb-annotations-current-video" target="_blank"></a>
+                    </span>
+                </span>
+
+                Status:
+                <span id="tb-annotations-status-count" style="font-weight:normal; font-size:14px; margin-left:5px; position:relative; top:-1px;"></span>
+                <br />
+
+
+                <div id="tb-annotations-progress-container" style="font-size:11px; font-weight:bold;  color:green;"></div>
+
+            </div>
+
+
+            <div id="tb-annotations-progress-v2-container">
+                <div style="float: right; width: 330px;">
+
+                    <div style="color:#333; font-weight:bold; border-bottom:solid 1px #ccc; color:green;">
+                        Videos Completed Successfully
+
+                        &nbsp;&nbsp; (<span style="" id="tb-annotations-completed-list2-count">0</span>)
+                    </div>
+                    <div id="tb-annotations-completed-list2" style="height:275px; overflow-y:auto; display:none;"></div>
+                    <div id="tb-annotations-completed-none-list2" style="height:120px; overflow:auto; margin-left:15px; padding-top:20px;">
+                        (none)
+                    </div>
+                </div>
+
+                <div style="width:330px;">
+                    <div style="color:#333; font-weight:bold; border-bottom:solid 1px #ccc;">Next 3 Videos to be Processed</div>
+                    <div id="tb-annotations-queue-complete-list2" style="display:none; padding:15px 25px; height:80px;">
+                        (no more)
+                    </div>
+                    <div id="tb-annotations-queue-list2" style="height:80px;">
+
+                    </div>
+
+                </div>
+                <div style="margin-top:15px; width:330px;">
+
+                    <div style="color:red; font-weight:bold; border-bottom:solid 1px #ccc;">
+                        <div style="float:left">
+                            Videos Completed with Errors
+
+                            &nbsp;&nbsp; (<span style="" id="tb-annotations-error-list2-count">0</span>)
+                        </div>
+                        <div id="tb-annotations-error-copy-container" class="tb-cursor-pointer" style="display:none;float:left;margin-left:5px;color: #666"><img title="Copy video ids" id="tb-annotations-error-copy" data-clipboard-text="" src="{PLUGIN_FILE_ROOT}/images/icons/copy.png" /><span class="tb-font-size10 tb-move-up4">Copy video ids</span></div>
+                        <div style="clear:left"></div>
+                    </div>
+                    <div id="tb-annotations-error-list2" style="height:120px; overflow:auto;">
+
+                    </div>
+                    <div id="tb-annotations-error-none-list2" style="height:120px; overflow:auto; margin-left:15px; color:coral; padding-top:20px;">
+                        (none)
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div style="text-align: right; margin: 10px 0 0px; padding: 4px 7px 3px; border-top: solid 1px #ccc;">
+
+        <a class="tb-button tb-button-destructive" id="tb-annotations-cancel" style="display: none;float: left;margin-right:10px">
+            Cancel
+        </a>
+        <a class="tb-button tb-button-default" id="tb-annotations-back-bulk" style="display: none;float: left;margin-right:10px ">
+            Back
+        </a>
+        <a class="tb-button tb-button-destructive" id="tb-annotations-close" style="float: left;margin-right:10px">
+            Cancel
+        </a>
+        <a class="tb-button tb-button-default" id="tb-annotations-back" style="display: none; float: left;">
+            Back
+        </a>
+
+        <a class="tb-button tb-button-default yt-uix-button-payment yt-uix-tooltip" id="tb-annotations-continue" disabled="disabled" style="display: none">
+            Continue
+        </a>
+        <a class="tb-button tb-button-default yt-uix-button-payment" id="tb-annotations-kickoff" style="display: none">
+            Start Copying!
+        </a>
+        <a class="tb-button tb-button-destructive" id="tb-annotations-stop" style="display: none;">
+            Stop Copying
+        </a>
+        <br />
+
+    </div>
+</div>
+
+<div style="display: none">
+    <div class="tb-annotations-destination-row" style="padding: 9px 5px;" data-privacy="#PRIVACY#">
+        <a class="tb-annotations-annotations-item-customize" style="float: right; font-size: 10px; #CUSTOMDISPLAY#" data-video-id="#VIDEOID#">Customize &#9660;</a>
+        <div style="width: 400px; max-width: 450px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+            <input class="tb-annotations-checkbox-include" data-video-id="#VIDEOID#" style="position: relative; top: -3px;" type="checkbox" />
+            <img src="#VIDEOTHUMBNAIL#" style="height: 22px; margin-right: 1px; position: relative; top: 1px;" />
+            <a style="position: relative; top: -5px;" target="_blank" href="https://www.youtube.com/watch?v=#VIDEOID#" title="https://www.youtube.com/watch?v=#VIDEOID#">#VIDEOTITLE#</a>
+        </div>
+        <div data-video-id="#VIDEOID#" class="tb-annotations-annotations-item-options" style="display: none">#OPTIONS#</div>
+    </div>
+    <div class="tb-annotations-destination-option-row" style="margin-top: 10px; padding-top: 5px; border-top: dashed 1px #aaa; margin-left: 25px;">
+        <img src="#TYPETHUMBNAIL#" style="position: relative; top: 3px;" />
+        <span style="font-weight: bold">#TYPENAME#</span>
+        <div style="width:340px; float:right; text-align:right; margin-right:5px;">
+            <span style="font-size:11px; font-weight:bold; vertical-align: top; position:relative; top:5px;">Text:</span>
+            <textarea data-video-id="#VIDEOID#" data-annotation-id="#ANNOTATIONID#" style="width: 290px; padding:2px 4px;" rows="2">#OPTIONTEXT#</textarea>
+            <div style="margin-top:2px; #SHOWLINK#">
+                <span style="font-size: 11px; font-weight: bold">Link:</span>
+                <input class="tb-annotations-link-edit" data-video-id="#VIDEOID#" data-annotation-id="#ANNOTATIONLINKID#" type="text" style="width: 290px; padding:2px 4px;" value="#LINK#" />
+            </div>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+
+</div>
+<!--PAS Removed for new processing view
+   <div data-video-id="#VIDEOID#" class="tb-annotations-processing-template" style="display: none; margin-bottom: 5px; width: 295px; max-width: 295px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+    <img data-video-id="#VIDEOID#" src='#THUMBNAILURL#' style="height: 20px; position: relative; top: 5px;" />
+    <a data-video-id="#VIDEOID#" href="#HREF#" target="_blank">#VIDEOTITLE#</a>
+</div>
+<div data-video-id="#VIDEOID#" class="tb-annotations-processed-template" style="display:none; margin-bottom:5px; width: 295px; max-width: 295px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+    <img src="{PLUGIN_FILE_ROOT}/images/icons/check.png" class="tb-annotations-success-image" style="display:none" />
+    <img src="{PLUGIN_FILE_ROOT}/images/icons/error.png" class="tb-annotations-failure-image" style="display:none" title="Error - could be a duplicate video, Internet outtage, etc." />
+    <img data-video-id="#VIDEOID#" src='#THUMBNAILURL#' style="height: 20px; position: relative; top: 5px;" />
+    <a data-video-id="#VIDEOID#" href="#HREF#" target="_blank">#VIDEOTITLE#</a>
+</div>-->
+
+
+<div data-video-id="#VIDEOID#" class="tb-annotations-processing-template2" style="display: none; margin-bottom: 5px; width: 295px; max-width: 295px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-left:5px;">
+    <img data-video-id="#VIDEOID#" src='#THUMBNAILURL#' style="height: 20px; position: relative; top: 5px;" />
+    <a data-video-id="#VIDEOID#" href="#HREF#" target="_blank">#VIDEOTITLE#</a>
+</div>
+<div class="tb-annotations-processed-success" style="display:none; margin-bottom:3px; width: 295px; max-width: 295px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-left:5px; margin-top:6px;">
+    <b style="color:green;">&#x2713;</b>
+    <a href="#HREF#" target="_blank">#VIDEOTITLE#</a>
+</div>
+<div class="tb-annotations-processed-error" data-video-id="#VIDEOID#" style="display:none; margin-bottom:3px; width: 285px;margin-left:5px; margin-top:6px;border: solid 1px red;padding: 2px 5px 5px;">
+    <a href="#HREF#" target="_blank">#VIDEOTITLE#</a>
+    <div style="padding-left:2px; color:red; font-size:12px;"><b style="color:red;">&#x2717;</b> #ERROR#</div>
+</div>

@@ -1,0 +1,32 @@
+{
+   "background": {
+      "persistent": false,
+      "scripts": [ "public/js/events.js" ]
+   },
+   "browser_action": {
+      "default_icon": {
+         "19": "graphics/wakatime-logo-19.png",
+         "38": "graphics/wakatime-logo-38.png"
+      },
+      "default_popup": "popup.html",
+      "default_title": "WakaTime"
+   },
+   "description": "Automatic time tracking for Chrome.",
+   "devtools_page": "devtools.html",
+   "homepage_url": "https://wakatime.com",
+   "icons": {
+      "128": "graphics/wakatime-logo-128.png",
+      "16": "graphics/wakatime-logo-16.png",
+      "48": "graphics/wakatime-logo-48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwfIC2cJaS9ivopQ2TqT95HoSngvJ6+F765+yKZfd/TjokaJpm9EEb8lIZbtxFoQwdn8fo3y+LbdpeCZtwx6kmQ8uopdagt8nG/s0PCV+m0+ywn0PYU0thgbirAP5A14liZWgAIWfMA+WufxGEHYPhB5RTqQpmZ3dMyo4+910m+6wmVmaDYI5MIyKlaKUbZuGhFW9r81aCjT128n0s37v1gEX1E+wlDOoVtQOMMuFqJNR5XY2pW3cCeMx9D1yRgOHS8IjFC4Fpt5dZOkGSHbpn2zwtnwOccBz5zrM1cukA6TN28ypQuzHfF14PMmVdXXg7kFjvjJsWq2YAUhy17fQ9QIDAQAB",
+   "manifest_version": 2,
+   "name": "WakaTime",
+   "options_ui": {
+      "chrome_style": false,
+      "page": "options.html"
+   },
+   "permissions": [ "https://api.wakatime.com/*", "https://wakatime.com/*", "alarms", "tabs", "storage", "idle" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0.2"
+}

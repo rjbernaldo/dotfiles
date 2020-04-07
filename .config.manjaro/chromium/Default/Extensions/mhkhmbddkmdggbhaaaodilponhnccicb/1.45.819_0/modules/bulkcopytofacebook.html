@@ -1,0 +1,540 @@
+<div style="position:fixed; background-color:white; top:75px; left:50%; margin-left:-350px;  z-index:2000000003; border: solid 1px #ccc; padding: 8px 12px; border-radius: 3px; width: 900px; display:none;" id="tb-bulk-copy-to-facebook-container" class="yt-dialog-fg draggable-container">
+
+    <div style="background-color: #f0f0f0; margin-left: -12px; margin-right: -12px; margin-top: -8px; padding: 10px; border-bottom: solid 1px #ddd;">
+        <div style="float: right; text-align: right; position: relative; top: -3px; left: -3px;">
+
+            <a style="vertical-align: middle;text-decoration: none;" target="_blank" href="https://www.tubebuddy.com/tools?tool=bulkpublishtofacebook" data-draggable="false">
+                <img src="{PLUGIN_FILE_ROOT}/images/icons/question.png" title="help" style="height: 18px; vertical-align: middle;" />
+            </a>
+
+            <span style="vertical-align: middle;text-decoration: none;" class="tb-bulk-copy-to-facebook-closex tb-cursor-pointer" data-draggable="false">
+                <img src="{PLUGIN_FILE_ROOT}/images/icons/close4.png" title="close" style="margin-left:4px;vertical-align: middle;" />
+            </span>
+
+        </div>
+        <div style="position:absolute; top:-32px; left:5px; background-color:transparent;">
+            <img id="tb-bulk-copy-to-facebook-video-thumbnail" style="height: 20px; position: relative; top: 2px; margin-right:2px;" />
+            <a href="" target="_blank" style="position:relative; top:-3px;" id="tb-bulk-copy-to-facebook-video-link"></a>
+        </div>
+         
+        <img src="{PLUGIN_FILE_ROOT}/images/branding/icon_large.png" style="height: 24px; vertical-align: middle; margin-right: 2px;" />
+        <span style="vertical-align: middle; font-size: 20px;">Bulk Publish to Facebook</span><br />
+    </div>
+    <div class="tb-bulk-copy-to-facebook-settings-container">
+        <div class="tb-bulk-copy-to-facebook-loading-video" style="margin-top: 125px; margin-bottom:125px; text-align: center; font-size: 16px; color: #000; line-height: 26px;">
+            <img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" style="position:relative; top:2px;" />
+            Loading...
+        </div>
+
+        <div class="tb-bulk-copy-to-facebook-container-upgrade" style="margin-top: 125px; margin-bottom:125px; text-align: center; font-size: 16px; color: #000; line-height: 26px;">
+            <div style="text-align:center;margin-top:2px; padding-top:5px; padding-bottom:5px; font-size:15px; line-height:15px;"> Sorry, you cannot use Bulk Publish to Facebook unless you <a style="cursor:pointer" class="tb-bulk-copy-to-facebook-upgrade-link">Upgrade your License.</a></div>
+        </div>
+
+        <div class="tb-bulk-copy-to-facebook-step1">
+
+            <div style="border:solid 1px coral;padding:6px 8px;margin: 10px 0px 10px 0;">
+                <div style="color:Red; font-size:13px; font-weight:500;">
+                    <img src="https://www.tubebuddy.com/images/icons/error.png" style="height:14px; position:relative; top:1px; padding-right:2px; padding-left:2px;">
+                    Important Message from TubeBuddy!
+                </div><div style="font-size:11px; color:#444;  padding-left:5px; line-height:16px;  margin-top:5px;">
+                          Because of changes in the YouTube API TOS the option to Bulk Publish to Facebook will be removed on Jan 15th, 2018.
+                </div>
+            </div>
+
+            <div class="tb-margin-bottom15 tb-padding-bottom5 tb-padding-top10 tb-font-size13 tb-bold tb-green" style="border-bottom: dashed 1px #ccc;">
+                <span id="tb-bulk-copy-to-facebook-what-videos2">
+                    Which Facebook account do you want to publish to?
+                </span>
+            </div>
+            <div class="tb-padding-left15 tb-padding-right15">
+                <div class="tb-bulk-copy-to-facebook-step1ready">
+                    <div style="width:50%; float:left; margin-left:20px">
+
+                        <div class="tb-bulk-copy-to-facebook-label">
+                            <span>Facebook Account </span>
+                        </div>
+                        <div style="margin-bottom:15px">
+                            <select class="tb-bulk-copy-to-facebook-accounts yt-uix-form-input-text">
+                                <option>Loading...</option>
+                            </select>
+                            &nbsp;
+                            <span style="vertical-align:bottom; position:relative; top:2px;">
+                                <img src="{PLUGIN_FILE_ROOT}/images/icons/social/facebook.png" style="position:relative; top:2px;" />
+                                <a target="_blank" class="tb-bulk-copy-to-facebook-accounts-manage" href="#" style="font-size:11px;">manage</a>
+                            </span>
+                        </div>
+
+                        <div id="tb-bulk-copy-to-facebook-thumbnailContainer">
+                            <div class="tb-bulk-copy-to-facebook-label">
+                                <span>Thumbnail</span>
+                            </div>
+                            <div style="margin-top:3px;">
+                                <span><input style="position:relative; top: 0px;" id="tb-bulk-copy-to-facebook-useYouTubeThumbnail" type="checkbox" checked="checked" /><span style="margin-left:2px">Use YouTube Thumbnail</span></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div style="width:40%;float:left">
+                        <div class="tb-bulk-copy-to-facebook-label">
+                            <span>Publish Frequency</span>
+                        </div>
+                        <div style="margin-bottom:15px">
+
+                            <input type="radio" value="now" class="tb-bulk-copy-to-facebook-video-settings-publish-option tb-bulk-copy-to-facebook-video-settings-publish-option-now" checked="checked" name="scheduledPublishOption" />  All at once right now<br />
+                            <input type="radio" value="nowdraft" class="tb-bulk-copy-to-facebook-video-settings-publish-option tb-bulk-copy-to-facebook-video-settings-publish-option-nowdraft" name="scheduledPublishOption" />  All at once right now as a Draft (not public)<br />
+                            <input type="radio" value="allon" class="tb-bulk-copy-to-facebook-video-settings-publish-option tb-bulk-copy-to-facebook-video-settings-publish-option-all-on" checked="checked" name="scheduledPublishOption" />
+                            All at once on
+                            <div class="tb-bulk-copy-to-facebook-video-settings-publish-all-on-options" style="margin-left:25px">
+                                <input readonly style="width:100px;" id="tb-bulk-copy-to-facebook-video-settings-publish-all-on-date" class="yt-uix-form-input-text tb-bulk-copy-to-facebook-video-settings-publish-date" name="date" />
+                                <select class="yt-uix-form-input-text tb-bulk-copy-to-facebook-video-settings-publish-options" id="tb-bulk-copy-to-facebook-video-settings-publish-all-on-time" style="width:125px;">
+                                    <option value="00:00">12:00 AM</option>
+                                    <option value="00:30">12:30 AM</option>
+                                    <option value="01:00">1:00 AM</option>
+                                    <option value="01:30">1:30 AM</option>
+                                    <option value="02:00">2:00 AM</option>
+                                    <option value="02:30">2:30 AM</option>
+                                    <option value="03:00">3:00 AM</option>
+                                    <option value="03:30">3:30 AM</option>
+                                    <option value="04:00">4:00 AM</option>
+                                    <option value="04:30">4:30 AM</option>
+                                    <option value="05:00">5:00 AM</option>
+                                    <option value="05:30">5:30 AM</option>
+                                    <option value="06:00">6:00 AM</option>
+                                    <option value="06:30">6:30 AM</option>
+                                    <option value="07:00">7:00 AM</option>
+                                    <option value="07:30">7:30 AM</option>
+                                    <option value="08:00">8:00 AM</option>
+                                    <option value="08:30">8:30 AM</option>
+                                    <option value="09:00">9:00 AM</option>
+                                    <option value="09:30">9:30 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="10:30">10:30 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="11:30">11:30 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="12:30">12:30 PM</option>
+                                    <option value="13:00">1:00 PM</option>
+                                    <option value="13:30">1:30 PM</option>
+                                    <option value="14:00">2:00 PM</option>
+                                    <option value="14:30">2:30 PM</option>
+                                    <option value="15:00" selected="">3:00 PM</option>
+                                    <option value="15:30">3:30 PM</option>
+                                    <option value="16:00">4:00 PM</option>
+                                    <option value="16:30">4:30 PM</option>
+                                    <option value="17:00">5:00 PM</option>
+                                    <option value="17:30">5:30 PM</option>
+                                    <option value="18:00">6:00 PM</option>
+                                    <option value="18:30">6:30 PM</option>
+                                    <option value="19:00">7:00 PM</option>
+                                    <option value="19:30">7:30 PM</option>
+                                    <option value="20:00">8:00 PM</option>
+                                    <option value="20:30">8:30 PM</option>
+                                    <option value="21:00">9:00 PM</option>
+                                    <option value="21:30">9:30 PM</option>
+                                    <option value="22:00">10:00 PM</option>
+                                    <option value="22:30">10:30 PM</option>
+                                    <option value="23:00">11:00 PM</option>
+                                    <option value="23:30">11:30 PM</option>
+                                </select>
+                                <br />
+                                <select style="width:250px; word-wrap:normal" class="yt-uix-form-input-text tb-bulk-copy-to-facebook-video-settings-publish-all-on-timezones"></select>
+                            </div>
+                            <br />
+                            <input type="radio" value="interval" class="tb-bulk-copy-to-facebook-video-settings-publish-option tb-bulk-copy-to-facebook-video-settings-publish-option-interval" name="scheduledPublishOption" /> <span style="height: 35px;">At an interval</span>
+                            <div class="tb-bulk-copy-to-facebook-video-settings-publish-interval-options" style="margin-left:25px">
+                                1 video every
+                                <select style="width:60px;" id="tb-bulk-copy-to-facebook-video-settings-publish-interval-number" class="yt-uix-form-input-text"></select>
+                                <select style="width:90px;" id="tb-bulk-copy-to-facebook-video-settings-publish-interval-rate" class="yt-uix-form-input-text">
+                                    <option value="hour">Hours</option>
+                                    <option value="day" selected="">Days</option>
+                                    <option value="week">Weeks</option>
+                                </select>
+                                <br />
+                                <span style="line-height:150%">Starting on</span>
+                                <br />
+                                <input id="tb-bulk-copy-to-facebook-video-settings-publish-date-interval" readonly style="width:100px;" class="yt-uix-form-input-text tb-bulk-copy-to-facebook-video-settings-publish-date " name="date" />
+                                <select class="yt-uix-form-input-text tb-bulk-copy-to-facebook-video-settings-publish-options" id="tb-bulk-copy-to-facebook-video-settings-publish-interval-time" style="width:125px;">
+                                    <option value="00:00">12:00 AM</option>
+                                    <option value="00:30">12:30 AM</option>
+                                    <option value="01:00">1:00 AM</option>
+                                    <option value="01:30">1:30 AM</option>
+                                    <option value="02:00">2:00 AM</option>
+                                    <option value="02:30">2:30 AM</option>
+                                    <option value="03:00">3:00 AM</option>
+                                    <option value="03:30">3:30 AM</option>
+                                    <option value="04:00">4:00 AM</option>
+                                    <option value="04:30">4:30 AM</option>
+                                    <option value="05:00">5:00 AM</option>
+                                    <option value="05:30">5:30 AM</option>
+                                    <option value="06:00">6:00 AM</option>
+                                    <option value="06:30">6:30 AM</option>
+                                    <option value="07:00">7:00 AM</option>
+                                    <option value="07:30">7:30 AM</option>
+                                    <option value="08:00">8:00 AM</option>
+                                    <option value="08:30">8:30 AM</option>
+                                    <option value="09:00">9:00 AM</option>
+                                    <option value="09:30">9:30 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="10:30">10:30 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="11:30">11:30 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="12:30">12:30 PM</option>
+                                    <option value="13:00">1:00 PM</option>
+                                    <option value="13:30">1:30 PM</option>
+                                    <option value="14:00">2:00 PM</option>
+                                    <option value="14:30">2:30 PM</option>
+                                    <option value="15:00" selected="">3:00 PM</option>
+                                    <option value="15:30">3:30 PM</option>
+                                    <option value="16:00">4:00 PM</option>
+                                    <option value="16:30">4:30 PM</option>
+                                    <option value="17:00">5:00 PM</option>
+                                    <option value="17:30">5:30 PM</option>
+                                    <option value="18:00">6:00 PM</option>
+                                    <option value="18:30">6:30 PM</option>
+                                    <option value="19:00">7:00 PM</option>
+                                    <option value="19:30">7:30 PM</option>
+                                    <option value="20:00">8:00 PM</option>
+                                    <option value="20:30">8:30 PM</option>
+                                    <option value="21:00">9:00 PM</option>
+                                    <option value="21:30">9:30 PM</option>
+                                    <option value="22:00">10:00 PM</option>
+                                    <option value="22:30">10:30 PM</option>
+                                    <option value="23:00">11:00 PM</option>
+                                    <option value="23:30">11:30 PM</option>
+                                </select>
+                                <br />
+                                <select style="width:250px; word-wrap:normal" class="yt-uix-form-input-text tb-bulk-copy-to-facebook-video-settings-publish-interval-timezones"></select>
+                            </div>
+                        </div>
+                        <div class="tb-bulk-copy-to-facebook-label">
+                            <span>Timeline</span>
+                        </div>
+                        <div style="">
+                            <input id="tb-bulk-copy-to-facebook-addToTimeline" type="checkbox" checked="checked" /><span style="margin-left:5px">Add to Timeline</span>
+                        </div>
+
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+
+                <div class="tb-bulk-copy-to-facebook-none" style="color: red; margin-top: 50px; text-align:center; font-size:16px;">
+                    <img src="{PLUGIN_FILE_ROOT}/images/icons/error.png" style="position:relative; top:2px;" />
+                    Sorry, you don't have any Facebook accounts linked to TubeBuddy.
+                    <br />
+                    <br /><br />
+                    <a target="_blank" href="https://www.tubebuddy.com/account?tab=facebook" style="height: 24px; margin-right: 10px;padding-top:4px" class="tb-button tb-button-payment tb-add-facebook-accounts">
+                        <span>Add Facebook Account(s)</span>
+                    </a>
+
+                    <div class="tb-bulk-copy-to-facebook-refresh" style="display:none; color:#444;">
+                        After you've linked a Facebook account, click Refresh<br />
+                        <a style="height: 24px; margin-right: 10px; margin-top:15px;padding-top:4px" class="tb-button tb-button-primary">
+                            <span><img src="{PLUGIN_FILE_ROOT}/images/icons/refresh-white.png" style="height:12px; margin-right:4px;" /> Refresh</span>
+                        </a>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
+        <div class="tb-bulk-copy-to-facebook-step2">
+            <div class="tb-margin-bottom15 tb-padding-bottom5 tb-padding-top10 tb-font-size13 tb-bold tb-green" style="border-bottom: dashed 1px #ccc;">
+                <span>
+                    Which videos do you want to publish to Facebook?
+                </span>
+            </div>
+            <div class="tb-padding-left15 tb-padding-right15">
+                <div style="margin-top: 10px;">
+                    <input checked="checked" name="tb-bulk-copy-to-facebook-method" data-method="3" id="tb-bulk-copy-to-facebook-method-full" type="radio" /> I want to see a full list of <b>all</b> my videos.<br />
+                    <div style="font-size: 12px; margin-left:30px; margin-top:5px;"><input id="tb-bulk-copy-to-facebook-onlyLoadFirstPage" type="checkbox" /><span style="position:relative;top:-2px">Only load my most recent <input id="tb-bulk-copy-to-facebook-onlyLoadFirstPage-number" class="tb-width30" type="text" value="50" /> videos (faster)</span></div>
+
+                </div>
+                <div style="margin-top: 15px;">
+                    <input name="tb-bulk-copy-to-facebook-method" data-method="0" id="tb-bulk-copy-to-facebook-method-ids" type="radio" /> A list of Video IDs that I specify<br />
+                    <input id="tb-bulk-copy-to-facebook-input-ids" type="text" style="margin-left: 25px; margin-top: 5px; width: 300px;" />
+                    <span style="font-size:11px; font-weight:bold;" id="tb-bulk-copy-to-facebook-input-ids-status"></span>
+                    <br />
+                    <div style="font-size: 12px; color: #666; margin-left:30px; margin-top:5px;">Example: "gXDMoiEkyuQ, Cpc-t-Uwv1I, 8fE29CHJMCg"</div>
+                </div>
+                <div style="margin-top: 15px;">
+                    <input name="tb-bulk-copy-to-facebook-method" data-method="1" id="tb-bulk-copy-to-facebook-method-playlist" type="radio" /> All videos within one of my playlists<br />
+                    <input disabled="disabled" id="tb-bulk-copy-to-facebook-input-playlist" type="text" style="margin-left: 25px; margin-top: 5px; width: 300px;" />
+                    <span style="font-size: 11px; font-weight: bold;" id="tb-bulk-copy-to-facebook-input-playlist-status"></span>
+                    <br />
+                    <div style="font-size: 12px; color: #666; margin-left: 30px; margin-top: 5px;">Enter a playlist id (or link to your playlist). Example: "PL5lo6g_GZWyxduCkV8tWsG_XUIphznb0b"</div>
+                </div>
+                <div style="margin-top: 15px; margin-bottom:15px;">
+                    <input name="tb-bulk-copy-to-facebook-method" data-method="2" id="tb-bulk-copy-to-facebook-method-search" type="radio" /> Show a list of videos that match my Search Phrase below<br />
+                    <input disabled="disabled" id="tb-bulk-copy-to-facebook-input-search" type="text" style="margin-left: 25px; margin-top: 5px; width: 300px;" />
+                    <br />
+                    <div style="font-size: 12px; color: #666; margin-left:30px; margin-top:5px;">Example "Avengers"</div>
+                </div>
+            </div>
+        </div>
+        <div class="tb-bulk-copy-to-facebook-step3" style="display: none">
+            <div class="tb-margin-bottom15 tb-padding-bottom5 tb-padding-top10 tb-font-size13 tb-bold tb-green" style="border-bottom: dashed 1px #ccc;">
+                <div style="float: right; font-size: 14px; margin-right: 20px;">
+                    <span> Selected:</span> (<span id="tb-bulk-copy-to-facebook-destination-selected-count">0</span>)
+                </div>
+                <span id="tb-bulk-copy-to-facebook-what-videos2">
+                    Which videos do you want to publish to Facebook?
+                </span>
+            </div>
+            <div class="tb-padding-left15 tb-padding-right15">
+                <div class="tb-bulk-copy-to-facebook-annotations-item-destination-header" style="border-bottom: solid 1px #ccc; padding-bottom: 5px; margin-bottom: 5px; margin-top: 15px;">
+
+                    <div style="float:left">
+                        Select <a style="" id="tb-bulk-copy-to-facebook-select-all-checkboxes">all</a> | <a style="" id="tb-bulk-copy-to-facebook-select-no-checkboxes">none</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Filter:
+                        <select style="font-size:12px; padding:0px 2px;" class="tb-bulk-copy-to-facebook-filter">
+                            <option value="public">Only Public Videos</option>
+                            <option value="unlisted">Only Unlisted Videos</option>
+                            <option value="publicunlisted">Public and Unlisted Videos</option>
+                        </select>
+
+                        <span class="tb-margin-left10 tb-bulk-copy-to-facebook-publishorder-container">
+                            Publish Order:
+                            <select style="font-size:12px; padding:0px 2px;" class="tb-bulk-copy-to-facebook-publishorder">
+                                <option value="oldest">Oldest videos first</option>
+                                <option value="newest">Newest videos first</option>
+                                <option value="random">Random</option>
+                            </select>
+                        </span>
+                    </div>
+                    <div style="float:right;margin-right:20px;color: #666">
+                        Facebook Publish Date
+                    </div>
+                    <div style="clear:both;">
+
+                    </div>
+                </div>
+                <div style="margin-top: 0px; height: 290px; overflow-y: scroll; overflow: auto;">
+                    <div id="tb-bulk-copy-to-facebook-loading-videos" style="margin-top: 40px; margin-left: 15px;">
+                        <img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif " /> <b style="position:relative; top:-2px;">LOADING...</b><br /><br />
+                        <span style="font-size: 12px; font-weight: bold;" id="tb-bulk-copy-to-facebook-loading-count-container">
+                            <span id="tb-bulk-copy-to-facebook-loading-count">0</span> of
+                            <span id="tb-bulk-copy-to-facebook-loading-count-total">?</span> total Videos.
+                        </span>
+                        <div style="margin-top: 15px; display:none;" id="tb-bulk-copy-to-facebook-rendering">
+                            Rendering videos on screen (this can take a few seconds)...
+                        </div>
+                    </div>
+                    <div id="tb-bulk-copy-to-facebook-destination-list" style="display: none;">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tb-bulk-copy-to-facebook-step4">
+            <div style="margin: 80px 40px;" id="tb-bulk-copy-to-facebook-confirm-container">
+                <b id="tb-bulk-copy-to-facebook-confirm-statement">
+                    Please confirm that you want to publish <span style="font-size: 1.2em" id="tb-bulk-copy-to-facebook-copy-count"></span> video<span id="tb-bulk-copy-to-facebook-copy-count-s">s</span>
+                    to Facebook.
+                </b><br />
+                <br />
+                <div style="color: green;">
+                    &nbsp; <input style="position: relative; top: 1px;" type="checkbox" id="tb-bulk-copy-to-facebook-confirm-checkbox" /> Yes, continue with bulk <span id="tb-annoations-confirm-text">publishing</span>.
+                </div>
+                <br /><br />
+            </div>
+        </div>
+        <div class="tb-bulk-copy-to-facebook-step5" style="display: none">
+
+            <div style="font-size: 18px; font-weight: bold; background-color:#f1f1f1; padding:5px 8px; margin-bottom:15px; margin-top:5px;">
+
+                <div style="margin-left:20px; font-weight:normal; float:right; margin-right:15px;">
+                    <div id="tb-bulk-copy-to-facebook-done" style="color: green; display: none;">
+                        <img src="{PLUGIN_FILE_ROOT}/images/icons/check.png" />
+                        Processing complete!
+                    </div>
+                    <div id="tb-bulk-copy-to-facebook-stopped" style="color:red; display:none;">
+                        <img src="{PLUGIN_FILE_ROOT}/images/icons/error.png" style="position:relative; top:4px;" />
+                        Processing Stopped!
+                    </div>
+                </div>
+
+                <span id="tb-bulk-copy-to-facebook-working">
+                    <img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" />
+
+                    <span style="display:none">
+                        <img id="tb-bulk-copy-to-facebook-current-image" src="" style="height: 20px; position: relative; top: 5px;" />
+                        <a id="tb-bulk-copy-to-facebook-current-video" target="_blank"></a>
+                    </span>
+                </span>
+
+                Status:
+                <span id="tb-bulk-copy-to-facebook-status-count" style="font-weight:normal; font-size:14px; margin-left:5px; position:relative; top:-1px;"></span>
+                <br />
+
+
+                <div id="tb-bulk-copy-to-facebook-progress-container" style="font-size:11px; font-weight:bold;  color:green;"></div>
+
+            </div>
+
+            <div class="tb-bulk-copy-to-facebook-autherror" style="color: red; margin-top: 15px; text-align:center; font-size:16px;">
+                <img src="{PLUGIN_FILE_ROOT}/images/icons/error.png" style="position:relative; top:2px;" />
+                Sorry, there was a problem publishing your video to Facebook.  This can occur if you've changed your Facebook password.
+                <br />
+                To fix this problem trying re-linking the selected Facebook account
+                <a target="_blank" href="https://www.tubebuddy.com/account?tab=facebook" style="">
+                    here
+                </a>. <br />After you've re-linked your Facebook account please try publishing again. <br />
+            </div>
+
+            <div id="tb-bulk-copy-to-facebook-progress-v2-container">
+                <div style="float: right; width: 330px;">
+
+                    <div style="color:#333; font-weight:bold; border-bottom:solid 1px #ccc; color:green;">
+                        Videos Completed Successfully
+
+                        &nbsp;&nbsp; (<span style="" id="tb-bulk-copy-to-facebook-completed-list2-count">0</span>)
+                    </div>
+                    <div id="tb-bulk-copy-to-facebook-completed-list2" style="height:275px; overflow-y:auto; display:none;"></div>
+                    <div id="tb-bulk-copy-to-facebook-completed-none-list2" style="height:120px; overflow:auto; margin-left:15px; padding-top:20px;">
+                        (none)
+                    </div>
+                </div>
+
+                <div style="width:330px;">
+                    <div style="color:#333; font-weight:bold; border-bottom:solid 1px #ccc;">Next 3 Videos to be Processed</div>
+                    <div id="tb-bulk-copy-to-facebook-queue-complete-list2" style="display:none; padding:15px 25px; height:80px;">
+                        (no more)
+                    </div>
+                    <div id="tb-bulk-copy-to-facebook-queue-list2" style="height:80px;">
+
+                    </div>
+
+                </div>
+                <div style="margin-top:15px; width:330px;">
+
+                    <div style="color:red; font-weight:bold; border-bottom:solid 1px #ccc;">
+                        <div style="float:left">
+                            Videos Completed with Errors
+
+                            &nbsp;&nbsp; (<span style="" id="tb-bulk-copy-to-facebook-error-list2-count">0</span>)
+                        </div>
+                        <div id="tb-bulk-copy-to-facebook-error-copy-container" class="tb-cursor-pointer" style="display:none;float:left;margin-left:5px;color: #666"><img title="Copy video ids" id="tb-bulk-copy-to-facebook-error-copy" data-clipboard-text="" src="{PLUGIN_FILE_ROOT}/images/icons/copy.png" /><span class="tb-font-size10 tb-move-up4">Copy video ids</span></div>
+                        <div style="clear:left"></div>
+                    </div>
+                    <div id="tb-bulk-copy-to-facebook-error-list2" style="height:120px; overflow:auto;">
+
+                    </div>
+                    <div id="tb-bulk-copy-to-facebook-error-none-list2" style="height:120px; overflow:auto; margin-left:15px; color:coral; padding-top:20px;">
+                        (none)
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+
+        </div>
+    </div>
+    <div class="tb-bulk-copy-to-facebook-off">
+        <div style="border:solid 1px coral;padding:6px 8px;margin: 30px 10px 60px 10px;">
+            <div style="color:Red; font-size:13px; font-weight:500;">
+                <img src="https://www.tubebuddy.com/images/icons/error.png" style="height:14px; position:relative; top:1px; padding-right:2px; padding-left:2px;">
+                Important Message from TubeBuddy!
+            </div><div style="font-size:11px; color:#444;  padding-left:5px; line-height:16px;  margin-top:5px;">
+                Due to an update to YouTube's API Terms of Service, we can no longer
+                offer Bulk Publish to Facebook.  <br />You can still use TubeBuddy's Publish Facebook for individual videos though. 
+            </div>
+        </div>
+    </div>
+    <div style="margin-top: 15px; border-top: 1px solid #E2E2E2;">
+        <div style="margin-top: 10px; float:left">
+
+            <a style="height: 24px; margin-right: 10px; margin-left: 10px;padding-top:4px" class="tb-button tb-button-destructive tb-bulk-copy-to-facebook-cancel tb-bulk-copy-to-facebook-button">
+                Cancel
+            </a>
+            <a class="tb-button tb-button-destructive tb-bulk-copy-to-facebook-button tb-bulk-copy-to-facebook-close" style="display: none;">
+                Close
+            </a>
+            <a class="tb-button tb-button-default tb-bulk-copy-to-facebook-back tb-bulk-copy-to-facebook-button" style="display: none;">
+                Back
+            </a>
+            <a style="height: 24px; margin-right: 10px; margin-left: 10px;" class="tb-button tb-button-destructive tb-bulk-copy-to-facebook-stop tb-bulk-copy-to-facebook-button">
+                Stop
+            </a>
+        </div>
+        <div style="margin-top: 10px; float:right">
+
+            <a style="height: 24px; margin-right: 10px; margin-left: 2px;padding-top:4px" class="tb-button tb-button-payment tb-bulk-copy-to-facebook-next tb-bulk-copy-to-facebook-button">
+                Next
+            </a>
+
+            <a style="height: 24px; margin-right: 10px; margin-left: 2px;padding-top:4px" class="tb-button tb-button-payment tb-bulk-copy-to-facebook-copy tb-bulk-copy-to-facebook-button">
+                Publish to Facebook
+            </a>
+
+        </div>
+    </div>
+
+    <style>
+        .tb-bulk-copy-to-facebook-label {
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .tb-bulk-copy-to-facebook-destination-row {
+            border: solid 1px #ccc;
+            border-radius: 5px;
+            margin: 3px;
+        }
+
+        .tb-bulk-copy-to-facebook-destination-row-selected {
+            background-color: #f1f1f1;
+        }
+
+        .tb-bulk-copy-to-facebook-destination-row-publishDate {
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</div>
+
+
+<div style="display:none" type="text/template" id="tb-bulk-copy-to-facebook-destination-template">
+
+    <div data-privacy="{4}" data-video-id="{0}" class="tb-bulk-copy-to-facebook-destination-video-template tb-bulk-copy-to-facebook-destination-row" style="padding: 9px 5px;margin-bottom: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display:{5} ">
+        <div style="float:left">
+            <input data-video-id="{0}" data-publishedat="{6}" type="checkbox" class="tb-bulk-copy-to-facebook-checkbox-include" style="position:relative;top:-1px" />
+            <img data-video-id="{0}" src='{1}' class="tb-height20 tb-move-down2" />
+            <a data-video-id="{0}" href="{2}" target="_blank" class="tb-move-up3">{3}</a>
+        </div>
+        <div style="float:right">
+            <span class="tb-bulk-copy-to-facebook-destination-row-publishDate tb-move-down3"></span>
+        </div>
+        <div style="clear:both"></div>
+    </div>
+
+</div>
+
+<div style="display:none" type="text/template" id="tb-bulk-copy-to-facebook-processed-success">
+
+    <div class="tb-bulk-copy-to-facebook-processed-success" style="margin-bottom:3px; width: 295px; max-width: 295px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-left:5px; margin-top:6px;">
+        <b style="color:green;">&#x2713;</b>
+        <a href="{0}" target="_blank">{1}</a>
+    </div>
+
+</div>
+
+<div style="display:none" type="text/template" id="tb-bulk-copy-to-facebook-processed-error">
+
+    <div class="tb-bulk-copy-to-facebook-processed-error" data-video-id="{0}" style="margin-bottom:3px; width: 285px;margin-left:5px; margin-top:6px;border: solid 1px red;padding: 2px 5px 5px;">
+        <a href="{2}" target="_blank">{1}</a>
+        <div style="padding-left:2px; color:red; font-size:12px;"><b style="color:red;">&#x2717;</b> {3}</div>
+    </div>
+
+</div>
+
+<div style="display:none" type="text/template" id="tb-bulk-copy-to-facebook-processing-template">
+
+    <div data-video-id="{0}" class="tb-bulk-copy-to-facebook-processing-template" style="margin-bottom: 5px; width: 295px; max-width: 295px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-left:5px;">
+        <img data-video-id="{0}" src='{1}' style="height: 20px; position: relative; top: 5px;" />
+        <a data-video-id="{0}" href="{2}" target="_blank">{3}</a>
+    </div>
+
+</div>
+

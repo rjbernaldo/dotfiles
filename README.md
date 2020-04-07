@@ -35,7 +35,7 @@ Desktop
 - https://github.com/the0neyouseek/MonitorControl
 - https://github.com/ianyh/Amethyst
 - brew cask install ferdi
-- nextcloud
+- nextcloud (IGNORE NODE_MODULES & .DS_Store)
 
 Link config files
 - ./setup.sh

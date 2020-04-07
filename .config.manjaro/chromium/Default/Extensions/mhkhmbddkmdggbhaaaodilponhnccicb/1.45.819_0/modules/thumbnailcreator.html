@@ -1,0 +1,930 @@
+<!--Start Base Module Template-->
+<div style="display:none; width:1100px" class="tb-module-template draggable-container" id="tb-thumbnail-creator-container">
+
+    <!--Start Base Module Shadow-->
+    <div class="tb-module-shadow">
+
+        <!--Start BASE Module Header-->
+        <div data-draggable="true" class="tb-module-header">
+            <img data-draggable="false" alt="tb-logo" src="{PLUGIN_FILE_ROOT}/images/branding/tb-icon.svg" class="tb-module-logo">
+            <h1 class="tb-module-title">
+                Thumbnail Generator
+            </h1>
+            <div class="tb-module-help">
+                <a data-draggable="false" href="https://www.tubebuddy.com/tools?tool=thumbnailgenerator" style="vertical-align: middle;text-decoration: none;">
+                    <i class="small material-icons tb-icon-white tb-icon-help">help_outline</i>
+                </a>
+            </div>
+            <div data-draggable="false" class="tb-thumbnail-creator-close">
+                <i data-draggable="false" class="medium material-icons tb-icon-white">close</i>
+            </div>
+        </div>
+        <!--End Base Module Header-->
+
+        <div class="tb-module-container">
+            <div class="tb-module-embed-video">
+                <div class="tb-embed-video-thumbnail-container">
+                    <img class="tb-embed-video-thumbnail" id="tb-thumbnail-thumbnail">
+                </div>
+                <div class="tb-embed-video-link-container">
+                    <a class="tb-embed-video-link" id="tb-thumbnail-title"></a>
+                    <div class="tb-font-size-xs tb-font-color-gray"><em>(original thumbnail)</em></div>
+                </div>
+            </div>
+            <!--Start Base Module Container-->
+            <div style="max-width: 950px;" class="tb-module-content tb-padding-0">
+                <ul class="tb-thumbnail-creator-tabs-menu-container" id="tb-thumbnail-creator-step-tabs" role="tablist">
+                    <li class="tb-tab-header tb-thumbnail-creator-tab tb-thumbnail-creator-tabs-menu-item-container tb-thumbnail-creator-tabs-selected-menu-item tb-col-3" data-tab-id="1" role="tab">
+                        <div style="display:flex; align-items:center;" class="tb-tabs-menu-item-title">
+                            Step 1: Background
+                            <span class="tb-hid" id="tb-thumbnail-creator-step1-complete"><i class="material-icons tb-margin-left5 tb-font-color-green">check_circle</i></span>
+                        </div>
+                    </li>
+                    <li class="tb-tab-header tb-thumbnail-creator-tab disabled tb-thumbnail-creator-tabs-menu-item-container tb-col-3" data-tab-id="2" role="tab">
+                        <div style="display:flex; align-items:center;" class="tb-tabs-menu-item-title">
+                            Step 2: Layers
+                            <span class="tb-hid" id="tb-thumbnail-creator-step2-complete"><i class="material-icons tb-margin-left5 tb-font-color-green">check_circle</i></span>
+                        </div>
+                    </li>
+                    <li class="tb-tab-header tb-thumbnail-creator-tab disabled tb-thumbnail-creator-tabs-menu-item-container tb-col-3" data-tab-id="3" role="tab">
+                        <div style="display:flex; align-items:center;" class="tb-tabs-menu-item-title">
+                            Step 3: Preview
+                            <span class="tb-hid" id="tb-thumbnail-creator-step3-complete"><i class="material-icons tb-margin-left5 tb-font-color-green">check_circle</i></span>
+                        </div>
+                    </li>
+                </ul>
+                <div style="margin: 15px 15px;" class="tb-thumbnail-settings-container">
+
+                    <div id="tb-thumbnail-creator-step1" role="tabpanel" class="step1-tab tb-thumbnail-settings-tab">
+                        <div class="tb-thumbnail-creator-backgroundSelect-option-prompt tb-hid">
+                            <div class="tb-font-size18 tb-padding-bottom-30">
+                                What type of <b>Background</b> would you like for the Thumbnail?
+                            </div>
+                            <div style="display:flex;justify-content:center;">
+                                <div data-type="still" class="tb-thumbnail-creator-setting-backgroundOption tb-thumbnail-creator-setting-backgroundOption--disabled" id="tb-thumbnail-still-frame-background">
+                                    <span class="tb-spinner tb-thumbnail-creator-still-loading tb-margin-left-15"></span>
+                                    <div>
+                                        <img height="54" alt="video reel icon" src="{PLUGIN_FILE_ROOT}/images/icons/video_reel.png">
+                                    </div>
+                                    <div class="tb-padding-top5" id="tb-thumbnail-creator-still-option-label">Still frame from video</div>
+                                </div>
+
+                                <div data-type="color" class="tb-thumbnail-creator-setting-backgroundOption" id="tb-thumbnail-solid-color-background">
+                                    <div>
+                                        <img height="54" alt="colorpicker icon" src="{PLUGIN_FILE_ROOT}/images/icons/colorpicker.png">
+                                    </div>
+                                    <div class="tb-padding-top5">Solid color</div>
+                                </div>
+
+                                <div data-type="stock" class="tb-thumbnail-creator-setting-backgroundOption" id="tb-thumbnail-image-background">
+                                    <div>
+                                        <img height="54" alt="image icon" src="{PLUGIN_FILE_ROOT}/images/icons/image.png">
+                                    </div>
+                                    <div class="tb-padding-top5">Image or existing thumbnail</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display:flex; justify-content:space-between;" class="tb-thumbnail-creator-backgroundSelect-option-container tb-hid">
+                            <div style="width:640px; height:360px; overflow:hidden">
+                                <div style="width: 640px; height: 360px; border: #666666; border-width: 1px;" id="tb-thumbnail-creator-backgroundSelect-color-preview" class="tb-thumbnail-creator-backgroundSelect-color">
+                                </div>
+
+                                <div id="tb-thumbnail-creator-backgroundSelect-still">
+                                    <div class="tb-thumnail-creator-video-loading" style="width: 640px; height: 360px">
+                                        <span class="loading" style="margin-left: 320px">
+                                            <span class="loading">
+                                                <span class="yt-spinner">
+                                                    <span title="Loading icon" class="tb-spinner"></span>
+
+                                                    Loading Video...
+                                                </span>
+
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <div class="tb-hid" id="screenshotPlayer">
+                                    </div>
+                                </div>
+                                <div id="tb-thumbnail-temp-canvas-container"> <canvas style="display: none;" id="tb-thumbnail-temp-canvas"></canvas></div>
+
+                                <div id="tb-thumbnail-creator-backgroundSelect-stock-preview" class="">
+                                    <div>
+                                        <img src="{PLUGIN_FILE_ROOT}/images/backgrounds/bg5-med.png" style="width: 640px; height: 360px;" class="tb-thumbnail-creator-backgroundSelect-stock-preview-image-preview" id="tb-thumbnail-creator-backgroundSelect-stock-preview-image-preview-tag">
+                                        <div style="width: 640px; height: 360px;" class="tb-hid tb-thumbnail-creator-backgroundSelect-stock-preview-image-preview">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div style="width: 270px; height:358px; margin-left:10px; border: 1px solid #E0E0E0;">
+                                <ul id="tb-thumbnail-bg-tab-header" class="tb-thumbnail-creator-tabs-menu-container tb-thumbnail-creator-tab-header--white" role="tablist">
+                                    <li title="Still frame from video" class="tb-tab-header tb-thumbnail-creator-tabs-menu-item-container tb-thumbnail-creator-setting-bg-tab tb-cursor-pointer tb-col-3 tb-thumbnail-creator-setting-backgroundOption--disabled" data-type="still" data-tab="tb-tab-still" role="tab" id="tb-tab-header-still">
+                                        <img height="24" alt="video reel icon" src="{PLUGIN_FILE_ROOT}/images/icons/video_reel.png">
+                                    </li>
+                                    <li title="Solid color" class="tb-tab-header tb-thumbnail-creator-tabs-menu-item-container tb-thumbnail-creator-setting-bg-tab tb-cursor-pointer tb-col-3" data-type="color" data-tab="tb-tab-color" role="tab" id="tb-tab-header-color">
+                                        <img height="24" alt="colorpicker icon" src="{PLUGIN_FILE_ROOT}/images/icons/colorpicker.png">
+                                    </li>
+                                    <li title="Image or existing thumbnail" class="tb-tab-header tb-thumbnail-creator-tabs-menu-item-container tb-thumbnail-creator-setting-bg-tab tb-cursor-pointer tb-col-3" data-type="stock" data-tab="tb-tab-stock" role="tab" id="tb-tab-header-stock">
+                                        <img height="24" alt="image icon" src="{PLUGIN_FILE_ROOT}/images/icons/image.png">
+                                    </li>
+                                </ul>
+                                <div>
+                                    <div style="margin:15px 10px;" class="tb-thumbnail-creator-bg-tabs-content" role="tabpanel" id="tb-tab-still">
+                                        <div>
+                                            <div style="font-size: 15px; color: #555; line-height: 21px; margin-bottom:20px; text-align:center;">
+                                                Pause the video at the frame you'd like as the background.
+                                            </div>
+                                            <div style="display:flex; align-items:center; justify-content:space-around;">
+                                                <button title="Back one frame" type="button" class="tb-thumbnail-creator-fab-button" data-tooltip-text="Back one frame" aria-labelledby="yt-uix-tooltip5-arialabel" id="prevframe"><i class="material-icons">keyboard_arrow_left</i></button>
+                                                <span style="font-size: 16px;">Adjust Video Frame</span>
+                                                <button title="Forward one frame" type="button" class="tb-thumbnail-creator-fab-button" data-tooltip-text="Forward one frame" aria-labelledby="yt-uix-tooltip5-arialabel" id="nextframe"><i class="material-icons">keyboard_arrow_right</i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tb-thumbnail-creator-backgroundSelect-color tb-thumbnail-creator-bg-tabs-content" role="tabpanel" id="tb-tab-color">
+                                        <div class="tb-padding-top25 tb-text-align-center">
+                                            <input class="tb-thumbnail-creator-picker tb-hid" type="text" id="tb-thumbnail-creator-picker-solidColor">
+                                        </div>
+                                    </div>
+                                    <div class="tb-thumbnail-creator-bg-tabs-content" role="tabpanel" id="tb-tab-stock">
+                                        <div class="tb-thumbnail-creator-image-options">
+
+                                            <div id="tb-thumbnail-creator-backgroundSelect-upload">
+                                                <div class="tb-thumbnail-creator-backgroundSelect-upload-enabled tb-thumbnail-creator-bg-upload tb-font-color-gray" id="backgroundImageUploadFake">
+                                                    <div class="tb-uppercase tb-font-size-sm tb-padding-right-5 tb-padding-left5 tb-text-align-center">Click to upload your own image</div>
+                                                    <div class="tb-font-size-xs">
+                                                        Min. resolution of 1280 x 720
+                                                    </div>
+                                                </div>
+                                                <input type="file" id="backgroundImageUpload" class="tb-hid">
+                                                <div class="tb-thumbnail-creator-backgroundSelect-upload-disabled tb-hid tb-thumbnail-creator-bg-upload tb-thumbnail-creator-bg-upload--disabled">
+                                                    <span>Max images reached</span>
+                                                </div>
+                                                <div class="tb-thumbnail-creator-backgroundSelect-uploading tb-hid" style="margin-top:8px;margin-left:10px">
+                                                    <span class="tb-spinner tb-margin-left5 tb-margin-right5"></span><span style="position: relative; top: -4px;">Uploading...</span>
+                                                </div>
+                                            </div>
+
+                                            <img data-src-url="https://www.tubebuddy.com/images/backgrounds/bg5-med.png" src="https://www.tubebuddy.com/images/backgrounds/bg5-small.png" data-image-type="stock" class="tb-thumbnail-creator-backgroundSelect-stock-image tb-margin-bottom10 tb-margin-left5 tb-cursor-pointer" id="tb-thumbnail-creator-backgroundSelect-stock-image-default">
+                                            <img data-src-url="https://www.tubebuddy.com/images/backgrounds/bg2-med.png" src="https://www.tubebuddy.com/images/backgrounds/bg2-small.png" style="cursor: pointer; margin-bottom: 10px;" data-image-type="stock" class="tb-thumbnail-creator-backgroundSelect-stock-image tb-margin-bottom10 tb-margin-left5">
+                                            <img data-src-url="https://www.tubebuddy.com/images/backgrounds/bg3-med.png" src="https://www.tubebuddy.com/images/backgrounds/bg3-small.png" style="cursor: pointer; margin-bottom: 10px;" data-image-type="stock" class="tb-thumbnail-creator-backgroundSelect-stock-image tb-margin-bottom10 tb-margin-left5">
+                                            <img data-src-url="https://www.tubebuddy.com/images/backgrounds/bg4-med.png" src="https://www.tubebuddy.com/images/backgrounds/bg4-small.png" style="cursor: pointer; margin-bottom: 10px;" data-image-type="stock" class="tb-thumbnail-creator-backgroundSelect-stock-image tb-margin-bottom10 tb-margin-left5">
+                                            <img data-src-url="https://www.tubebuddy.com/images/backgrounds/bg6-med.png" src="https://www.tubebuddy.com/images/backgrounds/bg6-small.png" style="cursor: pointer; margin-bottom: 10px;" data-image-type="stock" class="tb-thumbnail-creator-backgroundSelect-stock-image tb-margin-bottom10 tb-margin-left5">
+                                            <img data-src-url="https://www.tubebuddy.com/images/backgrounds/bg7-med.png" src="https://www.tubebuddy.com/images/backgrounds/bg7-small.png" style="cursor: pointer; margin-bottom: 10px;" data-image-type="stock" class="tb-thumbnail-creator-backgroundSelect-stock-image tb-margin-bottom10 tb-margin-left5">
+                                            <img data-src-url="https://www.tubebuddy.com/images/backgrounds/bg8-med.png" src="https://www.tubebuddy.com/images/backgrounds/bg8-small.png" style="cursor: pointer; margin-bottom: 10px;" data-image-type="stock" class="tb-thumbnail-creator-backgroundSelect-stock-image tb-margin-bottom10 tb-margin-left5">
+                                            <img data-src-url="https://www.tubebuddy.com/images/backgrounds/bg9-med.png" src="https://www.tubebuddy.com/images/backgrounds/bg9-small.png" style="cursor: pointer; margin-bottom: 10px;" data-image-type="stock" class="tb-thumbnail-creator-backgroundSelect-stock-image tb-margin-bottom10 tb-margin-left5">
+                                            <img data-src-url="https://www.tubebuddy.com/images/backgrounds/bg11-med.png" src="https://www.tubebuddy.com/images/backgrounds/bg11-small.png" style="cursor: pointer; margin-bottom: 10px;" data-image-type="stock" class="tb-thumbnail-creator-backgroundSelect-stock-image tb-margin-bottom10 tb-margin-left5">
+                                            <img data-src-url="https://www.tubebuddy.com/images/backgrounds/bg13-med.png" src="https://www.tubebuddy.com/images/backgrounds/bg13-small.png" style="cursor: pointer; margin-bottom: 10px;" data-image-type="stock" class="tb-thumbnail-creator-backgroundSelect-stock-image tb-margin-bottom10 tb-margin-left5">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div style="display:flex; justify-content: space-around; align-items:center; height:420px;" id="tb-thumbnail-creator-step2" role="tabpanel" class="step2-tab tb-hid tb-thumbnail-settings-tab">
+                        <div>
+                            <div style="" id="tb-thumbnail-canvas-container">
+                                <canvas style="border: 1px solid #000000" height="360" width="640" id="tb-thumbnail-canvas"></canvas>
+                            </div>
+                            <div style="display: none;" id="tb-thumbnail-canvas-container-clone">
+                                <canvas style="border: 1px solid #000000" height="360" width="640" id="tb-thumbnail-canvas-clone"></canvas>
+                            </div>
+
+                            <div class="tb-thumbnail-creator-layer-options-container draggable-container tb-hid">
+                                <div data-draggable="true" id="tb-thumbnail-creator-layer-options-move">
+                                    <i class="material-icons tb-font-color-gray">drag_indicator</i>
+                                </div>
+                                <div class="tb-thumbnail-creator-layer-option-divider"></div>
+                                <button title="bring to front" class="tb-thumbnail-creator-layer-option tb-thumbnail-creator-front">
+                                    <i class="material-icons tb-font-color-gray">flip_to_front</i>
+                                </button>
+                                <div class="tb-thumbnail-creator-layer-option-divider"></div>
+                                <button title="send to back" class="tb-thumbnail-creator-layer-option tb-thumbnail-creator-back">
+                                    <i class="material-icons tb-font-color-gray">flip_to_back</i>
+                                </button>
+                                <div class="tb-thumbnail-creator-layer-option-divider"></div>
+                                <button title="lock layer" class="tb-thumbnail-creator-layer-option" id="tb-thumbnail-creator-lockLayer-toggle">
+                                    <i class="material-icons tb-font-color-gray tb-hid" id="tb-thumbnail-creator-lockLayer-unlocked">lock</i>
+                                    <i class="material-icons tb-font-color-gray" id="tb-thumbnail-creator-lockLayer-locked">lock_open</i>
+                                </button>
+                                <div class="tb-thumbnail-creator-layer-option-divider"></div>
+                                <button title="black drop shadow" class="tb-thumbnail-creator-shadow tb-thumbnail-creator-layer-option" data-shadow-color="black" id="tb-thumbnail-creator-shadow-black">
+                                    <i class="material-icons tb-font-color-gray">blur_circular</i>
+                                </button>
+                                <div class="tb-thumbnail-creator-layer-option-divider"></div>
+                                <button title="white drop shadow" class="tb-thumbnail-creator-shadow tb-thumbnail-creator-layer-option" data-shadow-color="white" id="tb-thumbnail-creator-shadow-white">
+                                    <i class="material-icons tb-font-color-gray">blur_on</i>
+                                </button>
+                                <div class="tb-thumbnail-creator-layer-option-divider"></div>
+                                <button title="opacity" class="tb-thumbnail-creator-layer-option tb-thumbnail-filter-option" id="tb-thumbnail-creator-set-opacity">
+                                    <i class="material-icons tb-font-color-gray">opacity</i>
+                                </button>
+                                <div class="tb-thumbnail-creator-layer-option-divider"></div>
+                                <button title="brightness" class="tb-thumbnail-creator-layer-option tb-thumbnail-filter-option" disabled="" id="tb-thumbnail-creator-set-brightness">
+                                    <i class="material-icons tb-font-color-gray">wb_sunny</i>
+                                </button>
+                                <div class="tb-thumbnail-creator-layer-option-divider"></div>
+                                <button title="contrast" class="tb-thumbnail-creator-layer-option tb-thumbnail-filter-option" disabled="" id="tb-thumbnail-creator-set-contrast">
+                                    <i class="material-icons tb-font-color-gray">brightness_6</i>
+                                </button>
+                                <div class="tb-thumbnail-creator-layer-option-divider"></div>
+                                <button title="delete" class="tb-thumbnail-creator-layer-option tb-thumbnail-creator-delete">
+                                    <i class="material-icons tb-font-color-red">delete_forever</i>
+                                </button>
+                                <!-- filter sliders -->
+                                <div title="opacity" class="tb-thumbnail-creator-filter-container tb-thumbnail-creator-filter-container-opacity tb-hid">
+                                    <i class="material-icons tb-font-color-gray">opacity</i>
+                                    <label class="tb-material-slider tb-margin-left10 tb-margin-right10">
+                                        <input type="range" value="100" class="tb-thumbnail-creator-opacity">
+                                    </label>
+                                    <span class="tb-thumbnail-creator-opacity-percentage tb-thumbnail-creator-range-value tb-font-color-gray"></span>
+                                </div>
+                                <div title="brightness" class="tb-thumbnail-creator-filter-container tb-thumbnail-creator-filter-container-brightness tb-hid">
+                                    <i class="material-icons tb-font-color-gray">wb_sunny</i>
+                                    <label class="tb-material-slider tb-margin-left10 tb-margin-right10">
+                                        <input type="range" max="255" step="1" min="-255" value="0" class="tb-thumbnail-creator-brightness">
+                                    </label>
+                                    <span class="tb-thumbnail-creator-brightness-display tb-thumbnail-creator-range-value tb-font-color-gray">0</span>
+                                </div>
+                                <div title="contrast" class="tb-thumbnail-creator-filter-container tb-thumbnail-creator-filter-container-contrast tb-hid">
+                                    <i class="material-icons tb-font-color-gray">brightness_6</i>
+                                    <label class="tb-material-slider tb-margin-left10 tb-margin-right10">
+                                        <input type="range" max="255" step="1" min="-255" value="0" class="tb-thumbnail-creator-contrast">
+                                    </label>
+                                    <span class="tb-thumbnail-creator-contrast-percentage tb-thumbnail-creator-range-value tb-font-color-gray">0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="width: 270px; height: 350px; margin-left: 10px; border: 1px solid #E0E0E0; padding: 5px">
+                            <div style="font-size: x-small; display:flex; flex-wrap:wrap; justify-content:space-around">
+                                <button data-type="text" class="tb-thumbnail-creator-layer-add" id="tb-thumbnail-insert-text-button">
+                                    <img style="height: 12px; margin-right: 2px;" src="{PLUGIN_FILE_ROOT}/images/icons/text.png">
+                                    Text
+                                </button>
+                                <button data-type="image" class="tb-thumbnail-creator-layer-add" id="tb-thumbnail-insert-image-button">
+                                    <img src="{PLUGIN_FILE_ROOT}/images/icons/photo.png">
+                                    Image
+                                </button>
+                                <button data-type="shape" class="tb-thumbnail-creator-layer-add" id="tb-thumbnail-insert-shape-button">
+                                    <img src="{PLUGIN_FILE_ROOT}/images/icons/shapes_fill.png">
+                                    Shape
+                                </button>
+                                <button data-type="emoji" class="tb-thumbnail-creator-layer-add" id="tb-thumbnail-insert-emoji-button">
+                                    <img src="{PLUGIN_FILE_ROOT}/images/icons/emoji-ninja.png">
+                                    Emoji
+                                </button>
+                                <button data-type="frame" class="tb-thumbnail-creator-layer-add" id="tb-thumbnail-insert-frame-button">
+                                    <i class="material-icons tb-font-color-blue tb-font-size20">border_outer</i>
+                                    Frame
+                                </button>
+                                <button data-type="template" class="tb-thumbnail-creator-layer-add" id="tb-thumbnail-use-template-button">
+                                    <img src="{PLUGIN_FILE_ROOT}/images/icons/templates.png">
+                                    Template
+                                </button>
+                            </div>
+
+                            <div class="tb-thumbnail-creator-layer-text-container tb-thumbnail-creator-layer-container tb-hid">
+                                <textarea class="tb-font-color-gray" id="tb-thumbnail-creator-text">Thumbnail Text</textarea>
+                                <div class="tb-thumbnail-creator-text-btn-group">
+                                    <div style="width:100px;">
+                                        <select style="border:none; outline:none; background-color:transparent; width: 100px; white-space: nowrap;" class="tb-thumbnail-creator-font" id="tb-thumbnail-fonts-button">
+                                            <option style="font-family: 'Archivo Black', sans-serif; font-size: small" selected="selected" value="Archivo Black">Archivo Black</option>
+                                            <option style="font-family: Arial; font-size: small" value="Arial">Arial</option>
+                                            <option style="font-family: 'Anton'; font-size: small" value="Anton">Anton</option>
+                                            <option style="font-family: 'Coda', cursive; font-size: small" value="Coda">Coda</option>
+                                            <option style="font-family: 'Knewave'; font-size: small" value="Knewave">Knewave</option>
+                                            <option style="font-family: 'Black Ops One', cursive; font-size: small" value="Black Ops One" class="tb-thumbnail-creator-font-upgraded tb-hid">Black Ops One</option>
+                                            <option style="font-family: 'Creepster', cursive; font-size: small" value="Creepster" class="tb-thumbnail-creator-font-upgraded tb-hid">Creepster</option>
+                                            <option style="font-family: 'Luckiest Guy', cursive; font-size: small" value="Luckiest Guy" class="tb-thumbnail-creator-font-upgraded tb-hid">Luckiest Guy</option>
+                                            <option style="font-family: 'Permanent Marker', cursive; font-size: small" value="Permanent Marker">Permanent Marker</option>
+                                            <option style="font-family: 'Press Start 2P', cursive; font-size: x-small" value="'Press Start 2P'">Press Start 2P</option>
+                                            <option style="font-family: 'Rubik Mono One',sans-serif; font-size: small" value="Rubik Mono One" class="tb-thumbnail-creator-font-upgraded tb-hid">Rubik Mono One</option>
+                                            <option style="font-family: 'Sigmar One', cursive; font-size: small" value="Sigmar One" class="tb-thumbnail-creator-font-upgraded tb-hid">Sigmar One</option>
+                                            <option style="font-family: 'Times New Roman'; font-size: small" value="Times New Roman">Times New Roman</option>
+                                            <option class="" value="spacer">------------------------</option>
+                                            <option class="tb-thumbnail-creator-font-upgrade" value="upgrade">Want upload and use your own fonts?</option>
+                                            <option class="tb-thumbnail-creator-font-upgrade" value="upgrade">Click here to upgrade your License</option>
+                                            <option value="upload" class="tb-thumbnail-creator-font-upgraded tb-hid">Upload your own...</option>
+                                        </select>
+                                    </div>
+                                    <div class="tb-thumbnail-creator-text-format-divider"></div>
+                                    <div style="width:50px">
+                                        <select style="border:none; outline:none; background-color:transparent; width: 50px;" class="tb-thumbnail-creator-font-size" id="tb-thumbnail-font-size-button">
+                                            <option value="20">XS</option>
+                                            <option value="40">S</option>
+                                            <option value="75">M</option>
+                                            <option value="100">L</option>
+                                            <option value="150" selected="selected">XL</option>
+                                            <option value="200">XXL</option>
+                                            <option value="250">XXXL</option>
+                                        </select>
+                                    </div>
+                                    <div class="tb-thumbnail-creator-text-format-divider"></div>
+                                    <div style="width: 41px;">
+                                        <input class="tb-thumbnail-creator-picker" type="text" id="tb-thumbnail-creator-picker-text">
+                                    </div>
+                                    <div class="tb-thumbnail-creator-text-format-divider"></div>
+                                    <button style="width:32px;" data-tooltip-text="Outline in black" class="tb-thumbnail-creator-text-format-btn tb-thumbnail-creator-outline yt-uix-tooltip">
+                                        <div id="tb-thumbnail-creator-outline-black"></div>
+                                    </button>
+                                    <div class="tb-thumbnail-creator-text-format-divider"></div>
+                                    <button style="width:32px;" data-tooltip-text="Outline in white" class="tb-thumbnail-creator-text-format-btn tb-thumbnail-creator-outline-white yt-uix-tooltip">
+                                        <div id="tb-thumbnail-creator-outline-white"></div>
+                                    </button>
+                                </div>
+
+                                <div class="tb-thumbnail-creator-text-btn-group">
+                                    <button data-tooltip-text="Bold" class="tb-thumbnail-creator-text-format-btn tb-thumbnail-creator-bold tb-thumbnail-creator-width20-percent yt-uix-tooltip">
+                                        <i class="material-icons tb-font-color-gray tb-font-size20">format_bold</i>
+                                    </button>
+                                    <div class="tb-thumbnail-creator-text-format-divider"></div>
+                                    <button data-tooltip-text="Underline" class="tb-thumbnail-creator-text-format-btn tb-thumbnail-creator-underline tb-thumbnail-creator-width20-percent yt-uix-tooltip">
+                                        <i class="material-icons tb-font-color-gray tb-font-size20">format_underlined</i>
+                                    </button>
+                                    <div class="tb-thumbnail-creator-text-format-divider"></div>
+                                    <button data-tooltip-text="Left align text" class="tb-thumbnail-creator-text-format-btn tb-thumbnail-creator-leftAlign tb-thumbnail-creator-width20-percent yt-uix-tooltip">
+                                        <i class="material-icons tb-font-color-gray tb-font-size20">format_align_left</i>
+                                    </button>
+                                    <div class="tb-thumbnail-creator-text-format-divider"></div>
+                                    <button data-tooltip-text="Center align text" class="tb-thumbnail-creator-text-format-btn tb-thumbnail-creator-centerAlign tb-thumbnail-creator-width20-percent yt-uix-tooltip">
+                                        <i class="material-icons tb-font-color-gray tb-font-size20">format_align_center</i>
+                                    </button>
+                                    <div class="tb-thumbnail-creator-text-format-divider"></div>
+                                    <button data-tooltip-text="Right align text" class="tb-thumbnail-creator-text-format-btn tb-thumbnail-creator-rightAlign tb-thumbnail-creator-width20-percent yt-uix-tooltip">
+                                        <i class="material-icons tb-font-color-gray tb-font-size20">format_align_right</i>
+                                    </button>
+                                </div>
+
+                                <button class="tb-btn-green tb-thumbnail-creator-add-text tb-margin-top10" style="width:258px" id="tb-thumbnail-add-text-button">Add Layer</button>
+
+                            </div>
+                            <div style="width: 258px;" class="tb-thumbnail-creator-layer-branding-container tb-thumbnail-creator-layer-container tb-hid">
+                                <ul id="tb-thumbnail-creator-layer-image-header" class="tb-thumbnail-creator-tabs-menu-container tb-thumbnail-creator-tab-header--white" role="tablist">
+                                    <li title="custom" style="width:50%;" class="tb-tab-header tb-thumbnail-creator-tabs-menu-item-container tb-thumbnail-creator-image-tab tb-thumbnail-creator-image-tab-custom tb-cursor-pointer tb-thumbnail-creator-tabs-selected-menu-item" data-tab-id="custom" role="tab">Custom</li>
+                                    <li title="stock" style="width:50%;" class="tb-tab-header tb-thumbnail-creator-tabs-menu-item-container tb-thumbnail-creator-image-tab tb-thumbnail-creator-image-tab-stock tb-cursor-pointer" data-tab-id="stock" role="tab">Stock</li>
+                                </ul>
+                                <div style="max-height:240px;">
+                                    <div id="tb-thumbnail-creator-brandings-container" class="tb-thumbnail-creator-image-options">
+                                        <div title="click to upload a custom image" class="tb-thumbnail-creator-branding-image-upload tb-thumbnail-creator-brandings-uploadEnabled">
+                                            <i class="material-icons tb-font-color-blue">add</i>
+                                        </div>
+                                        <input type="file" id="imgLoader" class="tb-thumbnail-creator-imgLoader tb-hid">
+
+                                        <div class="tb-thumbnail-creator-branding-image-upload tb-thumbnail-creator-maxImages">
+                                            <span>You've reached the max of 20 images.</span>
+                                        </div>
+
+                                        <div class="tb-thumbnail-creator-uploading tb-hid tb-margin-top10">
+                                            <span class="tb-spinner tb-margin-left5 tb-margin-right5"></span><span style="position: relative; top: -4px;">Uploading...</span>
+                                        </div>
+
+                                    </div>
+                                    <div class="tb-thumbnail-creator-image-options tb-hid" id="tb-thumbnail-creator-brandings-container-stock">
+                                        <img title="click to add image" style="height: 70px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-branding-stock" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/thumbsup.png" id="tb-thumbnail-thumbsup-image">
+                                        <img title="click to add image" style="height: 70px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-branding-stock" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/thumbsdown.png" id="tb-thumbnail-thumbsdown-image">
+                                        <img title="click to add image" style="height: 70px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-branding-stock" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/star.png">
+                                        <img title="click to add image" style="height: 70px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-branding-stock" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/heart.png">
+                                        <img title="click to add image" style="height: 70px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-branding-stock" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/search.png">
+                                        <img title="click to add image" style="height: 70px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-branding-stock" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/comment.png">
+                                        <img title="click to add image" style="height: 70px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-branding-stock" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/downarrow.png">
+                                        <img title="click to add image" style="height: 70px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-branding-stock" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/hunting.png">
+                                        <img title="click to add image" style="height: 70px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-branding-stock" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/camera.png">
+                                        <img title="click to add image" style="height: 70px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-branding-stock" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/smile.png">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="tb-thumbnail-creator-layer-emoji-container tb-thumbnail-creator-layer-container tb-hid">
+                                <div>
+                                    <ul class="tb-thumbnail-creator-tabs-menu-container tb-thumbnail-creator-tab-header--white" role="tablist" id="tb-thumbnail-creator-layer-emoji-header">
+                                        <li class="tb-thumbnail-creator-image-tab-emoji tb-tab-header tb-thumbnail-creator-tabs-menu-item-container tb-cursor-pointer tb-thumbnail-creator-tabs-selected-menu-item" style="width:12.5%;" title="people" data-tab-id="people">
+                                            <i class="material-icons tb-font-color-gray tb-thumbnail-creator-emoji-tab">face</i>
+                                        </li>
+                                        <li class="tb-thumbnail-creator-image-tab-emoji tb-tab-header tb-thumbnail-creator-tabs-menu-item-container tb-cursor-pointer" style="width:12.5%;" title="nature" data-tab-id="nature">
+                                            <i class="material-icons tb-font-color-gray tb-thumbnail-creator-emoji-tab">pets</i>
+                                        </li>
+                                        <li class="tb-thumbnail-creator-image-tab-emoji tb-tab-header tb-thumbnail-creator-tabs-menu-item-container tb-cursor-pointer" style="width:12.5%;" title="food" data-tab-id="food">
+                                            <i class="material-icons tb-font-color-gray tb-thumbnail-creator-emoji-tab">fastfood</i>
+                                        </li>
+                                        <li class="tb-thumbnail-creator-image-tab-emoji tb-tab-header tb-thumbnail-creator-tabs-menu-item-container tb-cursor-pointer" style="width:12.5%;" title="activity" data-tab-id="activity">
+                                            <i class="material-icons tb-font-color-gray tb-thumbnail-creator-emoji-tab">golf_course</i>
+                                        </li>
+                                        <li class="tb-thumbnail-creator-image-tab-emoji tb-tab-header tb-thumbnail-creator-tabs-menu-item-container tb-cursor-pointer" style="width:12.5%;" title="travel" data-tab-id="travel">
+                                            <i class="material-icons tb-font-color-gray tb-thumbnail-creator-emoji-tab">directions_car</i>
+                                        </li>
+                                        <li class="tb-thumbnail-creator-image-tab-emoji tb-tab-header tb-thumbnail-creator-tabs-menu-item-container tb-cursor-pointer" style="width:12.5%;" title="objects" data-tab-id="objects">
+                                            <i class="material-icons tb-font-color-gray tb-thumbnail-creator-emoji-tab">devices_other</i>
+                                        </li>
+                                        <li class="tb-thumbnail-creator-image-tab-emoji tb-tab-header tb-thumbnail-creator-tabs-menu-item-container tb-cursor-pointer" style="width:12.5%;" title="symbols" data-tab-id="symbols">
+                                            <i class="material-icons tb-font-color-gray tb-thumbnail-creator-emoji-tab">euro_symbol</i>
+                                        </li>
+                                        <li class="tb-thumbnail-creator-image-tab-emoji tb-tab-header tb-thumbnail-creator-tabs-menu-item-container tb-cursor-pointer" style="width:12.5%;" title="flags" data-tab-id="flags">
+                                            <i class="material-icons tb-font-color-gray tb-thumbnail-creator-emoji-tab">flag</i>
+                                        </li>
+                                    </ul>
+                                    <div>
+                                        <div class="tb-thumbnail-creator-emoji-container-people tb-thumbnail-creator-emoji-container">
+                                            <div class="tb-margin-top10"><span class="tb-spinner tb-padding-right10"></span><span class="tb-move-up2">Loading...</span></div>
+                                        </div>
+                                        <div class="tb-thumbnail-creator-emoji-container-nature tb-thumbnail-creator-emoji-container" style="display:none;">
+                                            <div class="tb-margin-top10"><span class="tb-spinner tb-padding-right10"></span><span class="tb-move-up2">Loading...</span></div>
+                                        </div>
+                                        <div class="tb-thumbnail-creator-emoji-container-food tb-thumbnail-creator-emoji-container" style="display:none;">
+                                            <div class="tb-margin-top10"><span class="tb-spinner tb-padding-right10"></span><span class="tb-move-up2">Loading...</span></div>
+                                        </div>
+                                        <div class="tb-thumbnail-creator-emoji-container-activity tb-thumbnail-creator-emoji-container" style="display:none;">
+                                            <div class="tb-margin-top10"><span class="tb-spinner tb-padding-right10"></span><span class="tb-move-up2">Loading...</span></div>
+                                        </div>
+                                        <div class="tb-thumbnail-creator-emoji-container-travel tb-thumbnail-creator-emoji-container" style="display:none;">
+                                            <div class="tb-margin-top10"><span class="tb-spinner tb-padding-right10"></span><span class="tb-move-up2">Loading...</span></div>
+                                        </div>
+                                        <div class="tb-thumbnail-creator-emoji-container-objects tb-thumbnail-creator-emoji-container" style="display:none;">
+                                            <div class="tb-margin-top10"><span class="tb-spinner tb-padding-right10"></span><span class="tb-move-up2">Loading...</span></div>
+                                        </div>
+                                        <div class="tb-thumbnail-creator-emoji-container-symbols tb-thumbnail-creator-emoji-container" style="display:none;">
+                                            <div class="tb-margin-top10"><span class="tb-spinner tb-padding-right10"></span><span class="tb-move-up2">Loading...</span></div>
+                                        </div>
+                                        <div class="tb-thumbnail-creator-emoji-container-flags tb-thumbnail-creator-emoji-container" style="display:none;">
+                                            <div class="tb-margin-top10"><span class="tb-spinner tb-padding-right10"></span><span class="tb-move-up2">Loading...</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="tb-height60 tb-margin-top5 tb-thumbnail-creator-layer-emoji-recent-container" style="display:none">
+                                        <div style="border-top: 1px solid #ccc;" class="tb-height20 tb-font-color-blue"><span style="line-height:150%">Recently Used</span></div>
+                                        <div class="tb-thumbnail-creator-layer-emoji-recent"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tb-thumbnail-creator-layer-frame-container tb-thumbnail-creator-layer-container tb-hid">
+                                <div class="tb-thumbnail-creator-upgrade-prompt" id="tb-thumbnail-creator-layer-frame-upgrade">
+                                    <i class="material-icons tb-font-color-gray tb-font-size50">lock</i>
+                                    <span class="tb-text-align-center tb-font-color-gray tb-font-size20">
+                                        Sorry, thumbnail frames are only available for Pro level licenses or above
+                                    </span>
+                                    <button class="tb-btn-green tb-thumbnail-creator-upgrade-license" id="">Upgrade to Unlock</button>
+                                </div>
+                                <div style="height:280px;" class="tb-thumbnail-creator-image-options" id="tb-thumbnail-creator-layer-frame-has-access">
+                                    <div class="tb-font-size11 tb-text-align-center tb-padding-top5">Provided by TuberTools.com</div>
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-001-blue.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-001-green.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-001-red.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-001-vault.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-001-white.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-001-whiteblue.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-001-whitegreen.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-002-blue-.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-002-blue-toon-rock-.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-002-green-.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-002-green-toon-rock-.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-002-light-.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-002-purple-.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-002-red-.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-002-white-toon-rock-.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-003-tape-1.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-003-tape-2.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-003-tape-3.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-003-tape-4.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-template-1.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-template-2.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-template-3.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-template-3b.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-template-3d.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-template-3f.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-template-4.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-template-4a.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-template-4c.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-template-11.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-template-11d.png">
+                                    <img title="click to add frame" style="height: 65px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-thumbnail-creator-border" src="{PLUGIN_FILE_ROOT}/images/thumbnailgeneratorpics/TuberTools_ThumbnailFrames/tb-template-11g.png">
+                                </div>
+                            </div>
+                            <div class="tb-thumbnail-creator-layer-template-container tb-thumbnail-creator-layer-container tb-hid">
+                                <div>
+                                    <div>
+                                        <div class="tb-thumbnail-creator-layer-template-has tb-hid">
+                                        </div>
+                                        <div class="tb-thumbnail-creator-layer-template-hasNone tb-hid tb-font-color-gray">
+                                            You don't have any templates saved.
+                                            <br>
+                                            <br>
+                                            Add layers then click 'Save Layers as Template' so they can be used for future thumbnails.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tb-hid" id="tb-thumbnail-creator-layer-template-upgrade">
+                                <div class="tb-thumbnail-creator-upgrade-prompt">
+                                    <i class="material-icons tb-font-color-gray tb-font-size50">lock</i>
+                                    <span class="tb-text-align-center tb-font-color-gray tb-font-size20">
+                                        Save time by saving your designs to a template.
+                                    </span>
+                                    <button class="tb-btn-green tb-thumbnail-creator-upgrade-license">Upgrade to Pro</button>
+                                </div>
+                                <div class="tb-thumbnail-creator-canvastemplate-container">
+                                    <span class="tb-thumbnail-creator-canvastemplate-add">A/B Test Winner</span>
+                                    <a title="delete template" class="tb-thumbnail-creator-canvastemplate-delete tb-cursor-pointer" alt="delete template">
+                                        <i class="material-icons tb-font-color-white tb-font-size16">close</i>
+                                    </a>
+                                </div>
+                                <div class="tb-thumbnail-creator-canvastemplate-container">
+                                    <span class="tb-thumbnail-creator-canvastemplate-add">Branding</span>
+                                    <a title="delete template" class="tb-thumbnail-creator-canvastemplate-delete tb-cursor-pointer" alt="delete template">
+                                        <i class="material-icons tb-font-color-white tb-font-size16">close</i>
+                                    </a>
+                                </div>
+                                <div class="tb-thumbnail-creator-canvastemplate-container">
+                                    <span class="tb-thumbnail-creator-canvastemplate-add">Live Stream</span>
+                                    <a title="delete template" class="tb-thumbnail-creator-canvastemplate-delete tb-cursor-pointer" alt="delete template">
+                                        <i class="material-icons tb-font-color-white tb-font-size16">close</i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="tb-thumbnail-creator-layer-shape-container tb-thumbnail-creator-layer-container tb-hid">
+                                <div>
+                                    <div style="padding: 0px 5px;">
+                                        <div id="tb-thumbnail-creator-shapes-selection" style="">
+                                            <div data-shape-type="rectangle" class="tb-thumbnail-creator-layer-shape">
+                                                <img src="{PLUGIN_FILE_ROOT}/images/icons/rectangle.png">
+                                            </div>
+                                            <div data-shape-type="circle" class="tb-thumbnail-creator-layer-shape">
+                                                <img src="{PLUGIN_FILE_ROOT}/images/icons/circle.png">
+                                            </div>
+                                            <div data-shape-type="line" class="tb-thumbnail-creator-layer-shape">
+                                                <img src="{PLUGIN_FILE_ROOT}/images/icons/line.png">
+                                            </div>
+                                            <div data-shape-type="triangle" class="tb-thumbnail-creator-layer-shape">
+                                                <img src="{PLUGIN_FILE_ROOT}/images/icons/triangle.png">
+                                            </div>
+                                            <div data-shape-type="star" class="tb-thumbnail-creator-layer-shape">
+                                                <img src="{PLUGIN_FILE_ROOT}/images/icons/starblack.png">
+                                            </div>
+                                            <div data-shape-type="arrow" class="tb-thumbnail-creator-layer-shape">
+                                                <img src="{PLUGIN_FILE_ROOT}/images/icons/arrow-right.png">
+                                            </div>
+
+
+                                            <div data-shape-type="rectangle-outline" class="tb-thumbnail-creator-layer-shape">
+                                                <img src="{PLUGIN_FILE_ROOT}/images/icons/rectangle-outline.png">
+                                            </div>
+                                            <div data-shape-type="circle-outline" class="tb-thumbnail-creator-layer-shape">
+                                                <img src="{PLUGIN_FILE_ROOT}/images/icons/circle-outline.png">
+                                            </div>
+                                            <div data-shape-type="triangle-outline" class="tb-thumbnail-creator-layer-shape">
+                                                <img src="{PLUGIN_FILE_ROOT}/images/icons/triangle-outline.png">
+                                            </div>
+                                            <div data-shape-type="star-outline" class="tb-thumbnail-creator-layer-shape">
+                                                <img src="{PLUGIN_FILE_ROOT}/images/icons/star-outline.png">
+                                            </div>
+                                        </div>
+                                        <div style="margin-top:15px;margin-left:10px;margin-bottom:5px; display: flex; justify-content:center;">
+                                            <input class="tb-thumbnail-creator-picker" type="text" style="" id="tb-thumbnail-creator-picker-shapes">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="tb-thumbnail-creator-font-upload-container tb-thumbnail-creator-bg-upload tb-hid">
+                                <div>Click to upload your font</div>
+                                <div><small>*only .ttf files allowed</small></div>
+                                <div>
+                                    <span class="tb-thumbnail-creator-font-uploading tb-hid">
+                                        <span class="tb-spinner tb-margin-left5 tb-margin-right5"></span><span style="position: relative; top: -4px;">Uploading...</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <input type="file" class="tb-hid" id="fontUpload">
+
+                            <div class="tb-thumbnail-creator-layer-container tb-font-color-gray" id="tb-thumbnail-creator-layer-container-default">
+                                Select an object type above to add a layer or click continue below to skip
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div id="tb-thumbnail-creator-step3" role="tabpanel" class="step3-tab tb-hid tb-thumbnail-settings-tab">
+                        <div style="display:flex; justify-content:space-between;" class="tb-thumbnail-settings-preview-container">
+                            <div style="width: 600px; border: 1px solid #ccc;">
+                                <ul id="tb-thumbnail-creator-tab-header-preview" class="tb-thumbnail-creator-tabs-menu-container tb-thumbnail-creator-tab-header--white" role="tablist">
+                                    <li class="tb-thumbnail-creator-preview-tab-header tb-thumbnail-creator-tabs-menu-item-container tb-col-3 tb-thumbnail-creator-tabs-selected-menu-item" data-tab="tb-thumbnail-creator-tab-youtube" role="tab" id="tb-thumbnail-creator-preview-tab-header-youtube">
+                                        YouTube
+                                    </li>
+                                    <li class="tb-thumbnail-creator-preview-tab-header tb-thumbnail-creator-tabs-menu-item-container tb-col-3" data-tab="tb-thumbnail-creator-tab-facebook" role="tab" id="tb-thumbnail-creator-preview-tab-header-facebook">
+                                        Facebook
+                                    </li>
+                                    <li class="tb-thumbnail-creator-preview-tab-header tb-thumbnail-creator-tabs-menu-item-container tb-col-3" data-tab="tb-thumbnail-creator-tab-twitter" role="tab" id="tb-thumbnail-creator-preview-tab-header-twitter">
+                                        Twitter
+                                    </li>
+                                </ul>
+                                <div class="tb-thumbnail-settings-tab-youtube-competitors" role="tabpanel">
+                                    <div class="tb-thumbnail-creator-youtube-competitor-search-container tb-padding-5">
+                                        <input id="tb-thumbnail-settings-tab-youtube-competitors-preview-search" class="tb-material-input tb-height20" style="width:90%">
+                                        <button class="tb-btn-grey tb-btn-sm tb-margin-left5" id="tb-thumbnail-settings-tab-youtube-competitors-preview-search-button">Search</button>
+                                    </div>
+                                    <div class="tb-margin-top15 tb-margin-left15" id="tb-thumbnail-settings-tab-youtube-competitors-preview-loading">
+                                        <span class="tb-spinner tb-margin-right10"></span><span class="tb-move-up2">Loading...</span>
+                                    </div>
+                                    <div id="tb-thumbnail-settings-tab-youtube-competitors-preview" style="max-height: 370px; overflow-y:auto; max-width:600px; overflow-x:hidden; padding:0 5px;"></div>
+                                </div>
+                                <div class="tb-thumbnail-settings-tab-twitter" role="tabpanel">
+                                    <div style="display:flex;justify-content:center;">
+                                        <div class="tb-thumbnail-creator-tw-preview-watermark">
+                                            <span class="tb-thumbnail-creator-tw-preview-watermark-text">preview only</span>
+                                        </div>
+                                        <div style="display:flex;justify-content:space-around; margin-top:5px;" class="tb-padding5">
+                                            <div class="tb-width50 tb-margin-left5 tb-margin-right5">
+                                                <div class="tb-thumbnail-creator-preview-avatar tb-margin-top10" id="tb-thumbnail-creator-tw-preview-avatar">
+                                                    <i class="material-icons tb-font-color-white tb-font-size40" id="tb-thumbnail-creator-tw-preview-avatar-placeholder">person</i>
+                                                </div>
+                                            </div>
+                                            <div style="width:515px;height:430px;">
+                                                <div class="tb-margin-top5">
+                                                    <span class="tb-font-bold" id="tb-thumbnail-creator-tw-preview-twitter-handle">Twitter Handle</span>
+                                                    <span class="tb-font-color-gray" id="tb-thumbnail-creator-tw-preview-twitter-name">@TwitterName</span>
+                                                    <span class="tb-font-color-gray"> · </span>
+                                                    <span class="tb-font-color-gray">1m</span>
+                                                </div>
+                                                <div>
+                                                    Check out my latest video "<span style="text-overflow:ellipsis;" class="tb-thumbnail-creator-preview-video-title"></span>"
+                                                </div>
+                                                <div class="tb-margin-top10 tb-margin-bottom5">
+                                                    Watch Now: <a title="view video" id="tb-thumbnail-creator-tw-preview-video-link">youtu.be/I8C9k4em9</a>
+                                                </div>
+                                                <div id="tb-thumbnail-tw-preview"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tb-thumbnail-settings-tab-facebook tb-padding5" role="tabpanel">
+                                    <div style="display:flex;justify-content:center;">
+                                        <div class="tb-thumbnail-creator-fb-preview-watermark">
+                                            <span class="tb-thumbnail-creator-fb-preview-watermark-text">preview only</span>
+                                        </div>
+                                        <div>
+                                            <div style="display:flex;justify-content:space-between;align-items:center; padding:10px 5px; width:474px;">
+                                                <div class="tb-width50 tb-margin-left5">
+                                                    <div class="tb-thumbnail-creator-preview-avatar" id="tb-thumbnail-creator-fb-preview-avatar">
+                                                        <i class="material-icons tb-font-color-white tb-font-size40" id="tb-thumbnail-creator-fb-preview-avatar-placeholder">person</i>
+                                                    </div>
+                                                </div>
+                                                <div style="width:365px;">
+                                                    <div class="tb-font-color-blue tb-font-bold" id="tb-thumbnail-creator-fb-preview-fb-name">FaceBook Name</div>
+                                                    <div class="tb-font-color-gray">Just now </div>
+                                                </div>
+                                                <div class="tb-margin-right10">
+                                                    <i class="material-icons tb-font-color-gray">more_horiz</i>
+                                                </div>
+                                            </div>
+                                            <div class="tb-margin-left5" id="tb-thumbnail-fb-preview"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display:flex; flex-direction: column; justify-content: flex-start;">
+                                <div style="width: 285px; height:260px;" class="tb-thumbnail-creator-card-container">
+                                    <div class="tb-font-size-sm tb-margin-bottom15">
+                                        How does your thumbnail stack up against the competition?
+                                    </div>
+                                    <span class="tb-font-size15">Thumbnail Tips</span>
+                                    <ul style="list-style:none; padding:0;">
+                                        <li class="tb-margin-top10 tb-thumbnail-creator-icon-list-item">
+                                            <i class="material-icons tb-margin-right5">arrow_right</i>
+                                            Use bright colors and high contrast images
+                                        </li>
+                                        <li class="tb-margin-top10 tb-thumbnail-creator-icon-list-item">
+                                            <i class="material-icons tb-margin-right5">arrow_right</i>
+                                            Include a close up of a human face whenever possible
+                                        </li>
+                                        <li class="tb-margin-top10 tb-thumbnail-creator-icon-list-item">
+                                            <i class="material-icons tb-margin-right5">arrow_right</i>
+                                            Make sure text is large enough to read on any device
+                                        </li>
+                                        <li class="tb-margin-top10 tb-thumbnail-creator-icon-list-item">
+                                            <i class="material-icons tb-margin-right5">arrow_right</i>
+                                            Use fonts, colors, shapes that are consistent with your brand
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div style="width: 285px; height:70px;" class="tb-thumbnail-creator-card-container tb-margin-top15">
+                                    <div class="tb-font-size-sm tb-margin-bottom15">
+                                        Not sure about this thumbnail?
+                                    </div>
+                                    <span class="tb-font-size14">
+                                        Run an <a id="tb-thumbnail-creator-abtestlink">A/B test</a> to see what thumbnails work best for your audience
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div style="display:none;" class="tb-thumbnail-settings-error-container">
+                            <div style="margin-top: 25px; margin-left: 10px;" id="tb-thumbnail-settings-steps-container">
+                                <img class="tb-move-down2" src="{PLUGIN_FILE_ROOT}/images/icons/error.png"> <span class="tb-thumbnail-settings-error-message" style="color: red; font-size:larger"></span>
+                                <div style="margin-top: 15px;">
+                                    <div class="tb-margin-bottom10"><span class="tb-bold">You can still publish the thumbnail manually!</span></div>
+                                    <div class="tb-margin-left10">
+                                        <div class="tb-margin-bottom5">
+                                            1. Download the thumbnail  <a class="tb-btn-grey tb-btn-sm tb-margin-left5 tb-thumbnail-creator-step4-success-download" title="Download Thumbnail">
+                                                Download
+                                            </a>
+                                        </div>
+                                        <div class="tb-margin-bottom5">
+                                            2. Edit the video
+                                            <a class="tb-btn-grey tb-btn-sm tb-margin-left5" id="tb-thumbnail-settings-error-link" title="Edit Video">
+                                                Edit
+                                            </a>
+                                        </div>
+                                        <div class="tb-margin-bottom15">
+                                            3. Click the Custom thumbnail button (or the thumbnail that says change image) and select the downloaded thumbnail
+                                        </div>
+                                        <div class="tb-margin-bottom15">
+                                            4. Click Save changes
+                                        </div>
+                                    </div>
+                                </div>
+                                <br><br>
+                            </div>
+                            <div style="margin-top: 15px;" id="tb-thumbnail-settings-size-container">
+                                <img class="tb-move-down2" src="{PLUGIN_FILE_ROOT}/images/icons/error.png"> <span class="tb-thumbnail-settings-error-message" style="color: red; font-size:larger"></span>
+                                <div class="tb-margin-bottom10 tb-margin-top15"><span class="tb-bold">You can still save your work!</span></div>
+                                <div class="tb-margin-left10">
+                                    <div class="tb-margin-bottom5">
+                                        Download the thumbnail  <a class="tb-btn-grey tb-btn-sm tb-margin-left5 tb-thumbnail-creator-step4-success-download" title="Download Thumbnail">
+                                            Download
+                                        </a>
+                                    </div>
+                                </div>
+                                <br><br>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="tb-thumbnail-creator-step4" role="tabpanel" class="step4-tab tb-hid tb-thumbnail-settings-tab">
+                        <div>
+                            <div class="tb-hid" id="tb-thumbnail-creator-step4-success">
+                                <div style="text-align: center; margin: 40px 0;">
+                                    <div style="display:flex;justify-content:center;align-items:center;">
+                                        <i class="material-icons tb-font-color-green">check_circle</i>
+                                        <span class="tb-margin-left5 tb-font-size18 tb-font-color-green">Thumbnail successfully published!</span>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <span class="tb-thumbnail-creator-reload-container">
+                                        Please
+                                        <a class="tb-btn-green tb-thumbnail-creator-reload" id="tb-thumbnail-reload-link">
+                                            Reload
+                                        </a>
+                                        this page to see your changes. Any unsaved changes on this page will be lost.
+                                    </span>
+                                    <br>
+                                    <br>
+                                    <span>Due to browser and YouTube caching it may <br> take a moment to see the updated thumbnail.</span>
+                                    <br>
+                                    <div class="tb-margin-top25">
+                                        <a class="tb-thumbnail-creator-step4-success-download tb-hid tb-btn-grey" id="tb-thumbnail-download-thumbnail-button">Download Thumbnail</a>
+                                        <span class="tb-thumbnail-creator-step4-success-download-upgrade tb-hid">
+                                            Want to download the thumbnail?
+                                            <button class="tb-thumbnail-creator-step4-success-download-upgrade-link tb-btn-green">Upgrade</button>
+                                            your License.
+                                        </span>
+                                    </div>
+                                    <br><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div style="clear: both;"></div>
+                </div>
+
+
+            </div>
+            <!--End BASE Module Container-->
+
+        </div>
+        <!--Start BASE Footer Module-->
+        <div style="display: flex; align-items:center; justify-content: space-between" class="tb-module-footer">
+            <div>
+                <button class="tb-hid tb-btn-grey tb-thumbnail-creator-previous" id="tb-thumbnail-back-button">
+                    Back
+                </button>
+                <button class="tb-thumbnail-creator-download-step3 tb-btn-grey" style="display:none">
+                    Download Thumbnail
+                </button>
+                <span class="tb-thumbnail-creator-all-layer-option tb-hid">
+                    <button class="tb-btn-grey tb-thumbnail-creator-delete-all" id="tb-thumbnail-delete-all-layers-button">Delete all Layers</button>
+
+                    <button class="tb-btn-grey tb-thumbnail-creator-save-template" id="tb-thumbnail-save-layers-as-template-button">Save Layers as Template</button>
+
+                    <div class="tb-material-checkbox-container">
+                        <label class="tb-material-checkbox-label">
+                            <input checked="checked" type="checkbox" class="tb-material-checkbox-input" id="tb-thumbnail-creator-lockBackground">
+                            <span class="tb-material-checkbox-box tb-bulk-check"><span class="tb-material-checkbox-check tb-bulk-check"></span></span>
+                            Lock Background
+                        </label>
+                    </div>
+                </span>
+            </div>
+            <div>
+
+                <button class="tb-hid tb-btn-blue tb-thumbnail-publish-button-seo-studio">
+                    Save to Seo Studio
+                </button>
+
+                <button class="tb-btn-blue tb-thumbnail-creator-next" disabled="disabled" id="tb-thumbnail-continue-button">
+                    Continue
+                </button>
+
+                <button class="tb-hid tb-btn-blue tb-thumbnail-creator-upload" id="tb-thumbnail-publish-button">
+                    Save &amp; Publish
+                </button>
+            </div>
+        </div>
+        <!--End BASE Footer-->
+    </div>
+    <!--End BASE Shadow-->
+
+    <div id="tb-thumbnail-creator-brandingChannelImageTemplate" type="text/template" style="display:none">
+        <div>
+            <img style="height: 70px; display: block; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-branding-image" title="click to add image" src="{1}" id="{0}">
+        </div>
+    </div>
+
+    <div id="tb-thumbnail-creator-brandingImage" type="text/template" style="display:none">
+        <div class="tb-thumbnail-creator-brandingImage-creator">
+            <div title="click to add image" style="background-image: url({1}); background-size:contain; background-position:left; background-size:contain; background-repeat:no-repeat; height: 70px; cursor: pointer; margin-top: 5px; max-width: 210px;" class="tb-branding-image" data-branding-id="{0}" src="{1}" id="{0}">
+                <a title="delete" class="tb-thumbnail-creator-branding-delete" data-branding-id="{0}" alt="delete image">
+                    <i class="material-icons tb-font-color-white tb-font-size16">close</i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="tb-thumbnail-creator-canvas-template-row" type="text/template" style="display:none">
+        <div data-template-id="{0}" class="tb-thumbnail-creator-canvastemplate-container">
+            <span class="tb-thumbnail-creator-canvastemplate-add">{1}</span>
+            <a title="delete template" class="tb-thumbnail-creator-canvastemplate-delete tb-cursor-pointer" alt="delete template" data-template-id="{0}">
+                <i class="material-icons tb-font-color-white tb-font-size16">close</i>
+            </a>
+        </div>
+    </div>
+
+    <div id="tb-thumbnail-creator-backgroundSelect-uploaded-image-template" type="text/template" style="display:none">
+        <div data-image-type="{4}" id="{3}" data-src-url="{2}" style="{1}" class="{0}">
+            <div data-image-id="{3}" src="{5}" class="tb-thumbnail-creator-backgroundSelect-uploaded-image-delete" title="delete image">
+                <i class="material-icons tb-font-color-white">close</i>
+            </div>
+        </div>
+    </div>
+
+    <div id="tb-thumbnail-creator-video-template" type="text/template" style="display:none">
+        <div class="tb-margin-top15">
+            <div style="float:left">
+                <img src="https://img.youtube.com/vi/{0}/mqdefault.jpg" style="width:200px">
+            </div>
+            <div style="float:left;max-width:350px" class="tb-margin-left10">
+                <a href="{1}" class="tb-font-size15">{2}</a><br>
+                <a href="{5}" style="color:gray">{4}</a><span class="tb-margin-left15" style="color:gray">{3}</span>
+                <div style="color:gray;max-width:300px">
+                    {6}
+                </div>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+    </div>
+
+    <div id="tb-thumbnail-creator-video-template-this-video" type="text/template" style="display:none">
+        <div class="tb-margin-top15" id="tb-thumbnail-creator-video-this-video">
+            <div style="float:left">
+                <img src="{7}" style="width:200px">
+            </div>
+            <div style="float:left;max-width:350px" class="tb-margin-left10">
+                <a href="{1}" class="tb-font-size15">{2}</a><br>
+                <a href="{5}" style="color:gray">{4}</a><span style="color:gray;" class="tb-margin-left15">{3}</span>
+                <div style="color:gray;max-width:300px">
+                    {6}
+                </div>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+    </div>
+
+    <div id="tb-thumbnail-creator-video-template-no-videos" type="text/template" style="display:none">
+        <div class="tb-margin-top15">
+            <div style="background-color: #f0f0f0; font-weight:500;" class="tb-padding5">
+                No videos to compare. <br>
+                Enter a more broad search phrase above to compare your thumbnail against the competition.
+            </div>
+        </div>
+    </div>
+</div>
+<!--End BASE Module Template-->

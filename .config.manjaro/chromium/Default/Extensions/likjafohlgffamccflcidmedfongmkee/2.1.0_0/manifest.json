@@ -1,0 +1,25 @@
+{
+   "background": {
+      "scripts": [ "scripts/background.js" ]
+   },
+   "browser_action": {
+      "default_icon": {
+         "16": "icons/icon-16.png",
+         "32": "icons/icon-32.png"
+      }
+   },
+   "chrome_url_overrides": {
+      "newtab": "newtab.html"
+   },
+   "icons": {
+      "128": "icons/icon-128.png",
+      "16": "icons/icon-16.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAumFIldTUsXnGkf43YAlAXxAoaVRcTyqWgDbqVDpEOpW4AMpZ2tuBtG2CIGKv07t0MWuqvJMkgA4nfD00lhAmD6ZL3WzqdaFG6aT9eCgPd/tWLw+ZsMc23CmLiclo/4BkyDpJDHcwShw9XGAyyHzSgl45NT+1EaYDj4qCJfdsPXWJ+OLegwe7buUvwq+X3Bd3iERUPhGOJX2wpHsIlMN+nas25IrUwSlxKHbMlWoY7oC6id0GFkBFADP3ejC7j76ijxGz6TljfGzYG5aUeLB8BwcrcFTbn1riD3LBHdGDotoOdBxU2v9pWPyqg//04kRPYxvzvI4DpRv3ui/DkAF/ZQIDAQAB",
+   "manifest_version": 2,
+   "name": "Product Hunt",
+   "permissions": [ "geolocation", "tabs" ],
+   "short_name": "Product Hunt",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.1.0"
+}

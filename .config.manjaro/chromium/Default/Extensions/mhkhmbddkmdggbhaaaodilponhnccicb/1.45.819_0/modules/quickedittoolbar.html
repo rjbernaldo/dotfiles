@@ -1,0 +1,108 @@
+
+<style>
+   #tb-editvideo-nav-video {
+       position: fixed;
+       top: 60px;
+       width: 70px;
+       background-color: white;
+       text-align: center;
+       right: 0;
+       overflow: hidden;
+       z-index: 999999;
+   }
+
+
+   .tb-editvideo-nav-image {
+       height: 40px;
+       border: solid 2px transparent;
+   }
+
+   .tb-editvideo-nav-title {
+       position: fixed;
+       background-color: white;
+       right: 69px;
+       text-align: right;
+       border-top: solid 1px #f1f1f1;
+       border-bottom: solid 1px #f1f1f1;
+       border-left: solid 3px #f1f1f1;
+       padding: 3px 5px;
+   }
+
+   /* The element to apply the animation to */
+   .tb-editvideo-nav-image:hover {
+       opacity: 1 !important;
+   }
+
+   #tb-editvideo-nav-list-header {
+       font-weight: 500;
+       border-bottom: solid 1px #f1f1f1;
+       padding: 4px 6px;
+       margin-bottom: 4px;
+       text-transform: uppercase;
+       color: #666;
+       text-align: left;
+   }
+</style>
+
+<div style="display:none">
+
+    <div class="yt-card" id="tb-editvideo-nav-video">
+        <div id="tb-editvideo-nav-list-header">
+            <img id="tb-editvideo-nav-list-header-menu" src="{PLUGIN_FILE_ROOT}/images/icons/settings.png" style="position: relative; top: 1px; float:right; height:14px; margin-right:1px; cursor:pointer">
+            <img class="tb-height11" src="{PLUGIN_FILE_ROOT}/images/branding/tb-icon-transparent.svg" style="position: relative; top: 2px;">
+        </div>
+        <div id="tb-editvideo-nav-list-wrapper">
+            <div id="tb-editvideo-nav-list-prev">
+                <img src="{PLUGIN_FILE_ROOT}/images/icons/arrow-up.png" />
+            </div>
+            <div id="tb-editvideo-nav-list-loading-prev" style="display:none;">
+                <img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" />
+            </div>
+            <div id="tb-editvideo-nav-list">
+
+            </div>
+            <div id="tb-editvideo-nav-list-loading-more" style="display:none;">
+                <img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" />
+            </div>
+            <div id="tb-editvideo-nav-list-next" style="padding-bottom:5px; cursor:pointer; text-align:center">
+                <img src="{PLUGIN_FILE_ROOT}/images/icons/arrow-down.png" />
+            </div>
+
+        </div>
+    </div>
+
+    <div id="tb-editvideo-nav-list-menu" style="position:fixed; right:80px; top:70px; z-index:99999; width:200px; line-height:22px;  text-align:left; display:none;" class="yt-card">
+
+        <div style="background-color: #ddd; padding: 0px 8px; border-bottom: solid 1px #ddd;">
+
+            <div style="float: right; text-align: right; position: relative; top: -3px; left: -0px;">
+
+                <a style="vertical-align: middle;text-decoration: none;" target="_blank" href="https://www.tubebuddy.com/tools?tool=quickedittoolbar" data-draggable="false">
+                    <img src="{PLUGIN_FILE_ROOT}/images/icons/question.png" title="help" style="height: 14px; vertical-align: middle;">
+                </a>
+
+                <span style="vertical-align: middle;text-decoration: none;" class="tb-editvideo-settings-closex tb-cursor-pointer" data-draggable="false">
+                    <img src="{PLUGIN_FILE_ROOT}/images/icons/close4.png" title="close" style="margin-left:4px; height:14px;vertical-align: middle;">
+                </span>
+
+            </div>
+            <img class="tb-height11" src="{PLUGIN_FILE_ROOT}/images/branding/tb-icon-transparent.svg" style="position: relative; top: 2px;">
+            <b>Quick-Edit Toolbar</b>
+            <div style="clear:both"></div>
+        </div>
+        <div style="padding:5px 5px 0 5px;">
+            <div class="tb-quickedittoolbar-description" style="line-height:16px; font-size:12px; border-bottom:dotted 1px #ccc; margin-bottom:5px; padding-bottom:4px;">
+
+            </div>
+            <div style="font-size:13px; padding-bottom:3px; text-align:right; padding-right:5px;">
+
+                <a class="tb-editvideos-hide-editor" style="color:red; font-size:11px;">Hide Quick-Edit Toolbar</a>
+                <a class="tb-editvideos-show-editor" style="color:green; display:none; font-size:11px;">Show Quick-Edit Toolbar</a>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+

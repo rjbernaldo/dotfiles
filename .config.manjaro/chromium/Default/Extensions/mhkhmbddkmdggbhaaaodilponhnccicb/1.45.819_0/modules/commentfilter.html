@@ -1,0 +1,130 @@
+<div style="display:none">
+
+	<style type="text/css">
+		.commenthub-discussion {
+			min-height: 800px;
+		}
+	</style>
+	<span class="tb-comment-filter-showhide-wrapper" style="float:right; margin-left:15px;">
+		<a class="yt-uix-button yt-uix-button-default yt-uix-button-size-default yt-uix-button-has-icon tb-comment-filter-showhide">
+			<img class="tb-height11" src="{PLUGIN_FILE_ROOT}/images/branding/tb-icon-transparent.svg" style="margin-right: 2px; vertical-align: text-bottom;">
+			<span style="position:relative; top:2px; left:1px;">
+				Filters
+				<span class="tb-comments-filter-arrow">&#9650;</span>
+			</span>
+		</a>
+
+	</span>
+	<style type="text/css">
+		.tb-comments-filter input[type='checkbox'] {
+			position: relative;
+			top: 2px;
+		}
+	</style>
+	<div class="tb-comments-filter" style="line-height:24px; margin-top:10px; border-top:solid 1px #ccc; padding:15px 0 0 10px; position:relative;">
+
+		<div style="float:right">
+			<img class="tb-height11" src="{PLUGIN_FILE_ROOT}/images/branding/tb-icon-transparent.svg" style="margin-right: 2px;">
+			<input type="checkbox" class="tb-comments-hide-read-checkbox" />
+			Show Hidden Comments
+			<span style="padding-left:2px; padding-right:2px; font-weight:500;" class="tb-comments-hide-read-count"></span>
+			<img src="{PLUGIN_FILE_ROOT}/images/icons/menu/hide.png" style="opacity:.8; position:relative; top:4px; left:2px;" />
+		</div>
+
+		<img class="tb-height11" src="{PLUGIN_FILE_ROOT}/images/branding/tb-icon-transparent.svg" style="margin-right: 2px;">
+
+		Show
+		<select class="tb-comments-filter-basic">
+			<option value="all">All comments</option>
+			<option value="notreplied">Comments that I have not replied to</option>
+			<option value="needfollowup">Comments that have replies which need to be follow up on</option>
+			<option value="replydisabled">Comments with Reply disabled</option>
+			<option value="questions">Comments that contain a question mark</option>
+			<option value="links">Comments that contain links (urls)</option>
+			<option value="patreon">Comments from Patreon supporters</option>
+			<option value="subscriber">Comments from your recent Subscribers</option>
+			<option value="haswords">Comments that contain the word(s)...</option>
+			<option value="-">--------</option>
+			<option value="advanced">Advanced...</option>
+		</select>
+		<input style="width:150px; display:none;" class="tb-comment-filter-words tb-comment-filter-words-first" value="" placeholder="Comma Separated" />
+
+		<span class="tb-comments-filter-how-many" style="display:none; padding:0px 4px; font-size:12px; color:#444; display:inline-block; background-color:#ffffaa;"></span>
+
+		<div class="tb-comment-filter-thinking" style="display: none; position:absolute; right:10px; top:5px;">
+			<img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" /> Loading...
+		</div>
+
+		<input type="checkbox" class="tb-comments-filter-started-by" checked="checked" style="display:none;" />
+
+		<div class="tb-comment-filter-advanced" style="display:none; margin-top:2px;">
+			<div style="font-size:11px; font-weight:bold; position:relative; top:4px; color:#444;">ADVANCED</div>
+			<select class="tb-comments-filter-thread-select">
+				<option value="-">All comments</option>
+				<option value="youtube">Replies Enabled</option>
+				<option value="linked">Replies Disabled</option>
+			</select>
+			started by
+			<select class="tb-comments-filter-started-by-select">
+				<option value="-">Anyone</option>
+				<option value="me">Me</option>
+				<option value="else">Someone Else</option>
+			</select>
+
+
+			that
+			<select class="tb-comments-filter-reply-select">
+				<option value="-">(no filter)</option>
+				<option value="meno">I have NOT replied to</option>
+				<option value="meyes">I HAVE replied to</option>
+				<option value="noone">NO ONE has replied to</option>
+				<option value="followup">REPLIES that need following up</option>
+			</select>
+			and contain
+			<input type="checkbox" class="tb-comments-filter-with" checked="checked" style="display:none;" />
+			<select class="tb-comments-filter-with-select">
+				<option value="-">(no filter)</option>
+				<option value="questions">questions</option>
+				<option value="profanity">profanity</option>
+				<option value="positive">positive sentiment</option>
+				<option value="negative">negative sentiment</option>
+				<option value="words">the word(s)...</option>
+			</select>
+			<input style="width:150px; display:none;" class="tb-comment-filter-words" value="" placeholder="Comma Separated" />
+
+
+		</div>
+
+		<div style="margin-left:-5px; padding-top:0px">
+			<div id="tb-comment-filter-patreon-linked-container" style="display:none">
+				<img src="{PLUGIN_FILE_ROOT}/images/icons/social/patreon.png" style="position:relative; top:5px; left:2px; height:25px;">
+				Your Patrons will be highlighted in comments below!
+				<span style="color:red; font-size:10px; text-decoration:underline; cursor:pointer;" id="tb-comment-filter-patreon-hide">hide</span>
+			</div>
+
+			<div id="tb-comment-filter-patreon-not-linked-container" style="display:none">
+				<img src="{PLUGIN_FILE_ROOT}/images/icons/social/patreon.png" style="position:relative; top:5px; left:2px; height:25px;">
+				<a href="https://www.tubebuddy.com/account/integrations" target="_blank">Link your Patreon account</a> to have Patrons highlighted in comments below
+				<span style="color:red; font-size:10px; text-decoration:underline; cursor:pointer;" id="tb-comment-filter-patreon-hide">hide</span>
+			</div>
+
+		</div>
+
+		<input type="checkbox" class="tb-comments-filter-linked-comments" style="display:none;" />
+
+		<div style="display:none">
+			<input type="checkbox" class="tb-comments-filter-has-rating" /> Show threads with
+			<select class="tb-comments-filter-type">
+				<option>More Than</option>
+				<option>Less Than</option>
+			</select>
+			<input type="text" style="width: 50px" value="2" />
+			<select class="tb-comments-filter-type">
+				<option>Thumbs Up 👍</option>
+				<option>Thumbs Down 👎</option>
+			</select><br />
+		</div>
+
+	</div>
+
+</div>

@@ -57,7 +57,16 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ruby node)
+plugins=(
+	git
+	ruby
+	node
+	archlinux
+	history-substring-search
+	colored-man-pages
+	zsh-autosuggestions
+	zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -150,9 +159,9 @@ alias cp-releases='code-push deployment ls blueshyft/BlueshyftPOS'
 # alias cp-staging='code-push release-react blueshyft/BlueshyftPOS ios --deploymentName Staging --mandatory --targetBinaryVersion ">=2.5.2 <3.0.0"'
 # alias cp-preflight='code-push promote blueshyft/BlueshyftPOS Staging Preflight --mandatory --targetBinaryVersion ">=2.5.2 <3.0.0"'
 # alias cp-production='code-push promote blueshyft/BlueshyftPOS Preflight Production --mandatory --targetBinaryVersion ">=2.5.2 <3.0.0"'
-cd() {
-  chdir $1 && tmux rename-window ${PWD##*/}
-}
+# cd() {
+#   chdir $1 && tmux rename-window ${PWD##*/}
+# }
 
 alias psfind="ps -ef | grep"
 alias history-top="history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10"
@@ -199,7 +208,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH="/usr/local/opt/qt/bin:$PATH"
 export PATH="/usr/local/opt/qt/bin:$PATH"
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_231`
+# export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_231`
 export PATH="/Users/rj/.emacs.d/bin:$PATH"
 
 # ----- vimode -----

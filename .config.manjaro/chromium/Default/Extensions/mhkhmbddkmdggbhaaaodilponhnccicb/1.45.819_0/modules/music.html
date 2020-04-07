@@ -1,0 +1,542 @@
+<div style="display:none">
+
+    <style>
+       .tb-jd-genre, .tb-jd-mood, .tb-jd-instrument, .tb-jd-tempo {
+           position: relative;
+           height: 100px;
+           width: 95px;
+           display: inline-block;
+           border: solid 5px #f3f3f3;
+           opacity: .85;
+       }
+
+           .tb-jd-genre.active, .tb-jd-mood.active, .tb-jd-instrument.active, .tb-jd-tempo.active {
+               border: solid 5px cornflowerblue;
+               opacity: 1;
+           }
+
+           .tb-jd-genre:hover, .tb-jd-mood:hover, .tb-jd-instrument:hover, .tb-jd-tempo:hover {
+               border: solid 5px cornflowerblue;
+               opacity: 1;
+               cursor: pointer;
+           }
+
+
+       .tb-jd-thumb {
+           position: absolute;
+           height: 100%;
+           width: 100%;
+       }
+
+       .tb-jd-icon {
+           position: absolute;
+           height: 75%;
+           width: 75%;
+           left: 12%;
+           top: 2%;
+       }
+
+       .tb-jd-name {
+           position: absolute;
+           width: 100%;
+           top: 80%;
+           height: 20%;
+           vertical-align: middle;
+           font-size: 11px;
+           font-weight: bold;
+           color: white;
+           text-align: center;
+           text-transform: uppercase;
+       }
+
+       .tb-jd-category-not-selected
+       {
+            position: relative;
+           height: 85px;
+           width: 85px;
+           display: inline-block;
+           border: solid 5px white;
+           opacity: .85;
+           text-align:center;
+           vertical-align:middle;
+           text-transform:uppercase;
+           background-color:#f1f1f1;
+           border:solid 1px #aaa;
+       }
+
+       .tb-jd-genre-not-selected div {
+           vertical-align:middle; 
+           font-size: 11px;color: #999;
+           padding-top: 25px;
+       }
+
+       .tb-jd-category-selected {
+           position: relative;
+           height: 85px;
+           width: 85px;
+           display: inline-block;
+           border: solid 5px white;
+           opacity: .85;
+       }
+
+       .tb-jd-thumb-selected {
+           position: absolute;
+           height: 100%;
+           width: 100%;
+           left: 0px;
+           top: 0px;
+           border: solid 1px #ccc;
+       }
+
+       .tb-jd-icon-selected {
+           position: absolute;
+           height: 75%;
+           width: 75%;
+           left: 12%;
+           top: 2%;
+           left: 0px;
+           top: 0px;
+           border: 0px;
+       }
+
+       .tb-jd-name-selected {
+           position: absolute;
+           width: 100%;
+           top: 80%;
+           height: 20%;
+           vertical-align: middle;
+           font-size: 11px;
+           font-weight: bold;
+           color: white;
+           text-align: center;
+           text-transform: uppercase;
+       }
+
+
+       .tb-jd-choose {
+           background-color: #f3f3f3;
+           text-align: left;
+           padding: 5px;
+       }
+    </style>
+
+    <div class="tb-music-jukedecktab">
+        <a class="tab tb-music-jukedecktab" style="max-width:180px; width:180px;">
+            <div class="content">
+                <div class="title">
+
+
+                    <img src="{PLUGIN_FILE_ROOT}/images/branding/icon_large.png" style="height:18px; position:absolute; top:-2px;" />
+                    <!--<span style="padding-left:20px">
+                        +
+                    </span>
+                    <img src="{PLUGIN_FILE_ROOT}/images/icons/social/jukedeck.png" style="height:18px; position:absolute; left:29px; top:-2px;" />-->
+                    <span style="padding-left:23px">
+                        Generated Tracks
+                    </span>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="tb-music-audio-library-browser" style="display:none;">
+        <div style="margin:25px 25px 0px 0px; padding:14px 15px 7px; background-color:#f1f1f1; border:solid 1px #ccc; font-size:16px;">
+
+            <div style="float:right; padding-right:10px; text-align:right; position:relative; top:-5px; font-size:14px;">
+                <div style="padding:0 5px 3px 0">
+                    <b>100% Unique</b>
+                    <img src="{PLUGIN_FILE_ROOT}/images/icons/check.png" style="position:relative; top:2px;" />
+                </div>
+                <div style="padding:0 5px 3px 0">
+                    <b>100% Customized</b>
+                    <img src="{PLUGIN_FILE_ROOT}/images/icons/check.png" style="position:relative; top:2px;" />
+                </div>
+                <div style="padding:0 5px 9px 0">
+                    <b>100% Royalty Free</b>
+                    <img src="{PLUGIN_FILE_ROOT}/images/icons/check.png" style="position:relative; top:2px;" />
+                </div>
+
+                <button class="tb-button tb-button-primary tb-music-generate-track" type="submit"><span class="yt-uix-button-content">GENERATE TRACK NOW!</span></button>
+            </div>
+            <a href="https://www.jukedeck.com" target="_blank">
+                <img src="{PLUGIN_FILE_ROOT}/images/modules/music/poweredby.png" style="max-height:65px;" />
+            </a>
+
+            <div style="padding:0px; position:relative; left:10px; color:#3498db; margin-top:5px; padding-bottom:10px; font-size:17px;">
+                Create amazing audio tracks as unique as you are.
+            </div>
+
+
+        </div>
+
+
+
+        <div class="track-content" style="margin-bottom:25px;">
+
+            <div class="tb-music-generated-tracks-list-loading">
+
+                <img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" style="position:relative; top:2px;" />
+                Loading...
+            </div>
+
+            <style>
+               .audiolibrary-column {
+                   border-bottom: solid 1px #ccc;
+               }
+
+               .audiolibrary-track-head {
+                   border-left: solid 1px #ccc;
+                   border-right: solid 1px #ccc;
+               }
+            </style>
+
+            <div class="tb-music-generated-tracks-list-loaded" style="display:none">
+
+                <ul class="tb-music-generated-tracks-list" style=" margin-right:25px;">
+                    <li class="track tb-music-track-template">
+                        <div class="audiolibrary-track-head" style="font-size:.8em; font-weight:500; background-color:#f6f6f6;">
+
+                            <div class="audiolibrary-column" style="width:200px;">
+                                Track Name
+                            </div>
+                            <div class="audiolibrary-column" style="width: 7.43243%;">
+                                Genre
+                            </div>
+                            <div class="audiolibrary-column" style="width: 7.0665%;">
+                                Mood
+                            </div>
+                            <div class="audiolibrary-column" style="width: 7.5135%;">
+                                Instruments
+                            </div>
+                            <div class="audiolibrary-column" style="width: 7.5135%;">
+                                Tempo
+                            </div>
+                            <div class="audiolibrary-column" style="width: 7.5135%;">
+                                Duration
+                            </div>
+                            <div class="audiolibrary-column" style="width: 7.5135%;">
+                                Date Created
+                            </div>
+                            <div class="audiolibrary-column">
+                                Preview
+                            </div>
+                            <div class="audiolibrary-column audiolibrary-column-download" style="width: 90px;">
+                                Download
+                            </div>
+
+                        </div>
+                    </li>
+                </ul>
+
+                <ul style="display:none;">
+                    <li class="track tb-music-track-template">
+                        <div class="audiolibrary-track-head">
+
+                            <div class="audiolibrary-column audiolibrary-column-title" style="width: 200px;">
+                                #TITLE#
+                            </div>
+                            <div class="audiolibrary-column audiolibrary-column-duration" style="width: 7.43243%;">
+                                #GENRE#
+                            </div>
+                            <div class="audiolibrary-column audiolibrary-column-category" style="width: 7.0665%;">
+                                #MOOD#
+                            </div>
+                            <div class="audiolibrary-column audiolibrary-column-popularity" style="width: 7.5135%;">
+                                #INSTRUMENTS#
+                            </div>
+                            <div class="audiolibrary-column audiolibrary-column-popularity" style="width: 7.5135%;">
+                                #TEMPO#
+                            </div>
+                            <div class="audiolibrary-column audiolibrary-column-popularity" style="width: 7.5135%;">
+                                #DURATION#
+                            </div>
+                            <div class="audiolibrary-column audiolibrary-column-popularity" style="width: 7.5135%;">
+                                #DATEGENERATED#
+                            </div>
+                            <div class="audiolibrary-column">
+                                <audio controls>
+                                    <source src="#DOWNLOADURL#" type="audio/mpeg">
+                                </audio>
+                            </div>
+                            <div class="audiolibrary-column audiolibrary-column-download" style="width: 90px;">
+                                <a href="/audiolibrary_download?vid=62fa8c89f5afc555" class="track-action download-link yt-uix-tooltip" data-tooltip-text="Download">
+                                    <span class="track-action-icon yt-sprite" style="position:relative; top:3px;"></span>
+                                </a>
+                            </div>
+
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="tb-music-generated-tracks-list-none" style="display:none">
+
+                You haven't generated any tracks yet!
+
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
+
+<div style="position: fixed; background-color: white; top: 55px; left: 50%; margin-left: -375px; z-index: 2000000003; border: solid 1px #ccc; padding: 8px 12px; border-radius: 3px; width: 750px; display: none;" id="tb-jukedeck-container" class="yt-dialog-fg">
+
+    <div style="background-color: #f0f0f0; margin-left: -12px; margin-right: -12px; margin-top: -8px; padding: 10px; border-bottom: solid 1px #ddd;">
+        <div style="float: right; text-align: right; position: relative; top: -3px; left: -3px;">
+
+            <a style="vertical-align: middle;text-decoration: none;" target="_blank" href="https://www.tubebuddy.com/tools?tool=captionsservice">
+                <img src="{PLUGIN_FILE_ROOT}/images/icons/question.png" title="help" style="height: 18px; vertical-align: middle;" />
+            </a>
+
+            <span style="vertical-align: middle;text-decoration: none;" class="tb-music-closex tb-cursor-pointer">
+                <img src="{PLUGIN_FILE_ROOT}/images/icons/close4.png" title="close" style="margin-left:4px;vertical-align: middle;" />
+            </span>
+
+        </div>
+        <div style="position:absolute; top:-32px; left:5px; background-color:transparent;">
+            <img id="tb-transcriptions-video-thumbnail" style="height: 20px; position: relative; top: 2px; margin-right:2px;" />
+            <a href="" target="_blank" style="position:relative; top:-3px;" id="tb-transcriptions-video-link"></a>
+        </div>
+
+        <img src="{PLUGIN_FILE_ROOT}/images/branding/icon_large.png" style="height: 24px; vertical-align: middle; margin-right: 2px;" />
+        <span style="vertical-align: middle; font-size: 20px;">
+            Music Generator
+        </span><br />
+    </div>
+    <div class="tb-transcriptions-settings-container">
+        <div style="text-align:center; padding-top:25px; padding-bottom:25px; display:none;">
+            <div style="font-size:20px; color:#666; margin-bottom:12px;">
+                Create Music as uniuque as you are
+            </div>
+
+        </div>
+
+        <div style="padding:0px 20px 20px 0px; margin-top:10px; text-align:left; font-size:16px;">
+            <div style="font-size:16px; margin-top:5px; text-align:left; width:250px; float:left; padding-right:10px; margin-right:10px; ">
+
+
+                <div style="margin-top:14px; margin-bottom:10px;">
+                    <a href="https://www.jukedeck.com" target="_blank" style="margin-left:6px;">
+                        <img src="{PLUGIN_FILE_ROOT}/images/modules/music/poweredby.png" style="width:100%" />
+                    </a>
+                </div>
+                <div style="padding:0px; position:relative; left:10px; color:#3498db; padding-bottom:10px; font-size:17px;">
+                    Create amazing audio tracks as unique as you are.
+                </div>
+                <div style="padding-top:10px; padding-left:7px;">
+                    <div style="padding:5px 0">
+                        <img src="{PLUGIN_FILE_ROOT}/images/icons/check.png" style="position:relative; top:2px;" />
+                        <b>100% Royalty Free</b>
+                        <div style="padding-left:25px; font-size:12px; color:#666;">
+                            Music you make with Jukedeck is yours to do with as you please. No royalties involved.
+                        </div>
+                    </div>
+                    <div style="padding:5px 0">
+                        <img src="{PLUGIN_FILE_ROOT}/images/icons/check.png" style="position:relative; top:2px;" />
+                        <b>100% Customized</b>
+                        <div style="padding-left:25px; font-size:12px; color:#666;">
+                            You have control over your music, so you can create tracks that do exactly what you want.
+                        </div>
+                    </div>
+                    <div style="padding:5px 0">
+                        <img src="{PLUGIN_FILE_ROOT}/images/icons/check.png" style="position:relative; top:2px;" />
+                        <b>100% Unique</b>
+                        <div style="padding-left:25px; font-size:12px; color:#666;">
+                            Every track you make is unique, so there’s no danger of your music popping up somewhere else.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="padding-top:15px; float:left; border-left:solid 1px #ccc; padding-left:10px; width:440px;">
+                <table style="width:100%; text-align:center;">
+                    <tr>
+                        <td style="width:25%; vertical-align:top">
+                            <b>Genre</b><br />
+                            <div class="tb-jd-genre-not-selected">
+                                <div>
+                                    not<br />selected
+                                </div>
+                            </div>
+                            <div class="tb-jd-genre-selected tb-jd-category-selected" style="display:none;">
+                                <img class="tb-jd-thumb-selected" />
+                                <img class="tb-jd-icon-selected" />
+                                <div class="tb-jd-name-selected"></div>
+                            </div><br />
+                            <a style="cursor:pointer; font-size:12px; position:relative" class="tb-jd-change-genre">CHANGE</a>
+                        </td>
+                        <td style="width:25%; vertical-align:top">
+                            <b>Mood</b><br />
+                            <div class="tb-jd-mood-selected tb-jd-category-selected">
+                                <img class="tb-jd-thumb-selected" />
+                                <img class="tb-jd-icon-selected" />
+                                <div class="tb-jd-name-selected"></div>
+                            </div><br />
+                            <a style="cursor:pointer; font-size:12px; position:relative" class="tb-jd-change-genre">CHANGE</a>
+                        </td>
+                        <td style="width:25%; vertical-align:top">
+                            <b>Instruments</b><br />
+                            <div class="tb-jd-instruments-selected tb-jd-category-selected">
+                                <img class="tb-jd-thumb-selected" />
+                                <img class="tb-jd-icon-selected" />
+                                <div class="tb-jd-name-selected"></div>
+                            </div><br />
+                            <a style="cursor:pointer; font-size:12px; position:relative" class="tb-jd-change-genre">CHANGE</a>
+                        </td>
+                        <td style="width:25%; vertical-align:top">
+                            <b>Tempo</b><br />
+                            <div class="tb-jd-tempo-selected tb-jd-category-selected">
+                                <img class="tb-jd-thumb-selected" />
+                                <img class="tb-jd-icon-selected" />
+                                <div class="tb-jd-name-selected"></div>
+                            </div><br />
+                            <a style="cursor:pointer; font-size:12px; position:relative" class="tb-jd-change-genre">CHANGE</a>
+                        </td>
+
+                    </tr>
+                </table>
+
+                <div class="tb-jd-choose-genre tb-jd-choose">
+                    <div style="text-align:center; font-size:24px; margin-bottom:10px; color:#444;">
+                        Choose a Genre
+                    </div>
+                    <div class="tb-music-genres-container" style="position:relative; left:5px;"></div>
+                </div>
+
+                <div class="tb-jd-choose-mood tb-jd-choose" style="display:none;">
+                    <div style="text-align:center; font-size:24px; margin-bottom:10px; color:#444;">
+                        Choose a Mood
+                    </div>
+                    <div class="tb-music-moods-container" style="position:relative; left:5px;"></div>
+                </div>
+
+                <div class="tb-jd-choose-instruments tb-jd-choose" style="display:none;">
+                    <div style="text-align:center; font-size:24px; margin-bottom:10px; color:#444;">
+                        Choose Instruments
+                    </div>
+                    <div class="tb-music-instruments-container" style="position:relative; left:5px;"></div>
+                </div>
+
+                <div class="tb-jd-choose-tempo tb-jd-choose" style="display:none;">
+                    <div style="text-align:center; font-size:24px; margin-bottom:10px; color:#444;">
+                        Choose Tempo
+                    </div>
+                    <div class="tb-music-tempo-container" style="position:relative; left:5px;"></div>
+                </div>
+
+                <div style="float:left;">
+                    <b>Length</b>
+                    <div style="padding-top:5px; font-size:14px;">
+                        <span class="yt-uix-form-input-select" style="width:55px;">
+                            <span class="yt-uix-form-input-select-content">
+                                <span class="yt-uix-form-input-select-arrow yt-sprite"></span>
+                                <span class="yt-uix-form-input-select-value tb-music-select-display">0</span>
+                            </span>
+                            <select class="yt-uix-form-input-select-element jdminutes-input tb-music-select-minutes" name="jdminutes">
+                                <option value="0" selected="selected">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </span> Minute(s)
+                        <div style="margin-top:8px">
+                            <span class="yt-uix-form-input-select" style="width:55px;">
+                                <span class="yt-uix-form-input-select-content">
+                                    <span class="yt-uix-form-input-select-arrow yt-sprite"></span>
+                                    <span class="yt-uix-form-input-select-value tb-music-select-display">30</span>
+                                </span>
+                                <select class="yt-uix-form-input-select-element jdseconds-input tb-music-select-seconds" name="jdseconds">
+                                    <option value="0">00</option>
+                                    <option value="1">01</option>
+                                    <option value="2">02</option>
+                                    <option value="3">03</option>
+                                    <option value="4">04</option>
+                                    <option value="5">05</option>
+                                    <option value="6">06</option>
+                                    <option value="7">07</option>
+                                    <option value="8">08</option>
+                                    <option value="9">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30" selected="selected">30</option>
+                                    <option value="31">31</option>
+                                    <option value="32">32</option>
+                                    <option value="33">33</option>
+                                    <option value="34">34</option>
+                                    <option value="35">35</option>
+                                    <option value="36">36</option>
+                                    <option value="37">37</option>
+                                    <option value="38">38</option>
+                                    <option value="39">39</option>
+                                    <option value="40">40</option>
+                                    <option value="41">41</option>
+                                    <option value="42">42</option>
+                                    <option value="43">43</option>
+                                    <option value="44">44</option>
+                                    <option value="45">45</option>
+                                    <option value="46">46</option>
+                                    <option value="47">47</option>
+                                    <option value="48">48</option>
+                                    <option value="49">49</option>
+                                    <option value="50">50</option>
+                                    <option value="51">51</option>
+                                    <option value="52">52</option>
+                                    <option value="53">53</option>
+                                    <option value="54">54</option>
+                                    <option value="55">55</option>
+                                    <option value="56">56</option>
+                                    <option value="57">57</option>
+                                    <option value="58">58</option>
+                                    <option value="59">59</option>
+                                </select>
+                            </span> Seconds
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div style="clear:both"></div>
+
+        </div>
+        <div style="margin-top: 15px; border-top: 1px solid #E2E2E2;">
+            <a class="tb-music-generated-link"></a>
+            <a style="margin-right: 10px; margin-top: 10px; float:right; height:24px;" target="_blank" class="tb-button tb-button-primary tb-music-generate-track-button">
+                Generate Track!
+            </a>
+            <span style="float:right; margin-right:15px; position:relative; top:8px;">
+                <input type="checkbox" checked="checked" /> I Agree to the <a href="https://www.jukedeck.com/terms-and-conditions" target="_blank">Jukedeck T.O.S.</a>
+            </span>
+            <div style="margin-top: 10px; text-align:left">
+                <a style="height: 24px; margin-right: 10px; margin-left: 10px;padding-top:4px" class="tb-button tb-button-destructive tb-transcriptions-close">
+                    Cancel
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+

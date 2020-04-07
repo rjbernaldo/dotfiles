@@ -1,0 +1,283 @@
+<style>
+    .tb-video-info-tag-item {
+        display: inline-block;
+        padding: 3px 5px;
+        border: solid 1px #ccc;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        border-radius: 3px;
+    }
+
+        .tb-video-info-tag-item:hover {
+            background-color: #bbb;
+            color: white;
+            cursor: pointer;
+        }
+
+    .tb-video-info-tag-item-selected {
+        display: inline-block;
+        padding: 3px 5px;
+        border: solid 1px #ccc;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        border-radius: 3px;
+        background-color: #888;
+        color: white;
+    }
+
+    .tb-video-info-action-menu {
+        color: #167ac6;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .tb-video-info-action-dropdown-action-option {
+        margin-bottom: 0px;
+        cursor: pointer;
+        margin-left: 10px;
+        padding: 6px 4px 6px 7px;
+        margin-right: 10px;
+        color: #167ac6;
+        text-decoration: none;
+        text-align:left;
+    }
+
+        .tb-video-info-action-dropdown-action-option:hover {
+            background: #eee;
+            text-decoration: underline;
+        }
+
+    .tb-video-info-action-dropdown-action-option-header {
+        font-weight: 500;
+        color: #777;
+        font-size: 12px;
+        padding: 5px 5px 1px 5px;
+        border-bottom: solid 1px #eee;
+        margin-right: 20px;
+        letter-spacing: .5px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    .tb-video-info-action-dropdown-action-option-disabled {
+        color: darkgrey;
+        margin-bottom: 10px;
+        cursor: pointer;
+        margin-left: 10px;
+        padding: 6px 4px 6px 7px;
+        margin-right: 10px;
+        text-decoration: none;
+    }
+    #tb-video-info-settings-tab input[type=checkbox] {
+        position: relative;
+        top: 2px;
+        left: 2px;
+    }
+
+    
+</style>
+
+<div style="display: none">
+
+    <div class="tb-layout-video-info-details action-panel-content yt-uix-expander yt-uix-expander-collapsed yt-card yt-card-has-padding" style="padding:5px; margin-bottom:0px;">
+        <ul class="tabs" style="font-size: 20px; margin-top: 5px; margin-left: 5px; margin-right:5px; border-bottom:solid 1px #ccc;">
+            <li id="tb-video-info-description-tab-header" data-tab-id="tb-video-info-description-tab" class="tb-tab-header selected tb-video-info-tab-header epic-nav-item" style="font-size: 14px; margin-right: 10px; padding-left: 5px; padding-right: 5px;">
+                <div class="tab-header-title">
+                    <img src="{PLUGIN_FILE_ROOT}/images/icons/page.png" style="height:16px; position:relative; top:3px;" />
+                    Description
+                </div>
+                <div class="tab-header-icon-container">
+                    <span class="tab-header-icon yt-sprite"></span>
+                </div>
+            </li>
+            <li id="tb-video-info-info-tab-header" data-tab-id="tb-video-info-info-tab" class="tb-tab-header tb-video-info-tab-header epic-nav-item" style="font-size: 14px; margin-right: 10px; padding-left: 5px; padding-right: 5px;">
+                <div class="tab-header-title" style="font-size:13px;">
+                    <img src="{PLUGIN_FILE_ROOT}/images/branding/tb-icon-transparent.svg" class="tb-height11" />
+                    <span style="padding:3px;">
+                        Stats, Tags &amp; Tools moved to <span syle='font-weight:500;'>Videolytics</span> tool (top-right corner of page)
+                    </span>
+                </div>  
+                <div class="tab-header-icon-container">
+                    <span class="tab-header-icon yt-sprite"></span>
+                </div>
+            </li>
+            <li id="tb-video-info-tags-tab-header" data-tab-id="tb-video-info-tags-tab" class="tb-tab-header tb-video-info-tab-header epic-nav-item" style="display:none; font-size: 14px; margin-right: 10px; padding-left: 5px; padding-right: 5px;">
+                <div class="tab-header-title">
+                    <img class="tb-height11" src="{PLUGIN_FILE_ROOT}/images/branding/tb-icon-transparent.svg" />
+                    Tags
+                </div>
+                <div class="tab-header-icon-container">
+                    <span class="tab-header-icon yt-sprite"></span>
+                </div>
+            </li>
+            <li id="tb-video-info-actions-tab-header" data-tab-id="tb-video-info-actions-tab" class="tb-tab-header tb-video-info-tab-header epic-nav-item" style="display:none; font-size: 14px; margin-right: 10px; padding-left: 5px; padding-right: 5px;">
+                <div class="tab-header-title">
+                    <img class="tb-height11" src="{PLUGIN_FILE_ROOT}/images/branding/tb-icon-transparent.svg" />
+                    Tools
+                </div>
+                <div class="tab-header-icon-container">
+                    <span class="tab-header-icon yt-sprite"></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="tb-layout-video-info-details-tabs">
+        <div class="tb-popout-tabs-container action-panel-content yt-uix-expander yt-uix-expander-collapsed yt-card yt-card-has-padding" style="display:none;">
+            <div id="tb-video-info-info-tab" class="tb-video-info-tab">
+
+                <div style="border:solid 1px #ccc; padding:5px; margin-bottom:5px;">
+                    <table style="width:100%; line-height:21px; text-align:center;">
+                        <tr>
+                            <td style="width: 30%;  font-weight:bold; padding:5px 8px; border-right:solid 1px #ccc;">
+                                <div data-tooltip-text="Earnings based on a $1.50 cost per one thousand ad views" class="yt-uix-tooltip" style="display:block !important;color:#666; text-transform:uppercase; font-size:12px; margin-bottom:9px;">
+                                    <img src="{PLUGIN_FILE_ROOT}/images/icons/social/youtube.png" style="position:relative; top:3px; left:-2px;" /><b>Estimated</b>
+                                </div>
+                                <span style="font-size:20px; color:green; margin:5px 0" class="tb-video-info-estimated-earnings"></span>
+                            </td>
+                            <td style="width: 30%;  font-weight:bold; padding:5px 8px; border-right:solid 1px #ccc;">
+                                <div data-tooltip-text="Who owns this video" class="yt-uix-tooltip" style="display:block !important;color:#666; text-transform:uppercase; font-size:12px; margin-bottom:9px;">
+                                    <img src="{PLUGIN_FILE_ROOT}/images/icons/social/youtube.png" style="position:relative; top:3px; left:-2px;" /><b>Owned By</b>
+                                </div>
+                                <span style="font-size:12px; color:#333; margin:5px 0" class="tb-video-info-content-owner"></span>
+                                <a class="tb-video-info-content-owner-link" target="_blank" style="font-size:16px;"></a>
+                            </td>
+                            <td style="width: 30%;  font-weight:bold; padding:5px 8px; border-right:solid 1px #ccc;">
+                                <div data-tooltip-text="(comments + likes + dislikes) / views" class="yt-uix-tooltip" style="display:block !important;color:#666; text-transform:uppercase; font-size:12px; margin-bottom:9px;">
+                                    <img src="{PLUGIN_FILE_ROOT}/images/icons/social/youtube.png" style="position:relative; top:3px; left:-2px;" /><b>Engagement Ratio</b>
+                                </div>
+                                <span style="font-size:20px; color:#333; margin:5px 0" class="tb-video-info-engagement-ratio"></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="border:solid 1px #ccc; padding:5px;">
+
+                    <table style="width:100%; line-height:21px; text-align:center;">
+                        <tr>
+                            <td style="width: 33%; font-weight:bold; padding:5px 8px; border-right:solid 1px #ccc;">
+                                <div data-tooltip-text="The percentage of likes from the total likes + dislikes " class="yt-uix-tooltip" style="display:block !important;color:#666; text-transform:uppercase; font-size:12px; margin-bottom:9px;">
+                                    <img src="{PLUGIN_FILE_ROOT}/images/icons/social/youtube.png" style="position:relative; top:3px; left:-2px;" /><b>Like Ratio</b>
+                                </div>
+                                <span style="font-size:20px; color:#333; margin:5px 0" id="tb-video-info-like-ratio"></span>
+                            </td>
+                            <td style="width: 33%;  font-weight:bold; padding:5px 8px; border-right:solid 1px #ccc;">
+                                <div data-tooltip-text="The number of times this video has been shared on Facebook" class="yt-uix-tooltip" style="display:block !important;color:#666; text-transform:uppercase; font-size:12px; margin-bottom:9px;">
+                                    <img src="{PLUGIN_FILE_ROOT}/images/icons/social/facebook.png" style="position:relative; top:3px; left:-2px;" /><b>Shares</b>
+                                </div>
+                                <span style="font-size:20px; color:#333; margin:5px 0" id="tb-video-info-fb-shares"></span>
+                            </td>
+                            <td style="width: 33%; font-weight:bold; padding:5px 8px;">
+                                <div data-tooltip-text="The number of times this video has been posted to Reddit" class="yt-uix-tooltip" style="display:block !important;color:#666; text-transform:uppercase; font-size:12px; margin-bottom:9px;">
+                                    <img src="{PLUGIN_FILE_ROOT}/images/icons/social/reddit.png" style="position:relative; top: 1px; left: -4px;height: 14px;" /><b>Posts</b>
+                                </div>
+                                <span style="font-size:20px; color:#333; margin:5px 0" id="tb-video-info-rd-posts"></span>
+                                <a id="tb-video-info-rd-posts-link" target="_blank"><img src="{PLUGIN_FILE_ROOT}/images/icons/external.png" /></a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+            <div id="tb-video-info-tags-tab" class="tb-video-info-tab">
+                <div class="action-panel-content tb-video-info-tags">
+
+
+                    <div class="tb-video-info-tag-list">
+                    </div>
+                    <div style="text-align:right;">
+
+                        <button title="Show search ranking for tags" style="margin-left: 10px;" class="tb-video-info-search-ranking tb-button tb-default yt-uix-tooltip tb-move-up5">
+                            <span class="yt-uix-button-content">
+                                <img class="tb-height11" src="{PLUGIN_FILE_ROOT}/images/branding/tb-icon-transparent.svg" style="position:relative; top:-1px; margin-bottom:0px;" />
+                                Show Search Rankings
+                            </span>
+                        </button>
+                        <div class="tb-video-info-tag-list-copy-to-container" style="display:inline-block; position:relative">
+                            <button title="Copy Tags" style="margin-left: 10px;" id="tb-video-info-copy-tags" class="tb-video-info-copy-tags tb-button tb-default yt-uix-tooltip tb-move-up5" data-clipboard-action="copy" data-clipboard-text="">
+                                <span class="yt-uix-button-content">
+                                    <img class="tb-height11" src="{PLUGIN_FILE_ROOT}/images/branding/tb-icon-transparent.svg" style="position:relative; top:-1px; margin-bottom:0px;" />
+                                    Copy To...
+                                </span>
+                            </button>
+                            <div style="display:inline-block; width:20px"><img class="tb-video-info-tag-list-confirm" src="{PLUGIN_FILE_ROOT}/images/icons/check.png" style="display:none" /></div>
+                        </div>
+                    </div>
+
+                    <div style="border-top:solid 1px #ccc; font-size:12px; color:#666; padding-top:5px; margin-top:5px; padding-bottom:5px; display:none;" id="tb-video-info-loading-tag-rankings">
+                        <img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" style="position:relative; top:5px; margin-left:4px;" /> Loading Search Rankings...
+                    </div>
+                    <div style="border-top:solid 1px #ccc; font-size:11px; color:#666; padding-top:7px; margin-top:5px; padding-left:5px; padding-bottom:5px; display:none;" id="tb-video-info-loading-tag-rankings-legend">
+                        
+                    </div>
+                </div>
+            </div>
+            <div id="tb-video-info-actions-tab" class="tb-video-info-tab">
+                <table style="width:100%; text-align:left">
+                    <tr>
+                        <td style="width:150px; padding:8px;">
+                            <button style="width:140px" class="tb-button tb-button-default yt-uix-tooltip tb-video-info-tool-button" type="button" data-tool="social-monitor" aria-labelledby="yt-uix-tooltip116-arialabel">
+                                Social Monitor
+                            </button>
+                        </td>
+                        <td style="vertical-align:top; padding:12px 0 8px;">
+                            See where this video is being talked about on Twitter, Reddit, Google+ and Pinterest
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:150px; padding:8px;">
+                            <button style="width:140px" class="tb-button tb-button-default yt-uix-tooltip tb-video-info-tool-button" type="button" data-tool="search-rank" aria-labelledby="yt-uix-tooltip116-arialabel">
+                                Search Rankings
+                            </button>
+                        </td>
+                        <td style="vertical-align:top; padding:12px 0 8px;">
+                            See where this video ranks in YouTube Search for all of its tags
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:150px; padding:8px;">
+                            <button style="width:140px" class="tb-button tb-button-default yt-uix-tooltip tb-video-info-tool-button" type="button" data-tool="share-tracker" aria-labelledby="yt-uix-tooltip116-arialabel">
+                                Share Tracker
+                            </button>
+                        </td>
+                        <td style="vertical-align:top; padding:12px 0 8px;">
+                            Share this video across multiple social networks and track which ones you have shared it to
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:150px; padding:8px;">
+                            <button style="width:140px" class="tb-button tb-button-default yt-uix-tooltip tb-video-info-tool-button" type="button" data-tool="vid2vid-promotion" aria-labelledby="yt-uix-tooltip116-arialabel">
+                                Vid2Vid Promotion
+                            </button>
+                        </td>
+                        <td style="vertical-align:top; padding:12px 0 8px;">
+                            Promote this video across some or all your other videos
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:150px; padding:8px;">
+                            <button style="width:140px" class="tb-button tb-button-default yt-uix-tooltip tb-video-info-tool-button" type="button" data-tool="advanced-embed" aria-labelledby="yt-uix-tooltip116-arialabel">
+                                Advanced Embed
+                            </button>
+                        </td>
+                        <td style="vertical-align:top; padding:12px 0 8px;">
+                            Get advanced embedding options for putting this video in a website, blog, etc
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:150px; padding:8px;">
+                            <button style="width:140px" class="tb-button tb-button-default yt-uix-tooltip tb-video-info-tool-button" type="button" data-tool="copy-annotations" aria-labelledby="yt-uix-tooltip116-arialabel">
+                                Copy Annotations
+                            </button>
+                        </td>
+                        <td style="vertical-align:top; padding:12px 0 8px;">
+                            Copy annotations from this video to some or all of your videos
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,154 @@
+<div class="tb-twitter-app" style="display:none;">
+
+    <div class="tb-twitter-shadow">
+        <div class="tb-twitter-header">
+            <img class="tb-twitter-logo" src="{PLUGIN_FILE_ROOT}/images/branding/tb-icon.svg" alt="tb-logo" />
+            <div class="tb-twitter-dropdown has-tb-tooltip">
+                <a href="#" class="tb-twitter-btn"><!-- append twitter data --></a>
+                <div class="outer-list top">
+                    <ul class="tb-twitter-account">
+                        <!-- append li twitter account data -->
+                    </ul>
+                </div>
+                <span class="tb-tooltip tb-tooltip-with-border tb-switch-accounts" role="tooltip"><i class="material-icons">account_box</i> Switch accounts</span>
+            </div>
+            <div class="tb-twitter-message" style="display:none;">
+                <a target="_blank" href="https://twitter.com/intent/tweet"><i class="material-icons">edit</i></a>
+            </div>
+            <div class="tb-twitter-message">
+                <i class="fas fa-sync-alt tb-twitter-refresh"></i>
+                <a target="_blank" href="https://twitter.com/messages"><i class="material-icons">mail</i></a>
+            </div>
+            <div class="tb-twitter-close" style="display:none;">
+                <a target="_blank" href="https://twitter.com/messages"><i class="material-icons">close</i></a>
+            </div>
+        </div>
+
+        <div class="tb-twitter-loading" style="display:none;">
+            <i class="material-icons">sync</i>
+            Loading Mentions...
+        </div>
+        <ul class="tb-twitter-notification">
+            <!-- append entry-template li-->
+        </ul>
+    </div>
+</div>
+
+<!-- .tb-twitter-entry-template [Template to append] -->
+
+<ul style="display:none;">
+    <li class="tb-twitter-entry-template">
+        <div class="tb-twitter-container">
+            <div class="tb-twitter-profile">
+                <!-- json item.ThumbnailUrl -->
+                <img src="#THUMBNAIL_URL#" alt="profile" />
+                <div class="hover">
+                    <!-- json item.Handle -->
+                    <a href='http://twitter.com/#HANDLE#' target="_blank">
+                        <i class="material-icons">airplanemode_active</i>
+                    </a>
+                </div>
+            </div> 
+            <div class="tb-twitter-feed">
+                <div class="tb-twitter-content">
+                    <div class="tb-twitter-id" data-tweet-id="#ID#">
+                            <a class="tb-twitter-username" target="_blank" href="https://twitter.com/#HANDLE#"><span class="el">#NAME#</span></a>
+                        <span class="tb-twitter-title">@ #HANDLE#</span>
+                        <span class="tb-twitter-date">#CREATED_DATE# <i class="fas fa-circle #UNREAD#"></i></span>
+                    </div>
+                    <div class="tb-twitter-text" data-tweet-id="#ID#">
+                        <span class="tb-twitter-tweet">#TEXT#</span>
+                    </div>
+                    <div class="tb-twitter-media #IMAGE_DISPLAY#">
+                        <img src="#IMAGE_URL#" alt="twitter image" />
+                    </div>
+                    <div class="tb-twitter-actions">
+                        <p class="has-tb-tooltip">
+                            <button class="tb-icon-mail-reply fas fa-reply" data-tweet-id="#ID#" style="cursor:pointer"></button>
+                            <span class="tb-tooltip tb-tooltip-without-border" role="tooltip">Reply</span>
+                        </p>
+                        <p class="has-tb-tooltip">
+                            <button class="tb-icon-retweet fas fa-retweet #RETWEETED#" data-tb-tooltip="Retweet" data-tweet-id="#ID#" style="cursor:pointer"></button>
+                            <span class="tb-tooltip tb-tooltip-without-border" role="tooltip">Retweet</span>
+                            <span class="tb-twitter-count">#RETWEET_COUNT#</span>
+                        </p>
+                        <p class="has-tb-tooltip">
+                            <button class="tb-icon-star fas fa-heart #FAVORITED#" data-tb-tooltip="Favorite" data-tweet-id="#ID#" style="cursor:pointer"></button>
+                            <span class="tb-tooltip tb-tooltip-without-border" role="tooltip">Favorite</span>
+                            <span class="tb-twitter-count">#FAVORITE_COUNT#</span>
+                        </p>
+                        <p class="has-tb-tooltip">
+                            <a target="_blank" href="https://twitter.com/vidsummit/status/#ID#" data-tb-tooltip="View on Twitter" data-tweet-id="#ID#">
+                                <i class="fas fa-ellipsis-h" style="color:#aaa; font-size:.9em"></i>
+                            </a>
+                            <span class="tb-tooltip tb-tooltip-without-border" role="tooltip">View on Twitter</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="reply-#ID#" class="tb-display-reply" style="display:none;">
+            <div class="tb-reply">
+                <div class="tb-avatar">
+                    <img src="#ACCOUNT_AVATAR#"  alt="account profile image"/>
+                </div>
+                <div class="tb-textarea">
+                    <textarea id="reply-text-#ID#" class="tb-twitter-reply-box" placeholder="Tweet your reply"></textarea>
+                    <div class="tb-btns">
+                        <div class="tb-add">
+                            <a class="has-tb-tooltip" href="#">
+                                <i class="material-icons">image</i>
+                                <span class="tb-tooltip tb-tooltip-without-border" role="tooltip">Image</span>
+                            </a>
+                            <a class="has-tb-tooltip" href="#">
+                                <i class="material-icons">ondemand_video</i>
+                                <span class="tb-tooltip tb-tooltip-without-border" role="tooltip">Video</span>
+                            </a>
+                            <a class="has-tb-tooltip" href="#">
+                                <i class="material-icons">insert_chart</i>
+                                <span class="tb-tooltip tb-tooltip-without-border" role="tooltip">Add Poll</span>
+                            </a>
+                        </div>
+                        <div class="tb-submit">
+                            <button data-tweet-id="#ID#" class="tb-closeTweet"><span class="fas fa-times"></span><span class="tb-text">Close Tweet</span></button>
+                            <button data-tweet-id="#ID#" data-tweet-screenname="#HANDLE#" class="tb-submitReply"><span class="fas fa-comment-alt"></span><span class="tb-text">Tweet</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="reply-success-#ID#" class="tb-twitter-reply-container" style="display:none;">
+            <div class="tb-twitter-reply-success">
+                <p> Your reply was successfully sent!</p> <br />
+                <a id="reply-success-link-#ID#" target="_blank" class="tb-share-text"><i class="fas fa-share-square"></i>View On Twitter</a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+<ul style="display:none">
+    <li class="tb-twitter-account-link">
+        <h3>Please link a Twitter account</h3>
+        <p>In order to use the Twitter notification feature, please add your Twitter account through TubeBuddy's social integrations section.</p>
+        <a class="tb-twitter-link-button">
+            <i class="fas fa-link"></i>
+            Link Twitter account
+        </a>
+    </li>
+    <li class="tb-twitter-account-login">
+        <h3>Please sign in to TubeBuddy.com</h3>
+        <p>In order to use the Twitter notification feature, you must be logged into your TubeBuddy account.</p>
+        <a class="tb-twitter-login-button">
+            <i class="fas fa-sign-in-alt"></i>
+            Sign in
+        </a>
+    </li>
+</ul>
+
+<ul style="display:none;">
+    <li class="tb-twitter-handle-template" data-tweet-id="#TWITTER_ID#">
+        <img class="tb-twitter-account-img" src="#THUMBNAIL_URL#" alt="twitter-profile"/>
+        @#SCREEN_NAME#
+    </li>
+</ul>

@@ -1,0 +1,279 @@
+
+<div style="position:fixed; background-color:white; top:75px; left:50%; margin-left:-350px;  z-index:2100000003; border: solid 1px #ccc; padding: 8px 12px; border-radius: 3px; width: 700px; display:none;" id="tb-annotations-update-container" class="yt-dialog-fg">
+    <div style="background-color: #f0f0f0; margin-left: -12px; margin-right: -12px; margin-top: -8px; padding: 10px; border-bottom: solid 1px #ddd; position:relative;">
+
+        <div style="float: right; text-align: right; position: relative; top: -3px; left: -3px;">
+
+            <a style="vertical-align: middle;text-decoration: none;" target="_blank" href="https://www.tubebuddy.com/tools?tool=bulkupdateannotations" data-draggable="false">
+                <img src="{PLUGIN_FILE_ROOT}/images/icons/question.png" title="help" style="height: 18px; vertical-align: middle;" />
+            </a>
+
+            <span style="vertical-align: middle;text-decoration: none;" class="tb-annotations-update-closex tb-cursor-pointer" data-draggable="false">
+                <img src="{PLUGIN_FILE_ROOT}/images/icons/close4.png" title="close" style="margin-left:4px;vertical-align: middle;" />
+            </span>
+
+        </div>
+        <div style="position:absolute; top:-32px; left:5px; background-color:transparent;">
+            <img id="tb-annotations-update-thumbnail" style="height: 20px; position: relative; top: 2px; margin-right:2px;" />
+            <a href="" target="_blank" style="position:relative; top:-3px;" id="tb-annotations-update-title"></a>
+        </div>
+
+        <img src="{PLUGIN_FILE_ROOT}/images/branding/icon_large.png" style="height: 24px; vertical-align: middle; margin-right: 2px;" />
+        <span style="vertical-align: middle; font-size: 20px;" id="tb-annotations-update-title-block">Update Annotations</span>
+    </div>
+
+    <div style="padding:15px 10px 10px 10px;">
+
+        <div class="tb-annotations-update-step1">
+            <div>
+                <div style="margin-left:10px">
+                    <div id="tb-annotations-update-step-target-title" style="font-size:15px; margin-bottom:15px; margin-top:15px">1) Find annotations where the 
+                    <select class="tb-annotations-update-target-select">
+                        <option selected="selected" value="url">URL</option>
+                        <option value="text">Text</option>
+                    </select>
+                    is <input style="width:350px" class="tb-annotations-update-target-input-field" type="text" />
+                    </div>
+                   
+                </div>
+                <div style="margin-left:10px;margin-bottom:15px">
+                    <div id="tb-annotations-update-step-action-title" style="font-size:15px; margin-bottom:15px">2) Update matching annotations</div>
+                    <div style="margin-top:10px"><input type="checkbox" class="tb-annotations-update-action-url tb-annotations-update-action-option" /><span>URL to </span><input style="width:350px;margin-left:52px" class="tb-annotations-update-action-url-input tb-annotations-update-action-input" type="text" /></div>
+                    <div style="margin-top:10px"><input type="checkbox" class="tb-annotations-update-action-text tb-annotations-update-action-option" /><span>Text to </span><input style="width:350px;margin-left:50px" class="tb-annotations-update-action-text-input tb-annotations-update-action-input" type="text" /></div>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+        </div>
+
+        <div class="tb-annotations-update-step2">
+            <div id="tb-annotations-update-step-2-title" style="font-size:15px; font-weight:bold; margin:10px 0 20px 0;">Which videos do you want to search?</div>
+            <div style="margin-top: 10px;">
+                <input checked="checked" name="tb-annotations-update-method" data-method="3" id="tb-annotations-update-method-full" type="radio" /> I want to search a full list of <b>all</b> my videos.<br />
+                <div style="font-size: 12px; margin-left:30px; margin-top:5px;"><input id="tb-annotations-update-onlyLoadFirstPage" type="checkbox" /><span style="position:relative;top:-2px">Only load my most recent <input id="tb-annotations-update-onlyLoadFirstPage-number" class="tb-width30" type="text" value="50" /> videos (faster)</span></div>
+
+            </div>
+            <div style="margin-top: 15px;">
+                <input name="tb-annotations-update-method" data-method="0" id="tb-annotations-update-method-ids" type="radio" /> A list of Video IDs that I specify<br />
+                <input id="tb-annotations-update-input-ids" type="text" style="margin-left: 25px; margin-top: 5px; width: 300px;" />
+                <span style="font-size:11px; font-weight:bold;" id="tb-annotations-update-input-ids-status"></span>
+                <br />
+                <div style="font-size: 12px; color: #666; margin-left:30px; margin-top:5px;">Example: "gXDMoiEkyuQ, Cpc-t-Uwv1I, 8fE29CHJMCg"</div>
+            </div>
+            <div style="margin-top: 15px;">
+                <input name="tb-annotations-update-method" data-method="1" id="tb-annotations-update-method-playlist" type="radio" /> All videos within one of my playlists<br />
+                <input disabled="disabled" id="tb-annotations-update-input-playlist" type="text" style="margin-left: 25px; margin-top: 5px; width: 300px;" />
+                <span style="font-size: 11px; font-weight: bold;" id="tb-annotations-update-input-playlist-status"></span>
+                <br />
+                <div style="font-size: 12px; color: #666; margin-left: 30px; margin-top: 5px;">Enter a playlist id (or link to your playlist). Example: "PL5lo6g_GZWyxduCkV8tWsG_XUIphznb0b"</div>
+            </div>
+            <div style="margin-top: 15px; margin-bottom:15px;">
+                <input name="tb-annotations-update-method" data-method="2" id="tb-annotations-update-method-search" type="radio" /> Search a list of videos that match my Search Phrase below.<br />
+                <input disabled="disabled" id="tb-annotations-update-input-search" type="text" style="margin-left: 25px; margin-top: 5px; width: 300px;" />
+                <br />
+                <div style="font-size: 12px; color: #666; margin-left:30px; margin-top:5px;">Example "Avengers"</div>
+            </div>
+        </div>
+
+        <div class="tb-annotations-update-step3">
+            <div style="color: green; font-weight: bold; font-size: 15px; border-bottom: dashed 1px #ccc; padding-bottom: 5px; margin-bottom: 5px;">
+                <div style="float: right; font-size: 14px; margin-right: 20px;">
+                    Annotations Selected: (<span class="tb-annotations-update-destination-selected-count">0</span>)
+                </div>
+                <span id="tb-annotations-update-what-videos2">
+                    What videos do you want to update annotations on?
+                </span>
+            </div>
+            <div class="tb-annotations-update-annotations-item-destination-header" style="border-bottom: solid 1px #ccc; padding-bottom: 5px; margin-bottom: 5px; margin-top: 15px;">
+                Select <a style="" class="tb-annotations-update-select-all-checkboxes">all</a> | <a style="" class="tb-annotations-update-select-no-checkboxes">none</a>
+            </div>
+            <div style="margin-top: 0px; height: 290px; overflow-y: scroll; overflow: auto; border-bottom: solid 1px #eee;">
+                <div class="tb-annotations-update-loading-videos" style="margin-top: 40px; margin-left: 15px;">
+                    <img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif " /> <span style="position:relative; top:-3px;" class="tb-annotations-update-loading-text"> Loading your videos...</span><br /><br /><span class="tb-annotations-update-loading-text-search"></span>
+                    <div style="font-size: 12px; font-weight: bold; margin-left:20px" class="tb-annotations-loading-count-container">
+                        <span class="tb-annotations-update-loading-count">0</span> of
+                        <span class="tb-annotations-update-loading-count-total">?</span> total Videos.
+                    </div>
+                </div>
+                <div class="tb-annotations-update-no-videos" style="margin-top: 40px; margin-left: 15px; display:none;">
+                    No Videos with annotations found matching your criteria.
+                </div>
+                <div class="tb-annotations-update-destination-list" style="display: none;">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="tb-annotations-update-step4">
+
+            <div class="tb-annotations-update-confirm" style="display: none">
+                <div style="margin: 40px 20px;" id="tb-annotations-update-confirm-container">
+                    <b id="tb-annotations-update-confirm-statement">
+                        Please confirm that you want to update <span style="font-size: 1.2em" class="tb-annotations-update-count"></span> Annoatation<span id="tb-annotations-update-count-s">s</span>.
+                    </b><br />
+                    <br />
+                    <div style="color: green;">
+                        &nbsp; <input style="position: relative; top: 1px;" type="checkbox" class="tb-annotations-update-confirm-checkbox" /> Yes, continue with bulk <span id="tb-annotations-update-confirm-text">updating</span>.
+                    </div>
+                    <br /><br />
+                </div>
+
+            </div>
+            <div class="tb-annotations-update-status" style="display: none">
+
+                <div style="font-size: 18px; font-weight: bold; background-color:#f1f1f1; padding:5px 8px; margin-bottom:15px;">
+
+                    <div style="margin-left:20px; font-weight:normal; float:right; margin-right:15px;">
+                        <div id="tb-annotations-update-done" style="color: green; display: none;">
+                            <img src="{PLUGIN_FILE_ROOT}/images/icons/check.png" />
+                            Processing complete!
+                        </div>
+                        <div id="tb-annotations-update-stopped" style="color:red; display:none;">
+                            <img src="{PLUGIN_FILE_ROOT}/images/icons/error.png" style="position:relative; top:4px;" />
+                            Processing Stopped!
+                        </div>
+                    </div>
+
+                    <span id="tb-annotations-update-working">
+                        <img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" />
+
+                        <span style="display:none">
+                            <img id="tb-annotations-update-current-image" src="" style="height: 20px; position: relative; top: 5px;" />
+                            <a id="tb-annotations-update-current-video" target="_blank"></a>
+                        </span>
+                    </span>
+
+                    Status:
+                    <span id="tb-annotations-update-status-count" style="font-weight:normal; font-size:14px; margin-left:5px; position:relative; top:-1px;"></span>
+                    <br />
+
+
+                    <div id="tb-annotations-update-progress-container" style="font-size:11px; font-weight:bold;  color:green;"></div>
+
+                </div>
+
+                <div style="display:none">
+                    <div id="tb-annotations-update-results" style="width:660px; height:200px; max-height:200px; overflow-y:scroll; margin-top:20px; padding-top:10px; border-top:dashed 1px #ccc; padding-left:5px;">
+                        <div style="float: right; width: 330px;">
+                            <b>Completed</b>
+                            <div id="tb-annotations-update-completed-list"></div>
+                        </div>
+                        <div style="">
+                            <b>To be Processed</b>
+                            <div id="tb-annotations-update-queue-list"></div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="tb-annotations-update-progress-v2-container">
+                    <div style="float: right; width: 330px;">
+
+                        <div style="color:#333; font-weight:bold; border-bottom:solid 1px #ccc; color:green;">
+                            Videos Completed Successfully
+
+                            &nbsp;&nbsp; (<span style="" id="tb-annotations-update-completed-list2-count">0</span>)
+                        </div>
+                        <div id="tb-annotations-update-completed-list2" style="height:275px; overflow-y:auto; display:none;"></div>
+                        <div id="tb-annotations-update-completed-none-list2" style="height:120px; overflow:auto; margin-left:15px; padding-top:20px;">
+                            (none)
+                        </div>
+                    </div>
+
+                    <div style="width:330px;">
+                        <div style="color:#333; font-weight:bold; border-bottom:solid 1px #ccc;">Next 3 Videos to be Processed</div>
+                        <div id="tb-annotations-update-queue-complete-list2" style="display:none; padding:15px 25px; height:80px;">
+                            (no more)
+                        </div>
+                        <div id="tb-annotations-update-queue-list2" style="height:80px;">
+
+                        </div>
+
+                    </div>
+                    <div style="margin-top:15px; width:330px;">
+
+                        <div style="color:red; font-weight:bold; border-bottom:solid 1px #ccc;">
+                            <div style="float:left">
+                                Videos Completed with Errors
+
+                                &nbsp;&nbsp; (<span style="" id="tb-annotations-update-error-list2-count">0</span>)
+                            </div>
+                            <div id="tb-annotations-update-error-copy-container" class="tb-cursor-pointer" style="display:none;float:left;margin-left:5px;color: #666"><img title="Copy video ids" id="tb-annotations-update-error-copy" data-clipboard-text="" src="{PLUGIN_FILE_ROOT}/images/icons/copy.png" /><span class="tb-font-size10 tb-move-up4">Copy video ids</span></div>
+                            <div style="clear:left"></div>
+                        </div>
+                        <div id="tb-annotations-update-error-list2" style="height:120px; overflow:auto; display:none;">
+
+                        </div>
+                        <div id="tb-annotations-update-error-none-list2" style="height:120px; overflow:auto; margin-left:15px; color:coral; padding-top:20px;">
+                            (none)
+                        </div>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div style="text-align: right; margin: 10px 0 0px; padding: 4px 7px 3px; border-top: solid 1px #ccc;">
+
+        <a class="tb-button tb-button-destructive" id="tb-annotations-update-close" style="float: left;margin-right:10px ">
+            Close
+        </a>
+        <a class="tb-button tb-button-default tb-annotations-update-back" style=" float: left;">
+            Back
+        </a>
+        <a class="tb-button tb-button-default yt-uix-button-payment tb-annotations-update-kickoff" style="display: none">
+            Start Updating!
+        </a>
+        <a class="tb-button tb-button-default yt-uix-button-payment yt-uix-tooltip tb-annotations-update-continue">
+            Continue
+        </a>
+        <a class="tb-button tb-button-destructive" id="tb-annotations-update-stop" style="display: none;">
+            Stop Updating
+        </a>
+    </div>
+
+</div>
+
+<div style="display:none" type="text/template" id="tb-annotations-update-destination-template">
+
+    <div data-video-id="{0}" class="tb-annotations-update-destination-video-template tb-annotations-update-destination-row" style="margin-bottom: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" data-privacy="{6}">
+        <input data-video-id="{0}" type="checkbox" class="tb-annotations-update-checkbox-include" style="position:relative;top:-1px" />
+        <img data-video-id="{0}" src='{1}' style="height: 20px; position: relative; top: 2px;" />
+        <a data-video-id="{0}" href="{2}" target="_blank" style="position:relative;top:-3px">{3}</a>
+        <span style="position:relative;top: 3px; margin-right: 5px;float: right;"><strong>{4}</strong> {5} found</span>
+    </div>
+
+</div>
+
+<div data-video-id="#VIDEOID#" class="tb-annotations-update-processing-template2" style="display: none; margin-bottom: 5px; width: 295px; max-width: 295px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-left:5px;">
+    <img data-video-id="#VIDEOID#" src='#THUMBNAILURL#' style="height: 20px; position: relative; top: 5px;" />
+    <a data-video-id="#VIDEOID#" href="#HREF#" target="_blank">#VIDEOTITLE#</a>
+</div>
+<div class="tb-annotations-update-processed-success" style="display:none; margin-bottom:3px; width: 295px; max-width: 295px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-left:5px; margin-top:6px;">
+    <b style="color:green;">&#x2713;</b>
+    <a href="#HREF#" target="_blank">#VIDEOTITLE#</a>
+</div>
+<div class="tb-annotations-update-processed-error" data-video-id="#VIDEOID#" style="display:none; margin-bottom:3px; width: 285px;margin-left:5px; margin-top:6px;border: solid 1px red;padding: 2px 5px 5px;">
+    <a href="#HREF#" target="_blank">#VIDEOTITLE#</a>
+    <div style="padding-left:2px; color:red; font-size:12px;"><b style="color:red;">&#x2717;</b> #ERROR#</div>
+</div>
+
+<style type="text/css">
+
+    .tb-annotations-update-destination-row:hover {
+        background-color: #ffffbb;
+    }
+
+    .tb-annotations-update-destination-row {
+        border: solid 1px #ccc;
+        border-radius: 5px;
+        margin: 3px;
+    }
+
+    .tb-annotations-update-destination-row-selected {
+        background-color: #f1f1f1;
+    }
+</style>

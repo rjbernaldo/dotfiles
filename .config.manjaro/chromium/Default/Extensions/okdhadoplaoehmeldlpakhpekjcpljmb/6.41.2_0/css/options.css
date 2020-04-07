@@ -1,0 +1,87 @@
+.affix-bottom {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	z-index: 10;
+	width: 100%;
+}
+
+.main {
+	padding: 20px;
+}
+
+.mt-0 {
+	margin-top: 0;
+}
+
+.nav-sidebar {
+	margin: 10px -20px;
+}
+.nav-sidebar li span {
+	color: #999;
+}
+.nav-sidebar li a,
+.nav-sidebar li span {
+	padding: 10px 20px;
+	display: block;
+}
+.nav-sidebar .active a,
+.nav-sidebar .active a:hover,
+.nav-sidebar .active a:focus {
+	background: #428bca;
+	color: #fff;
+}
+
+.page-header {
+	font-size: 1.75em;
+	margin-top: 0;
+}
+.page-header small {
+	line-height: 175%;
+}
+.panel-heading .table {
+	margin-bottom: 0;
+}
+.panel-heading .table th,
+.panel-heading .table td {
+	padding: 0;
+}
+
+.pb-2 {
+	padding-bottom: 0.5rem;
+}
+.pb-15 {
+	padding-bottom: 9rem;
+}
+.pt-2 {
+	padding-top: 0.5rem;
+}
+
+.sidebar {
+	padding-top: 20px;
+}
+.sidebar h2 {
+	border-bottom: 1px solid #ddd;
+	font-size: 1.25em;
+	padding: 10px 0;
+}
+
+.table.table-borderless,
+.table.table-borderless th,
+.table.table-borderless td {
+	border: 0;
+}
+.table.table-grid,
+.table.table-grid th,
+.table.table-grid td {
+	margin: 0;
+	border: 0;
+}
+
+.word-break {
+	word-break: break-all;
+}
+
+a span.glyphicon {
+	font-size: 75%;
+}

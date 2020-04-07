@@ -1,0 +1,609 @@
+
+<!--Start Base Module Template-->
+    <div id="tb-tag-explorer-container" class="tb-module-template draggable-container" style="display:none; width: 900px;  position: fixed; left: 0;  right: 0;  margin-left: auto;  margin-right: auto; top:10px;">
+        <!--Start Base Module Shadow-->
+        <div class="tb-module-shadow">
+            <!--Start BASE Module Header-->
+            <div class="tb-module-header" data-draggable="true">
+                <img class="tb-module-logo " src="{PLUGIN_FILE_ROOT}/images/branding/tb-icon.svg" alt="tb-logo" style="width:27px;" data-draggable="false" />
+                <h1 class="tb-module-title">
+                    Keyword Explorer
+                </h1>
+                <div class="tb-module-help tb-tooltip" title="help">
+                    <a style="vertical-align: middle;text-decoration: none;" target="_blank" href="https://www.tubebuddy.com/tools?tool=tagexplorer" data-draggable="false">
+                        <i class="small material-icons tb-icon-white tb-icon-help">help_outline</i>
+                    </a>
+                </div>
+                <div class="tb-tag-explorer-closex" data-draggable="false" title="close">
+                    <i class="medium material-icons tb-icon-white" data-draggable="false">close</i>
+                </div>
+            </div>
+            <div class="tb-module-content tb-tag-explorer-content">
+
+                <div class="tb-tag-explorer-header" style="display:flex; justify-content:space-between; align-items:center; padding: 10px 20px 10px 5px;">
+                    <div style="display:flex; align-items:center;">
+                        <div>
+                            <img class="tb-tag-explorer-tag-checkbox-confirm tb-tag-explorer-tag-checkbox-hidden tb-margin-left10" src="{PLUGIN_FILE_ROOT}/images/icons/check.png">
+                            <label class="tb-tag-explorer-main-input tb-checkbox tb-margin-left10" for="tb-tag-explorer-include-explored-tag"><input disabled="disabled" type="checkbox" id="tb-tag-explorer-include-explored-tag" class="tb-tag-explorer-tag-checkbox tb-tag-explorer-tag-checkbox-explore"><span class="tb-checkbox__indicator"></span></label>
+                        </div>
+                        <input placeholder="keyword..." id="tb-tag-explorer-input" autocomplete="off" type="text" style="width: 270px; border:solid 1px #167ac6;  height:22px; padding-left:5px; font-size:18px; " />
+                        <button class="tb-btn tb-btn-green tb-tag-explorer-button tb-btn-small tb-margin-left5" id="tb-tag-explorer-explore">
+                            Explore
+                        </button>
+                        <div class="tb-tag-explorer-header-auto-complete" style="display:none;">
+                            <div class="tb-tag-explorer-header-auto-complete-items">
+                            </div>
+                        </div>
+                        <div class="tb-margin-left10 tb-tag-explorer-header-characters" style="display:none">
+                            We've modified your keyword search. <a href="https://tubebuddy.freshdesk.com/support/solutions/articles/5000852885-keywords-and-special-characters" target="_blank">Why?</a>
+                        </div>
+                    </div>
+                    <div>
+                        Keywords Selected
+                        <span style="font-size:12px;" id="tb-tag-explorer-selected-count-label" class="tb-tag-explorer-selected-count tb-bold"></span>
+                        <div style="font-size:10px; display:none;">
+                            <a style="cursor:pointer">clear</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tb-tag-explorer-tab-none" class="tb-font-color-gray tb-font-size24 tb-text-align-center tb-margin-bottom125 tb-margin-top70 padding-top5 tb-margin-top10">
+                    <img src="{PLUGIN_FILE_ROOT}/images/modules/tagexplorer/arrow.png" style="position: absolute;left: 170px;top: 130px; opacity:.70; height:80px" />
+                    <span class="tb-move-down5">Enter a Keyword and click <b>Explore</b></span>
+                </div>
+                <!-- Trending Topics -->
+                <div id="tb-tag-explorer-trending-related-container">
+                    <ul role="tablist" id="tb-tag-explorer-trending-related-tabs-container" class="tb-font-color-gray tb-font-size24">
+                        <!-- TODO: once others tabs are added, add class 'tb-tag-explorer-trending-tab--active' to default tab -->
+                        <li role="tab" data-tab-id="1" class="tb-tag-explorer-trending-tab tb-margin-left10">
+                            What's Trending
+                            <select id="tb-tag-explorer-trending-topic-country-select" class="tb-dropdown-menu tb-move-up2"></select>
+                        </li>
+                        <!-- for future release -->
+                        <!--<li role="tab" data-tab-id="2" class="tb-tag-explorer-trending-tab">
+                            Recent Related Videos
+                        </li>-->
+                        <!-- for future release -->
+                        <!--<li role="tab" data-tab-id="3" class="tb-tag-explorer-trending-tab">
+                            Top Related Videos
+                        </li>-->
+                    </ul>
+
+                    <div id="tb-tag-explorer-trending-related-tabs-content-container">
+                        <div data-tab-id="1" class="tb-tag-explorer-trending-tab-content">
+                            <div id="tb-tag-explorer-trending-list" style="display:flex; justify-content:space-between; flex-wrap:wrap;"></div>
+                            <div id="tb-tag-explorer-trending-list-loading" style="line-height: 24px; margin-bottom: 100px; padding-top: 15px; margin-top: 5px; font-size: 15px; padding-left: 18px; display: none;">
+                                <span class="tb-spinner"></span> Loading...
+                            </div>
+                        </div>
+                        <!-- for future release -->
+                        <!--<div data-tab-id="2" class="tb-tag-explorer-trending-tab-content" style="display:none;">
+                        recent related videos
+                    </div>-->
+                        <!-- for future release -->
+                        <!--<div data-tab-id="3" class="tb-tag-explorer-trending-tab-content" style="display:none;">
+                        top related videos
+                    </div>-->
+                    </div>
+                </div>
+                <div id="tb-tag-explorer-tab-container" class="tb-tag-explorer-tab-container-size" style="min-height: 300px; display:none; position:relative;">
+                    <div style='position:absolute; right:10px; top:7px; font-size: 10px; color:#bbb; text-transform:uppercase; cursor:pointer; font-weight:normal;' data-tbtooltip='Overall Score, Search Volume, Competition, Optimization Strength and Most Used Tags are all proprietary TubeBuddy calculations and not retrieved directly from the YouTube API.'>
+                        <i class="material-icons tb-font-size13 tb-move-down2">info</i>
+                        Required Data Disclaimer
+                    </div>
+                    <div class="tb-height20 tb-center tb-tag-explorer-tab-header-error tb-red tb-margin-top5" style="display:none;border-top: solid 1px red;padding: 5px 0 2px 0;border-bottom: solid 1px red;">
+                        <img style="height:15px" src="{PLUGIN_FILE_ROOT}/images/icons/error.png">
+                        <span style="font-size: 13px;position: relative;top: -3px;">Search results aren't currently available...</span> <a style="text-decoration:underline;line-height: 14px;font-size: 10px;position: relative;top: -3px;left: 10px;" href="https://tubebuddy.freshdesk.com/support/solutions/articles/5000835887-search-rank-not-showing-up" target="_blank">WHY?</a>
+                    </div>
+                    <ul class="tb-tab2" style="font-size: 20px; margin-top:5px; margin-left:10px; padding:0px; border-bottom: solid 2px #F6F6F6;margin-block-start:0em;margin-block-end:0em;">
+                        <li id="tb-tag-explorer-borrowed-tab-header" data-tab-id="tb-tag-explorer-borrowed-tab" class="tb-tab2-header selected tb-tag-explorer-tab-header tb-tabs2-nav-item" style="font-size: 14px; margin-right: 10px; padding-left: 5px; padding-right: 5px;">
+                            <div id="tb-tag-explorer-summary-tab-title" class="tb-tab2-header-title">
+                                Summary
+                            </div>
+                            <div class="tab-header-icon-container">
+                                <span class="tab-header-icon yt-sprite"></span>
+                            </div>
+                        </li>
+                        <li id="tb-tag-explorer-search-analysis-tab-header" data-tab-id="tb-tag-explorer-search-analysis-tab" class="tb-tab2-header tb-tag-explorer-tab-header  tb-tabs2-nav-item" style="font-size: 14px; margin-right: 10px; padding-left: 5px; padding-right: 5px;">
+                            <div id="tb-tag-explorer-results-tab-title" class="tab-header-title">
+                                Results
+                            </div>
+                            <div class="tab-header-icon-container">
+                                <span class="tab-header-icon yt-sprite"></span>
+                            </div>
+                        </li>
+                        <li id="tb-tag-explorer-trends-tab-header" data-tab-id="tb-tag-explorer-trends-tab" class="tb-tab2-header tb-tag-explorer-tab-header tb-tabs2-nav-item" style="font-size: 14px; margin-right: 10px; padding-left: 5px; padding-right: 5px; overflow:hidden">
+                            <div id="tb-tag-explorer-trending-tab-title" class="tab-header-title">
+                                Trending
+                            </div>
+                            <div class="tab-header-icon-container">
+                                <span class="tab-header-icon yt-sprite"></span>
+                            </div>
+                        </li>
+                        <li id="tb-tag-explorer-historical-tab-header" data-tab-id="tb-tag-explorer-historical-tab" class="tb-tab2-header tb-tag-explorer-tab-header tb-tabs2-nav-item" style="font-size: 14px; margin-right: 10px; padding-left: 5px; padding-right: 5px;">
+                            <div id="tb-tag-explorer-historical-tab-title" class="tab-header-title">
+                                Historical
+                            </div>
+                            <div class="tab-header-icon-container">
+                                <span class="tab-header-icon yt-sprite"></span>
+                            </div>
+                        </li>
+                        <li id="tb-tag-explorer-map-tab-header" data-tab-id="tb-tag-explorer-map-tab" class="tb-tab2-header tb-tag-explorer-tab-header tb-tabs2-nav-item" style="font-size: 14px; margin-right: 10px; padding-left: 5px; padding-right: 5px;">
+                            <div id="tb-tag-explorer-map-tab-title" class="tab-header-title">
+                                Map
+                            </div>
+                            <div class="tab-header-icon-container">
+                                <span class="tab-header-icon yt-sprite"></span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div id="tb-popout-tabs-container">
+                        <div id="tb-tag-explorer-borrowed-tab" class="tb-tag-explorer-tab" style="padding-left: 5px;">
+                            <div id="tb-tag-explorer-borrowed-tab-results">
+                                <div style="color: #555; margin-bottom: 5px; width: 50%; padding-bottom: 3px; float: left;">
+                                    <div class="tb-tag-explorer-summary-title-container">
+                                        <span class="tb-tag-explorer-summary-title">
+                                            Overall Score
+                                        </span>
+                                    </div>
+                                    <div class="tb-tag-explorer-keyword-score-weighted-desc-container">
+                                        <span class="tb-tag-explorer-keyword-score-weighted-option tb-tag-explorer-keyword-score-weighted-desc tb-margin-right5">Weighted</span>
+                                        <span class="tb-tag-explorer-keyword-score-unweighted-option tb-tag-explorer-keyword-score-weighted-desc tb-margin-right5">Unweighted</span>
+                                        <span id="tb-what-is-weighted" class="tb-margin-right5" style="cursor:pointer" data-tbtooltip='<span style=font-weight:500>Unweighted:</span><br> General score for how good this keyword is to target based on search volume and competition.<br><br><span style=font-weight:500>Weighted:</span><br> How good this keyword is to target for <span style=font-weight:bold>your specific channel</span> based on search volume, competition, relevancy and how you compare to others currently ranking in search. <span style=font-weight:500>(Pro license required)</span>'>
+                                            <i class="material-icons tb-font-size13 tb-move-down2">help_outline</i>
+                                        </span>
+                                    </div>
+                                    <div style="clear:both"></div>
+                                    <div style="height:100px" id="tb-tag-explorer-keyword-score-container-loading" class="tb-tag-explorer-keyword-score-content-container">
+                                        <div class="tb-tag-explorer-loading-img"><img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" /> Loading...</div>
+                                    </div>
+                                    <div id="tb-tag-explorer-keyword-score-container" class="tb-tag-explorer-keyword-score-content-container" style="display:none;">
+                                        <div class="tb-tag-explorer-keyword-score-top-conatiner" style="padding-bottom:0px;">
+                                            <div class="tb-margin-left75 tb-width125 tb-margin-top15" style="float:left;text-align:center">
+                                                <span id="tb-tag-explorer-total-score-label"></span><br />
+                                                <span id="tb-tag-explorer-total-score"></span>
+                                            </div>
+                                            <div class="tb-margin-left5" style="float:left;text-align:left">
+                                                <div id="tb-tag-explorer-score-chart" style="min-width: 125px; height: 60px; max-width: 125px; margin: 0 auto">
+                                                </div>
+                                            </div>
+                                            <div style="clear:both"></div>
+                                            <div>
+                                                <div class="tb-tag-explorer-total-score-desc"></div>
+                                            </div>
+                                            <div>
+                                                <div class="tb-tag-explorer-total-score-warning tb-margin-top5 tb-font-size12 tb-margin-left5" style="display:none; position:relative; top:-2px;">
+                                                    <img class="tb-move-down2" style="margin-right:3px;" src="{PLUGIN_FILE_ROOT}/images/icons/error.png" /><span style="color:#ff5632;">Try clicking a Keyword in the Related panel to find a better score &rarr;</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="tb-tag-explorer-keyword-weighted-score-container" style="float:left; margin-top:10px;">
+                                        <div class="tb-tag-explorer-summary-title tb-margin-left10 tb-margin-top0">
+                                            Score Analysis
+                                        </div>
+                                        <div id="tb-tag-explorer-weighted-score-loading" style="height:215px" class="tb-tag-explorer-keyword-score-content-container">
+                                            <div class="tb-tag-explorer-loading-img"><img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" /> Loading...</div>
+                                        </div>
+                                        <div id="tb-tag-explorer-weighted-score-container" class="tb-tag-explorer-keyword-score-content-container" style="display:none;">
+                                            <div style="float:right;text-align:right; margin-right:5px;">
+                                                <div style="line-height: 15px; font-size: 12px; margin-left:5px; position:relative;margin-top:5px;">
+                                                    <div style="float:right">
+                                                        <div id="tb-tag-explorer-search-volume-chart" class="tb-tag-explorer-score-chart"></div>
+                                                    </div>
+                                                    <div style="float:right" class="tb-move-up5">
+                                                        <span class="tb-tag-explorer-chart-label" id="tb-tag-explorer-search-volume"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tb-tag-explorer-keyword-score-label" style="margin-bottom:0px">Search Volume</div>
+                                            <div style="clear:both;"></div>
+                                            <div class="tb-tag-explorer-unweighted-score-area" style="float:right; text-align:right; margin-right:5px;">
+                                                <div style="line-height: 15px; font-size: 12px; margin-left:5px; position:relative;margin-top:5px;">
+                                                    <div style="float:right">
+                                                        <div id="tb-tag-explorer-competition-chart" class="tb-tag-explorer-score-chart"></div>
+                                                    </div>
+                                                    <div style="float:right" class="tb-move-up5"><span class="tb-tag-explorer-chart-label" id="tb-tag-explorer-unweighted-competition"></span></div>
+                                                </div>
+                                            </div>
+                                            <div class="tb-tag-explorer-unweighted-score-area tb-tag-explorer-keyword-score-label">
+                                                Competition (Unweighted)
+                                                <span id="tb-what-is-weighted-score" class="tb-margin-left5" style="cursor:pointer" data-tbtooltip='<span style=font-weight:500>Unweighted:</span><br> General score for how good this keyword is to target based on search volume and competition.'>
+                                                    <i class="material-icons tb-font-size13 tb-move-down2">help_outline</i>
+                                                </span>
+                                            </div>
+                                            <div class="tb-tag-explorer-weighted-score-area" style="text-align:right; margin-right:5px;">
+                                                <div style="line-height: 15px; font-size: 12px; margin-left:5px; position:relative; margin-top:5px;">
+                                                    <div style="float:right">
+                                                        <div id="tb-tag-explorer-weighted-competition-chart" class="tb-tag-explorer-score-chart"></div>
+                                                    </div>
+                                                    <div style="float:right" class="tb-move-up5"><span class="tb-tag-explorer-chart-label" id="tb-tag-weighted-competition"></span></div>
+                                                </div>
+                                            </div>
+                                            <div class="tb-tag-explorer-weighted-score-area tb-tag-explorer-keyword-score-label">
+                                                Competition (Weighted)
+                                                <span id="tb-what-is-weighted-score" class="tb-margin-left5" style="cursor:pointer" data-tbtooltip='<span style=font-weight:500>Weighted:</span><br> How good this keyword is to target for <span style=font-weight:bold>your specific channel</span> based on search volume, competition, relevancy and how you compare to others currently ranking in search. <span style=font-weight:500>(Pro license required)</span>'>
+                                                    <i class="material-icons tb-font-size13 tb-move-down2">help_outline</i>
+                                                </span>
+                                            </div>
+                                            <div class="tb-tag-explorer-keyword-count-area" style="text-align:right; margin-right:5px;">
+                                                <div style="float:right">
+                                                    <div id="tb-tag-explorer-keyword-count-chart" class="tb-tag-explorer-score-chart"></div>
+                                                </div>
+                                                <div style="float:right" class="tb-move-up5"><span class="tb-tag-explorer-chart-label tb-tag-explorer-keyword-count"></span></div>
+                                            </div>
+                                            <div class="tb-tag-explorer-keyword-score-label">
+                                                Optimization Strength
+                                                <span id="tb-what-is-optimization-strength" class="tb-margin-left5" style="cursor:pointer" data-tbtooltip="This number represents how well optimized the top ranking videos are for the search phrase. <br><br>If they are not well optimized, then it provides you an opportunity to break in and rank for the keyword by properly optimizing your video (putting this keyword in your Title, Description and Tags).">
+                                                    <i class="material-icons tb-font-size13 tb-move-down2">help_outline</i>
+                                                </span>
+                                            </div>
+                                            <div class="tb-tag-explorer-search-result-count-area" style="text-align:right; margin-right:5px;">
+                                                <div style="line-height: 15px; font-size: 12px; margin-left:5px; position:relative; margin-top:5px;">
+                                                    <div style="float:right" class="tb-move-up5 tb-margin-right5"><span class="tb-tag-explorer-chart-label tb-tag-explorer-search-result-count" style="font-size:16px"></span></div>
+                                                </div>
+                                            </div>
+
+                                            <div id="tb-tag-explorer-total-results-label" class="tb-tag-explorer-keyword-score-label" style="margin-top:2px;">
+                                                # of Videos in Search Results
+                                                <span class="tb-margin-left5" style="cursor:pointer" data-tbtooltip="The total number of search results returned from YouTube for this keyword">
+                                                    <i class="material-icons tb-font-size13 tb-move-down2">help_outline</i>
+                                                </span>
+                                            </div>
+
+
+                                            <div class="tb-tag-explorer-search-volume-amount-container tb-tag-explorer-search-volume-amount-row" style="text-align:right; margin-right:5px;display:none;">
+                                                <div style="line-height: 15px; font-size: 12px; margin-left:5px; position:relative; margin-top:5px;">
+                                                    <div style="float:right" class="tb-move-up5 tb-margin-right5"><span id="tb-tag-explorer-search-volume-amount" class="tb-tag-explorer-chart-label " style="font-size:16px"></span></div>
+                                                </div>
+                                            </div>
+                                            <div id="tb-tag-explorer-search-volume-amount-label" class="tb-tag-explorer-keyword-score-label tb-tag-explorer-search-volume-amount-row" style="margin-top:2px;display:none;">
+                                                # of Monthly Searches (estimate)
+                                                <span class="tb-margin-left5" style="cursor:pointer" data-tbtooltip="The estimated average number of times people search for this exact keyword on YouTube per month globally. This data is provided by https://keywordtool.io/ and is only an estimate.">
+                                                    <i class="material-icons tb-font-size13 tb-move-down2">help_outline</i>
+                                                </span>
+                                            </div>
+                                            <div class="tb-tag-explorer-keyword-score-label tb-move-up5 tb-tag-explorer-weighted-score-area" style="float:left">
+                                                <span> You vs. Top Ranked Videos</span>
+                                            </div>
+                                            <div class="tb-tag-explorer-weighted-score-area tb-tag-explorer-weighted-score-area-chart" style="float:right;">
+                                                <div class="tb-tag-explorer-weighted-views">
+                                                </div>
+                                                <div style="clear:both"></div>
+
+                                            </div>
+                                            <div style="clear:both"></div>
+                                            <div class="tb-tag-explorer-custom-analysis-upgrade-container tb-tag-explorer-upgrade-container" style="display:none">
+                                                <div class="tb-tag-explorer-custom-analysis-upgrade"><img src="{PLUGIN_FILE_ROOT}/images/icons/lock.png" style="position:relative; top:3px;" /> See customized keyword scores for your channel and see how you stack up against top ranking videos by upgrading your license to Pro level (or higher). <div style="padding:5px;"> <a class="tb-tag-explorer-custom-analysis-upgrade-link">UPGRADE NOW!</a></div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="color: #555; margin-bottom: 5px; width:50%; padding-bottom: 3px; float: left; margin-left: 0px;">
+                                    <div>
+                                        <div id="tb-tag-explorer-keyword-related-keywords-container">
+                                            <div class="tb-tag-explorer-related-title-container">
+                                                <span class="tb-tag-explorer-summary-title">
+                                                    Related
+                                                </span>
+                                            </div>
+                                            <div class="tb-tag-explorer-related-keywords-container">
+                                                <span class="tb-tag-explorer-related-youtube-option tb-tag-explorer-related-keyword-desc tb-tag-explorer-tab-active">Video Searches</span>
+                                                <span class="tb-tag-explorer-related-google-option tb-tag-explorer-related-keyword-desc">Web Searches</span>
+                                                <span class="tb-tag-explorer-related-related-option tb-tag-explorer-related-keyword-desc">Video Topics</span>
+                                            </div>
+                                            <div style="clear:both"></div>
+                                            <div class="tb-tag-explorer-related-keyword-tab-container tb-tag-explorer-related-keyword-tab-container-youtube tb-tag-explorer-keyword-score-content-container">
+                                                <div class="tb-tag-explorer-related-keywords-loading tb-tag-explorer-related-keyword-tab-container-youtube-loading" style="height:160px">
+                                                    <div class="tb-tag-explorer-loading-img"><img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" /> Loading...</div>
+                                                </div>
+                                                <div class="tb-tag-explorer-related-keyword-tab-youtube-list" style="display:none;">
+                                                </div>
+                                                <div class="tb-tag-explorer-related-youtube-upgrade-container tb-tag-explorer-upgrade-container" style="display:none">
+                                                    <div class="tb-tag-explorer-related-youtube-upgrade"><img class="tb-margin-left5" src="{PLUGIN_FILE_ROOT}/images/icons/lock.png" /> Only 3 of <span class="tb-tag-explorer-related-youtube-upgrade-count"></span> total results are shown. <br />Upgrade your License to view all results. <br> <a class="tb-tag-explorer-custom-analysis-upgrade-link">UPGRADE NOW!</a></div>
+                                                </div>
+                                            </div>
+                                            <div class="tb-tag-explorer-related-keyword-tab-container tb-tag-explorer-related-keyword-tab-container-google tb-tag-explorer-keyword-score-content-container" style="display:none">
+                                                <div class="tb-tag-explorer-related-keywords-loading tb-tag-explorer-related-keyword-tab-container-google-loading" style="height:140px">
+                                                    <div class="tb-tag-explorer-loading-img"><img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" /> Loading...</div>
+                                                </div>
+                                                <div class="tb-tag-explorer-related-keyword-tab-google-list" style="display:none;">
+
+                                                </div>
+                                                <div class="tb-tag-explorer-related-google-upgrade-container tb-tag-explorer-upgrade-container" style="display:none">
+                                                    <div class="tb-tag-explorer-related-google-upgrade"><img class="tb-margin-left5" src="{PLUGIN_FILE_ROOT}/images/icons/lock.png" /> Only 3 of <span class="tb-tag-explorer-related-google-upgrade-count"></span> total results are shown. <br />Upgrade your License to view all results. <br> <a class="tb-tag-explorer-custom-analysis-upgrade-link">UPGRADE NOW!</a></div>
+                                                </div>
+                                            </div>
+                                            <div class="tb-tag-explorer-related-keyword-tab-container tb-tag-explorer-related-keyword-tab-container-related tb-tag-explorer-keyword-score-content-container" style="display:none">
+                                                <div class="tb-tag-explorer-related-keywords-loading tb-tag-explorer-related-keyword-tab-container-related-loading" style="height:140px">
+                                                    <div class="tb-tag-explorer-loading-img"><img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" /> Loading...</div>
+                                                </div>
+                                                <div class="tb-tag-explorer-related-keyword-tab-related-list" style="display:none;">
+
+                                                </div>
+                                                <div class="tb-tag-explorer-related-topic-upgrade-container tb-tag-explorer-upgrade-container" style="display:none">
+                                                    <div class="tb-tag-explorer-related-topic-upgrade"><img class="tb-margin-left5" src="{PLUGIN_FILE_ROOT}/images/icons/lock.png" /> Only 3 of <span class="tb-tag-explorer-related-topic-upgrade-count"></span> total results are shown. <br />Upgrade your License to view all results. <br> <a class="tb-tag-explorer-custom-analysis-upgrade-link">UPGRADE NOW!</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="tb-tag-explorer-summary-title tb-margin-top5 tb-margin-left10">
+                                            <span class="tb-tag-explorer-summary-title">Common Video Tags</span>
+                                        </div>
+                                        <div id="tb-tag-explorer-most-used-tags-loading" class="tb-tag-explorer-most-used-tags-continer tb-tag-explorer-keyword-score-content-container">
+                                            <div class="tb-tag-explorer-loading-img"><img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" /> Loading...</div>
+
+                                            <div id="tb-tag-explorer-long-loading" style="display:none; margin: 10px 20px 10px 0px;font-size: 12px;line-height: 16px;color: black; background-color:white; border:dashed 2px red; padding: 5px 8px; position:absolute; z-index:99999; top:190px;">
+                                                Hmmm... this is taking a while. There is a likely a problem.
+                                                <div style="padding:9px 0 0 0">
+                                                    The first thing to try is to click this link: <a target="_blank" href="https://www.youtube.com/results?search_query=tubebuddy">https://www.youtube.com/results?search_query=tubebuddy</a>. If you get a "CAPTCHA" response, solve the CAPTCHA then come back here and try to explore a tag again.
+                                                </div>
+                                                <div style="padding:9px 0 0 0">
+                                                    If it still fails, you can copy all of the information from the box below and paste it into an
+                                                    email to <span style="font-weight:500">support@tubebuddy.com</span>. Thanks!!
+                                                </div>
+                                                <textarea id="tb-tag-explorer-long-loading-text" style="width:80%; height:80px; margin-top:10px; border:solid 2px #999; font-size:13px; font-family:'Lucida Sans'" rows="3">
+                                        </textarea>
+                                            </div>
+                                        </div>
+                                        <div id="tb-tag-explorer-most-used-tags" style="display:none" class="tb-tag-explorer-most-used-tags-continer tb-tag-explorer-keyword-score-content-container">
+                                            <div style="font-size:12px; margin-bottom:5px; line-height:15px;">
+                                                <span style="font-size:13px; font-weight:normal; padding-right:15px;">
+                                                    <span class="tb-margin-right10">Select:</span> <a class="tb-tag-explorer-all-tags tb-margin-right5">All</a> | <a class="tb-tag-explorer-none-tags tb-margin-left5 tb-margin-right5">None</a> | <a title="Select the maximum number of tags until the video tag character limit" class="tb-tag-explorer-limit-tags tb-margin-left5">to Video Tag Limit</a>
+                                                </span>
+                                            </div>
+                                            <div id="tb-tag-explorer-most-used-tags-list" class="tb-tag-explorer-most-used-tags-list-continer"></div>
+                                            <div class="tb-tag-explorer-single-tag-warning" style="display:none">
+                                                In general, adding single-word Tags to a video will not help it perform better.  Stick to multi-word tags when possible.
+                                            </div>
+
+                                            <div id="tb-tag-explorer-borrowed-tab-no-results" style="display:none">
+                                                <span style="color:#999; font-size:13px; position:relative; top:10px;">Not enough search volume to show results.<br>Try exploring a more broad Keyword.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div style="clear:both"></div>
+                            </div>
+                        </div>
+                        <div id="tb-tag-explorer-trends-tab" class="tb-tag-explorer-tab" style="display: none;height:100%;">
+                            <div class="tb-video-info-trends" style="line-height: 17px; margin-left: 5px;"></div>
+                            <div id="tb-tag-explorer-top-queries-container">
+                                <div style="width: 50%; float:left ">
+                                    <span class="tb-tag-explorer-summary-title tb-margin-left10">
+                                        Rising Related Queries <span class="tb-tag-explorer-summary-title-sub"> (last 12 months)</span>
+                                    </span>
+                                    <div id="tb-tag-explorer-rising-queries-blocked" style="display: none; line-height: 24px; padding-top: 5px; margin-top: 5px; font-size: 15px; padding-left: 0px; border-top: solid 1px #ddd; position: relative;">
+                                        <img src="{PLUGIN_FILE_ROOT}/images/modules/tagexplorer/rising.png" />
+                                    </div>
+                                    <div id="tb-tag-explorer-rising-queries" class="tb-tag-explorer-section-container"></div>
+                                    <div class="tb-tag-explorer-rising-queries-upgrade-container tb-tag-explorer-upgrade-container" style="display:none">
+                                        <div class="tb-tag-explorer-rising-queries-upgrade"><img class="tb-margin-left5" src="{PLUGIN_FILE_ROOT}/images/icons/lock.png" /> Only 3 of <span class="tb-tag-explorer-rising-queries-upgrade-count"></span> total results are shown. <br />Upgrade your License to view all results. <br> <a class="tb-tag-explorer-custom-analysis-upgrade-link">UPGRADE NOW!</a></div>
+                                    </div>
+                                </div>
+                                <div style="width: 50%;float:left">
+                                    <span class="tb-tag-explorer-summary-title tb-margin-left10">
+                                        Top Related Queries <span class="tb-tag-explorer-summary-title-sub"> (last 12 months)</span>
+                                    </span>
+                                    <div id="tb-tag-explorer-top-queries-blocked" style="display: none; line-height: 24px; padding-top: 5px; margin-top: 5px; font-size: 15px; padding-left: 0px; border-top: solid 1px #ddd; position: relative;">
+                                        <img src="{PLUGIN_FILE_ROOT}/images/modules/tagexplorer/top.png" />
+                                    </div>
+                                    <div id="tb-tag-explorer-top-queries" class="tb-tag-explorer-section-container"></div>
+                                    <div class="tb-tag-explorer-top-queries-upgrade-container tb-tag-explorer-upgrade-container" style="display:none">
+                                        <div class="tb-tag-explorer-top-queries-upgrade"><img class="tb-margin-left5" src="{PLUGIN_FILE_ROOT}/images/icons/lock.png" /> Only 3 of <span class="tb-tag-explorer-top-queries-upgrade-count"></span> total results are shown. <br />Upgrade your License to view all results. <br> <a class="tb-tag-explorer-custom-analysis-upgrade-link">UPGRADE NOW!</a></div>
+                                    </div>
+                                </div> 
+                                <div style="clear: both"></div>
+                                <div class="tb-tag-explorer-data-sources">
+                                    <span> Data Sources: <a href="https://trends.google.com/trends/explore?geo=US&gprop=youtube" target="_blank">Google Trends</a></span>
+                                </div>
+                            </div>
+                            <div id="tb-tag-explorer-top-queries-apiquota" style="display: none; text-align: center">
+                                <span style="color: #999; font-size: 13px; position: relative; top: 40px;">Unfortunately Google limits the amount of data we can show you from their Google Trends website and you've reached that limit. Please try again in a few minutes to see if Google has removed the restriction. </span>
+                            </div>
+                        </div>
+                        <div id="tb-tag-explorer-historical-tab" class="tb-tag-explorer-tab" style="padding-left: 0px; display: none;">
+                            <div id="tb-video-info-historical-container-blocked" style="display: none; line-height: 17px; margin-left: 5px;">
+                                <img src="{PLUGIN_FILE_ROOT}/images/modules/tagexplorer/history.png" />
+                            </div>
+
+                            <div id="tb-video-info-historical-container" style="line-height: 17px; margin-left: 5px;">
+                                <iframe id="tb-tag-explorer-h-frame" height="430" width="865" style="border:1px;"></iframe>
+                            </div>
+                            <div id="tb-video-info-historical-container-none" style="display: none; text-align: center">
+                                <span style="color: #999; font-size: 13px; position: relative; top: 40px;">Sorry, not enough search volume to show results</span>
+                            </div>
+                            <div class="tb-tag-explorer-data-sources">
+                                <span> Data Sources: <a href="" target="_blank">YouTube.com</a>, <a href="" target="_blank">Google.com</a>, <a href="https://trends.google.com/trends" target="_blank">Google Trends</a></span>
+                            </div>
+                            <div id="tb-video-info-historical-container-apiquota" style="display: none; text-align: center">
+                                <span style="color: #999; font-size: 13px; position: relative; top: 40px;">Unfortunately Google limits the amount of data we can show you from their Google Trends website and you've reached that limit. Please try again in a few minutes to see if Google has removed the restriction. </span>
+                            </div>
+
+                        </div>
+                        <div id="tb-tag-explorer-map-tab" class="tb-tag-explorer-tab" style="padding-left: 0px; display: none;">
+                            <div id="tb-video-info-map-container">
+                                <div id="tb-video-info-map-container-blocked" style="display: none; line-height: 17px; margin-left: 5px;">
+                                    <img src="{PLUGIN_FILE_ROOT}/images/modules/tagexplorer/map.png" />
+                                </div>
+                                <div id="tb-tag-explorer-map-data-container" style="width: 200px; line-height: 17px; margin-top: 10px; float: right; background-color: white;display:none;"></div>
+                                <div id="tb-video-info-map-container" style="line-height: 17px; margin-left: 0px; width: 450px;">
+                                    <iframe id="tb-tag-explorer-m-frame" height="430" width="865" style="border:1px;"></iframe>
+                                </div>
+                                <div id="tb-video-info-map-container-none" style="display: none; text-align: center">
+                                    <span style="color: #999; font-size: 13px; position: relative; top: 40px;">Sorry, not enough search volume to show results</span>
+                                </div>
+                            </div>
+                            <div class="tb-tag-explorer-data-sources">
+                                <span> Data Sources: <a href="" target="_blank">YouTube.com</a>, <a href="" target="_blank">Google.com</a>, <a href="https://trends.google.com/trends" target="_blank">Google Trends</a></span>
+                            </div>
+                            <div id="tb-video-info-map-container-apiquota" style="display: none; text-align: center">
+                                <span style="color: #999; font-size: 13px; position: relative; top: 40px;">Unfortunately Google limits the amount of data we can show you from their Google Trends website and you've reached that limit. Please try again in a few minutes to see if Google has removed the restriction. </span>
+                            </div>
+                        </div>
+                        <div id="tb-tag-explorer-search-analysis-tab" class="tb-tag-explorer-tab" style="display: none;">
+                            <span class="tb-tag-explorer-summary-title tb-margin-left10">
+                                Top Ranking in Search
+                            </span>
+                            <div class="tb-tag-explorer-section-container" style="height:70px; max-height:70px; min-height:70px; overflow:hidden">
+                                <div style="float:left; min-width:210px;width:300px">
+                                    <img id="tb-tag-explorer-top-channel-thumbnail" style="float: left; margin-right: 5px; margin-left: 10px; height: 45px; width: 45px" />
+                                    <div style="font-size: 12px; font-weight: bold; margin-top: 5px;">CHANNEL</div>
+                                    <a target="_blank" id="tb-tag-explorer-top-channel"></a>
+                                    <div id="tb-tag-explorer-top-channel-how-many" style="font-size: 11px; margin-top: 1px; margin-left: 7px;"></div>
+                                    <div style="clear: both"></div>
+                                </div>
+                                <div style="float:left; min-width:210px;width:200px">
+                                    <img id="tb-tag-explorer-your-channel-thumbnail" style="float: left; margin-right: 5px; margin-left: 10px; height: 45px; width: 45px" />
+                                    <div style="font-size: 12px; font-weight: bold; margin-top: 5px;">YOU</div>
+                                    <a target="_blank" id="tb-tag-explorer-your-channel"></a>
+                                    <div id="tb-tag-explorer-your-channel-how-many" style="font-size: 11px; margin-top: 1px; margin-left: 7px;">
+                                    </div>
+                                    <div style="clear: both"></div>
+                                </div>
+                                <div class="tb-margin-right10" style="float: right;text-align:center" id="tb-tag-explorer-search-results-tab-results">
+                                    <span style="font-size: 12px; font-weight: bold; margin-top: 5px;">Total Search Results</span><br />
+                                    <span class="tb-tag-explorer-search-result-count"></span>
+                                </div>
+                                <div class="tb-margin-right10 tb-tag-explorer-search-result-keyword-count-container tb-margin-right30" style="float: right;display:none;text-align:center">
+                                    <span style="font-size: 12px; font-weight: bold; margin-top: 5px;">Exact Matches in Top Results</span><br />
+                                    <span class="tb-tag-explorer-search-result-keyword-count"></span>
+                                </div>
+                            </div>
+
+                            <div style="clear: both"></div>
+                            <br />
+                            <span class="tb-tag-explorer-summary-title tb-margin-left10">
+                                Search Results
+                            </span>
+                            <div id="tb-tag-explorer-top-hits" class="tb-tag-explorer-section-container">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="tb-module-footer" style="display:flex; justify-content:space-between; align-items:center; min-height:39px;">
+                <div style="display:flex; align-items:center;">
+                    <button class="tb-btn-grey tb-btn" id="tb-tag-explorer-back" style="display:none;">Back To Trending</button>
+                    <div class="tb-tag-explorer-recent-list-container" style="display:none">
+                        <span class="tb-margin-left10">
+                            Recent:
+                        </span> <div style="display: inline-block; width:520px;overflow:hidden;height:22px" id="tb-tag-explorer-recent-list"></div>
+                    </div>
+                </div>
+                <span id="tb-layout-tag-inserted" style="display: none; color: green; border:solid 2px green; padding:3px 5px;">
+                    <img src="{PLUGIN_FILE_ROOT}/images/icons/check.png " style="position: relative; top: 2px;" />
+                    Inserted
+                </span>
+
+                <div id="tb-tag-explorer-action-dropup-menu" style="display:none;">
+                    <div style="padding:5px 10px; margin-top:5px;">Copy To Tag List:</div>
+                    <div class="tb-tag-explorer-lists-container">
+                        <span class="tb-spinner tb-margin-right5 tb-margin-left5"></span>Loading lists...
+                    </div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <a class="tb-tag-explorer-action-dropup-menu-item tb-font-size13" data-option="newlist">
+                            + New List
+                        </a>
+                    </div>
+                    <hr />
+                    <div class="tb-tag-explorer-action-dropup-menu-item" data-option="videotopicplanner">
+                        <img src="{PLUGIN_FILE_ROOT}/images/icons/menu/lightbulb.png" class="tb-margin-right5" />
+                        Add to Topic Planner
+                    </div>
+                    <div class="tb-tag-explorer-action-dropup-menu-item" data-option="seostudio">
+                        <img src="{PLUGIN_FILE_ROOT}/images/icons/menu/tag.png" class="tb-margin-right5" />
+                        Optimize in SEO Studio
+                    </div>
+                    <div class="tb-tag-explorer-action-dropup-menu-item" data-option="addtovideo">
+                        <img src="{PLUGIN_FILE_ROOT}/images/icons/menu/playcircle.png" class="tb-margin-right5" />
+                        Insert into Current Video
+                    </div>
+                    <div class="tb-tag-explorer-action-dropup-menu-item" data-option="clipboard">
+                        <img src="{PLUGIN_FILE_ROOT}/images/icons/menu/copy.png" class="tb-margin-right5" />
+                        Copy to Clipboard
+                    </div>
+                </div>
+
+                <button id="tb-tag-explorer-action-dropup-button" class="tb-btn tb-btn-blue tb-margin-left5 tb-margin-right5" style="display:none;">
+                    Action<i class="material-icons tb-margin-left10 tb-font-size18">arrow_drop_up</i>
+                </button>
+            </div>
+        </div>
+
+        <div style="display: none">
+            <div class="tb-tag-explorer-loading-section" style="font-size:13px; font-weight:bold; margin:20px 0 0 15px; opacity:.5">
+                <img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" />
+                Loading
+            </div>
+        </div>
+        <div style="display:none" type="text/template" id="tb-tag-explorer-video-template">
+            <div class="tb-margin-top15">
+                <div style="float:left">
+                    <span class="tb-tag-explorer-result-rank"> {7}</span>
+                </div>
+                <div style="float:left">
+                    <div style="float:left">
+                        <img style="height:75px" src="https://img.youtube.com/vi/{0}/mqdefault.jpg" />
+                    </div>
+                    <div class="tb-margin-left10" style="float:left;max-width:630px">
+                        <a class="tb-font-size14" target="_blank" href="{1}">{2}</a><br />
+                        <a class="tb-tag-explorer-video-result-channel-link" style="color:gray" target="_blank" href="{5}">{4}</a><span class="tb-margin-left15">{3}</span>
+                        <span style="font-size:11px;color:gray">{6}</span>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+        </div>
+        <div style="display:none" type="text/template" id="tb-tag-explorer-channel-template">
+            <div class="tb-margin-top15">
+                <div style="float:left">
+                    <span class="tb-tag-explorer-result-rank">{4}</span>
+                </div>
+                <div>
+                    <div style="float:left">
+                        <img style="height:75px" src="{1}" />
+                    </div>
+                    <div class="tb-margin-left10" style="float:left">
+                        <a class="tb-font-size15" target="_blank" href="{2}">{3}</a>
+                    </div>
+                    <div style="clear:both"></div>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+        </div>
+        <div style="display:none" type="text/template" id="tb-tag-explorer-trending-template">
+            <div class="tb-tag-explorer-trending-item-container">
+                <div style="width:65px">
+                    <a href="{1}" target="_blank">
+                        <img src="{2}" style="height:60px; margin-top:2px;" />
+                    </a>
+                </div>
+                <div style="width:335px; margin-top:2px;">
+                    <div class="tb-font-size18" style="font-weight:500; display: flex; align-items:center; position:relative;">
+                        <a href="{1}" target="_blank" class="tb-margin-right5" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;max-width: 310px !important;">
+                            <span class="tb-tag-explorer-trending-item-title">{0}</span>
+                        </a>
+                        <!--<i data-title="{0}" data-url="{1}" data-type="2" title="explore topic" class="material-icons tb-font-size17 tb-cursor-pointer tb-tag-explorer-trending-topic-explore tb-font-color-green">add_circle_outline</i>-->
+
+                        <a data-title="{0}" data-url="{1}" data-type="2" class="tb-btn tb-btn-blue tb-btn-small tb-tag-explorer-trending-topic-explore" style="font-size: 10px; padding: 4px 6px; position: absolute; right: 4px; color: rgb(108, 200, 97) !important; background-color:transparent !important;">
+                            Explore
+                        </a>
+
+                    </div>
+                    <div style="font-weight:500; font-size:14px; color:#999">
+                        <span>{3} searches</span>
+                    </div>
+                    <div style="white-space: nowrap; text-overflow: ellipsis; overflow:hidden;">
+                        <span class="tb-font-size12 tb-font-color-gray">{4}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+

@@ -26,5 +26,5 @@ rm -f $HOME/.hyper.js
 ln -sf $CWD/.hyper.js $HOME/.hyper.js
 
 # global npm
-rm -f $HOME/.eslintrc
-ln -sf $CWD/npm/.eslintrc.json $HOME/.eslintrc
+# rm -f $HOME/.eslintrc
+# ln -sf $CWD/npm/.eslintrc.json $HOME/.eslintrc

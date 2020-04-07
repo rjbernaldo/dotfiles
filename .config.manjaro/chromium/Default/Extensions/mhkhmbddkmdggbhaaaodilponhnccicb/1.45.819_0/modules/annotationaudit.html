@@ -1,0 +1,150 @@
+<style type="text/css">
+    .tb-annotation-audit-annotations-item {
+        margin: 10px;
+        border: solid 2px #bbb;
+        display: inline-block;
+        padding: 8px;
+        cursor: pointer;
+        text-align: left;
+        width: 280px;
+        font-size: 12px;
+        line-height: 20px;
+        background-color: #f4f4f4;
+        height: 110px;
+        float: left;
+    }
+
+        .tb-annotation-audit-annotations-item:hover {
+            border-color: green !important;
+        }
+
+    .tb-annotation-audit-annotations-item-selected {
+        border-color: green !important;
+        background-color: lightgoldenrodyellow;
+    }
+</style>
+
+
+<div id="tb-annotation-audit-container" style="position:fixed; background-color:white; top:75px; left:50%; margin-left:-380px;  z-index:2100000003; border: solid 1px #ccc; padding: 8px 12px; border-radius: 3px; width: 720px; display:none;" class="yt-dialog-fg">
+
+    <div style="background-color: #f0f0f0; margin-left: -12px; margin-right: -12px; margin-top: -8px; padding: 10px; border-bottom: solid 1px #ddd; position:relative;">
+
+        <div style="float: right; text-align: right; position: relative; top: -3px; left: -3px;">
+
+            <a style="vertical-align: middle;text-decoration: none;" target="_blank" href="https://www.tubebuddy.com/tools?tool=annotationtemplates" data-draggable="false">
+                <img src="{PLUGIN_FILE_ROOT}/images/icons/question.png" title="help" style="height: 18px; vertical-align: middle; display:none;" />
+            </a>
+
+            <span style="vertical-align: middle;text-decoration: none;" class="tb-annotation-audit-closex tb-cursor-pointer" data-draggable="false">
+                <img src="{PLUGIN_FILE_ROOT}/images/icons/close4.png" title="close" style="margin-left:4px;vertical-align: middle;" />
+            </span>
+
+        </div>
+
+        <img src="{PLUGIN_FILE_ROOT}/images/branding/icon_large.png" style="height: 24px; vertical-align: middle; margin-right: 2px;" />
+        <span style="vertical-align: middle; font-size: 20px;">Channel Annotations Audit</span>
+    </div>
+    <div style="padding:5px 5px;">
+
+        <div id="tb-annotation-audit-loading-container" style="font-size:14px; padding:20px; padding-bottom:0px;">
+
+            <div style="float:left; width: 290px; font-size:13px;">
+                <div style="font-size:1.1em; margin-bottom:15px;">
+                    As of May 2nd 2017, 
+                    <a href="https://youtube-creators.googleblog.com/2017/03/keep-fans-engaged-with-cards-end.html" target="_blank">
+                        YouTube is   no longer allowing you to Add or Edit Annotations.
+                    </a>
+                </div>
+                <div style=" margin-bottom:15px;" id="tb-annotations-audit-status-details">
+
+                    We put this feature together to help you identify which of your videos still
+                    have annotations.
+                    <br /><br />
+                    The "CSV" file that is generated can be imported into a Google Doc for you to reference
+                    as you update videos with Cards/End Screens.                    
+                </div>
+                  
+
+                <div style="margin-top:10px; padding: 10px; background-color:#ffffcc; display:none;" id="tb-annotations-audit-status-step5">
+
+                    Now that you have a list of Annotations across all your videos, you can manually start converting them into Cards / End Screens.<br /><br /> Or better yet,
+                    <span style="font-weight:500">use our <a href="https://www.youtube.com/watch?v=llMep6_-ijY" target="_blank">Bulk Copy Cards</a> or <a href="https://www.youtube.com/watch?v=_U4NewnOCNs" target="_blank">Bulk Copy End Screens</a></span> tools to complete the task in a fraction of the time :)
+
+                </div>
+                
+                </div>
+            <div style="float:left;width: 320px;border:solid 1px #ccc;background-color:#f1f1f1;padding:10px 10px 0 10px; margin-left: 30px;min-height: 150px;">
+                <div style="font-size:18px; padding:0 5px;">
+                    Status: <span id="tb-annotations-audit-status-label" style="color:#666">Waiting...</span>
+                </div>
+
+                <div id="tb-annotations-audit-status-step0" style="padding-top:50px; text-align:center">
+                    <a style="height: 24px; margin-right: 10px; margin-left: 10px; padding-top:4px" class="tb-button tb-button-payment" id="tb-annotation-audit-start">
+                        Start Audit
+                    </a>
+                    <br /><br /><br />
+                </div>
+                <div id="tb-annotations-audit-status-steps">
+
+
+                    <div id="tb-annotations-audit-status-step1" style="padding:15px 0 0 10px; display:none; font-size:14px; margin-top:5px; border-top:solid 1px #ccc;">
+                        <div>
+                            <span style="color:#666; font-weight:500;">STEP 1:</span> Identifying Videos <span id="tb-annotations-audit-loading-count" data-auto-count="0">0</span>
+                            of
+                            <span id="tb-annotations-audit-loading-count-total">0</span>
+                            <img src="{PLUGIN_FILE_ROOT}/images/icons/check.png" id="tb-annotations-audit-loading-count-check" style="display:none; padding-left:5px;" />
+                            <img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" id="tb-annotations-audit-loading-count-working" style=" padding-left:3px; position:relative; top:3px;" />
+                        </div>
+
+                    </div>
+                    <div id="tb-annotations-audit-status-step2" style="padding:0px 0 0 10px; display:none; font-size:14px; margin-top:5px;">
+                        <div>
+                            <span style="color:#666; font-weight:500;">STEP 2:</span> Looking for Annotations <span id="tb-annotations-audit-loading-count2" data-auto-count="0">0</span>
+                            of
+                            <span id="tb-annotations-audit-loading-count-total2">0</span>
+                            <img src="{PLUGIN_FILE_ROOT}/images/icons/check.png" id="tb-annotations-audit-loading-count-check2" style="display:none; padding-left:5px;" />
+                            <img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" id="tb-annotations-audit-loading-count-working2" style=" padding-left:3px;position:relative; top:3px;" />
+
+                        </div>
+
+                    </div>
+                    <div id="tb-annotations-audit-status-step3" style="padding:0px 0 0 10px; display:none; font-size:14px; margin-top:5px;">
+                        <span style="color:#666; font-weight:500;">STEP 3: Building CSV File</span>
+                        <img src="{PLUGIN_FILE_ROOT}/images/icons/check.png" id="tb-annotations-audit-loading-count-check3" style="display:none; padding-left:5px;" />
+                        <img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" id="tb-annotations-audit-loading-count-working3" style=" padding-left:3px; position:relative; top:3px;" />
+
+                    </div>
+                </div>
+                <div id="tb-annotations-audit-status-step4" style="padding:15px 0 20px 10px; display:none; font-size:14px; margin-top:10px;">
+                
+                    <div id="tb-annotations-audit-download-buttons-container" style="max-height:100px; overflow:auto;">
+
+                    </div>
+                    
+                        
+                    <div style="font-size:12px; margin-top:30px; border-top:solid 1px #ccc; padding-top:10px;">
+                        Here's a video (with some amazing background music) that shows you show to import your CSV file into Google Docs. 
+                        <a href="https://goo.gl/SF9pnA" target="_blank">https://goo.gl/SF9pnA</a>
+                    </div>
+                </div>
+               
+            </div>
+            <div style="clear:both"></div>
+          
+          
+        </div>
+
+    </div>
+    <div style="margin-top: 15px; border-top: 1px solid #E2E2E2;">
+        <div style="margin-top: 10px; text-align:right">
+            <a style="height: 24px; margin-right: 10px; margin-left: 10px; float:left; padding-top:4px" class="tb-button tb-button-destructive" id="tb-annotation-audit-close">
+                Close
+            </a>
+           
+            <span id="tb-annotations-template-working" style="display:none">
+                <img src="{PLUGIN_FILE_ROOT}/images/general/loading1.gif" style="position:relative; top:3px;" /> Working... &nbsp; &nbsp;
+            </span>
+        </div>
+    </div>
+
+</div>

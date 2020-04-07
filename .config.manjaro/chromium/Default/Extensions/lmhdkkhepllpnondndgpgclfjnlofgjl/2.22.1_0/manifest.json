@@ -1,0 +1,39 @@
+{
+   "author": "Toolkit for YNAB",
+   "background": {
+      "page": "background/index.html",
+      "persistent": true
+   },
+   "browser_action": {
+      "default_icon": "assets/images/icons/button.png",
+      "default_popup": "popup/index.html",
+      "default_title": "Toolkit for YNAB"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "content-scripts/init.js" ],
+      "matches": [ "http://*.youneedabudget.com/*", "https://*.youneedabudget.com/*" ],
+      "run_at": "document_idle"
+   } ],
+   "content_security_policy": "script-src 'self'; object-src 'self'",
+   "description": "UI customizations and tweaks for the web version of YNAB.",
+   "homepage_url": "https://github.com/toolkit-for-ynab/toolkit-for-ynab/",
+   "icons": {
+      "100": "assets/images/icons/icon100.png",
+      "128": "assets/images/icons/icon128.png",
+      "16": "assets/images/icons/button.png",
+      "32": "assets/images/icons/icon32.png",
+      "48": "assets/images/icons/icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiYYEKY/d5EdIiQ4AltA7qIIUNfefQR1YiPoco/irMg2n71CV7aql7VUPcaTC8yiWttZc/N/LGaTmZ/kqCxQi6CabRQLPEH9pRXByolOwcsYYX2RtUhR0D2tDzTEiVcNCxeuU/BslP7sUA0vPViRXhKrKsjHS1hCAfuuRHnerviaCkSjAuftrNaDTboJAW1oHSx855c9gk6z5y/lL565xXs1iWtsyWZjr3zWtUFwAgCclOxur5R+AQ1VulvBPktv+02be2OZ7GHusrGGeWNKzJVnmjSnMLaFUO28SpPGKjPMtYnY8IPelnbUVCmIe1oq57tPD4U1ngkmoyuSv7XfQuwIDAQAB",
+   "manifest_version": 2,
+   "name": "Toolkit for YNAB",
+   "options_ui": {
+      "open_in_tab": true,
+      "page": "options/index.html"
+   },
+   "permissions": [ "http://*.youneedabudget.com/*", "https://*.youneedabudget.com/*", "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "2.22.1",
+   "web_accessible_resources": [ "assets/*", "web-accessibles/*" ]
+}

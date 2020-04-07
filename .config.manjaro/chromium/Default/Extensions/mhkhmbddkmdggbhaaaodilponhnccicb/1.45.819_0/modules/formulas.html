@@ -1,0 +1,90 @@
+<div style="display:none">
+
+    <div style="background-color:#ffffaa; padding:10px 8px; line-height:20px;">
+
+        <style type="text/css">
+            .tb-operator {
+                display: inline-block;
+                padding: 4px 12px;
+                border: solid 1px #ccc;
+                background-color: #f1f1f1;
+                color: #333;
+                font-size: 16px;
+                font-weight: 500;
+                cursor: pointer;
+                margin-right: 5px;
+                line-height: 20px;
+                border-radius: 4px;
+            }
+
+                .tb-operator:hover {
+                    border: solid 1px #777;
+                }
+
+            .tb-formula {
+                display: inline-block;
+                padding: 4px 6px;
+                border: solid 1px #ccc;
+                background-color: #c8f3c3;
+                color: #333;
+                font-size: 16px;
+                font-weight: 500;
+                cursor: pointer;
+                margin-right: 5px;
+                line-height: 20px;
+            }
+
+            .tb-formula-item {
+                background-color: white;
+                padding: 3px 5px;
+                font-size: 14px;
+                color: #333;
+                display: inline-block;
+                margin-right: 4px;
+                border: solid 1px #ddd;
+                line-height: 16px;
+            }
+        </style>
+
+        Operators:<br />
+        <div class="tb-operator" data-operator-text="+">+</div>
+        <div class="tb-operator" data-operator-text="-">-</div>
+        <div class="tb-operator" data-operator-text="×">×</div>
+        <div class="tb-operator" data-operator-text="÷">÷</div>
+        <div class="tb-operator" data-operator-text="(">(</div>
+        <div class="tb-operator" data-operator-text=")">)</div>
+
+        <input type="text" style="width:150px; background-color:white;" />
+        <div class="tb-operator" data-operator-text="1000">Add</div>
+
+        <br /><br />
+        Video Fields:<br />
+        <div class="tb-operator" data-operator-text="Video Views">Views</div>
+        <div class="tb-operator" data-operator-text="Video Comments">Comments</div>
+        <div class="tb-operator" data-operator-text="Video Likes">Likes</div>
+        <div class="tb-operator" data-operator-text="Video Dislikes">Dislikes</div>
+        <div class="tb-operator" data-operator-text="Days Published">Days Published</div>
+        <div class="tb-operator" data-operator-text="Hours Published">Hours Published</div>
+        <br /><br />
+        Channel Fields:<br />
+        <div class="tb-operator" data-operator-text="Channel Views">Views</div>
+        <div class="tb-operator" data-operator-text="Channel Subscribers">Subscribers</div>
+        <div class="tb-operator" data-operator-text="Channel Uploads">Uploads</div>
+        <br /><br />
+        <div class="tb-formula"></div>
+        <br /><br />
+        Type:
+        <input type="radio" name="tb-number-type" checked="checked" number-type="percent" /> Percent
+        &nbsp; <input type="radio" name="tb-number-type" number-type="number" /> Number
+        &nbsp; <input type="radio" name="tb-number-type" number-type="dollar" /> Dollar
+        &nbsp;
+        Example:<br />Views = 1123<br />Comments=55<br />Likes = 222<br />Dislikes = 10
+        <br /><br />
+        Result: <div style="font-weight:bold;" id="tb-result"></div>
+
+    </div>
+
+
+
+
+</div>
