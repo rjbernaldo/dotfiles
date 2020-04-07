@@ -16,7 +16,7 @@ XTerm*selectToClipboard: true
 
 *background:                      #222D31
 *foreground:                      #d8d8d8
-*fading:                          8
+*fading:                          20
 *fadeColor:                       black
 *cursorColor:                     #1ABB9B
 *pointerColorBackground:          #2B2C2B
@@ -57,8 +57,12 @@ XTerm*selectToClipboard: true
 Xcursor.theme: xcursor-breeze
 Xcursor.size:                     0
 
-# URxvt.font:                       9x15,xft:TerminessTTFNerdFontMono
-URxvt.font:                       9x15,xft:FiraCodeiScript
+! URxvt.font:                       9x15,xft:TerminessTTFNerdFontMono
+! URxvt.font:                       9x15,xft:FiraCodeiScript
+URxvt.font:                       xft:DejaVu Sans Mono:size=10
+URxvt.boldFont:                   xft:DejaVu Sans Mono:autohunt=true:bold:size=10
+URxvt.italicFont:                 xft:DejaVu Sans Mono:autohunt=true:italic:size=10
+URxvt.boldItalicFont:                 xft:DejaVu Sans Mono:autohunt=true:bold:italic:size=10
 
 ! alternative font settings with 'terminus':
 ! URxvt.font:      -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
@@ -154,7 +158,7 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 ! URxvt*cursorColor2:               color
 ! URxvt*pointerColor:               color
 ! URxvt*pointerColor2:              color
-! URxvt*borderColor:                color
+URxvt*borderColor:                #222D31
 ! URxvt*iconFile:                   file
 ! URxvt*font:                       fontname
 ! URxvt*boldFont:                   fontname
@@ -173,8 +177,8 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 ! URxvt*transient-for:              windowid
 ! URxvt*override-redirect:          boolean
 ! URxvt*hold:                       boolean
-! URxvt*externalBorder:             number
-! URxvt*internalBorder:             number
+! URxvt*externalBorder:             20
+URxvt*internalBorder:             20
 ! URxvt*borderLess:                 true
 ! URxvt*lineSpace:                  number
 ! URxvt*letterSpace:                number
@@ -196,7 +200,7 @@ URxvt.keysym.Shift-Control-Down:  \033[1;6B
 ! URxvt*iso14755_52:                boolean
 ! URxvt*xrm:                        string
 ! URxvt*keysym.sym:                 keysym
-! URxvt*background.border:          boolean
+URxvt*background.border:          true
 ! URxvt*background.expr:            string
 ! URxvt*background.interval:        seconds
 ! URxvt*bell-command:               string

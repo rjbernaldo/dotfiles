@@ -127,7 +127,6 @@ alias design='cd ~/Source/design && pwd'
 alias dokku='bash $HOME/.dokku/contrib/dokku_client.sh'
 
 alias cat='bat'
-alias man='tldr'
 
 export DOKKU_HOST=174.138.63.37
 
@@ -220,4 +219,4 @@ export EDITOR="/usr/local/bin/vim -u NONE"
 export ATHAME_VIMBED_LOCATION=$HOME/.vim/bundle/vimbed/plugin export ATHAME_ENABLED=1
 unset zle_bracketed_paste
 alias mcom="wine /Users/rj/Library/Application\ Support/com.AxiTrader.MT4_155144006010282/drive_c/winebottler/metaeditor.exe /compile:Optimal.mq4"
-
+export TERMINAL='alacritty'

@@ -50,6 +50,12 @@ ln -sf $CWD/.config.manjaro $HOME/.config
 
 rm -rf $HOME/.i3
 ln -sf $CWD/.i3 $HOME/.i3
+
+rm -rf $HOME/.profile
+ln -sf $CWD/.profile $HOME/.profile
+
+rm -rf $HOME/.dmenurc
+ln -sf $CWD/.dmenurc $HOME/.dmenurc
 ```
 
 4) Install node
@@ -78,6 +84,28 @@ rm -rf mongodb-bin
 7) unraid setup (add the following the /etc/fstab)
 ```
 ein    /home/ein    9p  trans=virtio,version=9p2000.L,_netdev,rw 0 0
+```
+- copy .ssh folder to machine
+```
+sudo chown $USER ~/.ssh
+sudo chown $USER ~/.ssh/*
+chmod 700 ~/.ssh
+chmod 644 ~/.ssh/*
+chmod 600 ~/.ssh/*
+```
+- alacritty
+```
+- pacman -S alacritty
+- pacman -S bat
+```
+- pakku
+```
+git clone https://aur.archlinux.org/pakku.git
+cd pakku
+makepkg -si
+```
+```
+pakku -S spotify (restricted geolocation, so yeah no)
 ```
 
 7) style
