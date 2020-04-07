@@ -75,6 +75,11 @@ cd ..
 rm -rf mongodb-bin
 ```
 
+7) unraid setup (add the following the /etc/fstab)
+```
+ein    /home/ein    9p  trans=virtio,version=9p2000.L,_netdev,rw 0 0
+```
+
 7) style
 - change font
 ```
