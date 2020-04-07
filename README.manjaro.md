@@ -79,6 +79,7 @@ rm -rf mongodb-bin
 - change font
 ```
 sudo git clone https://github.com/kencrocken/FiraCodeiScript /usr/share/fonts/firacode
+sudo cp /usr/share/fonts/firacode/* /usr/share/fonts/TTF
 ln -sf $CWD/.Xresources $HOME/.Xresources
 ```
 - change wallpaper
