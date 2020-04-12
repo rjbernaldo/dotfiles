@@ -32,4 +32,6 @@ System Volume Information
 .nfs*
 My Saved Places.
 \#*#
-node_modules
+]node_modules
+]chromium/*
+]chromium

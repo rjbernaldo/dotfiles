@@ -220,3 +220,5 @@ export ATHAME_VIMBED_LOCATION=$HOME/.vim/bundle/vimbed/plugin export ATHAME_ENAB
 unset zle_bracketed_paste
 alias mcom="wine /Users/rj/Library/Application\ Support/com.AxiTrader.MT4_155144006010282/drive_c/winebottler/metaeditor.exe /compile:Optimal.mq4"
 export TERMINAL='alacritty'
+
+bindkey "^r" history-incremental-search-backward

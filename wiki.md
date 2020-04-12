@@ -22,3 +22,14 @@
 - install_pulse
 
 - https://forum.manjaro.org/t/i3-terminal-change/88192
+
+- https://unix.stackexchange.com/questions/294337/rebinding-ctrl-alt-cv-to-ctrl-shift-cv-in-urxvt-9-20
+> xrdb -load .Xresources
+
+https://askdev.io/questions/72665/map-windows-key-on-keyboard-to-ctrl
+grep ctrl /usr/share/X11/xkb/rules/evdev.lst | grep win
+
+https://superuser.com/questions/426515/efficient-key-bindings-using-both-mac-and-linux
+
+- install steam
+- https://www.youtube.com/watch?v=XJb2mn5B4Fs
