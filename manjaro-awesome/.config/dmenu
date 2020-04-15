@@ -1,0 +1,2 @@
+#!/bin/sh
+$(dmenu_path | dmenu_run -b -nb '#FFFFFF' -sb '#000000' -sf '#FFFFFF')
