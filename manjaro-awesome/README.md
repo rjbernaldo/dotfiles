@@ -1,6 +1,55 @@
-### spotify
+### zsh
+```
+sudo pacman zsh
+sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+### update system
+```
+sudo pacman -Syyu
+```
+
+### unraid (not sure if the below will work)
+```
+echo "ein    /home/ein    9p  trans=virtio,version=9p2000.L,_netdev,rw 0 0" > /etc/fstab
+```
+
+### copy .ssh folder
+```
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/*
+```
+
+### node
+```
+directory_to_remove=/usr/bin/node
+PATH=:$PATH:
+PATH=${PATH//:$directory_to_remove:/:}
+PATH=${PATH#:}; PATH=${PATH%:}
+directory_to_remove=/usr/bin/npm
+PATH=:$PATH:
+PATH=${PATH//:$directory_to_remove:/:}
+PATH=${PATH#:}; PATH=${PATH%:}
+
+curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
+curl -L https://git.io/n-install | bash
+source ~/.zshrc
+```
+
+### vscode
+```
+sudo pacman -S code
+```
+
+### pamac
 ```
 pacman -S pamac
+```
+
+### spotify
+```
 pamac build spotify
 ```
 
@@ -14,7 +63,11 @@ pamac build authy
 pacman -S alacritty
 git clone https://github.com/mhartington/oceanic-next-shell.git ~/.config/oceanic-next-shell
 ```
-then ln -s `/usr/bin/terminal`
+
+### bat
+```
+pacman -S bat
+```
 
 ### dmenu
 ```
@@ -35,5 +88,5 @@ sudo ln -sf /home/rj/Source/personal/dotfiles/manjaro-awesome/bin/terminal /usr/
 ```
 
 ### helpful config
-> https://www.overclock.net/how-to-get-the-best-sound-with-and-properly-configure-pulseaudio/
-> https://www.reddit.com/r/linux/comments/akhwyr/tutorial_changing_pulseaudio_defaults_and_getting/
+> - https://www.overclock.net/how-to-get-the-best-sound-with-and-properly-configure-pulseaudio
+> - https://www.reddit.com/r/linux/comments/akhwyr/tutorial_changing_pulseaudio_defaults_and_getting
