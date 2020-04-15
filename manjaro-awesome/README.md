@@ -29,9 +29,9 @@ ln -sf /home/rj/Source/personal/dotfiles/manjaro-awesome/.config/.synergy.conf /
 ln -sf /home/rj/Source/personal/dotfiles/manjaro-awesome/.config/dmenu /home/rj/.config/dmenu
 ln -sf /home/rj/Source/personal/dotfiles/manjaro-awesome/.config/pulse /home/rj/.config/pulse
 ln -sf /home/rj/Source/personal/dotfiles/manjaro-awesome/.config/awesome /home/rj/.config/awesome
-ln -sf /home/rj/Source/personal/dotfiles/manjaro-awesome/bin/spotify /usr/bin/spotify
-ln -sf /home/rj/Source/personal/dotfiles/manjaro-awesome/bin/authy /usr/bin/authy
-ln -sf /home/rj/Source/personal/dotfiles/manjaro-awesome/bin/terminal /usr/bin/terminal
+sudo ln -sf /home/rj/Source/personal/dotfiles/manjaro-awesome/bin/spotify /usr/bin/spotify
+sudo ln -sf /home/rj/Source/personal/dotfiles/manjaro-awesome/bin/authy /usr/bin/authy
+sudo ln -sf /home/rj/Source/personal/dotfiles/manjaro-awesome/bin/terminal /usr/bin/terminal
 ```
 
 ### helpful config
