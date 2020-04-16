@@ -38,7 +38,15 @@ ln -sf /home/rj/Source/personal/dotfiles/vscode/settings.json /home/rj/.config/C
 ln -sf /home/rj/Source/personal/dotfiles/vscode/keybindings.json /home/rj/.config/Code\ -\ OSS/User/keybindings.json
 
 curl https://github.com/kencrocken/FiraCodeiScript > fira.zip then put it in ~/.local/share/fonts
+install ayu color theme
 ```
+
+### vim
+```
+ln -sf /home/rj/Source/personal/dotfiles/manjaro-awesome/vim/.vimrc /home/rj/.vimrc
+ln -sf /home/rj/Source/personal/dotfiles/manjaro-awesome/vim/.vim /home/rj/.vim
+```
+
 
 ### pamac
 ```
