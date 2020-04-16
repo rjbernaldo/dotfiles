@@ -74,13 +74,13 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 # export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-export PATH=$HOME/.npm-global/bin:$PATH
-export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
+# export PATH=$HOME/.npm-global/bin:$PATH
+# export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
 # export PATH=$HOME/Library/Android/sdk/tools:$PATH
 # export PATH="~/bin:$PATH"
 #
-export ANDROID_HOME=$HOME/Library/Android/sdk
-alias emulator='$ANDROID_HOME/tools/emulator'
+# export ANDROID_HOME=$HOME/Library/Android/sdk
+# alias emulator='$ANDROID_HOME/tools/emulator'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 # export PATH=/usr/local/bin/android
@@ -146,6 +146,7 @@ alias gsync='git fetch upstream && git checkout master && git merge upstream/mas
 alias ..='cd ..'
 alias rm='rm -i'
 alias mv='mv -i'
+alias dotfiles='cd /home/rj/Source/personal/dotfiles'
 # alias cp-staging='code-push release-react blueshyft/BlueshyftPOS ios --deploymentName Staging --mandatory --targetBinaryVersion 2.5.1'
 # alias cp-preflight='code-push promote blueshyft/BlueshyftPOS Staging Preflight --mandatory --targetBinaryVersion 2.5.1'
 # alias cp-production='code-push promote blueshyft/BlueshyftPOS Preflight Production --mandatory --targetBinaryVersion 2.5.1'
@@ -175,20 +176,20 @@ alias history-top="history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print 
 #     tmux attach || tmux
 # fi
 
-export PATH="$HOME/.bin:$PATH"
-export PATH="/usr/local/opt/mongodb@3.4/bin:$PATH"
+# export PATH="$HOME/.bin:$PATH"
+# export PATH="/usr/local/opt/mongodb@3.4/bin:$PATH"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # export PATH="/usr/local/opt/node@8/bin:$PATH"
 
 # export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # GOLANG
 #export GOPATH=$HOME/go-workspace # don't forget to change your path correctly!
-export GOPATH=$HOME/Source/personal/go
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
+# export GOPATH=$HOME/Source/personal/go
+# export GOROOT=/usr/local/opt/go/libexec
+# export PATH=$PATH:$GOPATH/bin
+# export PATH=$PATH:$GOROOT/bin
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
@@ -227,3 +228,5 @@ export TERMINAL='alacritty'
 # bindkey "^r" history-incremental-search-backward
 export HISTCONTROL=ignoreboth
 
+
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).

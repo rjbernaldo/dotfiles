@@ -24,15 +24,8 @@ chmod 600 ~/.ssh/*
 
 ### node
 ```
-directory_to_remove=/usr/bin/node
-PATH=:$PATH:
-PATH=${PATH//:$directory_to_remove:/:}
-PATH=${PATH#:}; PATH=${PATH%:}
-directory_to_remove=/usr/bin/npm
-PATH=:$PATH:
-PATH=${PATH//:$directory_to_remove:/:}
-PATH=${PATH#:}; PATH=${PATH%:}
-
+rm -rf /usr/bin/node
+rm -rf /usr/bin/npm
 curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
 curl -L https://git.io/n-install | bash
 source ~/.zshrc
