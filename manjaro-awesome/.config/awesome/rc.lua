@@ -15,6 +15,32 @@ local freedesktop = require("freedesktop")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
+local awmodoro = require("awmodoro")
+pomowibox = awful.wibox({ position = "top", screen = 1, height = 4 })
+pomowibox.visible = false
+local pomodoro = awmodoro.new({
+  minutes = 25,
+  do_notify = true,
+  active_bg_color = '#313131',
+  paused_bg_color = '#7746D7',
+  fg_color = { type = "linear", from = { 0, 0 }, to = { pomowibox.width, 0 }, stops = {{0, "#AECF96"},{0.5, "#88A175"},{1, "#FF5656"}}},
+  width = pomowibox.width,
+  height = pomowibox.height,
+  begin_callback = function()
+    -- for s = 1, screen.count() do
+    --   wibox[s].visible = false
+    -- end
+    pomowibox.visible = true
+  end,
+  finish_callback = function()
+    -- for s = 1, screen.count() do
+    --   wibox[s].visible = true
+    -- end
+    pomowibox.visible = false
+  end,
+})
+pomowibox:set_widget(pomodoro)
+
 -- Enable VIM help for hotkeys widget when client with matching name is opened:
 require("awful.hotkeys_popup.keys.vim")
 
@@ -385,16 +411,19 @@ globalkeys = gears.table.join(
                     history_path = awful.util.get_cache_dir() .. "/history_eval"
                   }
               end,
-              {description = "lua execute prompt", group = "awesome"}),
+              {description = "lua execute prompt", group = "awesome"})
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+    -- awful.key({ modkey }, "p", function() menubar.show() end,
+    --           {description = "show the menubar", group = "launcher"})
 )
 
 clientkeys = gears.table.join(
     awful.key({ modkey,           }, "f",
         function (c)
-            c.fullscreen = not c.fullscreen
+            -- c.fullscreen = not c.fullscreen
+            c.maximized = not c.maximized
+            -- c.maximized_horizontal = not c.maximized_horizontal
+            -- c.maximized_vertical = not c.maximized_vertical
             c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
@@ -432,7 +461,11 @@ clientkeys = gears.table.join(
             c.maximized_horizontal = not c.maximized_horizontal
             c:raise()
         end ,
-        {description = "(un)maximize horizontally", group = "client"})
+        {description = "(un)maximize horizontally", group = "client"}),
+    awful.key({ modkey,           }, "p",      function () pomodoro:toggle()                end,
+              {description = "toggle pomodoro timer", group = "apps"}),
+    awful.key({ modkey, "Shift"   }, "p",      function () pomodoro:finish()                end,
+              {description = "end pomodoro timer", group = "apps"})
 )
 
 -- Bind all key numbers to tags.
@@ -585,30 +618,32 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
 
-    awful.titlebar(c) : setup {
-        { -- Left
-            awful.titlebar.widget.iconwidget(c),
-            buttons = buttons,
-            layout  = wibox.layout.fixed.horizontal
-        },
-        { -- Middle
-            { -- Title
-                align  = "center",
-                widget = awful.titlebar.widget.titlewidget(c)
-            },
-            buttons = buttons,
-            layout  = wibox.layout.flex.horizontal
-        },
-        { -- Right
-            awful.titlebar.widget.floatingbutton (c),
-            awful.titlebar.widget.stickybutton   (c),
-           -- awful.titlebar.widget.ontopbutton    (c),
-            awful.titlebar.widget.maximizedbutton(c),
-            awful.titlebar.widget.closebutton    (c),
-            layout = wibox.layout.fixed.horizontal()
-        },
-        layout = wibox.layout.align.horizontal
-    }
+    --awful.titlebar(c) : setup {
+    --    -- awful.titlebar.widget.closebutton    (c),
+    --    -- awful.titlebar.widget.maximizedbutton(c),
+    --    -- { -- Left
+    --    --     awful.titlebar.widget.iconwidget(c),
+    --    --     buttons = buttons,
+    --    --     layout  = wibox.layout.fixed.horizontal
+    --    -- },
+    --    -- { -- Middle
+    --    --     { -- Title
+    --    --         align  = "center",
+    --    --         widget = awful.titlebar.widget.titlewidget(c)
+    --    --     },
+    --    --     buttons = buttons,
+    --    --     layout  = wibox.layout.flex.horizontal
+    --    -- },
+    --    -- { -- Right
+    --    --     awful.titlebar.widget.floatingbutton (c),
+    --    --     awful.titlebar.widget.stickybutton   (c),
+    --    --    -- awful.titlebar.widget.ontopbutton    (c),
+    --    --     awful.titlebar.widget.maximizedbutton(c),
+    --    --     awful.titlebar.widget.closebutton    (c),
+    --    --     layout = wibox.layout.fixed.horizontal()
+    --    -- },
+    --    layout = wibox.layout.align.horizontal
+    --}
         -- Hide the menubar if we are not floating
    -- local l = awful.layout.get(c.screen)
    -- if not (l.name == "floating" or c.floating) then
@@ -645,7 +680,8 @@ for s = 1, screen.count() do screen[s]:connect_signal("arrange", function ()
     elseif c.floating or layout == "floating" then
       c.border_width = beautiful.border_width
     elseif layout == "max" or layout == "fullscreen" then
-      c.border_width = 0
+      -- c.border_width = 0
+      c.border_width = beautiful.border_width
     else
       c.border_width = beautiful.border_width
       -- local tiled = awful.client.tiled(c.screen)
@@ -665,13 +701,13 @@ end
 
 -- }}}
 
---client.connect_signal("property::floating", function (c)
---    if c.floating then
---        awful.titlebar.show(c)
---    else
---        awful.titlebar.hide(c)
---    end
---end)
+-- client.connect_signal("property::floating", function (c)
+--     if c.floating then
+--         awful.titlebar.show(c)
+--     else
+--         awful.titlebar.hide(c)
+--     end
+-- end)
 
 awful.spawn.with_shell("~/.config/awesome/autorun.sh")
 
@@ -688,3 +724,4 @@ local collision = require("collision") {
   left = { "h" },
   right = { "l" },
 }
+
