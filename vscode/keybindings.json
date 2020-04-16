@@ -125,5 +125,9 @@
   {
       "key": "ctrl+j",
       "command": "workbench.action.navigateDown"
+  },
+  {
+    "key": "ctrl+f",
+    "command": "actions.find"
   }
 ]

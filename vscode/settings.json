@@ -33,7 +33,6 @@
     "editor.lineHeight": 24,
     "editor.fontLigatures": true,
     "explorer.decorations.badges": false,
-    "workbench.colorTheme": "Oceanic Next (dimmed bg)",
     "materialTheme.fixIconsRunning": false,
     "workbench.iconTheme": "eq-material-theme-icons-darker",
     "materialTheme.accentPrevious": "Blue",
@@ -76,6 +75,8 @@
     ],
     "html.mirrorCursorOnMatchingTag": false,
     "compilemql4.metaeditorDir": "",
+    "workbench.colorTheme": "Ayu Dark",
+    "keyboard.dispatch": "keyCode",
     // "vim.handleKeys": {
     //     "<C-j>": false,
     //     "<C-k>": false,
