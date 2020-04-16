@@ -127,7 +127,52 @@
       "command": "workbench.action.navigateDown"
   },
   {
+      "key": "meta+h",
+      "command": "workbench.action.navigateLeft"
+  },
+  {
+      "key": "meta+l",
+      "command": "workbench.action.navigateRight"
+  },
+  {
+      "key": "meta+k",
+      "command": "workbench.action.navigateUp"
+  },
+  {
+      "key": "meta+j",
+      "command": "workbench.action.navigateDown"
+  },
+  {
     "key": "ctrl+f",
     "command": "actions.find"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "-extension.vim_ctrl+w",
+    "when": "editorTextFocus && vim.active && vim.use<C-w> && !inDebugRepl"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "-workbench.action.closeGroup",
+    "when": "activeEditorGroupEmpty && multipleEditorGroups"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "workbench.action.closeActiveEditor"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "-workbench.action.closeWindow",
+    "when": "!editorIsOpen && !multipleEditorGroups"
+  },
+  {
+    "key": "ctrl+d",
+    "command": "-extension.vim_ctrl+d",
+    "when": "editorTextFocus && vim.active && !inDebugRepl"
+  },
+  {
+    "key": "ctrl+d",
+    "command": "-list.focusPageDown",
+    "when": "listFocus && !inputFocus"
   }
 ]
