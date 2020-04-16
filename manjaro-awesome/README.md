@@ -34,6 +34,10 @@ source ~/.zshrc
 ### vscode
 ```
 sudo pacman -S code
+ln -sf /home/rj/Source/personal/dotfiles/vscode/settings.json /home/rj/.config/Code\ -\ OSS/User/settings.json
+ln -sf /home/rj/Source/personal/dotfiles/vscode/keybindings.json /home/rj/.config/Code\ -\ OSS/User/keybindings.json
+
+curl https://github.com/kencrocken/FiraCodeiScript > fira.zip then put it in ~/.local/share/fonts
 ```
 
 ### pamac
