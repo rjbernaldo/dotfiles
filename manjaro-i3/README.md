@@ -55,7 +55,6 @@ mkdir -p ~/.local/share/fonts
 ```
 pacman -S pamac
 pamac build spotify
-sudo ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/bin/spotify /usr/bin/spotify
 sudo ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/bin/authy /usr/bin/authy
 pamac build authy
 ```
@@ -74,4 +73,5 @@ ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/.Xresources /home/rj/.Xresou
 ln -sf /home/rj/Source/personal/dotfiles/.i3 /home/rj/.i3
 ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/vim/.vimrc /home/rj/.vimrc
 ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/vim/.vim /home/rj/.vim
+ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/.profile /home/rj/.profile
 ```
