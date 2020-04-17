@@ -74,4 +74,5 @@ ln -sf /home/rj/Source/personal/dotfiles/.i3 /home/rj/.i3
 ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/vim/.vimrc /home/rj/.vimrc
 ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/vim/.vim /home/rj/.vim
 ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/.profile /home/rj/.profile
+ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/.config/dunst /home/rj/.config/dunst
 ```
