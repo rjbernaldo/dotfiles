@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/home/rj'
+let g:netrw_dirhist_7='/home/rj/.config'
+let g:netrw_dirhist_6='/home/rj/.vim/bundle/ayu-vim'
+let g:netrw_dirhist_5='/home/rj/Source/personal/dotfiles/manjaro-awesome/.config/awesome/collision'
+let g:netrw_dirhist_4='/home/rj/.config/spotify/Users/12172377058-user'
+let g:netrw_dirhist_3='/home/rj/.config/spotify/Users'
+let g:netrw_dirhist_2='/home/rj/.config/spotify/Users/12172377058-user'
+let g:netrw_dirhist_1='/home/rj/.config/pulse'
