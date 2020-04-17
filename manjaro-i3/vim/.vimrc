@@ -8,9 +8,9 @@ syntax enable
 set list lcs=tab:\▏\ 
 
 set t_Co=256
-if (has("termguicolors"))
-  set termguicolors
-endif
+" if (has("termguicolors"))
+"   set termguicolors
+" endif
 
 set guifont="Fira Code iScript"
 
