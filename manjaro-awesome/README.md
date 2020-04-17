@@ -1,3 +1,8 @@
+### video card https://wiki.manjaro.org/index.php/Configure_Graphics_Cards
+```
+sudo mhwd -a pci nonfree 0380
+```
+
 ### zsh
 ```
 sudo pacman zsh
