@@ -64,6 +64,12 @@ pamac build authy
 pacman -S bat
 ```
 
+### fix audio!
+```
+install_pulse # built in script for manjaro i3
+ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/.config/pulse /home/rj/.config/pulse
+```
+
 ### configuration
 ```
 ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/README.md /home/rj/README.md
@@ -75,4 +81,14 @@ ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/vim/.vimrc /home/rj/.vimrc
 ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/vim/.vim /home/rj/.vim
 ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/.profile /home/rj/.profile
 ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/.config/dunst /home/rj/.config/dunst
+
+mv ~/.ssh ~/.ssh.old
+mv ~/Desktop ~/Desktop.old
+mv ~/Downloads ~/Downloads.old
+mv ~/Pictures ~/Pictures.old
+ln -sf /home/ein/software/manjaro/i3/.ssh /home/rj/.ssh
+ln -sf /home/ein/software/manjaro/i3/Desktop /home/rj/Desktop
+ln -sf /home/ein/software/manjaro/i3/Downloads /home/rj/Downloads
+ln -sf /home/ein/software/manjaro/i3/Pictures /home/rj/Pictures
+ln -sf /home/ein/software/manjaro/i3/Documents /home/rj/Documents
 ```

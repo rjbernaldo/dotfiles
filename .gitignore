@@ -3,3 +3,5 @@ vim/.vim/.vim
 .config.manjaro/chromium
 *.tdb
 .netrwhist
+*default-sink
+*default-source
