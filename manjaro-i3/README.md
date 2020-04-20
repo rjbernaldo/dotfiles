@@ -55,8 +55,20 @@ mkdir -p ~/.local/share/fonts
 ```
 pacman -S pamac
 pamac build spotify
-sudo ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/bin/authy /usr/bin/authy
+pamac build google-chrome
 pamac build authy
+sudo ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/bin/authy /usr/bin/authy
+```
+
+### mongodb
+```
+sudo mkdir -p /data/db
+sudo chmod -R go+w /data/db
+pamac build mongodb-bin # https://wiki.archlinux.org/index.php/MongoDB#Installation
+pamac build mongodb-tools-bin # for mongodump/mongorestore
+sudo ln -sf /usr/bin/mongodump /usr/local/bin/mongodump
+sudo ln -sf /usr/bin/mongorestoer /usr/local/bin/mongorestore
+ulimit -n 65536 && mongo
 ```
 
 ### bat

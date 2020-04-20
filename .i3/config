@@ -396,6 +396,12 @@ exec --no-startup-id xset r rate 300 35
 exec "nextcloud --background"
 exec "synergys -c ~/.config/.synergy.conf"
 
+exec 'xrandr --newmode "3840x1600_60.00"  521.75  3840 4128 4544 5248  1600 1603 1613 1658 -hsync +vsync'
+exec 'xrandr --newmode "1920x1600_60.00"  260.75  1920 2064 2272 2624  1600 1603 1613 1658 -hsync +vsync'
+exec 'xrandr --addmode HDMI3 "3840x1600_60.00"'
+exec 'xrandr --addmode HDMI3 "1920x1600_60.00"'
+exec "xrandr --output HDMI3 --mode 3840x1600"
+
 # bindsym $mod+d kill
 # bindsym $mod+space exec dmenu_run
 bindsym $mod+h focus left
@@ -430,6 +436,9 @@ mode "fake-tmux" {
   bindsym 3 workspace $ws3; mode "default"
   bindsym 4 workspace $ws4; mode "default"
   bindsym 5 workspace $ws5; mode "default"
+
+  bindsym $mod+1 exec "xrandr --output HDMI3 --mode 3840x1600_60.00"; mode "default"
+  bindsym $mod+2 exec "xrandr --output HDMI3 --mode 1920x1600"; mode "default"
 
 	bindsym Escape mode "default";
 }
