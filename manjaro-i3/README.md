@@ -12,8 +12,8 @@ mkdir -p ~/.config/snmp
 crontab -e
 ```
 ```
-*/1 * * * * snmpwalk -v 2c 192.168.1.113 -c public 'LM-SENSORS-MIB::lmTempSensorsValue.1' | grep -oE '[^ ]+$' > /home/rj/.config/snmp/cpu && killall -SIGUSR1 i3status
-*/1 * * * * snmpwalk -v 2c 192.168.1.113 -c public 'LM-SENSORS-MIB::lmTempSensorsValue.33' | grep -oE '[^ ]+$' > /home/rj/.config/snmp/mb && killall -SIGUSR1 i3status
+* * * * * snmpwalk -v 2c 192.168.1.113 -c public 'LM-SENSORS-MIB::lmTempSensorsValue.1' | grep -oE '[^ ]+$' > /home/rj/.config/snmp/cpu && killall -SIGUSR1 i3status
+* * * * * snmpwalk -v 2c 192.168.1.113 -c public 'LM-SENSORS-MIB::lmTempSensorsValue.33' | grep -oE '[^ ]+$' > /home/rj/.config/snmp/mb && killall -SIGUSR1 i3status
 ```
 
 ### unraid (not sure if the below will work)
