@@ -3,6 +3,19 @@
 sudo pacman -Syyu
 ```
 
+### snmp
+```
+sudo pacman -S net-snmp
+mkdir -p ~/.config/snmp
+```
+```
+crontab -e
+```
+```
+*/1 * * * * snmpwalk -v 2c 192.168.1.113 -c public 'LM-SENSORS-MIB::lmTempSensorsValue.1' | grep -oE '[^ ]+$' > /home/rj/.config/snmp/cpu && killall -SIGUSR1 i3status
+*/1 * * * * snmpwalk -v 2c 192.168.1.113 -c public 'LM-SENSORS-MIB::lmTempSensorsValue.33' | grep -oE '[^ ]+$' > /home/rj/.config/snmp/mb && killall -SIGUSR1 i3status
+```
+
 ### unraid (not sure if the below will work)
 ```
 echo "ein    /home/ein    9p  trans=virtio,version=9p2000.L,_netdev,rw 0 0" > /etc/fstab
@@ -55,6 +68,7 @@ mkdir -p ~/.local/share/fonts
 ```
 pacman -S pamac
 pamac build spotify
+pamac build ferdi
 pamac build google-chrome
 pamac build authy
 sudo ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/bin/authy /usr/bin/authy

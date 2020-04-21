@@ -1,6 +1,7 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 # set $mod Mod4
 set $mod Mod4
+set $refresh_i3status killall -SIGUSR1 i3status
 
 # i3 config fime (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
@@ -423,7 +424,7 @@ mode "fake-tmux" {
 # bindsym Ctrl+Shift+v split v;exec notify-send 'tile vertically'
 	bindsym s split h; mode "default";
 	bindsym v split v; mode "default";
-	bindsym r exec "rm -rf ~/.cache/dmenu-recent && i3-msg reload"; mode "default";
+	bindsym r exec "rm -rf ~/.cache/dmenu-recent && snmpwalk -v 2c 192.168.1.113 -c public 'LM-SENSORS-MIB::lmTempSensorsValue.1' | grep -oE '[^ ]+$' > /home/rj/.config/snmp/cpu && snmpwalk -v 2c 192.168.1.113 -c public 'LM-SENSORS-MIB::lmTempSensorsValue.33' | grep -oE '[^ ]+$' > /home/rj/.config/snmp/mb && $refresh_i3status && i3-msg restart"; mode "default";
 
   bindsym h resize shrink width 5 px or 5 ppt; mode "default";
   bindsym j resize shrink height 5 px or 5 ppt; mode "default";
