@@ -174,5 +174,13 @@
     "key": "ctrl+d",
     "command": "-list.focusPageDown",
     "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+b",
+    "command": "workbench.action.toggleSidebarVisibility",
+  },
+  {
+    "key": "ctrl+shift+e",
+    "command": "workbench.view.explorer",
   }
 ]
