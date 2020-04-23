@@ -182,5 +182,13 @@
   {
     "key": "ctrl+shift+e",
     "command": "workbench.view.explorer",
+  },
+  {
+    "key": "ctrl+[",
+    "command": "editor.action.outdentLines",
+  },
+  {
+    "key": "ctrl+]",
+    "command": "editor.action.indentLines",
   }
 ]
