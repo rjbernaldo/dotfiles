@@ -106,7 +106,7 @@
     ],
     "html.mirrorCursorOnMatchingTag": false,
     "compilemql4.metaeditorDir": "",
-    "workbench.colorTheme": "Monokai",
+    "workbench.colorTheme": "Ayu Dark",
     "keyboard.dispatch": "keyCode",
     "window.menuBarVisibility": "toggle",
     // "vim.handleKeys": {
