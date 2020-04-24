@@ -146,6 +146,7 @@ alias gsync='git fetch upstream && git checkout master && git merge upstream/mas
 alias ..='cd ..'
 alias rm='rm -i'
 alias mv='mv -i'
+alias open='pcmanfm -n'
 alias dotfiles='cd /home/rj/Source/personal/dotfiles'
 # alias cp-staging='code-push release-react blueshyft/BlueshyftPOS ios --deploymentName Staging --mandatory --targetBinaryVersion 2.5.1'
 # alias cp-preflight='code-push promote blueshyft/BlueshyftPOS Staging Preflight --mandatory --targetBinaryVersion 2.5.1'
