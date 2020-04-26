@@ -298,6 +298,7 @@ bar {
 
 	bindsym button4 nop
 	bindsym button5 nop
+  font xft:DejaVu Sans Mono, Font Awesome 10
 #   font xft:URWGothic-Book 11
 	strip_workspace_numbers yes
 

@@ -96,6 +96,13 @@ install_pulse # built in script for manjaro i3
 ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/.config/pulse /home/rj/.config/pulse
 ```
 
+###
+```
+pacman -S neovim
+ln -s /home/rj/.vim /home/rj/.config/nvim
+ln -s /home/rj/.vimrc /home/rj/.config/nvim/init.vim
+```
+
 ### configuration
 ```
 ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/README.md /home/rj/README.md
@@ -118,3 +125,9 @@ ln -sf /home/ein/software/manjaro/i3/Downloads /home/rj/Downloads
 ln -sf /home/ein/software/manjaro/i3/Pictures /home/rj/Pictures
 ln -sf /home/ein/software/manjaro/i3/Documents /home/rj/Documents
 ```
+
+```
+https://forum.manjaro.org/t/enable-time-synchronisation-by-default/99589/3
+ln -sf /home/rj/.alacritty.yml /home/rj/Source/personal/dotfiles/manjaro-i3/.alacritty.yml
+```
+
