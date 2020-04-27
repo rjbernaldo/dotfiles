@@ -106,9 +106,9 @@
     ],
     "html.mirrorCursorOnMatchingTag": false,
     "compilemql4.metaeditorDir": "",
-    "workbench.colorTheme": "Ayu Light",
     "keyboard.dispatch": "keyCode",
     "window.menuBarVisibility": "toggle",
+    "workbench.colorTheme": "Ayu Dark",
     // "vim.handleKeys": {
     //     "<C-j>": false,
     //     "<C-k>": false,

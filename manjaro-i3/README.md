@@ -96,11 +96,11 @@ install_pulse # built in script for manjaro i3
 ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/.config/pulse /home/rj/.config/pulse
 ```
 
-###
+### alacritty
 ```
-pacman -S neovim
-ln -s /home/rj/.vim /home/rj/.config/nvim
-ln -s /home/rj/.vimrc /home/rj/.config/nvim/init.vim
+pacman -S alacritty
+ln -sf /home/rj/.alacritty.yml /home/rj/Source/personal/dotfiles/manjaro-i3/.alacritty.yml
+sudo ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/bin/terminal /usr/bin/terminal
 ```
 
 ### configuration
@@ -126,13 +126,29 @@ ln -sf /home/ein/software/manjaro/i3/Pictures /home/rj/Pictures
 ln -sf /home/ein/software/manjaro/i3/Documents /home/rj/Documents
 ```
 
+### nvim
 ```
+# install fzf?
+sudo pacman -S ripgrep
+pacman -S neovim
+ln -s /home/rj/.vim /home/rj/.config/nvim
+ln -s /home/rj/.vimrc /home/rj/.config/nvim/init.vim
+cd /home/rj/.vim/bundle
+git clone git@github.com:dense-analysis/ale.git
+git clone git@github.com:rjbernaldo/dotfiles.git
+git clone git@github.com:junegunn/fzf.vim.git
+git clone git@github.com:preservim/nerdtree.git
+git clone https://github.com/vim-airline/vim-airline.git
+git clone git@github.com:christoomey/vim-tmux-navigator.git
+git clone https://github.com/neoclide/coc.nvim.git
+cd /home/rj/.vim/bundle/coc.nvim && npm i
+```
+
+``` time synchronisation
 https://forum.manjaro.org/t/enable-time-synchronisation-by-default/99589/3
-ln -sf /home/rj/.alacritty.yml /home/rj/Source/personal/dotfiles/manjaro-i3/.alacritty.yml
 ```
 
 ```
 git clone vim bundles...
-sudo ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/bin/terminal /usr/bin/terminal
 ```
 
