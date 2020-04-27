@@ -23,12 +23,10 @@ let g:oceanic_next_terminal_italic = 1
 
 " colorscheme OceanicNext
 " let g:airline_theme='oceanicnext'
+let g:airline_theme="ayu"
 let ayucolor="dark"
 colorscheme ayu
-let g:airline_theme="ayu"
-
-"colorscheme happy_hacking
-"let g:airline_theme='wombat'
+hi LineNr ctermfg=2 guifg=#626262
 
 " FIX AUTOCOMPLETE
 "set completeopt=longest,menuone
@@ -313,4 +311,4 @@ endfunction
 " " Resume latest coc list.
 " nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 let NERDTreeShowHidden=1
-
+nnoremap <CR> :noh<CR><CR>

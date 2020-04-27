@@ -31,7 +31,7 @@ module.exports = {
     cursorColor: 'rgba(248,28,229,0.8)',
 
     // terminal text color under BLOCK cursor
-    cursorAccentColor: '#000',
+    cursorAccentColor: '#121414',
 
     // `'BEAM'` for |, `'UNDERLINE'` for _, `'BLOCK'` for █
     cursorShape: 'BLOCK',
@@ -41,18 +41,21 @@ module.exports = {
 
     // color of the text
     // foregroundColor: '#fff',
-    foregroundColor: '#eaeaea',
+    // foregroundColor: '#eaeaea',
+    foregroundColor: '#e6e1cf',
 
     // terminal background color
     // opacity is only supported on macOS
     // backgroundColor: '#000',
-    backgroundColor: '#1d1d1d',
+    // backgroundColor: '#1d1d1d',
+    backgroundColor: '#121414',
 
     // terminal selection color
     selectionColor: 'rgba(248,28,229,0.3)',
 
     // border color (window, tabs)
-    borderColor: '#333',
+    // borderColor: '#333',
+    borderColor: '#121414',
 
     // custom CSS to embed in the main window
     css: '',
