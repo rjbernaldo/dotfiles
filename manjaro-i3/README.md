@@ -131,3 +131,8 @@ https://forum.manjaro.org/t/enable-time-synchronisation-by-default/99589/3
 ln -sf /home/rj/.alacritty.yml /home/rj/Source/personal/dotfiles/manjaro-i3/.alacritty.yml
 ```
 
+```
+git clone vim bundles...
+sudo ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/bin/terminal /usr/bin/terminal
+```
+

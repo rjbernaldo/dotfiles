@@ -41,9 +41,9 @@ let g:indentLine_char = '▏'
 let g:indentLine_conceallevel = 2
 
 " hide trailing tilde
-" highlight EndOfBuffer ctermfg=235 ctermbg=235 guifg=235
+"highlight EndOfBuffer ctermfg=235 ctermbg=235 guifg=235
 " hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
-hi! SpecialKey guifg=#4f4f4f
+" hi! SpecialKey guifg=#4f4f4f
 
 set expandtab
 set tabstop=2
@@ -61,16 +61,18 @@ let g:airline#extensions#tmuxline#enabled = 1
 let airline#extensions#tmuxline#snapshot_file = "~/.tmux-status.conf"
 let g:session_autosave = 'no'
 
-" let g:ale_completion_enabled = 1
-"let g:ale_fixers = {
-"      \  'javascript': ['eslint'],
-"      \}
-"let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
+let g:ale_fixers = {
+      \  'javascript': ['eslint'],
+      \}
+let g:ale_sign_error = '⚠️'
+let g:ale_sign_warning = '⚠️'
+let g:ale_fix_on_save = 1
 
-" let g:javascript_plugin_jsdoc = 1
+ let g:javascript_plugin_jsdoc = 1
 
 " NERDTREE
-let g:nerdtree_tabs_open_on_console_startup=1
+" let g:nerdtree_tabs_open_on_console_startup=1
 let NERDTreeMapOpenSplit = 's'
 let NERDTreeMapOpenVSplit = 'v'
 let g:NERDTreeWinSize = 25
@@ -116,13 +118,23 @@ endif
 
 " fzf + ripgrep
 " http://owen.cymru/fzf-ripgrep-navigate-with-bash-faster-than-ever-before/
+let $FZF_DEFAULT_COMMAND='rg --files'
+
 set rtp+=/usr/local/opt/fzf
+
+"let g:rg_command_files = '
+"  \ rg
+"  "\ --files "!{.git,node_modules,vendor,dist}/*"
+"  \ --files .'
+"
+"command! -bang -nargs=* Files call fzf#vim#grep(g:rg_command_files .shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 let g:rg_command = '
   \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
   \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
   \ -g "!package-lock.json"
-  \ -g "!{.git,node_modules,vendor}/*" '
+  \ -g "!{.git,node_modules,vendor,dist}/*" '
 command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
+
 nnoremap <silent> <C-F> :F<Cr>
 nnoremap <silent> <C-p> :Files<Cr>
 let g:fzf_action = {
@@ -180,6 +192,7 @@ set shortmess+=c
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 set signcolumn=yes
+highlight clear SignColumn
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -299,3 +312,5 @@ endfunction
 " nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " " Resume latest coc list.
 " nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+let NERDTreeShowHidden=1
+
