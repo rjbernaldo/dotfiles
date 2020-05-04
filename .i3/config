@@ -344,7 +344,7 @@ bindsym $mod+m bar mode toggle
 #############################
 
 # Set inner/outer gaps
-gaps inner 14
+gaps inner 75
 gaps outer -2
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
@@ -454,7 +454,7 @@ mode "fake-tmux" {
 	bindsym Escape mode "default";
 }
 
-bindsym $mod+a mode "fake-tmux";
+bindsym $mod+z mode "fake-tmux";
 
 # kill focused window
 bindsym Ctrl+q kill

@@ -16,6 +16,12 @@ crontab -e
 * * * * * snmpwalk -v 2c 192.168.1.113 -c public 'LM-SENSORS-MIB::lmTempSensorsValue.33' | grep -oE '[^ ]+$' > /home/rj/.config/snmp/mb && killall -SIGUSR1 i3status
 ```
 
+### tmux
+```
+sudo pacman -S tmux
+ln -sf /home/rj/Source/personal/dotfiles/.tmux.conf /home/rj/.tmux.conf
+```
+
 ### unraid (not sure if the below will work)
 ```
 echo "ein    /home/ein    9p  trans=virtio,version=9p2000.L,_netdev,rw 0 0" > /etc/fstab
