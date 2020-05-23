@@ -68,6 +68,10 @@ mkdir -p ~/.local/share/fonts
 # then put it in ~/.local/share/fonts
 # install ayu color theme
 # install vimium
+
+# install sf pro font?
+# https://securitronlinux.com/debian-testing/install-mac-osx-fonts-on-linux-easily/
+# change font on ~/.Xresources & ~/.i3/config
 ```
 
 ### pamac
@@ -156,5 +160,7 @@ https://forum.manjaro.org/t/enable-time-synchronisation-by-default/99589/3
 
 ```
 git clone vim bundles...
+ln -sf /home/rj/Source/personal/dotfiles/manjaro-i3/.Xmodmap /home/rj/.Xmodmap
 ```
+
 

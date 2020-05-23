@@ -148,6 +148,7 @@ alias rm='rm -i'
 alias mv='mv -i'
 alias open='pcmanfm -n'
 alias dotfiles='cd /home/rj/Source/personal/dotfiles'
+alias xp="xprop | grep -i 'class'"
 # alias cp-staging='code-push release-react blueshyft/BlueshyftPOS ios --deploymentName Staging --mandatory --targetBinaryVersion 2.5.1'
 # alias cp-preflight='code-push promote blueshyft/BlueshyftPOS Staging Preflight --mandatory --targetBinaryVersion 2.5.1'
 # alias cp-production='code-push promote blueshyft/BlueshyftPOS Preflight Production --mandatory --targetBinaryVersion 2.5.1'
@@ -216,7 +217,7 @@ alias history-top="history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print 
 # export PATH="/Users/rj/.emacs.d/bin:$PATH"
 
 # ----- vimode -----
-export EDITOR="/usr/local/bin/vim -u NONE"
+export EDITOR="/usr/bin/vim -u NONE"
 # bindkey '^?' backward-delete-char
 # bindkey '^V' edit-command-line
 

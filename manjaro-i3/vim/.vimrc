@@ -153,6 +153,10 @@ nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <[-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <[-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <[-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <[-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-s-e> :NERDTreeToggle<cr>
 
 " CODE FOLDING
