@@ -2,6 +2,7 @@ set nocp
 
 execute pathogen#infect()
 
+" colorscheme ayu
 
 set ttyfast
 set re=1 
@@ -22,7 +23,7 @@ let g:oceanic_next_terminal_italic = 1
 
 " colorscheme OceanicNext
 " let g:airline_theme='oceanicnext'
-let g:airline_theme="ayu"
+" let g:airline_theme="ayu"
 let ayucolor="dark"
 colorscheme ayu
 hi LineNr ctermfg=2 guifg=#626262

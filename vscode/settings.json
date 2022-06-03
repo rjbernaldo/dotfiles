@@ -92,7 +92,6 @@
     "path-intellisense.mappings": {
         "src": "${workspaceRoot}/src"
     },
-    "editor.highlightActiveIndentGuide": true,
     "workbench.sideBar.location": "left",
     "terminal.integrated.rendererType": "dom",
     "files.associations": {
@@ -119,6 +118,9 @@
     "keyboard.dispatch": "keyCode",
     "window.menuBarVisibility": "toggle",
     "workbench.colorTheme": "Ayu Dark",
+    "editor.guides.highlightActiveIndentation": true,
+    "editor.mouseWheelScrollSensitivity": 0.25,
+    "security.workspace.trust.untrustedFiles": "open",
     // "vim.handleKeys": {
     //     "<C-j>": false,
     //     "<C-k>": false,

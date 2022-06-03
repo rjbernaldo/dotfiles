@@ -16,6 +16,8 @@ export ZSH=$HOME/.oh-my-zsh
 #BASE16_SHELL="$HOME/.config/oceanic-next-shell/oceanic-next.dark.sh"
 #[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 TERM=xterm-256color
+#TERM=screen-256color
+#CLICOLOR=1
 
 ZSH_THEME="nicoulaj"
 
@@ -126,7 +128,7 @@ alias design='cd ~/Source/design && pwd'
 
 alias dokku='bash $HOME/.dokku/contrib/dokku_client.sh'
 
-alias cat='bat'
+# alias cat='bat'
 
 export DOKKU_HOST=174.138.63.37
 
@@ -216,9 +218,14 @@ export EDITOR="/usr/local/bin/vim -u NONE"
 # bindkey '^V' edit-command-line
 
 # export ATHAME_VIMBED_LOCATION=$HOME/.vim/bundle/vimbed/plugin export ATHAME_ENABLED=1
-export ATHAME_VIMBED_LOCATION=$HOME/.vim/bundle/vimbed/plugin export ATHAME_ENABLED=1
+#export ATHAME_VIMBED_LOCATION=$HOME/.vim/bundle/vimbed/plugin export ATHAME_ENABLED=1
 unset zle_bracketed_paste
-alias mcom="wine /Users/rj/Library/Application\ Support/com.AxiTrader.MT4_155144006010282/drive_c/winebottler/metaeditor.exe /compile:Optimal.mq4"
-export TERMINAL='alacritty'
+#alias mcom="wine /Users/rj/Library/Application\ Support/com.AxiTrader.MT4_155144006010282/drive_c/winebottler/metaeditor.exe /compile:Optimal.mq4"
+#export TERMINAL='alacritty'
 
 bindkey "^r" history-incremental-search-backward
+
+export N_PREFIX=$HOME/.n
+export PATH=$N_PREFIX/bin:$PATH
+eval "$(/opt/homebrew/bin/brew shellenv)"
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
