@@ -111,36 +111,36 @@
     "when": "editorTextFocus"
   },
   {
-      "key": "ctrl+h",
-      "command": "workbench.action.navigateLeft"
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft"
   },
   {
-      "key": "ctrl+l",
-      "command": "workbench.action.navigateRight"
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateRight"
   },
   {
-      "key": "ctrl+k",
-      "command": "workbench.action.navigateUp"
+    "key": "ctrl+k",
+    "command": "workbench.action.navigateUp"
   },
   {
-      "key": "ctrl+j",
-      "command": "workbench.action.navigateDown"
+    "key": "ctrl+j",
+    "command": "workbench.action.navigateDown"
   },
   {
-      "key": "meta+h",
-      "command": "workbench.action.navigateLeft"
+    "key": "meta+h",
+    "command": "workbench.action.navigateLeft"
   },
   {
-      "key": "meta+l",
-      "command": "workbench.action.navigateRight"
+    "key": "meta+l",
+    "command": "workbench.action.navigateRight"
   },
   {
-      "key": "meta+k",
-      "command": "workbench.action.navigateUp"
+    "key": "meta+k",
+    "command": "workbench.action.navigateUp"
   },
   {
-      "key": "meta+j",
-      "command": "workbench.action.navigateDown"
+    "key": "meta+j",
+    "command": "workbench.action.navigateDown"
   },
   {
     "key": "ctrl+f",
@@ -177,18 +177,26 @@
   },
   {
     "key": "ctrl+b",
-    "command": "workbench.action.toggleSidebarVisibility",
+    "command": "workbench.action.toggleSidebarVisibility"
   },
   {
     "key": "ctrl+shift+e",
-    "command": "workbench.view.explorer",
+    "command": "workbench.view.explorer"
   },
   {
     "key": "ctrl+[",
-    "command": "editor.action.outdentLines",
+    "command": "editor.action.outdentLines"
   },
   {
     "key": "ctrl+]",
-    "command": "editor.action.indentLines",
+    "command": "editor.action.indentLines"
+  },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
+  },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
   }
 ]

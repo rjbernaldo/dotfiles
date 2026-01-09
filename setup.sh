@@ -21,9 +21,14 @@ ln -sf $CWD/vim/.vimrc $HOME/.vimrc
 rm -f $HOME/.tmux.conf
 ln -sf $CWD/.tmux.conf $HOME/.tmux.conf
 
-# hyper.is
+# hyper.is (deprecated - moved to ghostty)
 rm -f $HOME/.hyper.js
 ln -sf $CWD/.hyper.js $HOME/.hyper.js
+
+# ghostty
+mkdir -p "$HOME/Library/Application Support/com.mitchellh.ghostty"
+rm -f "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
+ln -sf "$CWD/ghostty/config" "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
 
 # global npm
 # rm -f $HOME/.eslintrc

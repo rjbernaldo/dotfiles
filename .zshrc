@@ -74,6 +74,14 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# Start the ssh-agent in the background and add the SSH key
+# if [ -z "$SSH_AUTH_SOCK" ]; then
+#     eval "$(ssh-agent -s)" > /dev/null
+#     ssh-add --apple-use-keychain ~/.ssh/id_ed25519 &> /dev/null
+# fi
+eval "$(ssh-agent -s)" > /dev/null
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519 &> /dev/null
+
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 # export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 export PATH=$HOME/.npm-global/bin:$PATH
@@ -141,7 +149,7 @@ alias gdd='git diff --word-diff'
 alias gll='git log'
 alias gl='git log --oneline --no-merges'
 alias ggraph='git log --graph --all --decorate --stat --date=iso'
-alias gpom='git push origin master'
+alias gpom='git push origin main'
 alias gphm='git push heroku master'
 alias gpdm='git push dokku master'
 alias gsync='git fetch upstream && git checkout master && git merge upstream/master && git push origin master'
@@ -229,3 +237,25 @@ export N_PREFIX=$HOME/.n
 export PATH=$N_PREFIX/bin:$PATH
 eval "$(/opt/homebrew/bin/brew shellenv)"
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
+# pnpm
+export PNPM_HOME="/Users/rj/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi 
+
+# Created by `pipx` on 2025-02-07 03:10:40
+export PATH="$PATH:/Users/rj/.local/bin"
+
+
+export STM32_PRG_PATH=/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin
+
+# export "pm2 logs frontend --lines 20" "pm2 logs frontend --lines 20 --nostream"
+# export "pm2 logs backend --lines 20" "pm2 logs backend --lines 20 --nostream"
+# export "pm2 logs frontend --lines 10" "pm2 logs frontend --lines 10 --nostream"
+# export "pm2 logs backend --lines 10" "pm2 logs backend --lines 10 --nostream"
+
