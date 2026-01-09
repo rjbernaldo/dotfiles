@@ -5,6 +5,7 @@ font-family = Fira Code iScript
 font-size = 14
 font-style = normal
 font-style-bold = bold
+font-thicken = true
 
 # Window
 window-padding-x = 14
