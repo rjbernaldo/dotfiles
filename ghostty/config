@@ -49,4 +49,4 @@ palette = 15=#FFFFFF
 command = /bin/zsh
 
 # Bell / Notifications
-# Note: Ghostty uses system notifications by default
+bell-features = attention, title
